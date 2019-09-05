@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -50,6 +52,34 @@ class Student
      * @ORM\Column(type="datetime")
      */
     private $updated_at;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="students")
+     */
+    private $user;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\LunchType", inversedBy="students")
+     */
+    private $lunchtype;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Person", inversedBy="students")
+     */
+    private $person;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Document", mappedBy="student")
+     */
+    private $documents;
+
+    public function __construct()
+    {
+        $this->user = new ArrayCollection();
+        $this->lunchtype = new ArrayCollection();
+        $this->person = new ArrayCollection();
+        $this->documents = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -136,6 +166,112 @@ class Student
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUser(): Collection
+    {
+        return $this->user;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->user->contains($user)) {
+            $this->user[] = $user;
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->user->contains($user)) {
+            $this->user->removeElement($user);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|LunchType[]
+     */
+    public function getLunchType(): Collection
+    {
+        return $this->lunchtype;
+    }
+
+    public function addLunchType(LunchType $lunchType): self
+    {
+        if (!$this->lunchtype->contains($lunchType)) {
+            $this->lunchtype[] = $lunchType;
+        }
+
+        return $this;
+    }
+
+    public function removeLunchType(LunchType $lunchType): self
+    {
+        if ($this->lunchtype->contains($lunchType)) {
+            $this->lunchtype->removeElement($lunchType);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Person[]
+     */
+    public function getPerson(): Collection
+    {
+        return $this->person;
+    }
+
+    public function addPerson(Person $person): self
+    {
+        if (!$this->person->contains($person)) {
+            $this->person[] = $person;
+        }
+
+        return $this;
+    }
+
+    public function removePerson(Person $person): self
+    {
+        if ($this->person->contains($person)) {
+            $this->person->removeElement($person);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Document[]
+     */
+    public function getDocuments(): Collection
+    {
+        return $this->documents;
+    }
+
+    public function addDocument(Document $document): self
+    {
+        if (!$this->documents->contains($document)) {
+            $this->documents[] = $document;
+            $document->addStudent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDocument(Document $document): self
+    {
+        if ($this->documents->contains($document)) {
+            $this->documents->removeElement($document);
+            $document->removeStudent($this);
+        }
 
         return $this;
     }

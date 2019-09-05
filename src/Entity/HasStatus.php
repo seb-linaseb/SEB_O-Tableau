@@ -36,6 +36,21 @@ class HasStatus
      */
     private $has_eated;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Classroom", cascade={"persist", "remove"})
+     */
+    private $classroom;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Calendar", cascade={"persist", "remove"})
+     */
+    private $calendar;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Student", cascade={"persist", "remove"})
+     */
+    private $student;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -85,6 +100,42 @@ class HasStatus
     public function setHasEated(bool $has_eated): self
     {
         $this->has_eated = $has_eated;
+
+        return $this;
+    }
+
+    public function getClassroom(): ?Classroom
+    {
+        return $this->classroom;
+    }
+
+    public function setClassroom(?Classroom $classroom): self
+    {
+        $this->classroom = $classroom;
+
+        return $this;
+    }
+
+    public function getCalendar(): ?Calendar
+    {
+        return $this->calendar;
+    }
+
+    public function setCalendar(?Calendar $calendar): self
+    {
+        $this->calendar = $calendar;
+
+        return $this;
+    }
+
+    public function getStudent(): ?Student
+    {
+        return $this->student;
+    }
+
+    public function setStudent(?Student $student): self
+    {
+        $this->student = $student;
 
         return $this;
     }

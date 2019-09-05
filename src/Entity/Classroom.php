@@ -31,6 +31,16 @@ class Classroom
      */
     private $updated_at;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\User", cascade={"persist", "remove"})
+     */
+    private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\School", inversedBy="classrooms")
+     */
+    private $school;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +78,30 @@ class Classroom
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getSchool(): ?School
+    {
+        return $this->school;
+    }
+
+    public function setSchool(?School $school): self
+    {
+        $this->school = $school;
 
         return $this;
     }
