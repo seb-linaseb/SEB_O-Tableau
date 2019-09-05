@@ -5,17 +5,15 @@ namespace App\Controller\Backend;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-
-class UserController extends AbstractController
+class DocumentController extends AbstractController
 {
     /**
-     * @Route("/user", name="user")
+     * @Route("/document", name="document")
      */
     public function index()
     {
-        return $this->render('user/index.html.twig', [
-            'controller_name' => 'UserController',
+        return $this->render('document/index.html.twig', [
+            'controller_name' => 'DocumentController',
         ]);
     }
-    
 }
