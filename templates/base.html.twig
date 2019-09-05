@@ -6,6 +6,8 @@
         {% block stylesheets %}
 
             <script src="https://kit.fontawesome.com/092433016f.js"></script>
+            <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
             <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
@@ -18,7 +20,7 @@
 
         {% block content %}{% endblock %}
 
-        {# {% include "navigation/_content_footer.html.twig" %} #}
+        {% include "navigation/_content_footer.html.twig" %}
 
         {% block javascripts %}{% endblock %}
     </body>
