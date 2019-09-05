@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -86,6 +88,39 @@ class User
      * @ORM\Column(type="datetime")
      */
     private $updated_at;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Actuality", mappedBy="user")
+     */
+    private $actualities;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Alert", mappedBy="user")
+     */
+    private $alerts;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Student", mappedBy="user")
+     */
+    private $students;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Document", mappedBy="user")
+     */
+    private $documents;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Role", inversedBy="users")
+     */
+    private $role;
+
+    public function __construct()
+    {
+        $this->actualities = new ArrayCollection();
+        $this->alerts = new ArrayCollection();
+        $this->students = new ArrayCollection();
+        $this->documents = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -256,6 +291,139 @@ class User
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Actuality[]
+     */
+    public function getActualities(): Collection
+    {
+        return $this->actualities;
+    }
+
+    public function addActuality(Actuality $actuality): self
+    {
+        if (!$this->actualities->contains($actuality)) {
+            $this->actualities[] = $actuality;
+            $actuality->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeActuality(Actuality $actuality): self
+    {
+        if ($this->actualities->contains($actuality)) {
+            $this->actualities->removeElement($actuality);
+            // set the owning side to null (unless already changed)
+            if ($actuality->getUser() === $this) {
+                $actuality->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Alert[]
+     */
+    public function getAlerts(): Collection
+    {
+        return $this->alerts;
+    }
+
+    public function addAlert(Alert $alert): self
+    {
+        if (!$this->alerts->contains($alert)) {
+            $this->alerts[] = $alert;
+            $alert->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAlert(Alert $alert): self
+    {
+        if ($this->alerts->contains($alert)) {
+            $this->alerts->removeElement($alert);
+            // set the owning side to null (unless already changed)
+            if ($alert->getUser() === $this) {
+                $alert->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Student[]
+     */
+    public function getStudents(): Collection
+    {
+        return $this->students;
+    }
+
+    public function addStudent(Student $student): self
+    {
+        if (!$this->students->contains($student)) {
+            $this->students[] = $student;
+            $student->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStudent(Student $student): self
+    {
+        if ($this->students->contains($student)) {
+            $this->students->removeElement($student);
+            $student->removeUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Document[]
+     */
+    public function getDocuments(): Collection
+    {
+        return $this->documents;
+    }
+
+    public function addDocument(Document $document): self
+    {
+        if (!$this->documents->contains($document)) {
+            $this->documents[] = $document;
+            $document->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDocument(Document $document): self
+    {
+        if ($this->documents->contains($document)) {
+            $this->documents->removeElement($document);
+            // set the owning side to null (unless already changed)
+            if ($document->getUser() === $this) {
+                $document->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getRole(): ?Role
+    {
+        return $this->role;
+    }
+
+    public function setRole(?Role $role): self
+    {
+        $this->role = $role;
 
         return $this;
     }
