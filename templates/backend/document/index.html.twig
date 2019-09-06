@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Formulaire afin d'ajouter un document</h1><br>
+    {{ form(form) }}<br><hr>
+            <h2>Listing des documents de la vie scolaire</h2>
+                {% for doc in documents %}                  
+                    <a href="{{ path('document_show', { 'id': doc.id }) }}"><br>                                     
+                    {{ doc.name }} 
+                     </a>
+                {% endfor %}
+                <br><hr>
+
+            <h2>Listing des documents par élève</h2>
+
+            - Jean Louis    
+            - Madame Michu
+            - Harry Potter                     
+                                  
+{% endblock %}

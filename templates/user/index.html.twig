@@ -14,12 +14,12 @@
                 </div>
             </div>
             <div>
-                <a href="{{ path('user_myAccount') }}">Mon compte</a>
+                <a href="">Mon compte</a>
             </div>
         </div>
         <div class="profil">
             <div class="profil_children">
-                <a href="{{ path('student_index') }}">
+                <a href="">
                     <i class="fas fa-user-graduate"></i>
                     <h2>ChildrenName</h2>
                     <p>classe de Username</p>
@@ -28,19 +28,14 @@
             <div class="profil_doc">
                 <h1>Vie de l'école</h1>
                 <div>
-                    <a href="">
-                        <i class="fas fa-file-pdf"></i>
-                        <p>Calendrier scolaire</p>
-                    </a>
-                    <a href="">
-                        <i class="fas fa-file-pdf"></i>
-                        <p> scolaire</p>
-                    </a>
-                    <a href="">
-                        <i class="fas fa-file-pdf"></i>
-                        <p>Calendrier scolaire</p>
-                    </a>
-                </div>
+                    {% for doc in documents %}
+                        <a href="../docs/{{ doc.documenturl }}">
+                            <i class="fas fa-file-pdf"></i>
+                            <p>{{ doc.name }}</p>
+                        </a>     
+                    {% endfor %}              
+               </div>
+                    
             </div>
             <div class="profil_choice">
                 <h1>Choix personnels</h1>
