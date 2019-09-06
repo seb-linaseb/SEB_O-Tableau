@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\RoleRepository")
@@ -46,6 +47,8 @@ class Role
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->updatedAt = new DateTime();
+        $this->createdAt = new DateTime();
     }
 
     public function getId(): ?int

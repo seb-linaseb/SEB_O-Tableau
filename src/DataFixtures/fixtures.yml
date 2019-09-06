@@ -1,0 +1,6 @@
+App\Entity\Role:
+    role_{1..3}:
+        name (unique): '<name()>'
+        code (unique): '<name()>'
+        created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+        updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
