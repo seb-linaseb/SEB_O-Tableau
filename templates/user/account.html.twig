@@ -1,24 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}O'Tableau | Profil{% endblock %}
+{% block title %}O'Tableau | Mon compte{% endblock %}
 
 {% block content %}
 
-    <div class="content_account">
-        <a href="{{ path('user_index') }}"><i class="fas fa-angle-left"></i></a>
-        <div>
-            <p>Lastname</p>
-            <p>FirstName</p>
-            <p>Adresse</p>
-            <p>Code postal</p>
-            <p>Ville</p>
-            <p>Fix</p>
-            <p>Tel</p>
-            <p>Mail</p>
+    
+    <div class="content_profil">
+        <div class="nav_profil">
+            <div class="nav_profil_flex">
+                <i class="fas fa-user-alt"></i>
+                <div>
+                    <p>UserName</p>
+                    <span>Role</span>
+                </div>
+            </div>
             <div>
-                <a href="">Modifier mes informations</a>
+                <a href="{{ path('user_myAccount') }}">Mon compte</a>
+            </div>
+        </div>
+        <div class="account">
+            <a href="{{ path('user_index') }}"><i class="fas fa-angle-left"></i></a>
+            <div class="account_border">
+                <h1>Mes informations personnel</h1>
+                <div>
+                    <p><i class="fas fa-user-alt"></i>Lastname/firstname</p>
+                    <p><i class="fas fa-home"></i>Adresse</p>
+                    <p><i class="fas fa-tty"></i>Fix</p>
+                    <p><i class="fas fa-mobile-alt"></i>Tel</p>
+                    <p><i class="fas fa-envelope-square"></i>Mail</p>                                
+                </div>
+                <a href="">Modifier mes informations</a>  
             </div>
         </div>
     </div>
+
    
 {% endblock %}
