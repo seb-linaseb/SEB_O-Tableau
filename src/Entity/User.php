@@ -439,7 +439,7 @@ class User implements UserInterface, \Serializable
     public function getRoles() //dédié au composant security
     {
         //ici pour mon vrai role soit utilisé je doit le retourner dans le tableau de role prevu a cet effet
-        return [$this->getRole()->getRoleName()]; // ex ROLE_ADMIN_SIRIUS
+        return [$this->getRole()->getName()]; // ex ROLE_ADMIN_SIRIUS
     }
     public function eraseCredentials()
     {
