@@ -1,34 +1,51 @@
 App\Entity\Role:
     role_{1..4}:
-        name (unique): '<name()>'
-        code (unique): '<name()>'
+        name: 'roleName'
+        code: ''
         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
 
-# App\Entity\School:
-#     school_{1..1}:
-#         name: '<schoolName()>'
-#         address: '<schoolAddress()>'
-#         phone: '<schoolPhone()>'
-#         email: '<schoolEmail()>'
-#         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
-#         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+App\Entity\School:
+     school_{1..1}:
+         name: '<schoolName()>'
+         address: '<schoolAddress()>'
+         phone: '<schoolPhone()>'
+         email: '<schoolEmail()>'
+         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
         
 
-# App\Entity\Classroom:
-#     classroom_{1..8}:
-#         name (unique): '<classroomName()>'
-#         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
-#         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
-#         school: '@school_*'
+App\Entity\Classroom:
+     classroom_{1..8}:
+         name (unique): '<classroomName()>'
+         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         school: '@school_*'
+
+App\Entity\User:
+     user_{1..8}:
+         username (unique): '<firstname()>'
+         password: 'test'
+         email: '<email()>'
+         name: '<name()>'
+         firstname: '<firstname()>'
+         address: '25 rue Guyon'
+         postalcode: '27300'
+         city: 'Nantes'
+         phone: '01 34 64 42 26'
+         mobile_phone: '06 34 64 42 26'
+         job_phone: '01 34 64 42 27'
+         communication_agreement: '25 rue Guyon'
+         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         role: '@role_*'
 
 
 
+App\Entity\LunchType:
+     classroom_{1..4}:
+         code (unique): '<lunchCode()>'
+         name: ''
+         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
 
-
-# App\Entity\LunchType:
-#     classroom_{1..8}:
-#         name (unique): '<classroomName()>'
-#         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
-#         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
-#         school: '@school_*'
