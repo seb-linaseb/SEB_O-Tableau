@@ -70,12 +70,12 @@ class Document
         return $this;
     }
 
-    public function getDocumentUrl(): ?string
+    public function getDocumentUrl()
     {
         return $this->document_url;
     }
 
-    public function setDocumentUrl(string $document_url): self
+    public function setDocumentUrl($document_url)
     {
         $this->document_url = $document_url;
 
