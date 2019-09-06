@@ -9,12 +9,22 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/user", name="user")
+     * @Route("/profil", name="user_index")
      */
     public function index()
     {
         return $this->render('user/index.html.twig', [
-            'controller_name' => 'UserController',
+            
+        ]);
+    }
+
+    /**
+     * @Route("/profil/mon-compte", name="user_myAccount")
+     */
+    public function myAccount()
+    {
+        return $this->render('user/account.html.twig', [
+            
         ]);
     }
     

@@ -20,7 +20,9 @@
 
         {% block content %}{% endblock %}
 
-        {% include "navigation/_content_footer.html.twig" %}
+        {% block footer %}
+            {% include "navigation/_content_footer.html.twig" %}
+        {% endblock %}
 
         {% block javascripts %}{% endblock %}
     </body>
