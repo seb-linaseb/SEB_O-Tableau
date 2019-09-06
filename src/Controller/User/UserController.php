@@ -2,8 +2,9 @@
 
 namespace App\Controller\User;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Document;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 class UserController extends AbstractController
@@ -13,10 +14,13 @@ class UserController extends AbstractController
      */
     public function index()
     {
-        return $this->render('user/index.html.twig', [
-            
+        $repository = $this->getDoctrine()->getRepository(Document::class);
+        $documents = $repository->findAll(); 
+        
+        return $this->render('user/index.html.twig', [        
+        'documents' => $documents 
         ]);
-    }
+    }     
 
     /**
      * @Route("/profil/mon-compte", name="user_myAccount")

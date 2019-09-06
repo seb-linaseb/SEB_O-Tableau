@@ -1,0 +1,9 @@
+Nom du document: {{ doc.name }}
+Document uploadé par: __renseigner l'info ici via bdd___
+
+<form method="post" action="{{ path('document_delete', {'id': doc.id}) }}" onsubmit="return confirm('Êtes vous sûr de vouloir supprimer ce document?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ doc.id) }}">
+    <button class="btn">Delete</button>
+</form>
+
