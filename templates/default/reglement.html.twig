@@ -1,25 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}O'Tableau | Mentions légal{% endblock %}
+{% block title %}O'Tableau | Reglement interieur{% endblock %}
 
 {% block nav %}         
 {% endblock %}
 
 {% block content %}
 
-    <header class="header">
-        <a href="{{ path('default_index') }}"><img src="{{ asset('img/Banniere.png') }}" alt=""></a>
-        <div>
-            <h1>O'Tableau</h1>
-            <a href="#">Se connecter</a>
-            <p><i class="fas fa-angle-down"></i></p>
-        </div>
-    </header>
+    <div class="link_reglement_mention">
+        <a href="{{ path('user_index') }}">Retour</a>
+    </div>
     <div class="content_reglement">
         <h1>Reglement interieur</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, error illo autem officiis minima ipsum sapiente perferendis nemo doloribus rem ut dolorum animi dicta! Sunt minima amet labore dolore ipsa.</p>
     </div>
 
    
-    
+{% endblock %}
+
+{% block footer %}
+            
 {% endblock %}

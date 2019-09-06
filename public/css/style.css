@@ -3,32 +3,25 @@ html {
     position: relative;
     min-height: 100%;
 }
-
 /* HEADER PAGE VITRINE  */
-
 .header {
     display: flex;
 }
-
 .header img {
     width: 100%;
     height: 100%;
 }
-
 .header div {
     position: absolute;
     right: 260px;
     text-align: center;
 }
-
 .header div h1 {
     font-size: 6em;
     margin-top: 50px;
     margin-bottom: 30px;
     font-family: 'Chilanka', cursive;
-
 }
-
 .header div a {
     font-size: 2.7em;
     text-decoration: none;
@@ -38,38 +31,29 @@ html {
     border-radius: 5px;
     font-family: 'Quicksand', sans-serif;
 }
-
 .header div p {
     font-size: 6em;
     margin-top: 15px;
 }
-
-
-
 /* CONTENT PAGE VITRINE */
-
 .content_vitrine {
     font-family: 'Quicksand', sans-serif;
 }
-
 .content_vitrine p  {
     font-size: 2em;
     margin: 50px 20px;
     text-align: center;
 }
-
 .content_vitrine table  {
     font-size: 4em;
     text-align: center;
     margin: auto;
     border: 1px solid black;
 }
-
 .content_vitrine table caption {
     margin-top: 50px;
     margin-bottom: 15px;
 }
-
 .content_vitrine table tbody tr  {
     border-bottom: 1px solid black;
 }
@@ -77,23 +61,16 @@ html {
     border-right: 1px solid black;
     padding: 20px;
 }
-
-
-
 /* MAP PAGE VITRINE */
-
 .map_vitrine h1 {
     margin-top: 10%;
     text-align: center;
     font-size: 4em;
-
 }
-
 .map_vitrine img {
     width: 90%;
     margin: 5%;
 }
-
 .map_vitrine p {
     margin: 0;
     margin-bottom: 50px;
@@ -101,27 +78,20 @@ html {
     margin-right: 20px;
     text-align: left;
 }
-
 .map_vitrine p i {
     margin-right: 20px;
     font-size: 2em;
 }
-
-
-
 /* FORM CONTACT PAGE VITRINE */
-
 .form_vitrine {
     text-align: center;
     margin-top: 20%;
     margin-bottom: 50%;
 }
-
 .form_vitrine h1 {
     font-size: 4em;
     margin-bottom: 35px;
 }
-
 .form_vitrine div input {
     width: 80%;
     height: 70px;
@@ -130,8 +100,8 @@ html {
     border: 1px solid;
     padding-left: 10px;
     margin-bottom: 40px;
+    font-family: 'Quicksand', sans-serif;
 }
-
 .form_vitrine div textarea {
     width: 80%;
     height: 350px;
@@ -140,8 +110,8 @@ html {
     border: 1px solid;
     padding-left: 10px;
     margin-bottom: 30px;
+    font-family: 'Quicksand', sans-serif;
 }
-
 .form_vitrine .form_vitrine-button {
     font-size: 2.5em;
     border: none;
@@ -149,39 +119,100 @@ html {
     background-color: rgb(26, 25, 25);
     color: white;
     border-radius: 15px;
-
 }
-
+/* PAGE FORM LOGIN */
+.content_form_login {
+    background-color: #2C3840;
+    color: white;
+    height: 1745px;
+    font-family: 'Quicksand', sans-serif;
+    
+}
+.content_form_login a i {
+    font-size: 7em; 
+    color: white;
+    margin: 3%;
+    
+}
+.content_form_login h1 {
+    text-align: center;
+    font-size: 4em;
+    font-weight: bold;
+}
+.content_form_login form p {
+    font-size: 3.5em;
+    margin-bottom: 10%;
+    margin-left: 5%;
+    margin-top: 20%;
+}
+.content_form_login form input {
+    width: 80%;
+    height: 120px;
+    font-size: 2.5em;
+    border: none;
+    border-radius: 30px;
+    border: 1px solid;
+    padding-left: 10px;
+    margin-left: 9%;
+    background-color: #515861;
+}
+.content_form_login form div  {
+   width: 60%;
+   margin: 10% auto;
+   margin-bottom: 25%;
+   
+}
+.content_form_login form div button {
+   border: none;
+   padding: 50px 200px;
+   font-size: 2.5em;
+   border-radius: 40px;
+   background-color: #2C3840;
+   border: 3px solid white;
+   color: white;
+}
+.content_form_login form a {
+   color: white;
+   text-decoration: none;
+   font-size: 2em;
+   margin: 0 33%;
+}
+ 
 /* PAGE MENTION LEGAL */
-
+.link_reglement_mention {
+    width: 220px;
+    margin: auto;
+    margin-top: 5%;
+}
+.link_reglement_mention a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    padding: 15px;
+    background-color: #2C3840;
+    font-size: 3em;
+    border-radius: 7px;
+}
 .content_legal h1 {
     font-size: 3em;
     text-align: center;
     margin-top: 5%;
 }
-
 .content_legal p {
     font-size: 1.2em;
     margin: 2% 20px; 
 }
-
 /* PAGE REGLEMENT */
-
 .content_reglement h1 {
     font-size: 3em;
     text-align: center;
     margin-top: 5%;
 }
-
 .content_reglement p {
     font-size: 1.2em;
     margin: 2% 20px; 
 }
-
-
-
 /* NAV  */
-
 .content_nav {
     width: 100%;
     background: beige;
@@ -190,52 +221,151 @@ html {
     bottom: 0;
     z-index: 1;
 }
-
 .content_nav nav {
     height: 210px;
     margin-top: 25px;
     margin-left: 25px;
 }
-
 .content_nav nav ul {
     height: 210px;
     display: flex;
     justify-content: space-between;
 }
-
 .content_nav nav ul a {
     text-decoration: none;
     color: initial;
 }
-
 .content_nav nav ul a li {
     font-size: 2em;
     text-align: center;
 }
 .content_nav nav ul a li i  {
-
     font-size: 4em;
 }
-
-
-
+/* PAGE PROFIL */
+.nav_profil {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 250px;
+    margin: auto;
+    border-bottom: 3px solid lightslategray;
+}
+.nav_profil .nav_profil_flex  {
+    display: flex;
+    margin: 5%;
+}
+.nav_profil .nav_profil_flex i {
+    font-size: 8em;
+}
+.nav_profil .nav_profil_flex div  {
+    margin-left: 15%;
+    margin-top: 5%;
+}
+.nav_profil .nav_profil_flex div p {
+    font-size: 3.5em;
+    margin-bottom: 5%;
+}
+.nav_profil .nav_profil_flex div span {
+    font-size: 2.5em;
+}
+.nav_profil div  {
+    margin-top: 9%;
+}
+.nav_profil div a {
+    font-size: 3em;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 15px 20px;
+    border-radius: 40px;
+}
+.profil {
+}
+.profil_children {
+    width: 50%;
+    margin: auto;
+    margin-top: 15%;
+    padding-bottom: 5%;
+    border-bottom: 2px solid;
+}
+.profil_children a {
+   text-decoration: none;
+   color: #2C3840;
+}
+.profil_children a i {
+    font-size: 10em;
+    margin-left: 37%;
+    margin-bottom: 2%;
+}
+.profil_children a h2 {
+    font-size: 3.5em;
+    text-align: center;
+    margin-bottom: 1%;
+}
+.profil_children a p {
+    font-size: 2em;
+    text-align: center;
+}
+.profil_doc {
+    margin-top: 15%;
+}
+.profil_doc h1 {
+    font-size: 4em;
+    text-align: center;
+}
+.profil_doc div {
+    width: 60%;
+    margin: auto;
+    border: 2px solid;
+    border-radius: 10px;
+    margin-top: 3%;
+    
+}
+.profil_doc div a {
+    text-decoration: none;
+    color: #2C3840;
+    display: flex;
+    justify-content: center;
+    margin: 8% 0;
+}
+.profil_doc div a i{
+    font-size: 5.5em;
+    margin-right: 2%;
+}
+.profil_doc div a p {
+    font-size: 3em;
+    line-height: 190%;
+}
+.profil_choice {
+    margin-bottom: 60%;
+    margin-top: 15%;
+}
+.profil_choice h1 {
+    font-size: 4em;
+    text-align: center;
+}
+.profil_choice p {
+    margin-top: 2%;
+    text-align: center;
+}
+.profil_choice p span {
+    font-weight: bold;
+}
+/* PAGE PROFIL/MON-COMPTE */
 /* FOOTER */
-
 .footer {
-    background-color: lightgray;
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 150px;
-    /* margin-bottom: 200px; */
+    margin-bottom: 200px;
 }
-
 .footer p {
     font-size: 3em;
     text-align: center;
     padding-top: 50px;
 }
-
 .footer p a {
     text-decoration: none;
     color: black;

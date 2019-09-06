@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}O'Tableau | Profil{% endblock %}
+
+{% block content %}
+
+    <div class="content_account">
+        <a href="{{ path('user_index') }}"><i class="fas fa-angle-left"></i></a>
+        <div>
+            <p>Lastname</p>
+            <p>FirstName</p>
+            <p>Adresse</p>
+            <p>Code postal</p>
+            <p>Ville</p>
+            <p>Fix</p>
+            <p>Tel</p>
+            <p>Mail</p>
+            <div>
+                <a href="">Modifier mes informations</a>
+            </div>
+        </div>
+    </div>
+   
+{% endblock %}
