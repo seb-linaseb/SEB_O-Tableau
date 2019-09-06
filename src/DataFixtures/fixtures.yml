@@ -1,6 +1,34 @@
 App\Entity\Role:
-    role_{1..3}:
+    role_{1..4}:
         name (unique): '<name()>'
         code (unique): '<name()>'
         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+
+# App\Entity\School:
+#     school_{1..1}:
+#         name: '<schoolName()>'
+#         address: '<schoolAddress()>'
+#         phone: '<schoolPhone()>'
+#         email: '<schoolEmail()>'
+#         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+#         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+        
+
+# App\Entity\Classroom:
+#     classroom_{1..8}:
+#         name (unique): '<classroomName()>'
+#         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+#         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+#         school: '@school_*'
+
+
+
+
+
+# App\Entity\LunchType:
+#     classroom_{1..8}:
+#         name (unique): '<classroomName()>'
+#         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+#         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+#         school: '@school_*'

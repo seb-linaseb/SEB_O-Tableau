@@ -7,13 +7,11 @@ use \Faker\Provider\Base as BaseProvider;
 
 class RoleProvider extends BaseProvider{
 
-
-
-
         protected static $codes = [
         'ROLE_ADMIN',
-        'ROLE_USER',
-        'ROLE_MODE'
+        'ROLE_PROF',
+        'ROLE_ELU',
+        'ROLE_PARENT'
     ];
 
 
