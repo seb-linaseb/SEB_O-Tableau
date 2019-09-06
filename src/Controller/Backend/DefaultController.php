@@ -5,6 +5,10 @@ namespace App\Controller\Backend;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+
+/**
+ * @Route("/profil/admin", name="admin_")
+ */
 class DefaultController extends AbstractController
 {
     /**
@@ -12,7 +16,7 @@ class DefaultController extends AbstractController
      */
     public function index()
     {
-        return $this->render('default/index.html.twig', [
+        return $this->render('backend/index.html.twig', [
             
         ]);
     }

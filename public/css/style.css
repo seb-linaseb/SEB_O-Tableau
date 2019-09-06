@@ -630,3 +630,61 @@ html {
 .footer p a:hover {
     color: black;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* BACK-END !!!!!!!!!!!!!!!!! */
+
+.content_gestion {
+
+}
+
+.content_gestion h1 {
+    font-size: 5em;
+    text-align: center;
+    margin-top: 7%;
+
+}
+
+.content_gestion ul {
+    font-size: 3em;
+    text-align: center;
+    margin-top: 10%;
+}
+
+.content_gestion ul li {
+    margin-bottom: 3%;
+}
+
+.content_gestion ul li a {
+    text-decoration: none;
+    color: #2C3840;
+}
+
