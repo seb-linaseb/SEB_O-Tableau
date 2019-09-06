@@ -8,11 +8,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class DocumentController extends AbstractController
 {
     /**
-     * @Route("/document", name="document")
+     * @Route("/profil/eleve/1/documents", name="document_childrenDoc")
      */
-    public function index()
+    public function childrenDoc()
     {
-        return $this->render('document/index.html.twig', [
+        return $this->render('document/childrenDoc.html.twig', [
             'controller_name' => 'DocumentController',
         ]);
     }

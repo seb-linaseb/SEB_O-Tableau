@@ -2,8 +2,12 @@
 html {
     position: relative;
     min-height: 100%;
+
+
 }
 /* HEADER PAGE VITRINE  */
+
+
 .header {
     display: flex;
 }
@@ -35,7 +39,11 @@ html {
     font-size: 6em;
     margin-top: 15px;
 }
+
+
 /* CONTENT PAGE VITRINE */
+
+
 .content_vitrine {
     font-family: 'Quicksand', sans-serif;
 }
@@ -61,7 +69,11 @@ html {
     border-right: 1px solid black;
     padding: 20px;
 }
+
+
 /* MAP PAGE VITRINE */
+
+
 .map_vitrine h1 {
     margin-top: 10%;
     text-align: center;
@@ -82,7 +94,11 @@ html {
     margin-right: 20px;
     font-size: 2em;
 }
+
+
 /* FORM CONTACT PAGE VITRINE */
+
+
 .form_vitrine {
     text-align: center;
     margin-top: 20%;
@@ -120,7 +136,11 @@ html {
     color: white;
     border-radius: 15px;
 }
+
+
 /* PAGE FORM LOGIN */
+
+
 .content_form_login {
     background-color: #2C3840;
     color: white;
@@ -178,7 +198,12 @@ html {
    margin: 0 33%;
 }
  
+
+
 /* PAGE MENTION LEGAL */
+
+
+
 .link_reglement_mention {
     width: 220px;
     margin: auto;
@@ -202,7 +227,13 @@ html {
     font-size: 1.2em;
     margin: 2% 20px; 
 }
+
+
+
 /* PAGE REGLEMENT */
+
+
+
 .content_reglement h1 {
     font-size: 3em;
     text-align: center;
@@ -212,7 +243,13 @@ html {
     font-size: 1.2em;
     margin: 2% 20px; 
 }
+
+
+
 /* NAV  */
+
+
+
 .content_nav {
     width: 100%;
     background: beige;
@@ -242,7 +279,11 @@ html {
 .content_nav nav ul a li i  {
     font-size: 4em;
 }
+
+
 /* PAGE PROFIL */
+
+
 .nav_profil {
     display: flex;
     justify-content: space-between;
@@ -326,8 +367,8 @@ html {
     text-decoration: none;
     color: #2C3840;
     display: flex;
-    justify-content: center;
     margin: 8% 0;
+    margin-left: 5%;
 }
 .profil_doc div a i{
     font-size: 5.5em;
@@ -352,8 +393,224 @@ html {
 .profil_choice p span {
     font-weight: bold;
 }
+
+
 /* PAGE PROFIL/MON-COMPTE */
+
+.account {
+    margin-top: 5%;
+}
+
+.account a {
+    font-size: 5em;
+    margin-left: 5%;
+    text-decoration: none;
+    color: black;
+}
+
+.account .account_border {
+    width: 70%;
+    border: 3px solid black;
+    position: relative;
+    border-radius: 3px;
+    margin: auto;
+    margin-top: 7%;
+    height: 900px;
+}
+
+.account .account_border h1 {
+    position: absolute;
+    top: -30px;
+    left: 20px;
+    height: 80px;
+    max-width: 100%;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 3.5em;
+    padding: 0 10px 0 10px 
+}
+
+.account .account_border div {
+    margin-top: 35%;
+    margin-left: 10%;
+    margin-bottom: 15%;
+}
+
+.account .account_border div p  {
+    font-size: 3em;
+    margin-bottom: 3%;
+}
+
+.account .account_border div p i  {
+    
+    margin-right: 3%;
+}
+
+
+.account .account_border a  {
+    text-decoration: none;
+    font-size: 2.5em;
+    color: white;
+    background-color: #2C3840;
+    padding: 15px 25px;
+    border-radius: 15px;
+    margin-left: 15%;
+}
+
+
+/* PAGE PROFIL CHILDREN */
+
+.profil {
+    margin-top: 2%;
+}
+
+.profil .children_back_profil {
+    text-decoration: none;
+    color: #2C3840;
+    margin: 5%;
+}
+
+.profil .children_back_profil i {
+    font-size: 5em;
+}
+
+.profil .doc_children_div  {
+    width: 33%;
+    margin: auto;
+    margin-top: 7%;
+}
+.profil div .doc_children_link {
+    text-decoration: none;
+    font-size: 2em;
+    color: white;
+    background-color: #2C3840;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.profil_children_detail {
+    width: 50%;
+    margin: auto;
+    margin-top: 15%;
+    padding-bottom: 5%;
+}
+
+.profil_children_detail  {
+    text-decoration: none;
+    color: #2C3840;
+}
+.profil_children_detail i {
+    font-size: 10em;
+    margin-left: 36%;
+    margin-bottom: 2%;
+}
+.profil_children_detail h2 {
+    font-size: 3.5em;
+    text-align: center;
+    margin-bottom: 1%;
+}
+
+.profil_children_detail p {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 2%;
+}
+
+
+.profil_doc_bulletin {
+    margin-top: 10%;
+}
+
+.profil_doc_bulletin  div {
+    width: 45%;
+    margin: auto;
+    border: 2px solid;
+    border-radius: 10px;
+    margin-top: 3%;
+    
+}
+.profil_doc_bulletin  div a {
+    text-decoration: none;
+    color: #2C3840;
+    display: flex;
+    margin: 5%;
+    margin-left: 3%;
+}
+.profil_doc_bulletin  div a i{
+    font-size: 5.5em;
+    margin-right: 2%;
+}
+.profil_doc_bulletin  div a p {
+    font-size: 3em;
+    line-height: 190%;
+}
+
+
+/* PAGE PROFIL CHILDREN DOCUMENT */
+
+.doc_children {
+    margin-top: 5%;
+}
+
+.doc_children a {
+    font-size: 5em;
+    margin-left: 5%;
+    text-decoration: none;
+    color: black;
+}
+
+.doc_children .doc_children_border {
+    width: 80%;
+    border: 3px solid black;
+    position: relative;
+    border-radius: 3px;
+    margin: auto;
+    margin-top: 7%;
+    height: 900px;
+}
+
+
+
+.doc_children .doc_children_border h1 {
+    position: absolute;
+    top: -30px;
+    left: 20px;
+    height: 80px;
+    max-width: 100%;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-size: 3.5em;
+    padding: 0 10px 0 10px 
+}
+
+.doc_children .doc_children_border .add_doc_children {
+    margin-left: 80%;
+    margin-top: 7%;
+}
+
+.doc_children .doc_children_border div {
+    margin-top: 5%;
+}
+
+.doc_children .doc_children_border div a {
+    font-size: 3em;
+    display: flex;
+    margin-bottom: 5%;
+}
+
+.doc_children .doc_children_border div a i {
+    font-size: 2em;
+}
+
+.doc_children .doc_children_border div a p {
+    margin-left: 2%;
+    line-height: 200%;
+}
+
 /* FOOTER */
+
 .footer {
     position: absolute;
     bottom: 0;
