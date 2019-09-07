@@ -2,9 +2,15 @@
 html {
     position: relative;
     min-height: 100%;
-
-
+    font-family: 'Quicksand', sans-serif;
 }
+
+a {
+    text-decoration: none;
+    color: #2C3840;
+}
+
+
 /* HEADER PAGE VITRINE  */
 
 
@@ -28,12 +34,11 @@ html {
 }
 .header div a {
     font-size: 2.7em;
-    text-decoration: none;
     background-color: rgb(27, 24, 24);
     color: white;
     padding: 10px;
-    border-radius: 5px;
-    font-family: 'Quicksand', sans-serif;
+    border-radius: 15px;
+   
 }
 .header div p {
     font-size: 6em;
@@ -44,12 +49,9 @@ html {
 /* CONTENT PAGE VITRINE */
 
 
-.content_vitrine {
-    font-family: 'Quicksand', sans-serif;
-}
 .content_vitrine p  {
     font-size: 2em;
-    margin: 50px 20px;
+    padding: 50px 20px;
     text-align: center;
 }
 .content_vitrine table  {
@@ -102,7 +104,7 @@ html {
 .form_vitrine {
     text-align: center;
     margin-top: 20%;
-    margin-bottom: 50%;
+    padding-bottom: 50%;
 }
 .form_vitrine h1 {
     font-size: 4em;
@@ -193,7 +195,6 @@ html {
 }
 .content_form_login form a {
    color: white;
-   text-decoration: none;
    font-size: 2em;
    margin: 0 33%;
 }
@@ -207,10 +208,9 @@ html {
 .link_reglement_mention {
     width: 220px;
     margin: auto;
-    margin-top: 5%;
+    margin-top: 7%;
 }
 .link_reglement_mention a {
-    text-decoration: none;
     text-transform: uppercase;
     color: white;
     padding: 15px;
@@ -221,34 +221,29 @@ html {
 .content_legal h1 {
     font-size: 3em;
     text-align: center;
-    margin-top: 5%;
+    margin-top: 7%;
 }
 .content_legal p {
     font-size: 1.2em;
-    margin: 2% 20px; 
+    margin: 2% 5%; 
 }
-
 
 
 /* PAGE REGLEMENT */
 
 
-
 .content_reglement h1 {
     font-size: 3em;
     text-align: center;
-    margin-top: 5%;
+    margin-top: 7%;
 }
 .content_reglement p {
     font-size: 1.2em;
-    margin: 2% 20px; 
+    margin: 2% 5%; 
 }
 
 
-
 /* NAV  */
-
-
 
 .content_nav {
     width: 100%;
@@ -269,7 +264,6 @@ html {
     justify-content: space-between;
 }
 .content_nav nav ul a {
-    text-decoration: none;
     color: initial;
 }
 .content_nav nav ul a li {
@@ -278,8 +272,41 @@ html {
 }
 .content_nav nav ul a li i  {
     font-size: 4em;
+    padding-bottom: 3%;
 }
 
+
+/* NAV STAFF */
+
+.content_nav_staff {
+    width: 100%;
+    background: beige;
+    height: 210px;
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+}
+.content_nav_staff nav {
+    height: 210px;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+.content_nav_staff nav ul {
+    height: 210px;
+    display: flex;
+    justify-content: space-between;
+}
+.content_nav_staff nav ul a {
+    color: initial;
+}
+.content_nav_staff nav ul a li {
+    font-size: 2em;
+    text-align: center;
+}
+.content_nav_staff nav ul a li i  {
+    font-size: 3.5em;
+    padding-bottom: 7%;
+}
 
 /* PAGE PROFIL */
 
@@ -294,14 +321,14 @@ html {
 }
 .nav_profil .nav_profil_flex  {
     display: flex;
-    margin: 5%;
+    margin: 5% 2%;
 }
 .nav_profil .nav_profil_flex i {
     font-size: 8em;
 }
 .nav_profil .nav_profil_flex div  {
-    margin-left: 15%;
-    margin-top: 5%;
+    margin-left: 8%;
+    margin-top: 3%;
 }
 .nav_profil .nav_profil_flex div p {
     font-size: 3.5em;
@@ -314,24 +341,21 @@ html {
     margin-top: 9%;
 }
 .nav_profil div a {
-    font-size: 3em;
-    text-decoration: none;
+    font-size: 2.5em;
     color: white;
     background-color: black;
     padding: 15px 20px;
     border-radius: 40px;
 }
-.profil {
-}
+
 .profil_children {
     width: 50%;
     margin: auto;
-    margin-top: 15%;
+    padding-top: 15%;
     padding-bottom: 5%;
     border-bottom: 2px solid;
 }
 .profil_children a {
-   text-decoration: none;
    color: #2C3840;
 }
 .profil_children a i {
@@ -364,7 +388,6 @@ html {
     
 }
 .profil_doc div a {
-    text-decoration: none;
     color: #2C3840;
     display: flex;
     margin: 8% 0;
@@ -379,43 +402,85 @@ html {
     line-height: 190%;
 }
 .profil_choice {
-    margin-bottom: 60%;
+    margin: 1%;
+    padding-bottom: 30%;
     margin-top: 15%;
+    
 }
 .profil_choice h1 {
     font-size: 4em;
     text-align: center;
+    margin-bottom: 5%;
 }
 .profil_choice p {
     margin-top: 2%;
     text-align: center;
+    font-size: 0.9em;
 }
 .profil_choice p span {
     font-weight: bold;
+}
+
+/* PAGE PROFIL PROF/DIRECTEUR */
+
+.button_staff {
+    display: flex;
+    font-size: 2.5em;
+    justify-content: space-evenly;
+    padding-top: 7%;
+    padding-bottom: 5%;
+}
+
+.button_staff div a {
+    background-color: #2C3840;
+    color: white;
+    padding: 20px 15px;
+    border-radius: 7px;
+}
+
+.profil_classe {
+    text-align: center;
+    font-size: 2.5em;
+    padding-top: 10%;
+    width: 85%;
+    margin-left: 11.5%;
+}
+
+.profil_classe table {
+    border: 2px solid;
+}
+
+.profil_classe table caption {
+    font-size: 1.7em;
+    padding-bottom: 3%;
+}
+
+.profil_classe table td {
+    border: 2px solid;
+    padding: 2%;
 }
 
 
 /* PAGE PROFIL/MON-COMPTE */
 
 .account {
-    margin-top: 5%;
+    padding-top: 5%;
 }
 
 .account a {
     font-size: 5em;
     margin-left: 5%;
-    text-decoration: none;
     color: black;
 }
 
 .account .account_border {
-    width: 70%;
+    width: 75%;
     border: 3px solid black;
     position: relative;
     border-radius: 3px;
     margin: auto;
     margin-top: 7%;
-    height: 900px;
+    height: 800px;
 }
 
 .account .account_border h1 {
@@ -427,7 +492,7 @@ html {
     background-color: white;
     color: black;
     text-align: center;
-    font-size: 3.5em;
+    font-size: 3em;
     padding: 0 10px 0 10px 
 }
 
@@ -449,24 +514,20 @@ html {
 
 
 .account .account_border a  {
-    text-decoration: none;
     font-size: 2.5em;
     color: white;
     background-color: #2C3840;
     padding: 15px 25px;
     border-radius: 15px;
-    margin-left: 15%;
+    margin-left: 14%;
 }
 
 
 /* PAGE PROFIL CHILDREN */
 
-.profil {
-    margin-top: 2%;
-}
+
 
 .profil .children_back_profil {
-    text-decoration: none;
     color: #2C3840;
     margin: 5%;
 }
@@ -476,12 +537,11 @@ html {
 }
 
 .profil .doc_children_div  {
-    width: 33%;
+    width: 37%;
     margin: auto;
     margin-top: 7%;
 }
 .profil div .doc_children_link {
-    text-decoration: none;
     font-size: 2em;
     color: white;
     background-color: #2C3840;
@@ -497,7 +557,6 @@ html {
 }
 
 .profil_children_detail  {
-    text-decoration: none;
     color: #2C3840;
 }
 .profil_children_detail i {
@@ -523,7 +582,7 @@ html {
 }
 
 .profil_doc_bulletin  div {
-    width: 45%;
+    width: 47%;
     margin: auto;
     border: 2px solid;
     border-radius: 10px;
@@ -531,7 +590,6 @@ html {
     
 }
 .profil_doc_bulletin  div a {
-    text-decoration: none;
     color: #2C3840;
     display: flex;
     margin: 5%;
@@ -550,13 +608,12 @@ html {
 /* PAGE PROFIL CHILDREN DOCUMENT */
 
 .doc_children {
-    margin-top: 5%;
+    padding-top: 5%;
 }
 
 .doc_children a {
     font-size: 5em;
     margin-left: 5%;
-    text-decoration: none;
     color: black;
 }
 
@@ -609,6 +666,7 @@ html {
     line-height: 200%;
 }
 
+
 /* FOOTER */
 
 .footer {
@@ -619,18 +677,38 @@ html {
     margin-bottom: 200px;
 }
 .footer p {
-    font-size: 3em;
+    font-size: 2.5em;
     text-align: center;
     padding-top: 50px;
 }
 .footer p a {
-    text-decoration: none;
     color: black;
 }
 .footer p a:hover {
     color: black;
 }
 
+/* FOOTER VITRINE  */
+
+.footer_vitrine {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    margin-bottom: 0;
+}
+
+.footer_vitrine p {
+    font-size: 2.5em;
+    text-align: center;
+    padding-top: 50px;
+}
+.footer_vitrine p a {
+    color: black;
+}
+.footer_vitrine p a:hover {
+    color: black;
+}
 
 
 
@@ -641,26 +719,7 @@ html {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* BACK-END !!!!!!!!!!!!!!!!! */
+/* !!!!!!!!!!!!!!!!! BACK-END !!!!!!!!!!!!!!!!! */
 
 .content_gestion {
 
