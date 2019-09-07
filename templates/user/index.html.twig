@@ -15,10 +15,13 @@
             </div>
             <div>
                 <a href="{{ path('user_myAccount') }}">Mon compte</a>
+                {# NAV PROFIL STAFF #}
+                {# <a href="{{ path('user_myAccount') }}">Mon compte</a>
+                <a href="{{ path('admin_default_index') }}">Gestion</a> #}
             </div>
         </div>
         <div class="profil">
-            <div class="profil_children">
+             <div class="profil_children">
                 <a href="{{ path('student_index') }}">
                     <i class="fas fa-user-graduate"></i>
                     <h2>ChildrenName</h2>
@@ -41,9 +44,55 @@
                 <h1>Choix personnels</h1>
                 <p>Droit à l'image => Autorisation de publication : <span>Oui</span></p>
                 <p>Communication de mes coordonnées : <span>Oui</span></p>
-
             </div>
         </div>
     </div>
    
 {% endblock %}
+
+
+
+           
+{# PAGE PROFIL STAFF #}
+
+
+            {# <div class="button_staff">
+                <div>
+                    <a href="">Ajouter une actu</a>
+                </div>
+                <div>
+                    <a href="">Ajouter un bulletin</a>
+                </div>
+            </div>
+            <div class="profil_classe">
+                 <table>
+                    <caption>Ma classe</caption>
+                    <tr>
+                        <td>Eleves</td>
+                        <td>Personne pouvant récup</td>
+                    </tr>
+                    <tr>
+                        <td>Léo Roux</td>
+                        <td>Chantal Roux</td>
+                    </tr>
+                    <tr>
+                        <td>Marina Roux</td>
+                        <td>Chantal Roux</td>
+                    </tr>
+                    <tr>
+                        <td>Julie Damien</td>
+                        <td>George Damien</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="profil_doc">
+                <h1>Vie de l'école</h1>
+                <div>
+                    {% for doc in documents %}
+                        <a href="../docs/{{ doc.documenturl }}">
+                            <i class="fas fa-file-pdf"></i>
+                            <p>{{ doc.name }}</p>
+                        </a>     
+                    {% endfor %}              
+               </div>
+            </div> #}
