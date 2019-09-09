@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\HasStatusRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\PresenceLunchRepository")
  */
-class HasStatus
+class PresenceLunch
 {
     /**
      * @ORM\Id()
@@ -37,12 +37,12 @@ class HasStatus
     private $has_eated;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Calendar", inversedBy="hasStatuses")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Calendar", inversedBy="presenceLunches")
      */
     private $calendar;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Student", inversedBy="hasStatuses")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Student", inversedBy="presenceLunches")
      */
     private $student;
 
