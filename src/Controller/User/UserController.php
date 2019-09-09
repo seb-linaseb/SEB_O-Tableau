@@ -2,6 +2,7 @@
 
 namespace App\Controller\User;
 
+use App\Entity\User;
 use App\Entity\Document;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,9 +17,13 @@ class UserController extends AbstractController
     {
         $repository = $this->getDoctrine()->getRepository(Document::class);
         $documents = $repository->findAll(); 
+
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $users = $repository->findAll();
         
         return $this->render('user/index.html.twig', [        
-        'documents' => $documents 
+        'documents' => $documents,
+        'user' => $users
         ]);
     }     
 
