@@ -37,19 +37,17 @@ class HasStatus
     private $has_eated;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Classroom", cascade={"persist", "remove"})
-     */
-    private $classroom;
-
-    /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Calendar", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Calendar", inversedBy="hasStatuses")
      */
     private $calendar;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Student", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Student", inversedBy="hasStatuses")
      */
     private $student;
+
+
+    
 
     public function getId(): ?int
     {
@@ -104,18 +102,6 @@ class HasStatus
         return $this;
     }
 
-    public function getClassroom(): ?Classroom
-    {
-        return $this->classroom;
-    }
-
-    public function setClassroom(?Classroom $classroom): self
-    {
-        $this->classroom = $classroom;
-
-        return $this;
-    }
-
     public function getCalendar(): ?Calendar
     {
         return $this->calendar;
@@ -139,4 +125,7 @@ class HasStatus
 
         return $this;
     }
+
+
+    
 }

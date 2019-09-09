@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,6 +37,16 @@ class Calendar
      * @ORM\Column(type="datetime")
      */
     private $updated_at;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\HasStatus", mappedBy="calendar")
+     */
+    private $hasStatuses;
+
+    public function __construct()
+    {
+        $this->hasStatuses = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -85,6 +97,37 @@ class Calendar
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|HasStatus[]
+     */
+    public function getHasStatuses(): Collection
+    {
+        return $this->hasStatuses;
+    }
+
+    public function addHasStatus(HasStatus $hasStatus): self
+    {
+        if (!$this->hasStatuses->contains($hasStatus)) {
+            $this->hasStatuses[] = $hasStatus;
+            $hasStatus->setCalendar($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHasStatus(HasStatus $hasStatus): self
+    {
+        if ($this->hasStatuses->contains($hasStatus)) {
+            $this->hasStatuses->removeElement($hasStatus);
+            // set the owning side to null (unless already changed)
+            if ($hasStatus->getCalendar() === $this) {
+                $hasStatus->setCalendar(null);
+            }
+        }
 
         return $this;
     }

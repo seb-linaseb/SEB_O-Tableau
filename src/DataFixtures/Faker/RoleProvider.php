@@ -15,7 +15,7 @@ class RoleProvider extends BaseProvider{
     ];
 
 
-       public static function roleName(){
+       public static function roleCode(){
         return static::randomElement(static::$codes);
     }  
 }

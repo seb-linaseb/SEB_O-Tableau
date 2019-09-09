@@ -73,12 +73,24 @@ class Student
      */
     private $documents;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Classroom", inversedBy="studentss")
+     */
+    private $classroom;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\HasStatus", mappedBy="student")
+     */
+    private $hasStatuses;
+
+
     public function __construct()
     {
         $this->user = new ArrayCollection();
         $this->lunchtype = new ArrayCollection();
         $this->person = new ArrayCollection();
         $this->documents = new ArrayCollection();
+        $this->hasStatuses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -275,4 +287,49 @@ class Student
 
         return $this;
     }
+
+    public function getClassroom(): ?Classroom
+    {
+        return $this->classroom;
+    }
+
+    public function setClassroom(?Classroom $classroom): self
+    {
+        $this->classroom = $classroom;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|HasStatus[]
+     */
+    public function getHasStatuses(): Collection
+    {
+        return $this->hasStatuses;
+    }
+
+    public function addHasStatus(HasStatus $hasStatus): self
+    {
+        if (!$this->hasStatuses->contains($hasStatus)) {
+            $this->hasStatuses[] = $hasStatus;
+            $hasStatus->setStudent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHasStatus(HasStatus $hasStatus): self
+    {
+        if ($this->hasStatuses->contains($hasStatus)) {
+            $this->hasStatuses->removeElement($hasStatus);
+            // set the owning side to null (unless already changed)
+            if ($hasStatus->getStudent() === $this) {
+                $hasStatus->setStudent(null);
+            }
+        }
+
+        return $this;
+    }
+
+    
 }
