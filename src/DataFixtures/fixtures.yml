@@ -104,8 +104,8 @@ App\Entity\Calendar:
          updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
         #  hasStatuses: '10x @has_status_*'
 
-App\Entity\HasStatus:
-     has_status_{1..500}:
+App\Entity\PresenceLunch:
+     presence_lunch_{1..500}:
          is_present: '<boolean(90)>'
          is_ordered: '<boolean(70)>'
          is_canceled: '<boolean(20)>'

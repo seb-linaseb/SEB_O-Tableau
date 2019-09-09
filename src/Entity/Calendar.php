@@ -39,13 +39,13 @@ class Calendar
     private $updated_at;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\HasStatus", mappedBy="calendar")
+     * @ORM\OneToMany(targetEntity="App\Entity\PresenceLunch", mappedBy="calendar")
      */
-    private $hasStatuses;
+    private $presenceLunches;
 
     public function __construct()
     {
-        $this->hasStatuses = new ArrayCollection();
+        $this->presenceLunches = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -104,28 +104,28 @@ class Calendar
     /**
      * @return Collection|HasStatus[]
      */
-    public function getHasStatuses(): Collection
+    public function getPresenceLunches(): Collection
     {
-        return $this->hasStatuses;
+        return $this->presenceLunches;
     }
 
-    public function addHasStatus(HasStatus $hasStatus): self
+    public function addPresenceLunch(PresenceLunch $presenceLunch): self
     {
-        if (!$this->hasStatuses->contains($hasStatus)) {
-            $this->hasStatuses[] = $hasStatus;
-            $hasStatus->setCalendar($this);
+        if (!$this->presenceLunch->contains($presenceLunch)) {
+            $this->presenceLunches[] = $presenceLunches;
+            $presenceLunches->setCalendar($this);
         }
 
         return $this;
     }
 
-    public function removeHasStatus(HasStatus $hasStatus): self
+    public function removePresenceLunch(PresenceLunch $presenceLunch): self
     {
-        if ($this->hasStatuses->contains($hasStatus)) {
-            $this->hasStatuses->removeElement($hasStatus);
+        if ($this->presenceLunch->contains($presenceLunch)) {
+            $this->presenceLunch->removeElement($presenceLunch);
             // set the owning side to null (unless already changed)
-            if ($hasStatus->getCalendar() === $this) {
-                $hasStatus->setCalendar(null);
+            if ($presenceLunch->getCalendar() === $this) {
+                $presenceLunch->setCalendar(null);
             }
         }
 

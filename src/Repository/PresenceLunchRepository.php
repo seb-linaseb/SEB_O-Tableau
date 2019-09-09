@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\HasStatus;
+use App\Entity\PresenceLunch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
- * @method HasStatus|null find($id, $lockMode = null, $lockVersion = null)
- * @method HasStatus|null findOneBy(array $criteria, array $orderBy = null)
- * @method HasStatus[]    findAll()
- * @method HasStatus[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method PresenceLunch|null find($id, $lockMode = null, $lockVersion = null)
+ * @method PresenceLunch|null findOneBy(array $criteria, array $orderBy = null)
+ * @method PresenceLunch[]    findAll()
+ * @method PresenceLunch[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class HasStatusRepository extends ServiceEntityRepository
+class PresenceLunchRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, HasStatus::class);
+        parent::__construct($registry, PresenceLunch::class);
     }
 
     // /**
-    //  * @return HasStatus[] Returns an array of HasStatus objects
+    //  * @return PresenceLunch[] Returns an array of HasStatus objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class HasStatusRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?HasStatus
+    public function findOneBySomeField($value): ?PresenceLunch
     {
         return $this->createQueryBuilder('h')
             ->andWhere('h.exampleField = :val')

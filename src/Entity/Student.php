@@ -79,9 +79,9 @@ class Student
     private $classroom;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\HasStatus", mappedBy="student")
+     * @ORM\OneToMany(targetEntity="App\Entity\PresenceLunch", mappedBy="student")
      */
-    private $hasStatuses;
+    private $presenceLunches;
 
 
     public function __construct()
@@ -90,7 +90,7 @@ class Student
         $this->lunchtype = new ArrayCollection();
         $this->person = new ArrayCollection();
         $this->documents = new ArrayCollection();
-        $this->hasStatuses = new ArrayCollection();
+        $this->presenceLunches = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -301,30 +301,30 @@ class Student
     }
 
     /**
-     * @return Collection|HasStatus[]
+     * @return Collection|PresenceLunch[]
      */
-    public function getHasStatuses(): Collection
+    public function getPresenceLunches(): Collection
     {
-        return $this->hasStatuses;
+        return $this->presenceLunches;
     }
 
-    public function addHasStatus(HasStatus $hasStatus): self
+    public function addPresenceLunch(PresenceLunch $presenceLunch): self
     {
-        if (!$this->hasStatuses->contains($hasStatus)) {
-            $this->hasStatuses[] = $hasStatus;
-            $hasStatus->setStudent($this);
+        if (!$this->presenceLunches->contains($presenceLunch)) {
+            $this->presenceLunches[] = $presenceLunch;
+            $presenceLunch->setStudent($this);
         }
 
         return $this;
     }
 
-    public function removeHasStatus(HasStatus $hasStatus): self
+    public function removePresenceLunch(PresenceLunch $presenceLunch): self
     {
-        if ($this->hasStatuses->contains($hasStatus)) {
-            $this->hasStatuses->removeElement($hasStatus);
+        if ($this->presenceLunches->contains($presenceLunch)) {
+            $this->presenceLunches->removeElement($presenceLunch);
             // set the owning side to null (unless already changed)
-            if ($hasStatus->getStudent() === $this) {
-                $hasStatus->setStudent(null);
+            if ($presenceLunch->getStudent() === $this) {
+                $presenceLunch->setStudent(null);
             }
         }
 

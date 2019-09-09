@@ -5,7 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\User as User;
 use App\Entity\Role as Role;
 use App\Entity\Alert as Alert;
-use App\Entity\HasStatus as HasStatus;
+use App\Entity\PresenceLunch as PresenceLunch;
 use App\Entity\LunchType as LunchType;
 use App\DataFixtures\MyCustomNativeLoader;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -75,7 +75,7 @@ class AppFixtures extends Fixture
             // }
             
 
-            if ($entity instanceof HasStatus){
+            if ($entity instanceof PresenceLunch){
 
                 if($entity->getCalendar()->getIsWorked() === false){
                     $entity->setIsPresent(false);
