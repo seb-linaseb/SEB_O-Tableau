@@ -5,17 +5,17 @@ namespace App\DataFixtures\Faker;
 use \Faker\Provider\Base as BaseProvider;
 
 
-class RoleProvider extends BaseProvider{
+class LunchTypeProvider extends BaseProvider{
 
         protected static $codes = [
-        'ROLE_ADMIN',
-        'ROLE_PROF',
-        'ROLE_PARENT_ELU',
-        'ROLE_PARENT'
+        'NC',
+        'NORMAL',
+        'SP',
+        'PAI'
     ];
 
 
-       public static function roleCode(){
+       public static function lunchCode(){
         return static::randomElement(static::$codes);
     }  
 }

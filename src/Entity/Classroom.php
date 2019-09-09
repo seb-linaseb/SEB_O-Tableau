@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -40,6 +42,17 @@ class Classroom
      * @ORM\ManyToOne(targetEntity="App\Entity\School", inversedBy="classrooms")
      */
     private $school;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Student", mappedBy="classroom")
+     */
+    private $students;
+
+    public function __construct()
+    {
+        $this->students = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -105,4 +118,37 @@ class Classroom
 
         return $this;
     }
+
+    /**
+     * @return Collection|Student[]
+     */
+    public function getStudents(): Collection
+    {
+        return $this->students;
+    }
+
+    public function addStudents(Student $students): self
+    {
+        if (!$this->students->contains($students)) {
+            $this->students[] = $students;
+            $students->setClassroom($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStudentss(Student $students): self
+    {
+        if ($this->students->contains($students)) {
+            $this->students->removeElement($students);
+            // set the owning side to null (unless already changed)
+            if ($students->getClassroom() === $this) {
+                $students->setClassroom(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }

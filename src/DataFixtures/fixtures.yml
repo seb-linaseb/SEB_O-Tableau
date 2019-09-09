@@ -1,34 +1,119 @@
 App\Entity\Role:
     role_{1..4}:
-        name (unique): '<name()>'
-        code (unique): '<name()>'
+        name: ''
+        code (unique): '<roleCode()>'
         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
 
-# App\Entity\School:
-#     school_{1..1}:
-#         name: '<schoolName()>'
-#         address: '<schoolAddress()>'
-#         phone: '<schoolPhone()>'
-#         email: '<schoolEmail()>'
-#         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
-#         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+App\Entity\School:
+     school_{1..1}:
+         name: '<schoolName()>'
+         address: '<schoolAddress()>'
+         phone: '<schoolPhone()>'
+         email: '<schoolEmail()>'
+         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
         
 
-# App\Entity\Classroom:
-#     classroom_{1..8}:
-#         name (unique): '<classroomName()>'
-#         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
-#         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
-#         school: '@school_*'
+App\Entity\Classroom:
+     classroom_{1..8}:
+         name (unique): '<classroomName()>'
+         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         school: '@school_*'
+        #  user (unique): '@user_*'
+
+App\Entity\User:
+     user_{1..20}:
+         username (unique): '<firstname()>'
+         password: 'test'
+         email: '<email()>'
+         name: '<lastname()>'
+         firstname: '<firstname()>'
+         address: <numberBetween('1','100')> rue <name()>
+         postalcode: <numberBetween('2100','9590')>0
+         city: '<city()>'
+         phone: 01<numberBetween('10000000', '99999999')>
+         mobile_phone: 06<numberBetween('10000000', '99999999')>
+         job_phone: 01<numberBetween('10000000', '99999999')>
+         communication_agreement: '<boolean(75)>'
+         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         role: '@role_*'
+
+App\Entity\LunchType:
+     lunch_type_{1..4}:
+         code (unique): '<lunchCode()>'
+         name: ''
+         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+
+App\Entity\Student:
+     student_{1..40}:
+         name: '<lastname()>'
+         firstname: '<firstname()>'
+         birthdate: <dateTimeBetween('2010-09-01', '2016-09-06')>
+         image: ''
+         image_rights: '<boolean(75)>'
+         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         documents: '2x @document_*'
+         lunch_type: ['@lunch_type_*']
+         user: ['@user_*']
+         classroom: '@classroom_*'
+
+
+App\Entity\Actuality:
+     actuality_{1..8}:
+         title: '<sentence()>'
+         picture_url: ''
+         content: '<text(70)>'
+         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         user: '@user_*'
+
+App\Entity\Alert:
+     alert_{1..5}:
+         title: '<sentence()>'
+         content: <text(70)>
+         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         user: '@user_*'
+
+App\Entity\Document:
+     document_{1..20}:
+         name: '<word()>'
+         document_url: ''
+         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         user: '@user_*'
+
+App\Entity\Person:
+     person_{1..12}:
+         name: '<lastname()>'
+         firstname: '<firstname()>'
+         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         students: '3x @student_*'
+
+App\Entity\Calendar:
+     calendar_{1..90}:
+         date (unique): <dateTimeBetween('2019-09-01', '2019-11-30')>
+         is_worked: '<boolean(60)>'
+         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+        #  hasStatuses: '10x @has_status_*'
+
+App\Entity\HasStatus:
+     has_status_{1..500}:
+         is_present: '<boolean(90)>'
+         is_ordered: '<boolean(70)>'
+         is_canceled: '<boolean(20)>'
+         has_eated: ''
+         calendar: '@calendar_*'
+         student: '@student_*'
+         
+         
 
 
 
-
-
-# App\Entity\LunchType:
-#     classroom_{1..8}:
-#         name (unique): '<classroomName()>'
-#         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
-#         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
-#         school: '@school_*'
