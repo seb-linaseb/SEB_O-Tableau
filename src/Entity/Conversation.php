@@ -33,23 +33,6 @@ class Conversation
      */
     private $messages;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="conversations")
-     */
-    private $user_consult;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="conversations")
-     */
-    private $user_participate;
-
-    public function __construct()
-    {
-        $this->messages = new ArrayCollection();
-        $this->user_consult = new ArrayCollection();
-        $this->user_participate = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -102,58 +85,6 @@ class Conversation
         if ($this->messages->contains($message)) {
             $this->messages->removeElement($message);
             $message->removeConversation($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|User[]
-     */
-    public function getUserConsult(): Collection
-    {
-        return $this->user_consult;
-    }
-
-    public function addUserConsult(User $userConsult): self
-    {
-        if (!$this->user_consult->contains($userConsult)) {
-            $this->user_consult[] = $userConsult;
-        }
-
-        return $this;
-    }
-
-    public function removeUserConsult(User $userConsult): self
-    {
-        if ($this->user_consult->contains($userConsult)) {
-            $this->user_consult->removeElement($userConsult);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|User[]
-     */
-    public function getUserParticipate(): Collection
-    {
-        return $this->user_participate;
-    }
-
-    public function addUserParticipate(User $userParticipate): self
-    {
-        if (!$this->user_participate->contains($userParticipate)) {
-            $this->user_participate[] = $userParticipate;
-        }
-
-        return $this;
-    }
-
-    public function removeUserParticipate(User $userParticipate): self
-    {
-        if ($this->user_participate->contains($userParticipate)) {
-            $this->user_participate->removeElement($userParticipate);
         }
 
         return $this;
