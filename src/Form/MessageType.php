@@ -6,19 +6,19 @@ use App\Entity\Message;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class MessageType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('content')
-            //->add('read_status')
-            //->add('document_url')
-            //->add('created_at')
-            //->add('updated_at')
-            // ->add('user_receive')
-            //->add('conversation')
+            ->add('content', TextType::class,array(
+                'attr' => array(
+                    'placeholder' => 'Message'
+                )
+           ))
+            
         ;
     }
 
