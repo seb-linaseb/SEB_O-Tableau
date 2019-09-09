@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}O'Tableau | Messagerie{% endblock %}
+
+{% block content %}
+
+<div>
+
+    <a href="{{ path('conversation_index')}} ">Retour</a>
+     
+    {% for message in conversation.messages %}
+        <p>{{ message.content }}</p>
+    {% endfor %}
+
+  {% include 'conversation/_formMessage.html.twig' %}  
+      
+</div>
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
