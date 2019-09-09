@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use \DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MessageRepository")
@@ -26,7 +27,7 @@ class Message
     /**
      * @ORM\Column(type="boolean")
      */
-    private $read_status;
+    private $read_status = false;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -61,6 +62,8 @@ class Message
     public function __construct()
     {
         $this->conversation = new ArrayCollection();
+        $this->created_at = new DateTime();
+        $this->updated_at = new DateTime();
     }
 
     public function getId(): ?int

@@ -11,15 +11,15 @@
     {% for conv in conv %}
         {% if conv.userParticipate == app.user %}
             
-            <p> {{conv.userConsult}} </p>
+            <p><a href="{{ path('conversation_show', {'id': conv.id })}}">{{conv.userConsult}}</a></p>
             
-        
         {% elseif conv.userConsult == app.user %}
             
-            <p> {{conv.userParticipate}} </p>
+            <p><a href="{{ path('conversation_show', {'id': conv.id })}}">{{conv.userParticipate}}</a></p>
             
         {% endif %}
     {% endfor %}
+    
       
 </div>
 

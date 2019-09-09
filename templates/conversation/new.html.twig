@@ -6,12 +6,7 @@
 
 <div>
 
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Crée') }}</button>
-{{ form_end(form) }}
-
-</div>
+{% include 'conversation/_form.html.twig' %}
 
 {% endblock %}
 
