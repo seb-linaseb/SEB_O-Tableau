@@ -49,11 +49,7 @@ class Document
      */
     private $student;
 
-    public function __construct()
-    {
-        $this->student = new ArrayCollection();
-    }
-
+  
     public function getId(): ?int
     {
         return $this->id;

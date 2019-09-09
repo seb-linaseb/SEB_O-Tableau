@@ -1,9 +1,11 @@
-Nom du document: {{ doc.name }}
-Document uploadé par: __renseigner l'info ici via bdd___
+<p>Nom du document: {{ doc.name }}</p>
+Consulter le document ci-dessous: <a href="/docs/{{ doc.documenturl }}">
+<i class="fas fa-file-pdf"></i>
+<p>{{ doc.name }}</p>
+</a>     
 
 <form method="post" action="{{ path('document_delete', {'id': doc.id}) }}" onsubmit="return confirm('Êtes vous sûr de vouloir supprimer ce document?');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ doc.id) }}">
-    <button class="btn">Delete</button>
+    <button class="btn">Supprimer</button>
 </form>
-

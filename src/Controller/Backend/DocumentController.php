@@ -4,12 +4,22 @@ namespace App\Controller\Backend;
 
 use App\Entity\Document;
 use App\Form\DocumentType;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DocumentController extends AbstractController
 {
+
+    private $kernelRoot;
+
+    public function __construct(string $kernelRoot)
+    {
+    $this->kernelRoot = $kernelRoot;
+    }
+
       /**
      * @Route("/profil/admin/document", name="document_index")
      */
@@ -55,14 +65,17 @@ class DocumentController extends AbstractController
     /**
      * @Route("/profil/admin/document/{id}/delete", name="document_delete", requirements={"id"="\d+"})
      */
-    public function delete(Document $document, Request $request, $id)
+    public function delete(Document $document, Request $request, $id, ObjectManager $manager)
     {
         $repository = $this->getDoctrine()->getRepository(Document::class);
         $doc = $repository->find($id);
 
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->remove($document);
-        $entityManager->flush();
+        $filesystem = new Filesystem();
+        $file = $document->getDocumentUrl();
+        $path = $this->kernelRoot.'/public/docs/'.$file;
+        $filesystem->remove($path);
+        $manager->remove($document);
+        $manager->flush();      
 
         return $this->redirectToRoute('document_index');
 

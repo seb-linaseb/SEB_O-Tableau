@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190909105114 extends AbstractMigration
+final class Version20190909112023 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -26,6 +26,8 @@ final class Version20190909105114 extends AbstractMigration
         $this->addSql('ALTER TABLE document ADD student_id INT DEFAULT NULL');
         $this->addSql('ALTER TABLE document ADD CONSTRAINT FK_D8698A76CB944F1A FOREIGN KEY (student_id) REFERENCES student (id)');
         $this->addSql('CREATE INDEX IDX_D8698A76CB944F1A ON document (student_id)');
+        $this->addSql('ALTER TABLE presence_lunch RENAME INDEX idx_57227287a40a2c8 TO IDX_A0C33A5BA40A2C8');
+        $this->addSql('ALTER TABLE presence_lunch RENAME INDEX idx_57227287cb944f1a TO IDX_A0C33A5BCB944F1A');
     }
 
     public function down(Schema $schema) : void
@@ -39,5 +41,7 @@ final class Version20190909105114 extends AbstractMigration
         $this->addSql('ALTER TABLE document DROP FOREIGN KEY FK_D8698A76CB944F1A');
         $this->addSql('DROP INDEX IDX_D8698A76CB944F1A ON document');
         $this->addSql('ALTER TABLE document DROP student_id');
+        $this->addSql('ALTER TABLE presence_lunch RENAME INDEX idx_a0c33a5ba40a2c8 TO IDX_57227287A40A2C8');
+        $this->addSql('ALTER TABLE presence_lunch RENAME INDEX idx_a0c33a5bcb944f1a TO IDX_57227287CB944F1A');
     }
 }

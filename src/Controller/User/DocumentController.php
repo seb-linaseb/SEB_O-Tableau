@@ -2,18 +2,23 @@
 
 namespace App\Controller\User;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Document;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DocumentController extends AbstractController
 {
-    /**
-     * @Route("/profil/eleve/1/documents", name="document_childrenDoc")
+    /**    
+     * @Route("/profil/eleve/{id}/documents", name="document_childrenDoc", requirements={"id"="\d+"})
      */
-    public function childrenDoc()
+    public function childrenDoc(Request $request, $id)
     {
+        $repository = $this->getDoctrine()->getRepository(Document::class);
+        $doc = $repository->find($id);
+      
         return $this->render('document/childrenDoc.html.twig', [
-            'controller_name' => 'DocumentController',
+            'doc' => $doc
         ]);
     }
 }
