@@ -120,6 +120,11 @@ class User implements UserInterface, \Serializable
      */
     private $messages;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Conversation", mappedBy="user")
+     */
+    private $conversations;
+
     public function __construct()
     {
         $this->actualities = new ArrayCollection();
@@ -127,6 +132,7 @@ class User implements UserInterface, \Serializable
         $this->students = new ArrayCollection();
         $this->documents = new ArrayCollection();
         $this->messages = new ArrayCollection();
+        $this->conversations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -499,6 +505,34 @@ class User implements UserInterface, \Serializable
             if ($message->getUserReceive() === $this) {
                 $message->setUserReceive(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Conversation[]
+     */
+    public function getConversations(): Collection
+    {
+        return $this->conversations;
+    }
+
+    public function addConversation(Conversation $conversation): self
+    {
+        if (!$this->conversations->contains($conversation)) {
+            $this->conversations[] = $conversation;
+            $conversation->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConversation(Conversation $conversation): self
+    {
+        if ($this->conversations->contains($conversation)) {
+            $this->conversations->removeElement($conversation);
+            $conversation->removeUser($this);
         }
 
         return $this;
