@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}O'Tableau | Messagerie{% endblock %}
+
+{% block content %}
+
+<div>
+
+    <a href="{{ path('conversation_new')}} ">Create new</a>
+     
+    {% for conv in conv %}
+        {% if conv.userParticipate == app.user %}
+            
+            <p> {{conv.userConsult}} </p>
+            
+        
+        {% elseif conv.userConsult == app.user %}
+            
+            <p> {{conv.userParticipate}} </p>
+            
+        {% endif %}
+    {% endfor %}
+      
+</div>
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
