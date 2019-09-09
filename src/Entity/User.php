@@ -543,6 +543,6 @@ class User implements UserInterface, \Serializable
 
     public function __toString()
     {
-        return $this->name;
+        return $this->name . " " .$this->firstname;
     }
 }

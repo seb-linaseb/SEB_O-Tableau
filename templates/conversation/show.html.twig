@@ -4,16 +4,24 @@
 
 {% block content %}
 
-<div>
-
-    <a href="{{ path('conversation_index')}} ">Retour</a>
-     
+<div class="content_message">
+    <div class="message_head">
+        <a href="{{ path('conversation_index')}} "><i class="fas fa-angle-left"></i></a>
+        {% if conversation.userParticipate == app.user %}
+            <h1>{{conversation.userConsult}}</h1>
+        {% elseif conversation.userConsult == app.user %}
+            <h1>{{conversation.userParticipate}}</h1>
+        {% endif %}
+        <i class="fas fa-trash"></i>
+    </div>
+    <div class="message_list">
     {% for message in conversation.messages %}
         <p>{{ message.content }}</p>
     {% endfor %}
-
-  {% include 'conversation/_formMessage.html.twig' %}  
-      
+    </div> 
+    <div class="message_input">
+        {% include 'conversation/_formMessage.html.twig' %} 
+    </div>
 </div>
 
 {% endblock %}

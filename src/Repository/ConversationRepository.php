@@ -19,32 +19,20 @@ class ConversationRepository extends ServiceEntityRepository
         parent::__construct($registry, Conversation::class);
     }
 
-    // /**
-    //  * @return Conversation[] Returns an array of Conversation objects
-    //  */
-    /*
-    public function findByExampleField($value)
+     /**
+     * EXO 1 : Récupérer la liste les films par ordre alphabétique
+     * Méthode en DQL (Doctrine Query Language)
+     * 
+     *  @return Conversation[] Returns an array of Movie objects
+     */
+    public function findAllByOrder()
     {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        return $this->getEntityManager()
+            ->createQuery('
+                SELECT c 
+                FROM App\Entity\Conversation c 
+                ORDER BY c.id DESC
+            ')
+            ->getResult();
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Conversation
-    {
-        return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

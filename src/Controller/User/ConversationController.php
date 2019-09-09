@@ -24,7 +24,7 @@ class ConversationController extends AbstractController
     {
 
         $repository = $this->getDoctrine()->getRepository(Conversation::class);
-        $conv = $repository->findAll();
+        $conv = $repository->findAllByOrder();
         
         return $this->render('conversation/index.html.twig', [
             'conv' => $conv
@@ -87,7 +87,7 @@ class ConversationController extends AbstractController
                 'Enregistrement effectué'
             );
             
-            return $this->redirectToRoute('conversation_index');
+            return $this->redirectToRoute('conversation_show', ['id'=> $conversation->getId()]);
         }
 
         return $this->render('conversation/show.html.twig', [

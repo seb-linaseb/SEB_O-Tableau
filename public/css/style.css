@@ -667,6 +667,126 @@ a {
 }
 
 
+/* PAGE CONVERSATION */
+
+.convo_head {
+    background-color: #2C3840;
+    padding: 7% 0;
+}
+
+.convo_head h1 {
+    font-size: 4em;
+    color: white;
+    margin-left: 5%;
+}
+
+.convo_list {
+    font-size: 3.5em;
+    padding-bottom: 20%;
+}
+
+.convo_list .convo_add {
+    position: fixed;
+    bottom: 15%;
+    right: 0;
+    padding-right: 5%;
+}
+
+.convo_list .convo_add i {
+    font-size: 2em;
+    
+}
+
+.convo_list div {
+    background-color: antiquewhite;
+    padding: 7.7% 0;
+    border-top: 2px solid black;
+    display: flex;
+}
+
+.convo_list div i {
+    font-size: 2em;
+    margin-left: 5%;
+}
+
+.convo_list div p {
+    line-height: 200%;
+    margin-left: 3%;
+}
+
+/* PAGE MESSAGE */
+
+.message_head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 4em;
+    padding: 4% 0;
+    background-color: antiquewhite;
+}
+
+.message_head a {
+    padding-left: 4%
+}
+
+.message_head i {
+    padding-right: 4%
+}
+
+
+.message_list {
+
+}
+
+.message_list p {
+    text-align: center;
+    font-size: 2.5em;
+    padding: 5%
+}
+
+
+
+.message_input {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding-bottom: 24%;
+    background-color: antiquewhite
+}
+
+.message_input form  {
+    display: flex;
+    font-size: 3em;
+    justify-content: space-between;
+}
+
+.message_input form button {
+    border: none;
+    background-color: antiquewhite;
+    margin-right: 3%;
+}
+
+.message_input form button i {
+    font-size: 5.7em;
+    margin-top: 22%;
+    
+}
+
+.message_input form #message div label {
+    display: none;
+}
+
+.message_input form #message div input {
+    height: 70px;
+    width: 120%;
+    border-radius: 40px;
+    margin-left: 8%;
+    margin-top: 3%;
+    font-size: 1em;
+    padding-left: 5%;
+}
+
+
 /* FOOTER */
 
 .footer {
