@@ -37,13 +37,13 @@ class AppFixtures extends Fixture
             
             if ($entity instanceof Role){
                 if ($entity->getCode() == 'ROLE_ADMIN'){
-                    $entity->setName('administrateur');
+                    $entity->setName('Direction');
                 }elseif ($entity->getCode() == 'ROLE_PROF'){
-                    $entity->setName('enseignant');
+                    $entity->setName('Enseignant');
                 }elseif ($entity->getCode() == 'ROLE_PARENT_ELU'){
-                    $entity->setName('parent-elu');
+                    $entity->setName('Parent-elu');
                 }else{
-                    $entity->setName('parent');
+                    $entity->setName('Parent');
                 }
                 
             }

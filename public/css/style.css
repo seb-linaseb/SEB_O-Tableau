@@ -51,7 +51,7 @@ a {
 
 .content_vitrine p  {
     font-size: 2em;
-    padding: 50px 20px;
+    padding: 40px 20px;
     text-align: center;
 }
 .content_vitrine table  {
@@ -87,10 +87,10 @@ a {
 }
 .map_vitrine p {
     margin: 0;
-    margin-bottom: 50px;
     margin-left: 40px;
     margin-right: 20px;
     text-align: left;
+    font-size: 1.8em;
 }
 .map_vitrine p i {
     margin-right: 20px;
@@ -403,7 +403,7 @@ a {
 }
 .profil_choice {
     margin: 1%;
-    padding-bottom: 30%;
+    padding-bottom: 40%;
     margin-top: 15%;
     
 }

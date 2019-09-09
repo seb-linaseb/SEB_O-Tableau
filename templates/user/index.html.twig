@@ -9,8 +9,8 @@
             <div class="nav_profil_flex">
                 <i class="fas fa-user-alt"></i>
                 <div>
-                    <p>UserName</p>
-                    <span>Role</span>
+                    <p>{{ app.user.username }}</p>
+                    <span>{{app.user.role.name }}</span>
                 </div>
             </div>
             <div>
@@ -21,13 +21,15 @@
             </div>
         </div>
         <div class="profil">
+            {% for children in app.user.students %}
              <div class="profil_children">
                 <a href="{{ path('student_index') }}">
                     <i class="fas fa-user-graduate"></i>
-                    <h2>ChildrenName</h2>
+                    <h2>{{ children.name }}</h2>
                     <p>classe de Username</p>
                 </a>
             </div>
+            {% endfor %}
             <div class="profil_doc">
                 <h1>Vie de l'école</h1>
                 <div>

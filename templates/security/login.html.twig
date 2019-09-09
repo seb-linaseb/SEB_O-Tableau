@@ -10,7 +10,7 @@
         <a href="{{ path('default_index') }}"><i class="fas fa-angle-left"></i></a>
         <h1>Se connecter</h1>
         <form method="post">
-            {% if error %}
+            {# {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
 
@@ -18,7 +18,7 @@
                 <div class="mb-3">
                     You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
                 </div>
-            {% endif %}
+            {% endif %} #}
 
             
             <p>Nom d'utilisateur</p>
