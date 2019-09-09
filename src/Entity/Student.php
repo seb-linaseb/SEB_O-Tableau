@@ -69,11 +69,6 @@ class Student
     private $person;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Document", mappedBy="student")
-     */
-    private $documents;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Classroom", inversedBy="studentss")
      */
     private $classroom;
@@ -83,6 +78,11 @@ class Student
      */
     private $presenceLunches;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Document", mappedBy="student")
+     */
+    private $documents;
+
 
     public function __construct()
     {
@@ -91,6 +91,7 @@ class Student
         $this->person = new ArrayCollection();
         $this->documents = new ArrayCollection();
         $this->presenceLunches = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -260,33 +261,7 @@ class Student
         return $this;
     }
 
-    /**
-     * @return Collection|Document[]
-     */
-    public function getDocuments(): Collection
-    {
-        return $this->documents;
-    }
-
-    public function addDocument(Document $document): self
-    {
-        if (!$this->documents->contains($document)) {
-            $this->documents[] = $document;
-            $document->addStudent($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDocument(Document $document): self
-    {
-        if ($this->documents->contains($document)) {
-            $this->documents->removeElement($document);
-            $document->removeStudent($this);
-        }
-
-        return $this;
-    }
+    
 
     public function getClassroom(): ?Classroom
     {
@@ -325,6 +300,37 @@ class Student
             // set the owning side to null (unless already changed)
             if ($presenceLunch->getStudent() === $this) {
                 $presenceLunch->setStudent(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Document[]
+     */
+    public function getDocuments(): Collection
+    {
+        return $this->documents;
+    }
+
+    public function addDocument(Document $document): self
+    {
+        if (!$this->documents->contains($document)) {
+            $this->documents[] = $document;
+            $document->setStudent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDocument(Document $document): self
+    {
+        if ($this->documents->contains($document)) {
+            $this->documents->removeElement($document);
+            // set the owning side to null (unless already changed)
+            if ($document->getStudent() === $this) {
+                $document->setStudent(null);
             }
         }
 

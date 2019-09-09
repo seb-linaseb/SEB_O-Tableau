@@ -57,7 +57,7 @@ App\Entity\Student:
          image_rights: '<boolean(75)>'
          created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
          updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
-         documents: '2x @document_*'
+        #  documents: '2x @document_*'
          lunch_type: ['@lunch_type_*']
          user: ['@user_*']
          classroom: '@classroom_*'
@@ -87,6 +87,7 @@ App\Entity\Document:
          created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
          updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
          user: '@user_*'
+         student: '@student_*'
 
 App\Entity\Person:
      person_{1..12}:

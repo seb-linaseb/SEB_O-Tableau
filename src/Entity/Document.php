@@ -38,15 +38,16 @@ class Document
      */
     private $updated_at;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Student", inversedBy="documents")
-     */
-    private $student;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="documents")
      */
     private $user;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Student", inversedBy="documents")
+     */
+    private $student;
 
     public function __construct()
     {
@@ -106,32 +107,6 @@ class Document
         return $this;
     }
 
-    /**
-     * @return Collection|Student[]
-     */
-    public function getStudent(): Collection
-    {
-        return $this->student;
-    }
-
-    public function addStudent(Student $student): self
-    {
-        if (!$this->student->contains($student)) {
-            $this->student[] = $student;
-        }
-
-        return $this;
-    }
-
-    public function removeStudent(Student $student): self
-    {
-        if ($this->student->contains($student)) {
-            $this->student->removeElement($student);
-        }
-
-        return $this;
-    }
-
     public function getUser(): ?User
     {
         return $this->user;
@@ -140,6 +115,18 @@ class Document
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getStudent(): ?Student
+    {
+        return $this->student;
+    }
+
+    public function setStudent(?Student $student): self
+    {
+        $this->student = $student;
 
         return $this;
     }
