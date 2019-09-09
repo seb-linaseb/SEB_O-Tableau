@@ -28,7 +28,7 @@ class DocumentController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Document::class);
         $documents = $repository->findAll(); 
 
-        $document = new Document();       
+        $document = new Document();
         $form = $this->createForm(DocumentType::class, $document);
         $form->handleRequest($request);
 

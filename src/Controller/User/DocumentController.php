@@ -2,6 +2,7 @@
 
 namespace App\Controller\User;
 
+use App\Entity\Student;
 use App\Entity\Document;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,11 +15,16 @@ class DocumentController extends AbstractController
      */
     public function childrenDoc(Request $request, $id)
     {
+           
         $repository = $this->getDoctrine()->getRepository(Document::class);
-        $doc = $repository->find($id);
+        $documents = $repository->find($id);       
+
+        $repositorystudent = $this->getDoctrine()->getRepository(Student::class);
+        $student = $repositorystudent->find($id);
       
-        return $this->render('document/childrenDoc.html.twig', [
-            'doc' => $doc
+        return $this->render('document/childrenDoc.html.twig', [            
+            'student' => $student, 
+            'documents' => $documents        
         ]);
     }
 }
