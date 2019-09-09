@@ -69,11 +69,6 @@ class Student
     private $person;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Document", mappedBy="student")
-     */
-    private $documents;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Classroom", inversedBy="studentss")
      */
     private $classroom;
@@ -83,14 +78,19 @@ class Student
      */
     private $hasStatuses;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Document", mappedBy="student")
+     */
+    private $documents;
+
 
     public function __construct()
     {
         $this->user = new ArrayCollection();
         $this->lunchtype = new ArrayCollection();
         $this->person = new ArrayCollection();
-        $this->documents = new ArrayCollection();
         $this->hasStatuses = new ArrayCollection();
+        $this->documents = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -260,33 +260,7 @@ class Student
         return $this;
     }
 
-    /**
-     * @return Collection|Document[]
-     */
-    public function getDocuments(): Collection
-    {
-        return $this->documents;
-    }
-
-    public function addDocument(Document $document): self
-    {
-        if (!$this->documents->contains($document)) {
-            $this->documents[] = $document;
-            $document->addStudent($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDocument(Document $document): self
-    {
-        if ($this->documents->contains($document)) {
-            $this->documents->removeElement($document);
-            $document->removeStudent($this);
-        }
-
-        return $this;
-    }
+    
 
     public function getClassroom(): ?Classroom
     {
@@ -325,6 +299,37 @@ class Student
             // set the owning side to null (unless already changed)
             if ($hasStatus->getStudent() === $this) {
                 $hasStatus->setStudent(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Document[]
+     */
+    public function getDocuments(): Collection
+    {
+        return $this->documents;
+    }
+
+    public function addDocument(Document $document): self
+    {
+        if (!$this->documents->contains($document)) {
+            $this->documents[] = $document;
+            $document->setStudent($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDocument(Document $document): self
+    {
+        if ($this->documents->contains($document)) {
+            $this->documents->removeElement($document);
+            // set the owning side to null (unless already changed)
+            if ($document->getStudent() === $this) {
+                $document->setStudent(null);
             }
         }
 
