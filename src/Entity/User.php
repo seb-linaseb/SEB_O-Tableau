@@ -121,7 +121,7 @@ class User implements UserInterface, \Serializable
     private $messages;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Conversation", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Conversation", mappedBy="user_consult")
      */
     private $conversations;
 
@@ -522,7 +522,7 @@ class User implements UserInterface, \Serializable
     {
         if (!$this->conversations->contains($conversation)) {
             $this->conversations[] = $conversation;
-            $conversation->addUser($this);
+            $conversation->setUserConsult($this);
         }
 
         return $this;
@@ -532,7 +532,10 @@ class User implements UserInterface, \Serializable
     {
         if ($this->conversations->contains($conversation)) {
             $this->conversations->removeElement($conversation);
-            $conversation->removeUser($this);
+            // set the owning side to null (unless already changed)
+            if ($conversation->getUserConsult() === $this) {
+                $conversation->setUserConsult(null);
+            }
         }
 
         return $this;

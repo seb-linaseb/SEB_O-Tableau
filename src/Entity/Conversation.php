@@ -34,13 +34,20 @@ class Conversation
     private $messages;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="conversations")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="conversations")
      */
-    private $user;
+    private $user_consult;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="conversations")
+     */
+    private $user_participate;
+
+
 
     public function __construct()
     {
-        $this->user = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -100,29 +107,28 @@ class Conversation
         return $this;
     }
 
-    /**
-     * @return Collection|User[]
-     */
-    public function getUser(): Collection
+    public function getUserConsult(): ?User
     {
-        return $this->user;
+        return $this->user_consult;
     }
 
-    public function addUser(User $user): self
+    public function setUserConsult(?User $user_consult): self
     {
-        if (!$this->user->contains($user)) {
-            $this->user[] = $user;
-        }
+        $this->user_consult = $user_consult;
 
         return $this;
     }
 
-    public function removeUser(User $user): self
+    public function getUserParticipate(): ?User
     {
-        if ($this->user->contains($user)) {
-            $this->user->removeElement($user);
-        }
+        return $this->user_participate;
+    }
+
+    public function setUserParticipate(?User $user_participate): self
+    {
+        $this->user_participate = $user_participate;
 
         return $this;
     }
+
 }
