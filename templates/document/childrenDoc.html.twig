@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}O'Tableau | EnfantName{% endblock %}
+{% block title %}O'Tableau | {{ student.name }}{% endblock %}
 
 {% block content %}
 
@@ -22,7 +22,7 @@
             <div class="doc_children_border">
                 <h1>{{ student.name }} {{ student.firstname }}</h1>
                 <div class="add_doc_children">
-                    <a href=""><i class="fas fa-plus-circle"></i></a>
+                    <a href="{{ path('document_addchildrenDoc', { 'id': student.id }) }}"><i class="fas fa-plus-circle"></i></a>
                 </div>
                 <div>
                 {% for document in student.documents %}
