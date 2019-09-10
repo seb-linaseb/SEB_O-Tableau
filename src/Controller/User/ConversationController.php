@@ -4,9 +4,11 @@ namespace App\Controller\User;
 
 use App\Entity\User;
 use App\Entity\Message;
-use App\Entity\Conversation;
 use App\Form\MessageType;
+use App\Entity\Conversation;
 use App\Form\ConversationType;
+use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\ConversationRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -34,18 +36,36 @@ class ConversationController extends AbstractController
       /**
      * @Route("/new", name="new", methods={"GET","POST"})
      */
-    public function new(Request $request)
+    public function new(Request $request, ConversationRepository $conversationRepository)
     {
-        $conv = new Conversation();
-        $form = $this->createForm(ConversationType::class, $conv);
+        $message = new Message();
+        $form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
             $user = $this->getUser();
-            $conv->setUserParticipate($user);
+            $message->setUserPost($user);
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($conv);
+            $entityManager->persist($message);
+
+            foreach ($message->getUsers() as $eachUser) {
+
+               $conversation = $conversationRepository->findThisConversation($user->getId(), $eachUser->getId()); 
+
+             if (!empty($conversation)){
+                 $conversation[0]->addMessage($message);
+
+             } else { 
+                
+                 $conversation = new Conversation();
+                 $conversation->setUserParticipate($user);
+                 $conversation->setUserConsult($eachUser);
+                 $entityManager->persist($conversation);
+                 $message->addConversation($conversation);
+             }
+        }
+        
             $entityManager->flush();
 
             $this->addFlash(
@@ -53,11 +73,11 @@ class ConversationController extends AbstractController
                 'Enregistrement effectué'
             );
             
-            return $this->redirectToRoute('conversation_show', ['id'=> $conv->getId()]);
+            return $this->redirectToRoute('conversation_index') ;
         }
 
         return $this->render('conversation/new.html.twig', [
-            'form' => $form->createView(),
+            'formMessage' => $form->createView(),
         ]);
     }
 
@@ -97,5 +117,28 @@ class ConversationController extends AbstractController
     }
 
 
+
+    
+    /**
+    * @Route("{id}/delete", name="delete", methods={"POST","GET"}, requirements={"id"="\d+"})
+    */
+    public function delete($id, Conversation $conv, EntityManagerInterface $em)
+    {
+        $em->remove($conv);
+        $em->flush();
+
+        $this->addFlash(
+            'danger',
+            'Suppression effectuée'
+        );
+        
+        return $this->redirectToRoute('conversation_index');
+    }
+
+
     
 }
+
+
+
+// ['id'=> $conv->getId()])

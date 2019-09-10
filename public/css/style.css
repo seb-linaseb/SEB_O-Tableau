@@ -480,7 +480,7 @@ a {
     border-radius: 3px;
     margin: auto;
     margin-top: 7%;
-    height: 800px;
+    height: 750px;
 }
 
 .account .account_border h1 {
@@ -497,14 +497,13 @@ a {
 }
 
 .account .account_border div {
-    margin-top: 35%;
-    margin-left: 10%;
-    margin-bottom: 15%;
+  
+    margin: 20% 10%;
 }
 
 .account .account_border div p  {
-    font-size: 3em;
-    margin-bottom: 3%;
+    font-size: 2.5em;
+    padding-bottom: 3%;
 }
 
 .account .account_border div p i  {
@@ -534,10 +533,11 @@ a {
 
 .profil .children_back_profil i {
     font-size: 5em;
+    padding-top: 2%;
 }
 
 .profil .doc_children_div  {
-    width: 37%;
+    width: 40%;
     margin: auto;
     margin-top: 7%;
 }
@@ -725,11 +725,11 @@ a {
 }
 
 .message_head a {
-    padding-left: 4%
+    padding-left: 4%;
+    padding-right: 4%;
 }
 
 .message_head i {
-    padding-right: 4%
 }
 
 
