@@ -16,7 +16,7 @@ class UserController extends AbstractController
     public function index()
     {
         $repository = $this->getDoctrine()->getRepository(Document::class);
-        $documents = $repository->findAll(); 
+        $documents = $repository->findAllDocWithStudentIdNull(); 
 
         $repository = $this->getDoctrine()->getRepository(User::class);
         $users = $repository->findAll();

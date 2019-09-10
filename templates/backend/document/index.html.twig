@@ -11,10 +11,11 @@
                 {% endfor %}
                 <br><hr>
 
-            <h2>Listing des documents par élève</h2>
+            <h2>Listing des documents par Classe puis filtré par étudiant</h2>
 
-            - Jean Louis    
-            - Madame Michu
-            - Harry Potter                     
+                {% for classroom in classrooms %}                    
+                     <a href="{{ path('document_classroom_show', { 'id': classroom.id }) }}"><br>                                     
+                    {{ classroom.name }} <br>          
+                {% endfor %}                   
                                   
 {% endblock %}

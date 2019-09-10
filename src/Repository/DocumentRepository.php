@@ -19,6 +19,14 @@ class DocumentRepository extends ServiceEntityRepository
         parent::__construct($registry, Document::class);
     }
 
+    public function findAllDocWithStudentIdNull()
+    {
+        $query = $this->createQueryBuilder('m')
+        ->where('m.student is NULL');       
+
+        return $query->getQuery()->getResult();
+    }
+
     // /**
     //  * @return Document[] Returns an array of Document objects
     //  */
