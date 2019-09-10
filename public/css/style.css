@@ -244,7 +244,7 @@ a {
 
 
 /* NAV  */
-
+/*
 .content_nav {
     width: 100%;
     background: beige;
@@ -274,7 +274,7 @@ a {
     font-size: 4em;
     padding-bottom: 3%;
 }
-
+*/
 
 /* NAV STAFF */
 
@@ -747,3 +747,43 @@ a {
     color: #2C3840;
 }
 
+
+/* CALENDAR MONTH */
+
+.calendar__table {
+    width: 100%;
+    height: calc(100vh - 128px);
+   }
+   
+   .calendar__table td {
+     padding: 10px;
+     border: 1px solid grey;
+     vertical-align: top;
+     width: 14.29%; /* 100% / 7 jours */
+     height: 20%;
+   }
+
+   .calendar__table--6weeks td {
+     height: 16.66%; /* 100% / 6 semaines */
+   }
+
+   .calendar__table__dayname td {
+    height: 2%;
+  }
+
+   .calendar__weekday {
+     font-weight: bold;
+     color: black;
+     font-size: 1.2em;
+   }
+   
+   .calendar__day {
+     font-size: 1.3em;
+   }
+   
+   .calendar__othermonth .calendar__day {
+     opacity: 0.3;
+     font-size: 1em;
+   }
+   
+   
