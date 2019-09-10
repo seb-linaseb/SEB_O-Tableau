@@ -20,7 +20,10 @@ class AdminCalendarController extends AbstractController
         // }
         
           $start = $month->getStartingDay();
-          $start = $start->format('N') === '1' ? $start : $month->getStartingDay()->modify('last monday');
+          $launch_day = $start->format('N');
+          // $start = $start->format('N') === '1' ? $start_monday = $start : $start_other = $month->getStartingDay()->modify('last monday');
+
+          $start_other = $month->getStartingDay()->modify('last monday');
 
           $end = $month->getEndingDay();
           $end = $end->format('d');
@@ -46,8 +49,9 @@ class AdminCalendarController extends AbstractController
           $nb_days_month = $month->getStartingDay()->format('t');
 
           $nb_days_previous_month = (clone $start)->modify("-" . 1 . "day")->format('t');
-          $start = $start->format('d');
-
+          
+          $start_monday = $start->format('d');
+          $start_other = $start_other->format('d');
     
 
         return $this->render('calendar/month.html.twig', [
@@ -59,7 +63,9 @@ class AdminCalendarController extends AbstractController
             'nb_weeks' => $nb_weeks,
             'month_days' => $month_days,
             'days' => $days,
-            'start' => $start,
+            'start_monday' => $start_monday,
+            'launch_day' => $launch_day,
+            'start_other' => $start_other,
             'initial_start' => $start,
             'nb_days_month' => $nb_days_month,
             'nb_days_previous_month' => $nb_days_previous_month,

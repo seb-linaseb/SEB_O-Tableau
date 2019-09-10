@@ -5,7 +5,7 @@
 {% block content %}
 
   <div class="d-flex flex-row align-items-center justify-content-between mx-sm-3">
-    <h1>{{ month_name }} - {{ month_number }}</h1>
+    <h1>{{ month_name }} - {{ month_number }} - {{ nb_days_month }}</h1>
     <div>
       <a href="{{ path('admin_calendar_month') }}?month={{ previous_month_month }}&year={{ previous_month_year }}" class="btn btn-primary">&lt;</a>  
       <a href="{{ path('admin_calendar_month') }}?month={{ next_month_month }}&year={{ next_month_year }}" class="btn btn-primary">&gt;</a>
@@ -22,6 +22,12 @@
                 </td>
             {% endfor %}
       </tr>
+{% if launch_day == 1 %}
+{% set start = start_monday %}
+{% else %}
+{% set start = start_other %}
+{% endif %}
+
 
     {% set change_month = 0 %}
 
@@ -30,7 +36,13 @@
         
         {% for day in month_days %}
 
-            {% if start > nb_days_month %}
+            {% if start == 1 %}
+                {% set change_month = 1 %}
+                <td class="calendar__day">
+                <div>{{ start }}</div>
+                </td>
+                {% set start = start + 1 %}
+            {% elseif start > nb_days_month %}
                 {% if start > nb_days_previous_month %}
                     {% set start = 1 %}
                     {% set change_month = 1%}
