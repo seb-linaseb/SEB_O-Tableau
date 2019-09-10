@@ -33,7 +33,7 @@ class ConversationController extends AbstractController
         ]);
     }
 
-      /**
+    /**
      * @Route("/new", name="new", methods={"GET","POST"})
      */
     public function new(Request $request, ConversationRepository $conversationRepository)
@@ -65,22 +65,33 @@ class ConversationController extends AbstractController
                  $message->addConversation($conversation);
              }
         }
-        
+                       
             $entityManager->flush();
 
             $this->addFlash(
                 'success',
-                'Enregistrement effectué'
+                'Message envoyé'
             );
             
-            return $this->redirectToRoute('conversation_index') ;
+            $nbMessage = count($message->getUsers());
+            
+
+            if ($nbMessage > 1){
+                return $this->redirectToRoute('conversation_index') ;
+
+            } else {
+                $conversation = $message->getConversation();
+                $thisConversation = $conversation[0];
+                dump($thisConversation->getId());
+                return $this->redirectToRoute('conversation_show',['id'=> $thisConversation->getId()]) ;
+            }    
         }
 
         return $this->render('conversation/new.html.twig', [
             'formMessage' => $form->createView(),
         ]);
     }
-
+    
 
     /**
      * @Route("/{id}", name="show", methods={"GET","POST"}), requirements={"id"="\d+"})
@@ -141,4 +152,3 @@ class ConversationController extends AbstractController
 
 
 
-// ['id'=> $conv->getId()])

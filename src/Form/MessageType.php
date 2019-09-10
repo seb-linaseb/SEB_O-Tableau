@@ -14,23 +14,24 @@ class MessageType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $url = ($_SERVER["REQUEST_URI"]); 
         
-        //if($message) { 
+        if ($url == '/conversation/new') { 
 
-            // $builder
-            // ->add('content', TextType::class,array(
-            //         'attr' => array(
-            //             'placeholder' => 'Message'
-            //         )
-            //         )
-            // )
-            // ->add( 'users', EntityType::class,[
-            //     'class'=> User::class,
-            //     'expanded' =>true,
-            //     'multiple' =>true,
-            //     ]
-            // );
-        //} else {
+            $builder
+            ->add('content', TextType::class,array(
+                    'attr' => array(
+                        'placeholder' => 'Message'
+                    )
+                    )
+            )
+            ->add( 'users', EntityType::class,[
+                'class'=> User::class,
+                'expanded' =>true,
+                'multiple' =>true,
+                ]
+            );
+        } else {
         
             $builder
                 ->add('content', TextType::class,array(
@@ -38,7 +39,7 @@ class MessageType extends AbstractType
                         'placeholder' => 'Message'
                     )
                 ));
-        //};
+        };
     }
 
     public function configureOptions(OptionsResolver $resolver)
