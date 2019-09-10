@@ -4,10 +4,14 @@
 
 {% block content %}
 
-<div>
+<div class="content_new-msg">
 
-{% include 'conversation/_formMessage.html.twig' %}
+{{ form_start(formMessage) }}
+    {{ form_widget(formMessage) }}
+    <button class="btn">Envoyer</button>
+{{ form_end(formMessage) }}
 
+</div>
 {% endblock %}
 
 {% block footer %}
