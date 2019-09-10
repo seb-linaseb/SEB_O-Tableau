@@ -9,34 +9,36 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class MessageType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $url = ($_SERVER["REQUEST_URI"]); 
-        
+
         if ($url == '/conversation/new') { 
 
             $builder
-            ->add('content', TextType::class,array(
-                    'attr' => array(
-                        'placeholder' => 'Message'
-                    )
-                    )
-            )
             ->add( 'users', EntityType::class,[
                 'class'=> User::class,
                 'expanded' =>true,
                 'multiple' =>true,
                 ]
-            );
+            )
+            ->add('content', TextareaType::class ,array(
+                    'attr' => array(
+                        'placeholder' => 'Message..'
+                    )
+                )
+            )
+           ;
         } else {
         
             $builder
                 ->add('content', TextType::class,array(
                     'attr' => array(
-                        'placeholder' => 'Message'
+                        'placeholder' => 'Message..'
                     )
                 ));
         };

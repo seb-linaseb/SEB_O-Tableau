@@ -537,8 +537,7 @@ a {
 }
 
 .profil .doc_children_div  {
-    width: 40%;
-    margin: auto;
+    text-align: center;
     margin-top: 7%;
 }
 .profil div .doc_children_link {
@@ -714,6 +713,75 @@ a {
     margin-left: 3%;
 }
 
+
+/* PAGE NEW MESSAGE */
+
+.content_new-msg {
+    
+}
+
+
+
+
+.content_new-msg form button {
+    font-size: 2em;
+    border: none;
+    padding: 3% 8%;
+    border-radius: 3px;
+    margin-top: 7%;
+    margin-left: 37%;
+}
+
+.content_new-msg form #message div #message_content {
+    height: 300px;
+    width: 80%;
+    font-size: 3em;
+    border-radius: 10px;
+    border: none;
+    margin-left: 7%;
+    margin-top: 10%;
+    background-color: lightblue;
+    padding: 3%;
+   
+}
+
+.content_new-msg form #message div #message_users {
+    width: 80%;
+    margin:auto;
+    margin-top: 5%;
+    display: flex;
+    overflow-y: scroll;
+    background-color: lightblue;
+    
+}
+
+
+.content_new-msg form #message div #message_users input {
+    display: none;
+}
+
+.content_new-msg form #message div #message_users label {
+    font-size: 3em;
+    padding: 5%;
+}
+
+/* .content_new-msg form #message div #message_users label:target {
+    color: red;
+} */
+
+
+
+
+
+label.required {
+    display: none;
+}
+
+
+
+
+
+
 /* PAGE MESSAGE */
 
 .message_head {
@@ -734,13 +802,21 @@ a {
 
 
 .message_list {
-
+    margin: 1%;
+    width: 100%;
+    height: 1270px;
+    overflow: scroll;
 }
 
 .message_list p {
     text-align: center;
-    font-size: 2.5em;
-    padding: 5%
+    font-size: 2em;
+    padding: 5%;
+    background-color: lightblue;
+    width: 50%;
+    max-height: max-content;
+    border-radius: 30px;
+    overflow-wrap: break-word;
 }
 
 
@@ -867,3 +943,16 @@ a {
     color: #2C3840;
 }
 
+
+
+
+
+
+
+
+.red {
+    color: red;
+}
+.black {
+    color: black;
+}

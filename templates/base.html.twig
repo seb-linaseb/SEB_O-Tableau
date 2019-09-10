@@ -8,6 +8,7 @@
             <script src="https://kit.fontawesome.com/092433016f.js"></script>
             <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css')}}">
             <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
             <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
@@ -24,6 +25,14 @@
             {% include "navigation/_content_footer.html.twig" %}
         {% endblock %}
 
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <script
+                src="https://code.jquery.com/jquery-3.4.1.min.js"
+                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+                crossorigin="anonymous">
+            </script>
+            <script src="{{ asset('js/jquery-ui.min.js')}}"></script> 
+            <script src="{{ asset('js/app.js')}}"></script>
+        {% endblock %}
     </body>
 </html>
