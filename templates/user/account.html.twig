@@ -23,16 +23,14 @@
             <div class="account_border">
                 <h1>Mes informations personnel</h1>
                 <div>
-                    <p><i class="fas fa-user-alt"></i>Lastname/firstname</p>
-                    <p><i class="fas fa-home"></i>Adresse</p>
-                    <p><i class="fas fa-tty"></i>Fix</p>
-                    <p><i class="fas fa-mobile-alt"></i>Tel</p>
-                    <p><i class="fas fa-envelope-square"></i>Mail</p>                                
+                    <p><i class="fas fa-user-alt"></i>{{app.user.firstname}} {{app.user.name}}</p>
+                    <p><i class="fas fa-home"></i>{{app.user.address}} </p>
+                    <p><i class="fas fa-tty"></i>{{app.user.phone}} </p>
+                    <p><i class="fas fa-mobile-alt"></i>{{app.user.mobilePhone}} </p>
+                    <p><i class="fas fa-envelope-square"></i>{{app.user.email}} </p>                                
                 </div>
                 <a href="">Modifier mes informations</a>  
             </div>
         </div>
     </div>
-
-   
 {% endblock %}

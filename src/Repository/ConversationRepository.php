@@ -35,4 +35,27 @@ class ConversationRepository extends ServiceEntityRepository
             ')
             ->getResult();
     }
+
+    /**
+     * 
+     *  @return Conversation[] Returns an array of Movie objects
+     */
+    public function findThisConversation($expediteurId, $destinataireId)
+    {
+        $query = $this->getEntityManager()->createQuery('
+            SELECT c
+            FROM App\Entity\Conversation c
+            WHERE (c.user_consult = :first or c.user_consult = :second)
+            AND (c.user_participate = :first or c.user_participate = :second)
+            
+        ')
+        ->setParameters(array(
+                     'first' => $destinataireId,
+                     'second' => $expediteurId));
+
+                     
+        return $query->getResult(); 
+
+    }
 }
+

@@ -115,15 +115,16 @@ class User implements UserInterface, \Serializable
      */
     private $role;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Message", mappedBy="user_receive")
-     */
-    private $messages;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Conversation", mappedBy="user_consult")
      */
     private $conversations;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Message", mappedBy="users")
+     */
+    private $messages;
 
     public function __construct()
     {
@@ -131,8 +132,8 @@ class User implements UserInterface, \Serializable
         $this->alerts = new ArrayCollection();
         $this->students = new ArrayCollection();
         $this->documents = new ArrayCollection();
-        $this->messages = new ArrayCollection();
         $this->conversations = new ArrayCollection();
+        $this->messages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -479,36 +480,7 @@ class User implements UserInterface, \Serializable
         ) = unserialize($serialized, ['allowed_classes' => false]);
     }
 
-    /**
-     * @return Collection|Message[]
-     */
-    public function getMessages(): Collection
-    {
-        return $this->messages;
-    }
-
-    public function addMessage(Message $message): self
-    {
-        if (!$this->messages->contains($message)) {
-            $this->messages[] = $message;
-            $message->setUserReceive($this);
-        }
-
-        return $this;
-    }
-
-    public function removeMessage(Message $message): self
-    {
-        if ($this->messages->contains($message)) {
-            $this->messages->removeElement($message);
-            // set the owning side to null (unless already changed)
-            if ($message->getUserReceive() === $this) {
-                $message->setUserReceive(null);
-            }
-        }
-
-        return $this;
-    }
+    
 
     /**
      * @return Collection|Conversation[]
@@ -544,5 +516,33 @@ class User implements UserInterface, \Serializable
     public function __toString()
     {
         return $this->name . " " .$this->firstname;
+    }
+
+    /**
+     * @return Collection|Message[]
+     */
+    public function getMessages(): Collection
+    {
+        return $this->messages;
+    }
+
+    public function addMessage(Message $message): self
+    {
+        if (!$this->messages->contains($message)) {
+            $this->messages[] = $message;
+            $message->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessage(Message $message): self
+    {
+        if ($this->messages->contains($message)) {
+            $this->messages->removeElement($message);
+            $message->removeUser($this);
+        }
+
+        return $this;
     }
 }
