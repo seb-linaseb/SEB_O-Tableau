@@ -21,17 +21,11 @@ class DocumentType extends AbstractType
                 'label' => 'Veuillez selectionner votre document sous le format PDF',
                 'constraints' => [
                     new File([
-                        'maxSize' => '5000k',
-                        'mimeTypes' => [
-                            'application/pdf',
-                            'application/x-pdf',
-                        ],
-                        'mimeTypesMessage' => 'Merci d\'uploader un document valide sous le format DPF',
+                        'maxSize' => '5000k',                        
+                        'mimeTypesMessage' => 'Merci d\'uploader un document valide sous le format PDF',
                     ])
                 ],
-            ])        
-            ->add('created_at')
-            ->add('updated_at')
+            ])      
             ->add('submit', SubmitType::class)
         ;
     }
