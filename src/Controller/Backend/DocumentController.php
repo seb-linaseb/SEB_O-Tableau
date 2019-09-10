@@ -2,7 +2,9 @@
 
 namespace App\Controller\Backend;
 
+use App\Entity\Student;
 use App\Entity\Document;
+use App\Entity\Classroom;
 use App\Form\DocumentType;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,13 +28,19 @@ class DocumentController extends AbstractController
     public function index(Request $request)
     {
         $repository = $this->getDoctrine()->getRepository(Document::class);
-        $documents = $repository->findAll(); 
+        $documents = $repository->findAllDocWithStudentIdNull(); 
+
+        $repositoryclass = $this->getDoctrine()->getRepository(Classroom::class);
+        $classrooms = $repositoryclass->findAll(); 
 
         $document = new Document();
         $form = $this->createForm(DocumentType::class, $document);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+        $user = $this->getUser();     
+        $document->setUser($user);
         $file = $document->getDocumentUrl();
         $fileName = md5(uniqid()).'.'.$file->guessExtension();
         $file->move($this->getParameter('upload_directory'), $fileName);
@@ -45,7 +53,8 @@ class DocumentController extends AbstractController
         } 
         return $this->render('backend/document/index.html.twig', [
         'form' => $form->createView(),   
-        'documents' => $documents      
+        'documents' => $documents,  
+        'classrooms' => $classrooms
         ]);
     }
 
@@ -59,6 +68,40 @@ class DocumentController extends AbstractController
 
         return $this->render('backend/document/show.html.twig', [
         'doc' => $doc        
+        ]);
+    }   
+
+    /**
+     * @Route("/profil/admin/document/classroom/{id}", name="document_classroom_show", requirements={"id"="\d+"})
+     */
+    public function showClassroom(Request $request, $id)
+    {
+        $repository = $this->getDoctrine()->getRepository(Classroom::class);
+        $classroom = $repository->find($id);
+
+        $repositorystudent = $this->getDoctrine()->getRepository(Student::class);
+        $students = $repositorystudent->findAll();        
+
+        return $this->render('backend/document/show_classroom.html.twig', [
+        'classroom' => $classroom,
+        'students' => $students        
+        ]);
+    }   
+
+        /**
+     * @Route("/profil/admin/document/classroom/{id}/eleve/{studentid}/documents", name="document_bystudent_show", requirements={"id"="\d+"})
+     */
+    public function showDocsByStudent(Request $request, $id, $studentid)
+    {
+        $repository = $this->getDoctrine()->getRepository(Document::class);
+        $documents = $repository->find($id);       
+
+        $repositorystudent = $this->getDoctrine()->getRepository(Student::class);
+        $student = $repositorystudent->find($studentid);       
+
+        return $this->render('backend/document/show_docsbystudent.html.twig', [
+            'student' => $student, 
+            'documents' => $documents        
         ]);
     }   
 

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<h1>Listing des documents de {{ student.name }} {{ student.firstname }}</h1>         
+
+{% for document in student.documents %}
+
+<a href="/docs/{{ document.documenturl }}">
+         <a href="{{ path('document_show', { 'id': document.id }) }}"><br>                                     
+                    {{ document.name }} 
+                     </a>
+{% endfor %} 
+                                  
+{% endblock %}

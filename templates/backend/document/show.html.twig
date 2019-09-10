@@ -1,7 +1,10 @@
-<p>Nom du document: {{ doc.name }}</p>
-Consulter le document ci-dessous: <a href="/docs/{{ doc.documenturl }}">
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+Consulter le document: <a href="/docs/{{ doc.documenturl }}">
 <i class="fas fa-file-pdf"></i>
-<p>{{ doc.name }}</p>
+<p>Nom du document: {{ doc.name }}</p>
 </a>     
 
 <form method="post" action="{{ path('document_delete', {'id': doc.id}) }}" onsubmit="return confirm('Êtes vous sûr de vouloir supprimer ce document?');">
@@ -9,3 +12,5 @@ Consulter le document ci-dessous: <a href="/docs/{{ doc.documenturl }}">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ doc.id) }}">
     <button class="btn">Supprimer</button>
 </form>
+
+{% endblock %}
