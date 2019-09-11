@@ -37,8 +37,14 @@ var app = {
 
     handleClickDeleteMessage: function(evt) {
         console.log('delete')
-
         
+        // je selectionne mes messages
+        var $message = $('.message_list p');
+
+        // j'y ajoute une class qui cache mes messages quand je clic sur mon button delete
+        $message.addClass('display_none')
+
+
     }
 }; 
   

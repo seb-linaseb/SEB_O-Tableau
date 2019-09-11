@@ -804,11 +804,12 @@ label.required {
 }
 
 .message_head i {
+    padding-left: 4%;
+    padding-right: 4%;
 }
 
 
 .message_list {
-    margin: 1%;
     width: 100%;
     height: 1270px;
     overflow: scroll;
@@ -823,6 +824,7 @@ label.required {
     max-height: max-content;
     border-radius: 30px;
     overflow-wrap: break-word;
+    margin: 1%;
 }
 
 
@@ -953,11 +955,15 @@ label.required {
 
 
 
-
+/* CLASS JQUERY */
 
 .red {
     color: red;
 }
 .black {
     color: black;
+}
+
+.display_none {
+    display: none;
 }
