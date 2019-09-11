@@ -21,10 +21,24 @@ class DocumentRepository extends ServiceEntityRepository
 
     public function findAllDocWithStudentIdNull()
     {
-        $query = $this->createQueryBuilder('m')
-        ->where('m.student is NULL');       
+        $query = $this->createQueryBuilder('m')       
+        ->where('m.student is NULL');    
 
         return $query->getQuery()->getResult();
+    }
+
+    public function findNoteByStudent($id)
+    {
+        $query = $this->createQueryBuilder('u');
+        $query->where(
+            $query->expr()->like('u.name', ':documentname')
+        );
+        $query->andWhere('u.student = :id')        
+        ->setParameters(array(
+            'documentname' => '%bulletin%',
+            'id' => $id));
+
+        return $query->getQuery()->getResult(); 
     }
 
     // /**

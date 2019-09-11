@@ -7,9 +7,12 @@
 {% for document in student.documents %}
 
 <a href="/docs/{{ document.documenturl }}">
-         <a href="{{ path('document_show', { 'id': document.id }) }}"><br>                                     
+         <a href="{{ path('documentStudent_show', { 'id': document.id }) }}"><br>                                     
                     {{ document.name }} 
                      </a>
 {% endfor %} 
+
+<hr>
+ <a href="{{ path('document_adminAddchildrenDoc', { 'id': classroom.id, 'studentid': student.id  }) }}">Ajouter un document à cet élève</a>
                                   
 {% endblock %}

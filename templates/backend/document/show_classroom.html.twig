@@ -6,7 +6,7 @@
 
 {% for student in classroom.students %}
 
-<a href="{{ path('document_bystudent_show', { 'id': classroom.id, 'studentid': student.id }) }}"><br>                                     
+<a href="{{ path('documentByStudent_show', { 'id': classroom.id, 'studentid': student.id }) }}"><br>                                     
                    {{ student.name }} {{ student.firstname }} 
                      </a>
 

@@ -5,7 +5,7 @@
     {{ form(form) }}<br><hr>
             <h2>Listing des documents de la vie scolaire</h2>
                 {% for doc in documents %}                  
-                    <a href="{{ path('document_show', { 'id': doc.id }) }}"><br>                                     
+                    <a href="{{ path('documentSchool_show', { 'id': doc.id }) }}"><br>                                     
                     {{ doc.name }} 
                      </a>
                 {% endfor %}
@@ -14,7 +14,7 @@
             <h2>Listing des documents par Classe puis filtré par étudiant</h2>
 
                 {% for classroom in classrooms %}                    
-                     <a href="{{ path('document_classroom_show', { 'id': classroom.id }) }}"><br>                                     
+                     <a href="{{ path('documentClassroom_show', { 'id': classroom.id }) }}"><br>                                     
                     {{ classroom.name }} <br>          
                 {% endfor %}                   
                                   

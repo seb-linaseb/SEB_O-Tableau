@@ -15,25 +15,24 @@ class DocumentController extends AbstractController
     /**    
      * @Route("/profil/eleve/{id}/documents", name="document_childrenDoc", requirements={"id"="\d+"})
      */
-    public function childrenDoc(Request $request, $id)
-    {
-           
+    public function show(Request $request, $id)
+    {           
         $repository = $this->getDoctrine()->getRepository(Document::class);
         $documents = $repository->find($id);       
-
+        
         $repositorystudent = $this->getDoctrine()->getRepository(Student::class);
-        $student = $repositorystudent->find($id);
+        $student = $repositorystudent->find($id);        
       
         return $this->render('document/childrenDoc.html.twig', [            
             'student' => $student, 
-            'documents' => $documents        
+            'documents' => $documents,                 
         ]);
     }
 
      /**    
      * @Route("/profil/eleve/{id}/documents/add", name="document_addchildrenDoc", requirements={"id"="\d+"})
      */
-    public function index(Request $request, $id)
+    public function addDocByParent(Request $request, $id)
     {
         $document = new Document();         
         $repositorystudent = $this->getDoctrine()->getRepository(Student::class);
