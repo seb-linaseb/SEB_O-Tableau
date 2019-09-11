@@ -12,7 +12,8 @@
         {% elseif conversation.userConsult == app.user %}
             <h1>{{conversation.userParticipate}}</h1>
         {% endif %}
-        <a href="{{ path('conversation_delete', {'id': conversation.id})}} "><i class="fas fa-trash"></i></a>
+        <i class="fas fa-trash" id="button_delete"></i>
+        {# {{ path('conversation_delete', {'id': conversation.id})}}  #}
     </div>
     <div class="message_list">
     {% for message in conversation.messages %}
