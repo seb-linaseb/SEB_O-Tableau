@@ -59,20 +59,33 @@ class DocumentController extends AbstractController
     }
 
     /**
-     * @Route("/profil/admin/document/{id}", name="document_show", requirements={"id"="\d+"})
+     * @Route("/profil/admin/documenteleve/{id}", name="documentStudent_show", requirements={"id"="\d+"})
      */
-    public function show(Request $request, $id)
+    public function showDocStudent(Request $request, $id)
     {
         $repository = $this->getDoctrine()->getRepository(Document::class);
         $doc = $repository->find($id);
 
-        return $this->render('backend/document/show.html.twig', [
+        return $this->render('backend/document/show_doc_student.html.twig', [
         'doc' => $doc        
         ]);
     }   
 
     /**
-     * @Route("/profil/admin/document/classroom/{id}", name="document_classroom_show", requirements={"id"="\d+"})
+     * @Route("/profil/admin/documentscolaire/{id}", name="documentSchool_show", requirements={"id"="\d+"})
+     */
+    public function showDocSchool(Request $request, $id)
+    {
+        $repository = $this->getDoctrine()->getRepository(Document::class);
+        $doc = $repository->find($id);
+
+        return $this->render('backend/document/show_doc_school.html.twig', [
+        'doc' => $doc        
+        ]);
+    }   
+
+    /**
+     * @Route("/profil/admin/document/classroom/{id}", name="documentClassroom_show", requirements={"id"="\d+"})
      */
     public function showClassroom(Request $request, $id)
     {
@@ -89,41 +102,106 @@ class DocumentController extends AbstractController
     }   
 
         /**
-     * @Route("/profil/admin/document/classroom/{id}/eleve/{studentid}/documents", name="document_bystudent_show", requirements={"id"="\d+"})
+     * @Route("/profil/admin/document/classroom/{id}/eleve/{studentid}/documents", name="documentByStudent_show", requirements={"id"="\d+"})
      */
     public function showDocsByStudent(Request $request, $id, $studentid)
-    {
-        $repository = $this->getDoctrine()->getRepository(Document::class);
-        $documents = $repository->find($id);       
+    {              
+        $repositoryclass = $this->getDoctrine()->getRepository(Classroom::class);
+        $classroom = $repositoryclass->find($id); 
 
         $repositorystudent = $this->getDoctrine()->getRepository(Student::class);
-        $student = $repositorystudent->find($studentid);       
-
+        $student = $repositorystudent->find($studentid);
+       
         return $this->render('backend/document/show_docsbystudent.html.twig', [
             'student' => $student, 
-            'documents' => $documents        
+            'classroom' => $classroom        
         ]);
-    }   
+    }
+    
+    /**    
+     * @Route("/profil/admin/document/classroom/{id}/eleve/{studentid}/documents/add", name="document_adminAddchildrenDoc", requirements={"id"="\d+"})
+     */
+    public function addDocStudent(Request $request, $id, $studentid)
+    {
+        $document = new Document();      
+        
+        $repositoryclass = $this->getDoctrine()->getRepository(Classroom::class);
+        $classroom = $repositoryclass->find($id); 
+
+        $repositorystudent = $this->getDoctrine()->getRepository(Student::class);
+        $student = $repositorystudent->find($studentid);        
+       
+        $form = $this->createForm(DocumentType::class, $document);
+        $form->handleRequest($request);    
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+        
+        $user = $this->getUser();     
+        $document->setUser($user);
+        $document->setStudent($student);      
+        $file = $document->getDocumentUrl();        
+        $fileName = md5(uniqid()).'.'.$file->guessExtension();
+        $file->move($this->getParameter('upload_directory'), $fileName);
+        $document->setDocumentUrl($fileName);
+        $entityManager = $this->getDoctrine()->getManager();            
+        $entityManager->persist($document);      
+        $entityManager->flush();     
+
+        return $this->redirectToRoute('documentByStudent_show', ['studentid'=> $student->getId(), 'id'=> $classroom->getId()]);
+        } 
+        return $this->render('document/form_add_childrenDoc.html.twig', [
+        'form' => $form->createView(),
+        ]);
+    }
 
     /**
-     * @Route("/profil/admin/document/{id}/delete", name="document_delete", requirements={"id"="\d+"})
+     * @Route("/profil/admin/documenteleve/{id}/delete", name="document_delete", requirements={"id"="\d+"})
      */
-    public function delete(Document $document, Request $request, $id, ObjectManager $manager)
+    public function deleteDocStudent(Document $document, Request $request, $id, ObjectManager $manager)
     {
         $repository = $this->getDoctrine()->getRepository(Document::class);
-        $doc = $repository->find($id);
+        $doc = $repository->find($id);              
 
-        $filesystem = new Filesystem();
+        $repositorystudent = $this->getDoctrine()->getRepository(Student::class);
+        $student = $repositorystudent->find($id);  
+        $studentid = $document->getStudent($student); 
+        $classroomid = $studentid->getClassroom();    
+    
+        $filesystem = new Filesystem();       
         $file = $document->getDocumentUrl();
         $path = $this->kernelRoot.'/public/docs/'.$file;
         $filesystem->remove($path);
         $manager->remove($document);
-        $manager->flush();      
-
-        return $this->redirectToRoute('document_index');
+        $manager->flush();
+        
+        return $this->redirectToRoute('documentByStudent_show', ['studentid'=> $studentid->getId(), 'id'=> $classroomid->getId()]);
 
         return $this->render('backend/document/show.html.twig', [
         'doc' => $doc        
         ]);
     }   
+
+    /**
+     * @Route("/profil/admin/documentscolaire/{id}/delete", name="documentschool_delete", requirements={"id"="\d+"})
+     */
+    public function deleteDocSchool(Document $document, Request $request, $id, ObjectManager $manager)
+    {
+        $repository = $this->getDoctrine()->getRepository(Document::class);
+        $doc = $repository->find($id); 
+
+        $filesystem = new Filesystem();       
+        $file = $document->getDocumentUrl();
+        $path = $this->kernelRoot.'/public/docs/'.$file;
+        $filesystem->remove($path);
+        $manager->remove($document);
+        $manager->flush();               
+        
+        return $this->redirectToRoute('document_index');
+
+        return $this->render('backend/document/show_doc_school.html.twig', [
+        'doc' => $doc        
+        ]);
+    }   
+
+    
 }
