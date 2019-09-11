@@ -7,6 +7,8 @@ use App\Entity\Message;
 use App\Form\MessageType;
 use App\Entity\Conversation;
 use App\Form\ConversationType;
+use App\Repository\UserRepository;
+use App\Repository\ClassroomRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\ConversationRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,10 +38,66 @@ class ConversationController extends AbstractController
     /**
      * @Route("/new", name="new", methods={"GET","POST"})
      */
-    public function new(Request $request, ConversationRepository $conversationRepository)
+    public function new(Request $request, ConversationRepository $conversationRepository, UserRepository $userRepository, ClassroomRepository $classroomRepository)
     {
+        $receiverList = [];
+
+        //affichage des directeurs => pour tous
+        $directors = $userRepository->findAllDirector(3);
+        foreach ($directors as $director){
+            $receiverList[] = $director;
+        }
+        //affichage des enseignants de mes enfants => pour les parents
+        $enfants = $this->getUser()->getStudents();
+        foreach ($enfants as $enfant){
+            $enseignantId = $enfant->getClassroom()->getUser();
+            //dump($enseignantId);
+            $receiverList[]= $enseignantId;
+            
+        }
+        // affichage de la liste des parents de ma classe => pour les enseignants
+        if ($this->getUser()->getRole()->getId() == 4){
+            //$maclasse = $this->getUser()->getClassroom();
+            $classes = $classroomRepository->findAll();
+            foreach ($classes as $class){
+                if ($this->getUser() == $class->getUser()){
+                    $toto = $class->getStudents();
+                    foreach($toto as $etudiant){
+                        $parents = $etudiant->getUser();
+                        foreach($parents as $parent){
+                            $parent->getName();
+                            $receiverList[] = $parent;
+                        }
+                    }   
+                }
+            }
+        } 
+        //affichage de la liste de tous le monde => pour les directeurs
+        if ($this->getUser()->getRole()->getId() == 3){
+            $everybody = $userRepository->findAll();
+            foreach ($everybody as $person){
+                $receiverList [] = $person;
+            }
+        }
+        //affichage de la liste des parents de la classe dont je suis l'élu
+        //TODO
+        //Ne pas m'afficher moi-même
+        foreach ($receiverList as $key=>$user) {
+            //je veux me chercher dans le tableau si j'y suis
+            if ($user == $this->getUser()){
+                //je me trouve dans le tableau
+                $key = array_search($user, $receiverList);
+                //je me retire du tableau
+                unset($receiverList[$key]);
+            }
+        }
+
+
+
         $message = new Message();
-        $form = $this->createForm(MessageType::class, $message);
+
+        $form = $this->createForm(MessageType::class, $message, array('receiverList'=> $receiverList));
+    
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -54,6 +112,7 @@ class ConversationController extends AbstractController
                $conversation = $conversationRepository->findThisConversation($user->getId(), $eachUser->getId()); 
 
              if (!empty($conversation)){
+                 
                  $conversation[0]->addMessage($message);
 
              } else { 
@@ -130,21 +189,21 @@ class ConversationController extends AbstractController
 
 
     
-    /**
-    * @Route("{id}/delete", name="delete", methods={"POST","GET"}, requirements={"id"="\d+"})
-    */
-    public function delete($id, Conversation $conv, EntityManagerInterface $em)
-    {
-        $em->remove($conv);
-        $em->flush();
+    // /**
+    // * @Route("{id}/delete", name="delete", methods={"POST","GET"}, requirements={"id"="\d+"})
+    // */
+    // public function delete($id, Conversation $conv, EntityManagerInterface $em)
+    // {
+    //     $em->remove($conv);
+    //     $em->flush();
 
-        $this->addFlash(
-            'danger',
-            'Suppression effectuée'
-        );
+    //     $this->addFlash(
+    //         'danger',
+    //         'Suppression effectuée'
+    //     );
         
-        return $this->redirectToRoute('conversation_index');
-    }
+    //     return $this->redirectToRoute('conversation_index');
+    // }
 
 
     

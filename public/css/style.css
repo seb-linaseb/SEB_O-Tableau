@@ -716,21 +716,31 @@ a {
 
 /* PAGE NEW MESSAGE */
 
+label.required {
+    display: none;
+}
+
 .content_new-msg {
     
 }
 
-
-
-
-.content_new-msg form button {
-    font-size: 2em;
-    border: none;
-    padding: 3% 8%;
-    border-radius: 3px;
-    margin-top: 7%;
-    margin-left: 37%;
+.content_new-msg h1 {
+    text-align: center;
+    font-size: 3em;
+    /* padding-top: 2%; */
 }
+
+.content_new-msg a {
+    
+}
+
+.content_new-msg a i {
+    font-size: 6em;
+    padding-top: 3%;
+    padding-left: 4%;
+}
+
+
 
 .content_new-msg form #message div #message_content {
     height: 300px;
@@ -765,18 +775,14 @@ a {
     padding: 5%;
 }
 
-/* .content_new-msg form #message div #message_users label:target {
-    color: red;
-} */
-
-
-
-
-
-label.required {
-    display: none;
+.content_new-msg form button {
+    font-size: 2em;
+    border: none;
+    padding: 3% 8%;
+    border-radius: 3px;
+    margin-top: 7%;
+    margin-left: 37%;
 }
-
 
 
 
@@ -813,12 +819,11 @@ label.required {
     font-size: 2em;
     padding: 5%;
     background-color: lightblue;
-    width: 50%;
+    max-width: max-content;
     max-height: max-content;
     border-radius: 30px;
     overflow-wrap: break-word;
 }
-
 
 
 .message_input {
