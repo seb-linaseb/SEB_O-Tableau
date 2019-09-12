@@ -415,10 +415,6 @@ input, button {
     line-height: 190%;
 }
 
-
-
-
-
 .profil_doc_staff {
     padding-top: 15%;
     padding-bottom: 50%;
@@ -433,7 +429,6 @@ input, button {
     border: 2px solid;
     border-radius: 10px;
     margin-top: 3%;
-    
 }
 .profil_doc_staff div a {
     color: #2C3840;
@@ -453,7 +448,6 @@ input, button {
     margin: 1%;
     padding-bottom: 40%;
     margin-top: 15%;
-    
 }
 .profil_choice h1 {
     font-size: 4em;
@@ -713,6 +707,55 @@ input, button {
 .doc_children .doc_children_border div a p {
     margin-left: 2%;
     line-height: 200%;
+}
+
+/* PAGE DOC CHILDREN ADD */
+
+.doc_children h1 {
+    text-align: center;
+    font-size: 3.5em;
+    padding-top: 10%;
+}
+
+.doc_children form {
+    text-align: center;
+    padding-top: 10%;
+}
+
+.doc_children form #document div #document_name {
+    padding-left: 2%;
+    font-size: 2em;
+    height: 70px;
+    width: 70%;
+    border: none;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.doc_children form #document div #document_name {
+    padding-left: 2%;
+    font-size: 2em;
+    height: 70px;
+    width: 70%;
+    border: none;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.doc_children form #document div #document_document_url {
+    font-size: 2em;
+    padding-top: 10%;
+    width: 70%;
+}
+
+.doc_children form #document div #document_Ajouter {
+    font-size: 2em;
+    margin-top: 10%;
+    padding: 3% 5%;
+    border: none;
+    border-radius: 5px;
+    background-color: beige;
+    
 }
 
 

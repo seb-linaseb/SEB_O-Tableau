@@ -12,6 +12,10 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+
+/**
+ * @Route("/profil/admin")
+ */
 class DocumentController extends AbstractController
 {
 
@@ -23,7 +27,7 @@ class DocumentController extends AbstractController
     }
 
       /**
-     * @Route("/profil/admin/document", name="document_index")
+     * @Route("/document", name="document_index")
      */
     public function index(Request $request)
     {
@@ -59,7 +63,7 @@ class DocumentController extends AbstractController
     }
 
     /**
-     * @Route("/profil/admin/documenteleve/{id}", name="documentStudent_show", requirements={"id"="\d+"})
+     * @Route("/documenteleve/{id}", name="documentStudent_show", requirements={"id"="\d+"})
      */
     public function showDocStudent(Request $request, $id)
     {
@@ -72,7 +76,7 @@ class DocumentController extends AbstractController
     }   
 
     /**
-     * @Route("/profil/admin/documentscolaire/{id}", name="documentSchool_show", requirements={"id"="\d+"})
+     * @Route("/documentscolaire/{id}", name="documentSchool_show", requirements={"id"="\d+"})
      */
     public function showDocSchool(Request $request, $id)
     {
@@ -85,7 +89,7 @@ class DocumentController extends AbstractController
     }   
 
     /**
-     * @Route("/profil/admin/document/classroom/{id}", name="documentClassroom_show", requirements={"id"="\d+"})
+     * @Route("/document/classroom/{id}", name="documentClassroom_show", requirements={"id"="\d+"})
      */
     public function showClassroom(Request $request, $id)
     {
@@ -101,8 +105,8 @@ class DocumentController extends AbstractController
         ]);
     }   
 
-        /**
-     * @Route("/profil/admin/document/classroom/{id}/eleve/{studentid}/documents", name="documentByStudent_show", requirements={"id"="\d+"})
+    /**
+     * @Route("/document/classroom/{id}/eleve/{studentid}/documents", name="documentByStudent_show", requirements={"id"="\d+"})
      */
     public function showDocsByStudent(Request $request, $id, $studentid)
     {              
@@ -119,7 +123,7 @@ class DocumentController extends AbstractController
     }
     
     /**    
-     * @Route("/profil/admin/document/classroom/{id}/eleve/{studentid}/documents/add", name="document_adminAddchildrenDoc", requirements={"id"="\d+"})
+     * @Route("/document/classroom/{id}/eleve/{studentid}/documents/add", name="document_adminAddchildrenDoc", requirements={"id"="\d+"})
      */
     public function addDocStudent(Request $request, $id, $studentid)
     {
@@ -155,7 +159,7 @@ class DocumentController extends AbstractController
     }
 
     /**
-     * @Route("/profil/admin/documenteleve/{id}/delete", name="document_delete", requirements={"id"="\d+"})
+     * @Route("/documenteleve/{id}/delete", name="document_delete", requirements={"id"="\d+"})
      */
     public function deleteDocStudent(Document $document, Request $request, $id, ObjectManager $manager)
     {
@@ -182,7 +186,7 @@ class DocumentController extends AbstractController
     }   
 
     /**
-     * @Route("/profil/admin/documentscolaire/{id}/delete", name="documentschool_delete", requirements={"id"="\d+"})
+     * @Route("/documentscolaire/{id}/delete", name="documentschool_delete", requirements={"id"="\d+"})
      */
     public function deleteDocSchool(Document $document, Request $request, $id, ObjectManager $manager)
     {

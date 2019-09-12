@@ -26,7 +26,7 @@
                 </div>
                 <div>
                 {% for document in student.documents %}
-                    <a href="/docs/{{ document.documenturl }}">
+                    <a href="/docs/{{ document.documenturl }}" target="_blank">
                         <i class="fas fa-file-pdf"></i>
                         <p>{{ document.name }}</p>
                     </a>

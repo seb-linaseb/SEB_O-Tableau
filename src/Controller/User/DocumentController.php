@@ -10,10 +10,14 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+
+/**
+ * @Route("//profil/eleve", name="document_")
+ */
 class DocumentController extends AbstractController
 {
     /**    
-     * @Route("/profil/eleve/{id}/documents", name="document_childrenDoc", requirements={"id"="\d+"})
+     * @Route("/{id}/documents", name="childrenDoc", requirements={"id"="\d+"})
      */
     public function show(Request $request, $id)
     {           
@@ -30,7 +34,7 @@ class DocumentController extends AbstractController
     }
 
      /**    
-     * @Route("/profil/eleve/{id}/documents/add", name="document_addchildrenDoc", requirements={"id"="\d+"})
+     * @Route("/{id}/documents/add", name="addchildrenDoc", requirements={"id"="\d+"})
      */
     public function addDocByParent(Request $request, $id)
     {
@@ -58,6 +62,7 @@ class DocumentController extends AbstractController
         } 
         return $this->render('document/form_add_childrenDoc.html.twig', [
         'form' => $form->createView(),
+        'student' => $student, 
         ]);
     }
 }
