@@ -27,18 +27,20 @@ class DocumentRepository extends ServiceEntityRepository
         return $query->getQuery()->getResult();
     }
 
-    public function findNoteByStudent($id)
+    public function findSchoolReportByStudent($id)
     {
-        $query = $this->createQueryBuilder('u');
+        $query = $this->createQueryBuilder('u')
+        ->orderBy('u.created_at', 'DESC');
         $query->where(
             $query->expr()->like('u.name', ':documentname')
         );
         $query->andWhere('u.student = :id')        
         ->setParameters(array(
             'documentname' => '%bulletin%',
-            'id' => $id));
+            'id' => $id))
+        ->setMaxResults(3);      
 
-        return $query->getQuery()->getResult(); 
+        return $query->getQuery()->getResult();
     }
 
     // /**

@@ -7,6 +7,7 @@ use App\Entity\Document;
 use App\Entity\Classroom;
 use App\Form\DocumentType;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
@@ -203,5 +204,114 @@ class DocumentController extends AbstractController
         ]);
     }   
 
-    
+
+
+    /**
+     * @Route("/profil/admin/documenteleve/{id}/edit", name="document_edit", requirements={"id"="\d+"})
+     */
+    public function editDocStudent(Request $request, $id)
+    {
+        $document = new Document();      
+        
+        $repository = $this->getDoctrine()->getRepository(Document::class);
+        $doc = $repository->find($id);    
+                             
+        $oldDoc = $doc->getDocumentUrl();               
+
+        if(!empty($oldDoc)) {            
+            $doc->getDocumentUrl(
+                new File($this->getParameter('upload_directory').'/'.$oldDoc)
+            );            
+        }
+        $form = $this->createForm(DocumentType::class, $document);
+        $form->handleRequest($request); 
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            if(!is_null($doc->getDocumentUrl())){
+                $file = $form->get('document_url')->getData();
+                $name = $form->get('name')->getData();              
+                
+                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                
+                    $file->move(
+                        $this->getParameter('upload_directory'),
+                        $fileName
+                    );               
+                
+                $doc->setDocumentUrl($fileName);
+                $doc->setName($name);  
+                
+                if(!empty($oldDoc)){
+                    unlink(
+                        $this->getParameter('upload_directory') .'/'.$oldDoc
+                    );
+                }
+            } else {               
+                $doc->setDocumentUrl($oldDoc);                             
+            }
+
+            $this->getDoctrine()->getManager()->flush();
+                   
+            return $this->redirectToRoute('documentStudent_show', ['id'=> $doc->getId()]);
+            }               
+        return $this->render('backend/document/edit.html.twig', [
+            'form' => $form->createView(),
+            ]);
+    }  
+
+    /**
+     * @Route("/profil/admin/documentscolaire/{id}/edit", name="documentschool_edit", requirements={"id"="\d+"})
+     */
+    public function editDocSchool(Request $request, $id)
+    {
+        $document = new Document();       
+        
+        $repository = $this->getDoctrine()->getRepository(Document::class);
+        $doc = $repository->find($id);    
+                             
+        $oldDoc = $doc->getDocumentUrl();
+
+        if(!empty($oldDoc)) {
+            $doc->getDocumentUrl(
+                new File($this->getParameter('upload_directory').'/'.$oldDoc)
+            );
+        }
+
+        $form = $this->createForm(DocumentType::class, $document);
+        $form->handleRequest($request); 
+        
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            if(!is_null($doc->getDocumentUrl())){
+                $file = $form->get('document_url')->getData();
+                $name = $form->get('name')->getData();
+                
+                $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                
+                    $file->move(
+                        $this->getParameter('upload_directory'),
+                        $fileName
+                    );           
+                
+                $doc->setDocumentUrl($fileName);
+                $doc->setName($name);
+
+                if(!empty($oldDoc)){
+                    unlink(
+                        $this->getParameter('upload_directory') .'/'.$oldDoc
+                    );
+                }
+            } else {                
+                $doc->setDocumentUrl($oldDoc);
+            }
+
+            $this->getDoctrine()->getManager()->flush();
+          
+            return $this->redirectToRoute('documentSchool_show', ['id'=> $doc->getId()]);
+            }               
+        return $this->render('backend/document/edit.html.twig', [
+            'form' => $form->createView(),
+            ]);
+    }    
 }

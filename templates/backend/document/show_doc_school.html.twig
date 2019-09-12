@@ -13,4 +13,12 @@ Consulter le document: <a href="/docs/{{ doc.documenturl }}">
     <button class="btn">Supprimer</button>
 </form>
 
+<hr>
+
+<form method="post" action="{{ path('documentschool_edit', {'id': doc.id}) }}">
+    <input type="hidden" name="_method" value="UPDATE">
+    <input type="hidden" name="_token" value="{{ csrf_token('update' ~ doc.id) }}">
+    <button class="btn">Modifier</button>
+</form>
+
 {% endblock %}
