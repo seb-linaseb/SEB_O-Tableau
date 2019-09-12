@@ -14,12 +14,20 @@
         {% endif %}
         <i class="fas fa-trash" id="button_delete"></i>
         {# {{ path('conversation_delete', {'id': conversation.id})}}  #}
-    </div>
-    <div class="message_list">
-    {% for message in conversation.messages %}
-        <p>{{ message.content }}</p>
-    {% endfor %}
-    </div> 
+    </div>    
+        <div id="message_list">
+        {% for message in conversation.messages %}
+            {% if app.user == message.userPost %}
+            <div class="message">
+                <p>{{ message.content }}</p>
+            </div>
+            {% else %}
+            <div class="message_2">
+                <p>{{ message.content }}</p>
+            </div>
+            {% endif %}
+        {% endfor %}
+        </div>
     <div class="message_input">
         {% include 'conversation/_formMessage.html.twig' %} 
     </div>
@@ -30,3 +38,5 @@
 {% block footer %}
 
 {% endblock %}
+
+
