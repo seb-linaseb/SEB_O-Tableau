@@ -16,7 +16,12 @@ class DocumentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class, array('label' => 'Nom de votre document'))
+            ->add('name', TextType::class, array(
+                'label' => 'Nom de votre document',
+                'attr' => array(
+                    'placeholder' => 'Nom de votre document'
+                
+                )))
             ->add('document_url', FileType::class, [
                 'label' => 'Veuillez selectionner votre document sous le format PDF',
                 'data_class' => null,
@@ -27,7 +32,7 @@ class DocumentType extends AbstractType
                     ])
                 ],
             ])      
-            ->add('submit', SubmitType::class)
+            ->add('Ajouter', SubmitType::class)
         ;
     }
 

@@ -2,6 +2,10 @@
 
 {% block content %}
 
-{{ form(form) }}
-
+<div class="doc_children">
+    <a href="{{ path('document_childrenDoc', { 'id': student.id }) }}"><i class="fas fa-angle-left"></i></a>
+    <h1>Ajouter un document</h1>
+    {{ form(form) }}
+</div>
 {% endblock %}
+
