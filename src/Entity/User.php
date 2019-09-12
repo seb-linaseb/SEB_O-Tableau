@@ -126,6 +126,11 @@ class User implements UserInterface, \Serializable
      */
     private $messages;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $imageAgreement;
+
     public function __construct()
     {
         $this->actualities = new ArrayCollection();
@@ -542,6 +547,18 @@ class User implements UserInterface, \Serializable
             $this->messages->removeElement($message);
             $message->removeUser($this);
         }
+
+        return $this;
+    }
+
+    public function getImageAgreement(): ?bool
+    {
+        return $this->imageAgreement;
+    }
+
+    public function setImageAgreement(bool $imageAgreement): self
+    {
+        $this->imageAgreement = $imageAgreement;
 
         return $this;
     }

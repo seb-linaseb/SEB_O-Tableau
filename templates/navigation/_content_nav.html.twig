@@ -1,3 +1,19 @@
+{% if app.user.role.name == 'Direction' or app.user.role.name == 'Enseignant'   %}
+
+<div class="content_nav_staff">
+    <nav>
+        <ul>
+            <a href="{{ path('user_index') }}"><li><i class="fas fa-user-circle"></i> Profil</li></a>
+            <a href="{{ path('conversation_index') }}"><li><i class="fas fa-envelope"></i> Message</li></a>
+            <a href=""><li><i class="fas fa-hamburger"></i> Cantine</li></a>
+            <a href=""><li><i class="fas fa-newspaper"></i>Actualités</li></a>
+            <a href="{{ path('app_logout') }}"><li><i class="fas fa-sign-out-alt"></i>Deconnexion</li></a>
+        </ul>
+    </nav>
+</div> 
+
+{% else %}
+
 <div class="content_nav">
     <nav>
         <ul>
@@ -9,17 +25,4 @@
     </nav>
 </div>
 
-
-{# NAV POUR STAFF #}
-
-{# <div class="content_nav_staff">
-    <nav>
-        <ul>
-            <a href="{{ path('user_index') }}"><li><i class="fas fa-user-circle"></i> Profil</li></a>
-            <a href="{{ path('conversation_index') }}"><li><i class="fas fa-envelope"></i> Message</li></a>
-            <a href=""><li><i class="fas fa-utensils"></i> Cantine</li></a>
-            <a href=""><li><i class="fas fa-newspaper"></i>Actualités</li></a>
-            <a href="{{ path('app_logout') }}"><li><i class="fas fa-sign-out-alt"></i>Deconnexion</li></a>
-        </ul>
-    </nav>
-</div> #}
+{% endif %}
