@@ -341,8 +341,10 @@ input, button {
 .nav_profil .nav_profil_flex div span {
     font-size: 2.5em;
 }
+
 .nav_profil div  {
     margin-top: 9%;
+    text-align: center;
 }
 .nav_profil div a {
     font-size: 2.5em;
@@ -350,6 +352,10 @@ input, button {
     background-color: black;
     padding: 15px 20px;
     border-radius: 40px;
+}
+.button_compte_director {
+    position: relative;
+    top: -25%;
 }
 
 .profil_children {
@@ -375,9 +381,12 @@ input, button {
 .profil_children a p {
     font-size: 2em;
     text-align: center;
+    font-weight: bold;
 }
+
 .profil_doc {
-    margin-top: 15%;
+    padding-top: 15%;
+   
 }
 .profil_doc h1 {
     font-size: 4em;
@@ -402,6 +411,41 @@ input, button {
     margin-right: 2%;
 }
 .profil_doc div a p {
+    font-size: 3em;
+    line-height: 190%;
+}
+
+
+
+
+
+.profil_doc_staff {
+    padding-top: 15%;
+    padding-bottom: 50%;
+}
+.profil_doc_staff h1 {
+    font-size: 4em;
+    text-align: center;
+}
+.profil_doc_staff div {
+    width: 60%;
+    margin: auto;
+    border: 2px solid;
+    border-radius: 10px;
+    margin-top: 3%;
+    
+}
+.profil_doc_staff div a {
+    color: #2C3840;
+    display: flex;
+    margin: 8% 0;
+    margin-left: 5%;
+}
+.profil_doc_staff div a i{
+    font-size: 5.5em;
+    margin-right: 2%;
+}
+.profil_doc_staff div a p {
     font-size: 3em;
     line-height: 190%;
 }
@@ -448,6 +492,7 @@ input, button {
     padding-top: 10%;
     width: 85%;
     margin-left: 11.5%;
+    padding-bottom: 5%;
 }
 
 .profil_classe table {

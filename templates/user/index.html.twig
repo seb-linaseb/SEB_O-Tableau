@@ -14,85 +14,114 @@
                 </div>
             </div>
             <div>
+            {% if app.user.role.name == 'Direction' %}
+                <div class="button_compte_director">
+                    <a href="{{ path('user_myAccount') }}">Mon compte</a>
+                </div>
+                <div>
+                    <a href="{{ path('admin_default_index') }}">Gestion</a>
+                </div>
+            {% else %}
                 <a href="{{ path('user_myAccount') }}">Mon compte</a>
-                {# NAV PROFIL STAFF #}
-                {# <a href="{{ path('user_myAccount') }}">Mon compte</a>
-                <a href="{{ path('admin_default_index') }}">Gestion</a> #}
+            {% endif %}
             </div>
         </div>
         <div class="profil">
-            {% for children in app.user.students %}
-             <div class="profil_children">
-                <a href="{{ path('student_index', { 'id': children.id }) }}">
-                    <i class="fas fa-user-graduate"></i>
-                    <h2>{{ children.name }} {{ children.firstname }}</h2>
-                    <p>{{ children.classroom.name }}</p>
-                </a>
-            </div>
-            {% endfor %}
-            <div class="profil_doc">
-                <h1>Vie de l'école</h1>
-                <div>
-                    {% for doc in documents %}
-                        <a href="../docs/{{ doc.documenturl }}">
-                            <i class="fas fa-file-pdf"></i>
-                            <p>{{ doc.name }}</p>
-                        </a>     
-                    {% endfor %}              
-               </div>
-                    
-            </div>
-            <div class="profil_choice">
-                <h1>Choix personnels</h1>
-                <p>Droit à l'image => Autorisation de publication : <span>Oui</span></p>
-                <p>Communication de mes coordonnées : <span>Oui</span></p>
-            </div>
+            {% if app.user.role.name == 'Direction' or app.user.role.name == 'Enseignant'  %}
+            
+                <div class="button_staff">
+                    <div>
+                        <a href="">Ajouter une actu</a>
+                    </div>
+                    <div>
+                        <a href="">Ajouter un bulletin</a>
+                    </div>
+                </div>
+
+                {% for children in app.user.students %}
+                    <div class="profil_children">
+                        <a href="{{ path('student_index', { 'id': children.id }) }}">
+                            <i class="fas fa-user-graduate"></i>
+                            <h2>{{ children.name }} {{ children.firstname }}</h2>
+                            <p>{{ children.classroom.name }}</p>
+                        </a>
+                    </div>
+                {% endfor %}
+                <div class="profil_classe">
+                        <table>
+                        <caption>Ma classe</caption>
+                        <tr>
+                            <td>Eleves</td>
+                            <td>Personne pouvant récup</td>
+                        </tr>
+                        <tr>
+                            <td>Léo Roux</td>
+                            <td>Chantal Roux</td>
+                        </tr>
+                        <tr>
+                            <td>Marina Roux</td>
+                            <td>Chantal Roux</td>
+                        </tr>
+                        <tr>
+                            <td>Julie Damien</td>
+                            <td>George Damien</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="profil_doc_staff">
+                    <h1>Vie de l'école</h1>
+                    <div>
+                        {% for doc in documents %}
+                            <a href="../docs/{{ doc.documenturl }}">
+                                <i class="fas fa-file-pdf"></i>
+                                <p>{{ doc.name }}</p>
+                            </a>     
+                        {% endfor %}              
+                    </div>
+                </div>
+               
+            {% else %}
+
+                {% for children in app.user.students %}
+                <div class="profil_children">
+                    <a href="{{ path('student_index', { 'id': children.id }) }}">
+                        <i class="fas fa-user-graduate"></i>
+                        <h2>{{ children.name }} {{ children.firstname }}</h2>
+                        <p>{{ children.classroom.name }}</p>
+                    </a>
+                </div>
+                {% endfor %}
+                <div class="profil_doc">
+                    <h1>Vie de l'école</h1>
+                    <div>
+                        {% for doc in documents %}
+                            <a href="../docs/{{ doc.documenturl }}">
+                                <i class="fas fa-file-pdf"></i>
+                                <p>{{ doc.name }}</p>
+                            </a>     
+                        {% endfor %}              
+                </div>
+                        
+                </div>
+                <div class="profil_choice">
+                    <h1>Choix personnels</h1>
+                    {% if app.user.imageAgreement == true  %}
+                        <p>Droit à l'image => Autorisation de publication : <span>Oui</span></p>
+                    {% else %}
+                        <p>Droit à l'image => Autorisation de publication : <span>Non</span></p>
+                    {% endif %}
+                    {% if app.user.communicationAgreement == true  %}
+                        <p>Communication de mes coordonnées : <span>Oui</span></p>
+                    {% else %}
+                        <p>Communication de mes coordonnées : <span>Non</span></p>
+                    {% endif %}
+                </div>
+            {% endif %}
         </div>
     </div>
-   
 {% endblock %}
 
 
 
            
-{# PAGE PROFIL STAFF #}
-    {# <div class="button_staff">
-        <div>
-            <a href="">Ajouter une actu</a>
-        </div>
-        <div>
-            <a href="">Ajouter un bulletin</a>
-        </div>
-    </div>
-    <div class="profil_classe">
-            <table>
-            <caption>Ma classe</caption>
-            <tr>
-                <td>Eleves</td>
-                <td>Personne pouvant récup</td>
-            </tr>
-            <tr>
-                <td>Léo Roux</td>
-                <td>Chantal Roux</td>
-            </tr>
-            <tr>
-                <td>Marina Roux</td>
-                <td>Chantal Roux</td>
-            </tr>
-            <tr>
-                <td>Julie Damien</td>
-                <td>George Damien</td>
-            </tr>
-        </table>
-    </div>
-    <div class="profil_doc">
-        <h1>Vie de l'école</h1>
-        <div>
-            {% for doc in documents %}
-                <a href="../docs/{{ doc.documenturl }}">
-                    <i class="fas fa-file-pdf"></i>
-                    <p>{{ doc.name }}</p>
-                </a>     
-            {% endfor %}              
-        </div>
-    </div> #}
+

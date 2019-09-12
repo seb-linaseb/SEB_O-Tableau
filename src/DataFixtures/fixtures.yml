@@ -40,6 +40,7 @@ App\Entity\User:
          created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
          updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
          role: '@role_*'
+         image_agreement: '<boolean(75)>'
 
 App\Entity\LunchType:
      lunch_type_{1..4}:
