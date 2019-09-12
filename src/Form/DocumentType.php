@@ -19,6 +19,7 @@ class DocumentType extends AbstractType
             ->add('name', TextType::class, array('label' => 'Nom de votre document'))
             ->add('document_url', FileType::class, [
                 'label' => 'Veuillez selectionner votre document sous le format PDF',
+                'data_class' => null,
                 'constraints' => [
                     new File([
                         'maxSize' => '5000k',                        

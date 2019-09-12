@@ -19,14 +19,11 @@ class StudentController extends AbstractController
         $student = $repository->find($id);   
               
         $repositorydoc = $this->getDoctrine()->getRepository(Document::class);
-        $documents = $repositorydoc->find($id); 
-
-        $bulletins = $repositorydoc->findNoteByStudent($id);
+        $schoolreport = $repositorydoc->findSchoolReportByStudent($id);
         
         return $this->render('student/index.html.twig', [
             'student' => $student,         
-            'bulletins' => $bulletins,
-            'documents' => $documents          
+            'schoolreport' => $schoolreport,                    
         ]);
     }
 }
