@@ -60,12 +60,18 @@ class Message
      */
     private $users;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\MessageStatus", mappedBy="message")
+     */
+    private $messageStatuses;
+
     public function __construct()
     {
         $this->conversation = new ArrayCollection();
         $this->created_at = new DateTime();
         $this->updated_at = new DateTime();
         $this->users = new ArrayCollection();
+        $this->messageStatuses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -193,6 +199,37 @@ class Message
     {
         if ($this->users->contains($user)) {
             $this->users->removeElement($user);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|MessageStatus[]
+     */
+    public function getMessageStatuses(): Collection
+    {
+        return $this->messageStatuses;
+    }
+
+    public function addMessageStatus(MessageStatus $messageStatus): self
+    {
+        if (!$this->messageStatuses->contains($messageStatus)) {
+            $this->messageStatuses[] = $messageStatus;
+            $messageStatus->setMessage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessageStatus(MessageStatus $messageStatus): self
+    {
+        if ($this->messageStatuses->contains($messageStatus)) {
+            $this->messageStatuses->removeElement($messageStatus);
+            // set the owning side to null (unless already changed)
+            if ($messageStatus->getMessage() === $this) {
+                $messageStatus->setMessage(null);
+            }
         }
 
         return $this;

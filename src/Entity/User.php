@@ -131,6 +131,11 @@ class User implements UserInterface, \Serializable
      */
     private $imageAgreement;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\MessageStatus", mappedBy="user")
+     */
+    private $messageStatuses;
+
     public function __construct()
     {
         $this->actualities = new ArrayCollection();
@@ -139,6 +144,7 @@ class User implements UserInterface, \Serializable
         $this->documents = new ArrayCollection();
         $this->conversations = new ArrayCollection();
         $this->messages = new ArrayCollection();
+        $this->messageStatuses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -559,6 +565,37 @@ class User implements UserInterface, \Serializable
     public function setImageAgreement(bool $imageAgreement): self
     {
         $this->imageAgreement = $imageAgreement;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|MessageStatus[]
+     */
+    public function getMessageStatuses(): Collection
+    {
+        return $this->messageStatuses;
+    }
+
+    public function addMessageStatus(MessageStatus $messageStatus): self
+    {
+        if (!$this->messageStatuses->contains($messageStatus)) {
+            $this->messageStatuses[] = $messageStatus;
+            $messageStatus->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessageStatus(MessageStatus $messageStatus): self
+    {
+        if ($this->messageStatuses->contains($messageStatus)) {
+            $this->messageStatuses->removeElement($messageStatus);
+            // set the owning side to null (unless already changed)
+            if ($messageStatus->getUser() === $this) {
+                $messageStatus->setUser(null);
+            }
+        }
 
         return $this;
     }

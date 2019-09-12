@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Entity\Message;
 use App\Form\MessageType;
 use App\Entity\Conversation;
+use App\Entity\MessageStatus;
 use App\Form\ConversationType;
 use App\Repository\UserRepository;
 use App\Repository\ClassroomRepository;
@@ -180,14 +181,65 @@ class ConversationController extends AbstractController
             return $this->redirectToRoute('conversation_show', ['id'=> $conversation->getId()]);
         }
 
+        $okToShow = [];
+        $messages = $conversation->getMessages();
+        //$okToShow [] = $messages;
+        foreach ($messages as $key => $message) {
+            $messageRemoves = $message->getMessageStatuses();
+            $okToShow[] = $message;
+            //dump($messageRemoves);
+
+            foreach ($messageRemoves as $key => $messageRemove) {
+                $userRemove = $messageRemove->getUser();
+                $user = $this->getUser();
+                //dump($userRemove);
+                if ($userRemove == $user) {
+                    $okToRemove = $messageRemove->getMessage();
+                    $key = array_search($okToRemove, $okToShow);
+                    //je me retire du tableau
+                    unset($okToShow[$key]);
+                    //dump($okToRemove);
+                }
+            }
+        }
+        //dump($okToShow);
+        //die;
+
         return $this->render('conversation/show.html.twig', [
             'conversation' => $conversation,
+            'okToShow' =>$okToShow,
             'formMessage' => $form->createView()
         ]);
     }
 
 
+    /**
+    * @Route("{id}/delete", name="delete", methods={"POST","GET"}, requirements={"id"="\d+"})
+    */
+    public function delete($id, Conversation $conv, EntityManagerInterface $em)
+    {
+        $messages = $conv->getMessages();
+        $user = $this->getUser();
+        //dump($messages);
+        foreach ($messages as $key => $message) {
+            $delete = new MessageStatus();
+            $delete->setMessage($message);
+            $delete->setUser($user);
+            $delete->setRemove(true);
+            $em->persist($delete);
+            dump($delete);
+        }
+        //die;
 
+        $em->flush();
+
+        $this->addFlash(
+            'danger',
+            'Suppression effectuée'
+        );
+        
+        return $this->redirectToRoute('conversation_show', ['id'=> $conv->getId()]);
+    }
     
     // /**
     // * @Route("{id}/delete", name="delete", methods={"POST","GET"}, requirements={"id"="\d+"})
