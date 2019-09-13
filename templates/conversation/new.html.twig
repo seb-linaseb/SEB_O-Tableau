@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}O'Tableau | Messagerie{% endblock %}
+
+{% block content %}
+
+<div class="content_new-msg">
+    <div>
+        <a href="{{ path('conversation_index')}} "><i class="fas fa-angle-left"></i></a>
+        <h1>
+            Nouveau message
+        </h1>   
+    </div>
+
+    {{ form_start(formMessage) }}
+        {{ form_widget(formMessage) }}
+        <button class="btn">Envoyer</button>
+    {{ form_end(formMessage) }}
+
+</div>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+

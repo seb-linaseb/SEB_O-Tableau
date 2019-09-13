@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+Consulter le document: <a href="/docs/{{ doc.documenturl }}">
+<i class="fas fa-file-pdf"></i>
+<p>Nom du document: {{ doc.name }}</p>
+</a>     
+
+<form method="post" action="{{ path('document_delete', {'id': doc.id}) }}" onsubmit="return confirm('Êtes vous sûr de vouloir supprimer ce document?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ doc.id) }}">
+    <button class="btn">Supprimer</button>
+</form>
+
+<hr>
+
+<form method="post" action="{{ path('document_edit', {'id': doc.id}) }}">
+    <input type="hidden" name="_method" value="UPDATE">
+    <input type="hidden" name="_token" value="{{ csrf_token('update' ~ doc.id) }}">
+    <button class="btn">Modifier</button>
+</form>
+
+{% endblock %}

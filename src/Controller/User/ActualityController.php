@@ -8,12 +8,23 @@ use Symfony\Component\Routing\Annotation\Route;
 class ActualityController extends AbstractController
 {
     /**
-     * @Route("/actuality", name="actuality")
+     * @Route("/actu", name="actuality_index")
      */
     public function index()
     {
         return $this->render('actuality/index.html.twig', [
-            'controller_name' => 'ActualityController',
+            
+        ]);
+    }
+
+
+    /**
+     * @Route("/actu/show/1", name="actuality_show")
+     */
+    public function show()
+    {
+        return $this->render('actuality/show.html.twig', [
+            
         ]);
     }
 }

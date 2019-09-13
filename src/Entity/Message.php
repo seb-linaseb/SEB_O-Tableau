@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use \DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MessageRepository")
@@ -26,7 +27,7 @@ class Message
     /**
      * @ORM\Column(type="boolean")
      */
-    private $read_status;
+    private $read_status = false;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -43,10 +44,6 @@ class Message
      */
     private $updated_at;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="messages")
-     */
-    private $user_receive;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="messages")
@@ -58,9 +55,23 @@ class Message
      */
     private $conversation;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", inversedBy="messages")
+     */
+    private $users;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\MessageStatus", mappedBy="message")
+     */
+    private $messageStatuses;
+
     public function __construct()
     {
         $this->conversation = new ArrayCollection();
+        $this->created_at = new DateTime();
+        $this->updated_at = new DateTime();
+        $this->users = new ArrayCollection();
+        $this->messageStatuses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -128,17 +139,6 @@ class Message
         return $this;
     }
 
-    public function getUserReceive(): ?User
-    {
-        return $this->user_receive;
-    }
-
-    public function setUserReceive(?User $user_receive): self
-    {
-        $this->user_receive = $user_receive;
-
-        return $this;
-    }
 
     public function getUserPost(): ?User
     {
@@ -173,6 +173,63 @@ class Message
     {
         if ($this->conversation->contains($conversation)) {
             $this->conversation->removeElement($conversation);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|MessageStatus[]
+     */
+    public function getMessageStatuses(): Collection
+    {
+        return $this->messageStatuses;
+    }
+
+    public function addMessageStatus(MessageStatus $messageStatus): self
+    {
+        if (!$this->messageStatuses->contains($messageStatus)) {
+            $this->messageStatuses[] = $messageStatus;
+            $messageStatus->setMessage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessageStatus(MessageStatus $messageStatus): self
+    {
+        if ($this->messageStatuses->contains($messageStatus)) {
+            $this->messageStatuses->removeElement($messageStatus);
+            // set the owning side to null (unless already changed)
+            if ($messageStatus->getMessage() === $this) {
+                $messageStatus->setMessage(null);
+            }
         }
 
         return $this;

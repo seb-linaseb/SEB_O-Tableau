@@ -2,18 +2,28 @@
 
 namespace App\Controller\User;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\Student;
+use App\Entity\Document;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class StudentController extends AbstractController
 {
-    /**
-     * @Route("/profil/eleve/1", name="student_index")
+    /**    
+     * @Route("/profil/eleve/{id}/", name="student_index", requirements={"id"="\d+"})
      */
-    public function index()
+    public function index(Request $request, $id)
     {
+        $repository = $this->getDoctrine()->getRepository(Student::class);
+        $student = $repository->find($id);   
+              
+        $repositorydoc = $this->getDoctrine()->getRepository(Document::class);
+        $schoolreport = $repositorydoc->findSchoolReportByStudent($id);
+        
         return $this->render('student/index.html.twig', [
-            
+            'student' => $student,         
+            'schoolreport' => $schoolreport,                    
         ]);
     }
 }

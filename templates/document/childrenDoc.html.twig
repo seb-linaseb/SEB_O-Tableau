@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}O'Tableau | EnfantName{% endblock %}
+{% block title %}O'Tableau | {{ student.name }} | Document{% endblock %}
 
 {% block content %}
 
@@ -17,27 +17,25 @@
                 <a href="{{ path('user_myAccount') }}">Mon compte</a>
             </div>
         </div>
+        {% for child in app.user.students %}
+            {% if student == child %}             
         <div class="doc_children">
-            <a href="{{ path('student_index') }}"><i class="fas fa-angle-left"></i></a>
+            <a href="{{ path('student_index', { 'id': student.id }) }}"><i class="fas fa-angle-left"></i></a>
             <div class="doc_children_border">
-                <h1>Document de Enfant</h1>
+                <h1>{{ student.name }} {{ student.firstname }}</h1>
                 <div class="add_doc_children">
-                    <a href=""><i class="fas fa-plus-circle"></i></a>
+                    <a href="{{ path('document_addchildrenDoc', { 'id': student.id }) }}"><i class="fas fa-plus-circle"></i></a>
                 </div>
                 <div>
-                    <a href="">
+                {% for document in student.documents %}
+                    <a href="/docs/{{ document.documenturl }}" target="_blank">
                         <i class="fas fa-file-pdf"></i>
-                        <p>Fiche de renseignements</p>
+                        <p>{{ document.name }}</p>
                     </a>
-                    <a href="">
-                        <i class="fas fa-file-pdf"></i>
-                        <p> Attestation d'Assurance</p>
-                    </a>
-                    <a href="">
-                        <i class="fas fa-file-pdf"></i>
-                        <p>PAI + renseignements médicaux</p>
-                    </a>
+                {% endfor %} 
                 </div>
+                {% endif %}
+         {% endfor %}
             </div>
         </div>
     </div>

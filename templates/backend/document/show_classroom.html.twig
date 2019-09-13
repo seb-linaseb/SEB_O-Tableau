@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<h1>Liste des éleves de la classe {{ classroom.name }}</h1>
+
+{% for student in classroom.students %}
+
+<a href="{{ path('documentByStudent_show', { 'id': classroom.id, 'studentid': student.id }) }}"><br>                                     
+                   {{ student.name }} {{ student.firstname }} 
+                     </a>
+
+{% endfor %}
+
+{% endblock %}

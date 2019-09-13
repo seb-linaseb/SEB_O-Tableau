@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use \DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ConversationRepository")
@@ -29,7 +30,7 @@ class Conversation
     private $updated_at;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Message", mappedBy="conversation")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Message", mappedBy="conversation" )
      */
     private $messages;
 
@@ -43,11 +44,17 @@ class Conversation
      */
     private $user_participate;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $newMessage;
+
 
 
     public function __construct()
     {
-
+        $this->created_at = new DateTime();
+        $this->updated_at = new DateTime();
     }
 
     public function getId(): ?int
@@ -131,4 +138,18 @@ class Conversation
         return $this;
     }
 
+    public function getNewMessage(): ?bool
+    {
+        return $this->newMessage;
+    }
+
+    public function setNewMessage(bool $newMessage): self
+    {
+        $this->newMessage = $newMessage;
+
+        return $this;
+    }
+
+    
+    
 }

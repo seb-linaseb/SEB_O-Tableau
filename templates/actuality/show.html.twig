@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}O'Tableau | Actualités{% endblock %}
+
+{% block content %}
+
+    <div class="content_actu">
+        <a class="actu_show_link" href="{{ path('user_index') }}"><i class="fas fa-angle-left"></i></a>
+        <div class="actu_show">
+            <h1>Tarif cantine</h1>
+            <img src="{{ asset('img/tablo.jpg')}} " alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, commodi provident corporis neque consequatur ab ad, iste illum ullam sapiente iusto recusandae cupiditate officia qui? Soluta nihil nesciunt sunt velit.lo Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit, ratione at aut tenetur sequi modi harum magni quo maiores et deserunt error ipsa obcaecati asperiores, optio nulla dignissimos id doloribus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam aperiam aut quod obcaecati est dolor tempore rerum suscipit? Necessitatibus delectus cum dolorum illo ipsam consequuntur sunt, ad consectetur cumque nisi?</p>
+            <div>
+                <i class="far fa-clock"></i>
+                <span>le mardi 7 novembre</span>
+            </div>
+        </div> 
+    </div>
+{% endblock %}

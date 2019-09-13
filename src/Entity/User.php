@@ -115,15 +115,26 @@ class User implements UserInterface, \Serializable
      */
     private $role;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Message", mappedBy="user_receive")
-     */
-    private $messages;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Conversation", mappedBy="user_consult")
      */
     private $conversations;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Message", mappedBy="users")
+     */
+    private $messages;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $imageAgreement;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\MessageStatus", mappedBy="user")
+     */
+    private $messageStatuses;
 
     public function __construct()
     {
@@ -131,8 +142,9 @@ class User implements UserInterface, \Serializable
         $this->alerts = new ArrayCollection();
         $this->students = new ArrayCollection();
         $this->documents = new ArrayCollection();
-        $this->messages = new ArrayCollection();
         $this->conversations = new ArrayCollection();
+        $this->messages = new ArrayCollection();
+        $this->messageStatuses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -451,7 +463,7 @@ class User implements UserInterface, \Serializable
     public function getRoles() //dédié au composant security
     {
         //ici pour mon vrai role soit utilisé je doit le retourner dans le tableau de role prevu a cet effet
-        return [$this->getRole()->getName()]; // ex ROLE_ADMIN_SIRIUS
+        return [$this->getRole()->getCode()]; // ex ROLE_ADMIN_SIRIUS
     }
     public function eraseCredentials()
     {
@@ -479,36 +491,7 @@ class User implements UserInterface, \Serializable
         ) = unserialize($serialized, ['allowed_classes' => false]);
     }
 
-    /**
-     * @return Collection|Message[]
-     */
-    public function getMessages(): Collection
-    {
-        return $this->messages;
-    }
-
-    public function addMessage(Message $message): self
-    {
-        if (!$this->messages->contains($message)) {
-            $this->messages[] = $message;
-            $message->setUserReceive($this);
-        }
-
-        return $this;
-    }
-
-    public function removeMessage(Message $message): self
-    {
-        if ($this->messages->contains($message)) {
-            $this->messages->removeElement($message);
-            // set the owning side to null (unless already changed)
-            if ($message->getUserReceive() === $this) {
-                $message->setUserReceive(null);
-            }
-        }
-
-        return $this;
-    }
+    
 
     /**
      * @return Collection|Conversation[]
@@ -535,6 +518,82 @@ class User implements UserInterface, \Serializable
             // set the owning side to null (unless already changed)
             if ($conversation->getUserConsult() === $this) {
                 $conversation->setUserConsult(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->name . " " .$this->firstname;
+    }
+
+    /**
+     * @return Collection|Message[]
+     */
+    public function getMessages(): Collection
+    {
+        return $this->messages;
+    }
+
+    public function addMessage(Message $message): self
+    {
+        if (!$this->messages->contains($message)) {
+            $this->messages[] = $message;
+            $message->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessage(Message $message): self
+    {
+        if ($this->messages->contains($message)) {
+            $this->messages->removeElement($message);
+            $message->removeUser($this);
+        }
+
+        return $this;
+    }
+
+    public function getImageAgreement(): ?bool
+    {
+        return $this->imageAgreement;
+    }
+
+    public function setImageAgreement(bool $imageAgreement): self
+    {
+        $this->imageAgreement = $imageAgreement;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|MessageStatus[]
+     */
+    public function getMessageStatuses(): Collection
+    {
+        return $this->messageStatuses;
+    }
+
+    public function addMessageStatus(MessageStatus $messageStatus): self
+    {
+        if (!$this->messageStatuses->contains($messageStatus)) {
+            $this->messageStatuses[] = $messageStatus;
+            $messageStatus->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMessageStatus(MessageStatus $messageStatus): self
+    {
+        if ($this->messageStatuses->contains($messageStatus)) {
+            $this->messageStatuses->removeElement($messageStatus);
+            // set the owning side to null (unless already changed)
+            if ($messageStatus->getUser() === $this) {
+                $messageStatus->setUser(null);
             }
         }
 

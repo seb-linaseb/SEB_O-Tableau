@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<h2>Ma classe: {{ classroom.name }} </h2>
+<h2>Mes eléves:</h2>
+
+{% for student in classroom.students %}                    
+    <a href="{{ path('document_addchildrenDocbyTeacher', { 'id': student.id }) }}"><br>                                     
+    {{ student.name }} {{ student.firstname }} <br>          
+{% endfor %}     
+                
+{% endblock %}

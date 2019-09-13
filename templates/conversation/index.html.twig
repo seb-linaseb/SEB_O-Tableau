@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}O'Tableau | Messagerie{% endblock %}
+
+{% block content %}
+
+<div class="content_convo">
+    <div class="convo_head">
+        <h1>Messages</h1>
+    </div>
+    <div class="convo_list">
+        <a class="convo_add" href="{{ path('conversation_new')}} "><i class="fas fa-plus-circle"></i></a>
+    
+        {% for conv in conv %}
+            {% if conv.userParticipate == app.user %}
+                <a href="{{ path('conversation_show', {'id': conv.id })}}">
+                    <div>
+                        <i class="fas fa-user"></i>
+                        <p>{{conv.userConsult}}</p>
+                    </div>
+                </a>
+            {% elseif conv.userConsult == app.user %}
+                <a href="{{ path('conversation_show', {'id': conv.id })}}">
+                    <div>
+                        <i class="fas fa-user"></i>
+                        <p>{{conv.userParticipate}}</p>
+                    </div>
+                </a>
+                
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
