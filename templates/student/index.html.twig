@@ -16,8 +16,11 @@
             <div>
                 <a href="{{ path('user_myAccount') }}">Mon compte</a>
             </div>
-        </div>
-        <div class="profil">
+        </div>        
+        {% for child in app.user.students %}
+            {% if student == child %}             
+                 
+        <div class="profil">         
             <a class="children_back_profil" href="{{ path('user_index') }}"><i class="fas fa-angle-left"></i></a>
             <div class="profil_children_detail">
                 <i class="fas fa-user-graduate"></i>
@@ -36,7 +39,9 @@
                         <p>{{ document.name }}</p>
                     </a>
                 {% endfor %}  
-                </div>
+                </div>            
+                {% endif %}
+         {% endfor %}
             </div>
         </div>
     </div>
