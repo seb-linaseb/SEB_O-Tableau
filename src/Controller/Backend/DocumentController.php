@@ -150,12 +150,13 @@ class DocumentController extends AbstractController
         $document->setDocumentUrl($fileName);
         $entityManager = $this->getDoctrine()->getManager();            
         $entityManager->persist($document);      
-        $entityManager->flush();     
-
+        $entityManager->flush();   
+        
         return $this->redirectToRoute('documentByStudent_show', ['studentid'=> $student->getId(), 'id'=> $classroom->getId()]);
         } 
         return $this->render('document/form_add_childrenDoc.html.twig', [
         'form' => $form->createView(),
+        'student' => $student
         ]);
     }
 

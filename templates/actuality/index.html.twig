@@ -8,7 +8,7 @@
 
         <div class="tags_actu">
             <div>
-                <a href="">Tous</a>
+                <a href="{{ path('actuality_index') }}">Tous</a>
             </div>
             <div>
                 <a href="">Classe</a>
@@ -17,18 +17,21 @@
 
         <h1>Actualités</h1>
 
-        <a href="">
+        {% for actuality in news %}              
+                        
+        <a href="{{ path('actuality_show', { 'id': actuality.id }) }}">
             <div class="actu">
-                <img src="{{ asset('img/tablo.jpg')}} " alt="">
+                <img src="/docs/{{ actuality.pictureUrl }}" alt="">
                 <div class="actu_préShow">
-                    <h2>Tarif cantine</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit, consectetur adipisicing elit</p>
+                    <h2>{{ actuality.title }}</h2>
+                    <p>{{ actuality.content }}</p>
                     <div>
                         <i class="far fa-clock"></i>
-                        <span>le mardi 7 novembre</span>
-                    </div>
-                </div>
+                        <span>Le {{ actuality.createdAt|date('d/m/Y') }}</span>
+                    </div>                      
+                </div>              
             </div>
         </a>
+         {% endfor %}  
     </div>
 {% endblock %}
