@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Day Calendar Display{% endblock %}
+
+{% block content %}
+
+  <div class="d-flex flex-row align-items-center justify-content-between mx-sm-3">
+    <h1>{{ date_of_day }}</h1>
+    <div>
+      {# <a href="{{ path('admin_calendar_day', ['classroomId' => ]) }}?date_of_day={{ date_of_yesterday }}" class="btn btn-primary">&lt;</a>   #}
+      {# <a href="{{ path('admin_calendar_day') }}?date_of_day={{ date_of_tomorrow }}" class="btn btn-primary">&gt;</a> #}
+    </div>
+  </div>
+
+  <table class="calendar__table">
+    <thead>
+      <tr class="calendar__table__dayname">
+        <td class="calendar__column__title">Nom élève</td>
+        <td class="calendar__column__title">Prénom élève</td>
+        <td class="calendar__column__title">Présence</td>
+        <td class="calendar__column__title">Consommation</td>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for student in students %}
+      <tr>
+              <td>
+                  {{ student.name }}
+              </td>
+              <td>
+                  {{ student.firstname }}
+              </td>
+              <td>
+              </td>
+              <td>
+              </td>
+          
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+
+{% endblock %}

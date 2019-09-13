@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Week Calendar Display{% endblock %}
+
+{% block content %}
+
+  <div class="d-flex flex-row align-items-center justify-content-between mx-sm-3">
+    <h1>Semaine N° {{ actual_week }} - Année N° {{ actual_year }}</h1>
+
+    <div>
+      <a href="{{ path('admin_calendar_week') }}?year={{ previous_week_year }}&week={{ previous_week_week }}" class="btn btn-primary">&lt;</a>  
+      <a href="{{ path('admin_calendar_week') }}?year={{ next_week_year }}&week={{ next_week_week }}" class="btn btn-primary">&gt;</a>
+    </div>
+  </div>
+
+  <table class="calendar__table">
+      <tr class="calendar__table__dayname">
+            
+                <td><div class="calendar__column__title">Lundi<br>{{ week_day_1 }}</div></td>
+                <td><div class="calendar__column__title">Mardi<br>{{ week_day_2 }}</div></td>
+                <td><div class="calendar__column__title">Mercredi<br>{{ week_day_3 }}</div></td>
+                <td><div class="calendar__column__title">Jeudi<br>{{ week_day_4 }}</div></td>
+                <td><div class="calendar__column__title">Vendredi<br>{{ week_day_5 }}</div></td>
+                <td><div class="calendar__column__title">Samedi<br>{{ week_day_6 }}</div></td>
+                <td><div class="calendar__column__title">Dimanche<br>{{ week_day_7 }}</div></td>
+
+      </tr>
+
+
+
+
+
+    {% for i in 1..1 %}
+        <tr>
+
+                <td class="calendar__day">
+                <div></div>
+                </td>
+                <td class="calendar__day">
+                <div></div>
+                </td>
+                <td class="calendar__day">
+                <div></div>
+                </td>
+                <td class="calendar__day">
+                <div></div>
+                </td>
+                <td class="calendar__day">
+                <div></div>
+                </td>
+                <td class="calendar__day">
+                <div></div>
+                </td>
+                <td class="calendar__day">
+                <div></div>
+                </td>
+                
+
+            
+
+
+
+
+        </tr>
+    {% endfor %}
+  </table>
+
+{% endblock %}

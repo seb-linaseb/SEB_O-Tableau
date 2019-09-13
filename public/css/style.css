@@ -1236,20 +1236,3 @@ label.required {
     color: #2C3840;
 }
 
-
-
-
-
-
-/* CLASS JQUERY */
-
-.red {
-    color: red;
-}
-.black {
-    color: black;
-}
-
-.display_none {
-    display: none;
-}
