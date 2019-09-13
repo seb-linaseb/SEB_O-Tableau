@@ -1275,3 +1275,15 @@ label.required {
    }
    
    
+/* CLASS JQUERY */
+
+.red {
+    color: red;
+}
+.black {
+    color: black;
+}
+
+.display_none {
+    display: none;
+}
