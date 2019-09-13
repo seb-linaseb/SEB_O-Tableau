@@ -3,11 +3,13 @@
 namespace App\Controller\User;
 
 use App\Entity\User;
+use App\Form\UserType;
 use App\Entity\Document;
 use App\Entity\Classroom;
+use App\Repository\ClassroomRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Repository\ClassroomRepository;
 
 
 class UserController extends AbstractController
@@ -32,6 +34,27 @@ class UserController extends AbstractController
     {
         return $this->render('user/account.html.twig', [
             
+        ]);
+    }
+
+    /**
+     * @Route("/profil/mon-compte/{id}/edit", name="user_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, User $user)
+    {
+
+        $form = $this->createForm(UserType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('user_myAccount');
+        }
+
+        return $this->render('user/edit.html.twig', [
+            'user' => $user,
+            'form' => $form->createView(),
         ]);
     }
     

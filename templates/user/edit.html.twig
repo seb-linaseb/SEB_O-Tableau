@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}O'Tableau | Mon compte{% endblock %}
+
+{% block content %}
+
+    
+    <div class="content_profil">
+        <div class="nav_profil">
+            <div class="nav_profil_flex">
+                <i class="fas fa-user-alt"></i>
+                <div>
+                    <p>{{ app.user.username }}</p>
+                    <span>{{app.user.role.name }}</span>
+                </div>
+            </div>
+            <div>
+                <a href="{{ path('user_myAccount') }}">Mon compte</a>
+            </div>
+        </div>
+        <div class="account_update">
+            <a href="{{ path('user_myAccount') }}"><i class="fas fa-angle-left"></i></a>
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button class="btn">Modifier</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

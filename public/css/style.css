@@ -564,9 +564,52 @@ input, button {
     margin-left: 14%;
 }
 
+/* PAGE PROFIL MON COMPTE EDIT */
+
+.account_update {
+    
+}
+
+.account_update a i {
+    font-size: 6em;
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+.account_update form {
+    text-align: center;
+    margin-top: 5%;
+    padding-bottom: 50%;
+}
+
+
+.account_update form #user div label {
+    display: none;
+}
+
+.account_update form #user div input {
+    padding-left: 2%;
+    font-size: 2em;
+    height: 80px;
+    width: 70%;
+    border: none;
+    background-color: beige;
+    border-radius: 10px;
+    margin-top: 3%;
+}
+
+.account_update form button {
+    font-size: 2em;
+    margin-top: 4%;
+    padding: 3% 5%;
+    border: none;
+    border-radius: 5px;
+    background-color: beige;
+}
+
+
 
 /* PAGE PROFIL CHILDREN */
-
 
 
 .profil .children_back_profil {
