@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use \DateTime;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ActualityRepository")
@@ -46,6 +47,12 @@ class Actuality
      */
     private $user;
 
+    public function __construct()
+    {
+        $this->created_at = new DateTime();
+        $this->updated_at = new DateTime();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -63,12 +70,12 @@ class Actuality
         return $this;
     }
 
-    public function getPictureUrl(): ?string
+    public function getPictureUrl()
     {
         return $this->picture_url;
     }
 
-    public function setPictureUrl(?string $picture_url): self
+    public function setPictureUrl($picture_url)
     {
         $this->picture_url = $picture_url;
 

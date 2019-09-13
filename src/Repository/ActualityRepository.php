@@ -19,6 +19,14 @@ class ActualityRepository extends ServiceEntityRepository
         parent::__construct($registry, Actuality::class);
     }
 
+    public function findAllOrderedByDate()
+    {
+        $query = $this->createQueryBuilder('m')
+        ->orderBy('m.created_at', 'DESC');        
+
+        return $query->getQuery()->getResult();
+    }
+
     // /**
     //  * @return Actuality[] Returns an array of Actuality objects
     //  */
