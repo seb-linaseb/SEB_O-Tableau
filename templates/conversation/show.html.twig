@@ -12,20 +12,19 @@
         {% elseif conversation.userConsult == app.user %}
             <h1>{{conversation.userParticipate}}</h1>
         {% endif %}
-        <i class="fas fa-trash" id="button_delete"></i>
+        <a href="{{ path('conversation_delete', {'id': conversation.id})}}"><i class="fas fa-trash" id="button_delete"></i></a>
         {# {{ path('conversation_delete', {'id': conversation.id})}}  #}
     </div>    
         <div id="message_list">
-        {% for message in conversation.messages %}
+        {% for message in okToShow %}
             {% if app.user == message.userPost %}
             <div class="message">
-                <p>{{ message.content }}</p>
-            </div>
             {% else %}
             <div class="message_2">
-                <p>{{ message.content }}</p>
-            </div>
             {% endif %}
+            <p>{{ message.content }}</p>    
+            </div>
+            
         {% endfor %}
         </div>
     <div class="message_input">
