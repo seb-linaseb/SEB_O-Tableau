@@ -760,7 +760,7 @@ a {
      border: 1px solid grey;
      vertical-align: top;
      width: 14.29%; /* 100% / 7 jours */
-     height: 20%;
+     height: 100%;
    }
 
    .calendar__table--6weeks td {
