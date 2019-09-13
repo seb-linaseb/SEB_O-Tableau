@@ -44,12 +44,6 @@ class Conversation
      */
     private $user_participate;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $newMessage;
-
-
 
     public function __construct()
     {
@@ -138,17 +132,7 @@ class Conversation
         return $this;
     }
 
-    public function getNewMessage(): ?bool
-    {
-        return $this->newMessage;
-    }
-
-    public function setNewMessage(bool $newMessage): self
-    {
-        $this->newMessage = $newMessage;
-
-        return $this;
-    }
+    
 
     
     
