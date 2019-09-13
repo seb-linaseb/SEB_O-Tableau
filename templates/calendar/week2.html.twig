@@ -5,11 +5,11 @@
 {% block content %}
 
   <div class="d-flex flex-row align-items-center justify-content-between mx-sm-3">
-    <h1>{#{{ month_name }}#} - {#{{ month_number }}#} - {#{{ nb_days_month }}#}</h1>
-    Année {{ year_number }} - Semaine N° {{ week_number }} - Mois N° {{ month_number }}
+    <h1>Semaine N° {{ actual_week }} - Année N° {{ actual_year }}</h1>
+
     <div>
-      <a href="{{ path('admin_calendar_week') }}?week={{ previous_week_number }}" class="btn btn-primary">&lt;</a>  
-      <a href="{{ path('admin_calendar_week') }}?week={{ next_week_number }}" class="btn btn-primary">&gt;</a>
+      <a href="{{ path('admin_calendar_week2') }}?year={{ previous_week_year }}&week={{ previous_week_week }}" class="btn btn-primary">&lt;</a>  
+      <a href="{{ path('admin_calendar_week2') }}?year={{ next_week_year }}&week={{ next_week_week }}" class="btn btn-primary">&gt;</a>
     </div>
   </div>
   
