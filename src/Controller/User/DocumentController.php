@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 /**
- * @Route("//profil/eleve", name="document_")
+ * @Route("/profil/eleve", name="document_")
  */
 class DocumentController extends AbstractController
 {
@@ -68,7 +68,7 @@ class DocumentController extends AbstractController
     }
 
     /**    
-     * @Route("/profil/bulletin/eleves/", name="document_students", requirements={"id"="\d+"})
+     * @Route("/bulletin/eleves/", name="students", requirements={"id"="\d+"})
      */
     public function showStudentsOfTeacher(Request $request)
     {
@@ -87,7 +87,7 @@ class DocumentController extends AbstractController
     }
 
     /**    
-     * @Route("/profil/eleve/{id}/bulletin/add", name="document_addchildrenDocbyTeacher", requirements={"id"="\d+"})
+     * @Route("/{id}/bulletin/add", name="addchildrenDocbyTeacher", requirements={"id"="\d+"})
      */
     public function addDocByTeacher(Request $request, $id)
     {
@@ -115,6 +115,7 @@ class DocumentController extends AbstractController
         } 
         return $this->render('document/form_add_childrenDoc.html.twig', [
         'form' => $form->createView(),
+        'student' => $student
         ]);
     }
 }
