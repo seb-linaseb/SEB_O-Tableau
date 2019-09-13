@@ -53,9 +53,9 @@ class ConversationController extends AbstractController
         foreach ($enfants as $enfant){
             $enseignantId = $enfant->getClassroom()->getUser();
             //dump($enseignantId);
-            $receiverList[]= $enseignantId;
-            
+            $receiverList[]= $enseignantId;           
         }
+
         // affichage de la liste des parents de ma classe => pour les enseignants
         if ($this->getUser()->getRole()->getId() == 4){
             //$maclasse = $this->getUser()->getClassroom();
@@ -73,6 +73,7 @@ class ConversationController extends AbstractController
                 }
             }
         } 
+        
         //affichage de la liste de tous le monde => pour les directeurs
         if ($this->getUser()->getRole()->getId() == 3){
             $everybody = $userRepository->findAll();
@@ -124,8 +125,7 @@ class ConversationController extends AbstractController
                  $entityManager->persist($conversation);
                  $message->addConversation($conversation);
              }
-        }
-                       
+        }                   
             $entityManager->flush();
 
             $this->addFlash(
@@ -158,6 +158,7 @@ class ConversationController extends AbstractController
      */
     public function show(Conversation $conversation, Request $request)
     {
+        //$conversation->setNewMessage(false);
         
         $message = new Message();
         $form = $this->createForm(MessageType::class, $message);
@@ -180,7 +181,7 @@ class ConversationController extends AbstractController
             
             return $this->redirectToRoute('conversation_show', ['id'=> $conversation->getId()]);
         }
-
+        
         $okToShow = [];
         $messages = $conversation->getMessages();
         //$okToShow [] = $messages;
@@ -201,6 +202,8 @@ class ConversationController extends AbstractController
                     //dump($okToRemove);
                 }
             }
+
+
         }
         //dump($okToShow);
         //die;

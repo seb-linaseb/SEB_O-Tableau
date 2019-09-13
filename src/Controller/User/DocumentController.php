@@ -12,7 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 /**
- * @Route("//profil/eleve", name="document_")
+ * @Route("/profil/eleve", name="document_")
  */
 class DocumentController extends AbstractController
 {

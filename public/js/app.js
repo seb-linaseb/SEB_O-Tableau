@@ -10,14 +10,21 @@ var app = {
         // j'attribu un event et je le passe à app.handleLabelClick
         $listLabel.on('click', app.handleLabelClick);
 
-        
-        // var $buttonDelete = $('#button_delete')
-        // $buttonDelete.on('click', app.handleClickDeleteMessage) 
-        
-        
         // focus l'input d'envoie de message
         var $inputMsg = $('#message_content')
         $inputMsg.focus()
+
+
+        // // Attempt to update the user's cache.
+        // window.applicationCache.update();
+
+
+
+        // if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
+        // // The fetch was successful, swap in the new cache.
+        // window.applicationCache.swapCache();
+        // }
+        
     },
 
     handleLabelClick: function(evt) {
@@ -39,16 +46,9 @@ var app = {
         }
     },
 
-    // handleClickDeleteMessage: function(evt) {
-    //     console.log('delete')
-        
-    //     // je selectionne mes messages
-    //     var $message = $('.message_list p');
+    
 
-    //     // j'y ajoute une class qui cache mes messages quand je clic sur mon button delete
-    //     $message.addClass('display_none')
-    // }
-
+    
 }; 
   
 $(app.init);

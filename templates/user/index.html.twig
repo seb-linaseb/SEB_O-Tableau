@@ -37,7 +37,6 @@
                         <a href="">Ajouter un bulletin</a>
                     </div>
                 </div>
-
                 {% for children in app.user.students %}
                     <div class="profil_children">
                         <a href="{{ path('student_index', { 'id': children.id }) }}">
