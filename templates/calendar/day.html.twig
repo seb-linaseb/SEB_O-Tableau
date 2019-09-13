@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Day Calendar Display{% endblock %}
+
+{% block content %}
+
+  <div class="d-flex flex-row align-items-center justify-content-between mx-sm-3">
+    <h1>{{ date_of_day }}</h1>
+    <div>
+      <a href="{{ path('admin_calendar_day') }}?date_of_day={{ date_of_yesterday }}" class="btn btn-primary">&lt;</a>  
+      <a href="{{ path('admin_calendar_day') }}?date_of_day={{ date_of_tomorrow }}" class="btn btn-primary">&gt;</a>
+    </div>
+  </div>
+
+
+{% endblock %}

@@ -2,44 +2,8 @@
 
 namespace App\Utils\Calendar;
 
-Class Week {
+Class Week2 {
 
-  // public $days = [
-    // 'Lundi',
-    // 'Mardi',
-    // 'Mercredi',
-    // 'Jeudi',
-    // 'Vendredi',
-    // 'Samedi',
-    // 'Dimanche',
-  // ];
-
-  // private $months = [
-    // 'Janvier',
-    // 'Février',
-    // 'Mars',
-    // 'Avril',
-    // 'Mai',
-    // 'Juin',
-    // 'Juillet',
-    // 'Août',
-    // 'Septembre',
-    // 'Octobre',
-    // 'Novembre',
-    // 'Décembre',
-  // ];
-
-  public $month;
-
-  public $year;
-
-  public $week;
-  
-  public $today;
-
-  public $today_number;
-  public $week_starting_day;
-  public $week_ending_day;
 
   /**
    * Calendar constructor
