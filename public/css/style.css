@@ -767,7 +767,7 @@ a {
      height: 16.66%; /* 100% / 6 semaines */
    }
 
-   .calendar__table__dayname td {
+   .calendar__column__title {
     height: 2%;
   }
 

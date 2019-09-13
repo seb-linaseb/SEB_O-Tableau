@@ -2,8 +2,11 @@
 
 namespace App\Controller\Backend;
 
-use App\Utils\Calendar\Month;
+use App\Entity\Student;
 use App\Utils\Calendar\Week;
+use App\Utils\Calendar\Month;
+use App\Repository\ClassroomRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -175,10 +178,12 @@ class AdminCalendarController extends AbstractController
     }
 
     /**
-     * @Route("/admin/calendar/day/", name="admin_calendar_day")
+     * @Route("/admin/calendar/{classroomId}/day/", name="admin_calendar_day", requirements={"id"="\d+"})
      */
-    public function day()
+    public function day($classroomId, Request $request, ClassroomRepository $classroomRepository)
     {
+
+      // ********************** AFFICHAGE DU TABLEAU JOURNALIER + NAVIGATION *******************************
 
       // Si la date du jour est fournie dans l'url, on la décompose
       if(isset($_GET['date_of_day'])) {
@@ -205,11 +210,26 @@ class AdminCalendarController extends AbstractController
       // Ne pas remonter cet élément au dessus des calculs de dates de la veille et du lendemain
       $date_of_day = $date_of_day->format('d-m-Y');
 
+      // ********************** EN COURS DE DEV => RECUPERATION LISTE DES ELEVES *******************************
+
+      // $repository = $this->getDoctrine()->getRepository(Student::class);
+
+      $classroom = $classroomRepository->find($classroomId);
+      $students = $classroom->getStudents();
+
+      // $searchClassroom = $request->request->get('classroom');
+      
+      // dump($request);die();
+      
+      // $students = $repository->findByClassroom($searchClassroom);
+      
+      
 
     return $this->render('calendar/day.html.twig', [
         'date_of_day' => $date_of_day,
         'date_of_yesterday' => $date_of_yesterday,
         'date_of_tomorrow' => $date_of_tomorrow,
+        'students' => $students,
     ]);
     }
 
