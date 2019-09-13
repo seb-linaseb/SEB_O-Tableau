@@ -46,7 +46,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/edit/{id}", name="edit, requirements={"id"="\d+"})
+     * @Route("/edit/{id}", name="edit", requirements={"id"="\d+"})
      */
     public function edit()
     {
@@ -60,6 +60,6 @@ class UserController extends AbstractController
      */
     public function delete()
     {
-        return $this->redirectToRoute('admin_user_index');
+        // return $this->redirectToRoute('admin_user_index');
     }
 }
