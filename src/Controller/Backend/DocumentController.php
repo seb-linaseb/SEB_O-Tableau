@@ -212,7 +212,7 @@ class DocumentController extends AbstractController
 
 
     /**
-     * @Route("/profil/admin/documenteleve/{id}/edit", name="document_edit", requirements={"id"="\d+"})
+     * @Route("/documenteleve/{id}/edit", name="document_edit", requirements={"id"="\d+"})
      */
     public function editDocStudent(Request $request, $id)
     {
@@ -266,7 +266,7 @@ class DocumentController extends AbstractController
     }  
 
     /**
-     * @Route("/profil/admin/documentscolaire/{id}/edit", name="documentschool_edit", requirements={"id"="\d+"})
+     * @Route("/documentscolaire/{id}/edit", name="documentschool_edit", requirements={"id"="\d+"})
      */
     public function editDocSchool(Request $request, $id)
     {

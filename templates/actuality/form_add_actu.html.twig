@@ -2,7 +2,10 @@
 
 {% block content %}
 
-    <h1>Ajouter une actu</h1>
-    {{ form(form) }}
-</div>
+    <div class="add_actu_content">
+        <a href="{{ path('user_index') }}"><i class="fas fa-angle-left"></i></a>
+        <h1>Ajouter une actualité</h1>
+            {{ form(form) }}
+    </div>
+    
 {% endblock %}

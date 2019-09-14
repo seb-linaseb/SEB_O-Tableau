@@ -1071,7 +1071,7 @@ label.required {
 }
 
 .actu .actu_préShow {
-    
+    overflow: auto;
 }
 
 .actu .actu_préShow h2 {
@@ -1120,7 +1120,7 @@ label.required {
 }
 
 .actu_show {
-    
+    padding-bottom: 50%;
 }
 
 .actu_show img {
@@ -1146,6 +1146,72 @@ label.required {
 .actu_show div i {
     margin-right: 3%;
 }
+
+/* PAGE ADD ACTUALITES */
+
+.add_actu_content {
+
+}
+
+.add_actu_content a i {
+    font-size: 6em;
+    margin-left: 5%;
+    padding-top: 5%;
+}
+
+.add_actu_content h1 {
+    text-align: center;
+    padding-top: 5%;
+    font-size: 4em;
+}
+
+.add_actu_content form {
+    text-align: center;
+    padding-top: 5%;
+}
+
+
+.add_actu_content form #actuality div  {
+    padding-bottom: 5%;
+}
+
+.add_actu_content form #actuality div input {
+    padding-left: 2%;
+    font-size: 2em;
+    height: 70px;
+    width: 70%;
+    border: none;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.add_actu_content form #actuality div textarea {
+    padding-left: 2%;
+    padding-top: 2%;
+    font-size: 2em;
+    height: 150px;
+    width: 70%;
+    border: none;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.add_actu_content form #actuality div #actuality_picture_url {
+    padding-top: 3%;
+}
+
+
+.add_actu_content form #actuality div #actuality_Ajouter {
+    font-size: 2em;
+    margin-top: 10%;
+    padding: 3% 5%;
+    border: none;
+    border-radius: 5px;
+    background-color: beige;
+}
+
+
+
 
 
 
@@ -1199,7 +1265,57 @@ label.required {
     color: black;
 }
 
+/* CALENDAR */
 
+.calendar__table {
+    width: 100%;
+    height: calc(100vh - 128px);
+   }
+   
+.calendar__table td {
+    padding: 10px;
+    border: 1px solid grey;
+    vertical-align: top;
+    width: 14.29%; /* 100% / 7 jours */
+    height: 100%;
+}
+
+.calendar__table--6weeks td {
+    height: 16.66%; /* 100% / 6 semaines */
+}
+
+.calendar__column__title {
+height: 2%;
+}
+
+.calendar__weekday {
+    font-weight: bold;
+    color: black;
+    font-size: 1.2em;
+}
+
+.calendar__day {
+    font-size: 1.3em;
+}
+
+.calendar__othermonth .calendar__day {
+    opacity: 0.3;
+    font-size: 1em;
+}
+
+
+/* CLASS JQUERY */
+
+.red {
+    color: red;
+}
+.black {
+    color: black;
+}
+
+.display_none {
+    display: none;
+}
 
 
 
@@ -1236,54 +1352,4 @@ label.required {
     color: #2C3840;
 }
 
-/* CALENDAR */
 
-.calendar__table {
-    width: 100%;
-    height: calc(100vh - 128px);
-   }
-   
-   .calendar__table td {
-     padding: 10px;
-     border: 1px solid grey;
-     vertical-align: top;
-     width: 14.29%; /* 100% / 7 jours */
-     height: 100%;
-   }
-
-   .calendar__table--6weeks td {
-     height: 16.66%; /* 100% / 6 semaines */
-   }
-
-   .calendar__column__title {
-    height: 2%;
-  }
-
-   .calendar__weekday {
-     font-weight: bold;
-     color: black;
-     font-size: 1.2em;
-   }
-   
-   .calendar__day {
-     font-size: 1.3em;
-   }
-   
-   .calendar__othermonth .calendar__day {
-     opacity: 0.3;
-     font-size: 1em;
-   }
-   
-   
-/* CLASS JQUERY */
-
-.red {
-    color: red;
-}
-.black {
-    color: black;
-}
-
-.display_none {
-    display: none;
-}
