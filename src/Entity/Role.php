@@ -44,11 +44,13 @@ class Role
      */
     private $users;
 
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
-        $this->updatedAt = new DateTime();
-        $this->createdAt = new DateTime();
+        $this->created_at = new DateTime();
+        $this->updated_at = new DateTime();
+        
     }
 
     public function getId(): ?int

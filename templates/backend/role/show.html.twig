@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}O'Tableau{% endblock %}
+
+{% block content %}
+
+    <div class="backend_role_show">
+          <p>{{roles.name}}</p>
+    </div>
+
+    <form method="post" action="{{ path('admin_role_edit', {'id': roles.id}) }}">
+        <input type="hidden" name="_method" value="UPDATE">
+        <input type="hidden" name="_token" value="{{ csrf_token('update' ~ roles.id) }}">
+        <button class="btn">Modifier</button>
+    </form>
+
+    <form method="post" action="{{ path('admin_role_delete', {'id': roles.id}) }}">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ roles.id) }}">
+        <button class="btn">Supprimer</button>
+    </form>
+   
+{% endblock %}
+{% block footer %}
+{% endblock %}

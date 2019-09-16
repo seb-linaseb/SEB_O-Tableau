@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}O'Tableau{% endblock %}
+
+{% block content %}
+
+    <div class="backend_school">
+        {% for school in school %}
+            <div>
+                <a href="{{ path('admin_school_show', { 'id': school.id }) }}">{{school.name}} {{school.address}}</a>
+            </div>
+        {% endfor %}    
+    </div>
+
+{% endblock %}
+{% block footer %}
+{% endblock %}
