@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <p>{{ student.name }} {{ student.firstname }}</p>
+    
+<form method="post" action="{{ path('admin_student_delete', {'id': student.id}) }}" onsubmit="return confirm('Êtes vous sûr de vouloir supprimer?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ student.id) }}">
+    <button class="btn">Supprimer</button>
+</form>
+
+<hr>
+
+<form method="post" action="{{ path('admin_student_update', {'id': student.id}) }}">
+    <input type="hidden" name="_method" value="UPDATE">
+    <input type="hidden" name="_token" value="{{ csrf_token('update' ~ student.id) }}">
+    <button class="btn">Modifier</button>
+</form>
+
+
+{% endblock %}
