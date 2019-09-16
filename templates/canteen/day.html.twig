@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Day Calendar Display{% endblock %}
+
+{% block content %}
+
+    <div class="content_profil">
+        <div class="nav_profil">
+            <div class="nav_profil_flex">
+                <i class="fas fa-hamburger"></i>
+                <div>
+                    <p>{{ app.user.username }}</p>
+                    <span>{{app.user.role.name }}</span>
+                </div>
+
+            </div>
+        </div>
+                <div class="profil_classe">
+                        <table>
+                        <caption>{{ my_classroom.name }}<br>
+                        <a href="{{ path('canteen_day') }}?date_of_day={{ date_of_yesterday }}" class="btn btn-primary">&lt;</a>
+                        {{ date_of_day_to_display }}
+                        <a href="{{ path('canteen_day') }}?date_of_day={{ date_of_tomorrow }}" class="btn btn-primary">&gt;</a></caption>
+                        <thead>
+                            <tr>
+                                <td>Nom élève</td>
+                                <td>Présence</td>
+                                <td>Repas</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for studentId, form in forms %} 
+                            {{ form_start(form) }}
+                            <tr>
+                                {% for student in students %}
+                                    {% if studentId == student.id %}
+                                <td>
+                                    {{ form_label(form.student) }}
+                                    {{ form_widget(form.student) }}
+                                </td>
+                                
+                                <td>
+                                    {{ form_label(form.is_present) }}
+                                    {{ form_widget(form.is_present) }}
+                                </td>
+                                <td>
+                                    {{ form_label(form.has_eated) }}
+                                    {{ form_widget(form.has_eated) }}
+                                </td>
+                                <td>
+                                    {# {{ form_submit }} #}
+                                    <input type="submit" value="Envoi">
+                                </td>
+                                {{ form_end(form) }}
+                                    {% endif %}
+                                    
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                             
+                        </tbody>
+                    </table>
+                    
+                </div>
+
+{% endblock %}

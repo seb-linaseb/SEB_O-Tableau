@@ -22,19 +22,19 @@ class CalendarRepository extends ServiceEntityRepository
     // /**
     //  * @return Calendar[] Returns an array of Calendar objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function findByDate($dateOfDay)
     {
         return $this->createQueryBuilder('c')
-            ->andWhere('c.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('c.id', 'ASC')
-            ->setMaxResults(10)
+            ->andWhere('c.date = :val')
+            ->setParameter('val', $dateOfDay)
+            //->orderBy('c.id', 'ASC')
+            //->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+    
 
     /*
     public function findOneBySomeField($value): ?Calendar

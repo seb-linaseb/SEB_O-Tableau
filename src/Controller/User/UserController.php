@@ -20,11 +20,15 @@ class UserController extends AbstractController
      */
     public function index(ClassroomRepository $classroomrepository)
     {
+
         $repository = $this->getDoctrine()->getRepository(Document::class);
         $documents = $repository->findAllDocWithStudentIdNull();
                
         $repository = $this->getDoctrine()->getRepository(Alert::class);
         $alerts = $repository->findLastAlert();
+
+        $userId = $this->getUser();
+        $classroomId = $classroomrepository->findMyClass($userId);
 
         return $this->render('user/index.html.twig', [        
         'documents' => $documents,
