@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <h1>Messages d'alerte</h1>
+
+     {{ form(form) }}
+
+    {% for alert in alerts %}      
+
+     <a href="{{ path('alert_show', { 'id': alert.id }) }}">     
+    
+    <h2>{{ alert.title }}</h2>
+    <p>{{ alert.content }}</p><hr>
+
+    </a>
+   
+    {% endfor %}
+
+{% endblock %}

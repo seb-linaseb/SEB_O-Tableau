@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +42,12 @@ class Alert
      */
     private $user;
 
+    public function __construct()
+    {
+        $this->created_at = new DateTime();
+        $this->updated_at = new DateTime();
+    }
+    
     public function getId(): ?int
     {
         return $this->id;

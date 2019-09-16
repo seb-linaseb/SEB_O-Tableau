@@ -2,6 +2,7 @@
 
 namespace App\Controller\User;
 
+use App\Entity\Alert;
 use App\Entity\Actuality;
 use App\Form\ActualityType;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,8 +19,12 @@ class ActualityController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Actuality::class);
         $news = $repository->findAllOrderedByDate(); 
 
+        $repository = $this->getDoctrine()->getRepository(Alert::class);
+        $alerts = $repository->findLastAlert();
+
         return $this->render('actuality/index.html.twig', [
-            "news" => $news            
+            'news' => $news,       
+            'alerts' => $alerts     
         ]);
     }
 
@@ -32,7 +37,7 @@ class ActualityController extends AbstractController
         $new = $repository->find($id);
 
         return $this->render('actuality/show.html.twig', [
-            "new" => $new                     
+            'new' => $new                     
         ]);
     }
 

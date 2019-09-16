@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <h1>{{ alert.title }}</h1>
+    <p>{{ alert.content }}</p>
+
+<form method="post" action="{{ path('alert_delete', {'id': alert.id}) }}" onsubmit="return confirm('Êtes vous sûr de vouloir supprimer ce document?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ alert.id) }}">
+    <button class="btn">Supprimer</button>
+</form>
+
+<hr>
+
+<form method="post" action="{{ path('alert_update', {'id': alert.id}) }}">
+    <input type="hidden" name="_method" value="UPDATE">
+    <input type="hidden" name="_token" value="{{ csrf_token('update' ~ alert.id) }}">
+    <button class="btn">Modifier</button>
+</form>
+
+{% endblock %}

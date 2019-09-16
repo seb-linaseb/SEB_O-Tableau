@@ -16,6 +16,12 @@
         </div>
 
         <h1>Actualités</h1>
+            <div class="alert_actuality">
+            {% for alert in alerts %}      
+                <h2>{{ alert.title }}</h2>
+                <p>{{ alert.content }}</p>   
+            {% endfor %}
+        </div>
 
         {% for actuality in news %}              
                         
@@ -32,6 +38,6 @@
                 </div>              
             </div>
         </a>
-        {% endfor %}  
+         {% endfor %}  
     </div>
 {% endblock %}
