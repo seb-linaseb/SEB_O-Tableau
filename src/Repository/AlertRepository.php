@@ -19,6 +19,14 @@ class AlertRepository extends ServiceEntityRepository
         parent::__construct($registry, Alert::class);
     }
 
+    public function findLastAlert()
+    {
+        $query = $this->createQueryBuilder('u')
+        ->orderBy('u.updated_at', 'DESC')    
+        ->setMaxResults(1);      
+
+        return $query->getQuery()->getResult();
+    }
     // /**
     //  * @return Alert[] Returns an array of Alert objects
     //  */

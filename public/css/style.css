@@ -462,6 +462,12 @@ input, button {
 .profil_choice p span {
     font-weight: bold;
 }
+.alert {
+    text-align: center;
+    margin-top: 2%;
+    font-weight: bold;
+    color: red;
+}
 
 /* PAGE PROFIL PROF/DIRECTEUR */
 
@@ -1105,6 +1111,14 @@ label.required {
     width: 60%;
     border-bottom: 1px solid;
     padding-bottom: 2%;
+}
+
+.alert_actuality {
+    margin-top: 2%;
+    font-size: 2.9em;
+    text-align: center;
+    font-weight: bold;
+    color: red;
 }
 
 

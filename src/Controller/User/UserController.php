@@ -3,6 +3,7 @@
 namespace App\Controller\User;
 
 use App\Entity\User;
+use App\Entity\Alert;
 use App\Form\UserType;
 use App\Entity\Document;
 use App\Entity\Classroom;
@@ -20,10 +21,14 @@ class UserController extends AbstractController
     public function index(ClassroomRepository $classroomrepository)
     {
         $repository = $this->getDoctrine()->getRepository(Document::class);
-        $documents = $repository->findAllDocWithStudentIdNull(); 
+        $documents = $repository->findAllDocWithStudentIdNull();
+               
+        $repository = $this->getDoctrine()->getRepository(Alert::class);
+        $alerts = $repository->findLastAlert();
 
         return $this->render('user/index.html.twig', [        
         'documents' => $documents,
+        'alerts' => $alerts
         ]);
     }     
 

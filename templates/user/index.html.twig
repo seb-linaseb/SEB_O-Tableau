@@ -24,7 +24,13 @@
             {% else %}
                 <a href="{{ path('user_myAccount') }}">Mon compte</a>
             {% endif %}
-            </div>
+            </div>            
+        </div>
+        <div class="alert">
+            {% for alert in alerts %}      
+                <h2>{{ alert.title }}</h2>
+                <p>{{ alert.content }}</p>   
+            {% endfor %}
         </div>
         <div class="profil">
             {% if app.user.role.name == 'Direction' or app.user.role.name == 'Enseignant'  %}
