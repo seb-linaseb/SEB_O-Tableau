@@ -16,8 +16,12 @@ class PresenceLunchType extends AbstractType
             ->add('is_present', CheckboxType::class, [
                 // 'value' => false,
             ])
-            //->add('is_ordered')
-            //->add('is_canceled')
+            // ->add('is_ordered', CheckboxType::class, [
+            //     'value' => false,
+            // ])
+            // ->add('is_canceled', CheckboxType::class, [
+            //     'value' => false,
+            // ])
             ->add('has_eated', CheckboxType::class, [
                 'value' => false,
             ])

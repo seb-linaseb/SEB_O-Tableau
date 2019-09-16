@@ -30,12 +30,15 @@
                         </thead>
                         <tbody>
                             {% for studentId, form in forms %} 
+                            {{ form_start(form) }}
                             <tr>
                                 {% for student in students %}
                                     {% if studentId == student.id %}
                                 <td>
-                                    {{ student.name }} {{ student.firstname }}
+                                    {{ form_label(form.student) }}
+                                    {{ form_widget(form.student) }}
                                 </td>
+                                
                                 <td>
                                     {{ form_label(form.is_present) }}
                                     {{ form_widget(form.is_present) }}
@@ -45,8 +48,10 @@
                                     {{ form_widget(form.has_eated) }}
                                 </td>
                                 <td>
-                                <input type="submit" value="Envoi">
+                                    {# {{ form_submit }} #}
+                                    <input type="submit" value="Envoi">
                                 </td>
+                                {{ form_end(form) }}
                                     {% endif %}
                                     
                                 {% endfor %}
@@ -55,6 +60,7 @@
                              
                         </tbody>
                     </table>
+                    
                 </div>
 
 {% endblock %}

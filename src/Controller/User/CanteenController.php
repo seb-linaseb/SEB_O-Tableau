@@ -7,6 +7,7 @@ use App\Entity\Classroom;
 use App\Utils\Calendar\Week;
 use App\Entity\PresenceLunch;
 use App\Form\PresenceLunchType;
+use Doctrine\ORM\EntityManager;
 use App\Repository\CalendarRepository;
 use App\Repository\ClassroomRepository;
 use App\Repository\PresenceLunchRepository;
@@ -64,36 +65,38 @@ class CanteenController extends AbstractController
    $students = $my_classroom->getStudents();
    $forms = [];
 
-   foreach ($students as $key => $student) {
-     //$student->getLunches()
-     $thisCalendar = $calendarRepository->findByDate($date_of_day_bdd);
-     //dump($thisCalendar[0]);
-     //die;
-     $presenceLunches = $presenceLunchRepository->findThisPresenceLunch($thisCalendar[0], $student->getId());
-     
-     //dump($student->getId());
-     if (empty($presenceLunches)){
-      $presenceLunch = new PresenceLunch();
-      $form = $this->createForm(PresenceLunchType::class, $presenceLunch);
-      $form->handleRequest($request);
-      
-      $forms[$student->getId()] = $form->createView();
+      foreach ($students as $key => $student) {
+        //$student->getLunches()
+        $thisCalendar = $calendarRepository->findByDate($date_of_day_bdd);
+        //dump($thisCalendar[0]);
+        //die;
+        $presenceLunches = $presenceLunchRepository->findThisPresenceLunch($thisCalendar[0], $student->getId());
+        
+        //dump($student->getId());
+        if (empty($presenceLunches)){
+          $presenceLunch = new PresenceLunch();
+          $form = $this->createForm(PresenceLunchType::class, $presenceLunch);
+          $form->handleRequest($request);
+          
+          $forms[$student->getId()] = $form->createView();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-          $presenceLunch->setCalendar($thisCalendar);
-          $presenceLunch->setStudent($student);
+            if ($form->isSubmitted() && $form->isValid()) {
+              $presenceLunch->setCalendar($thisCalendar[0]);
+              $presenceLunch->setIsCanceled(false);
+              $presenceLunch->setIsOrdered(true);
 
-          //$entityManager = $this->getDoctrine()->getManager();
-          //$entityManager->persist($message);
-          //dump($presenceLunch);
-          return $this->redirectToRoute('canteen_day');
-     }
-     
-     
-    }
+              $entityManager = $this->getDoctrine()->getManager();
+              $entityManager->persist($presenceLunch);
+              $entityManager->flush();
+              //dump($presenceLunch);
+              return $this->redirectToRoute('canteen_day');
+            }
+            
+        
+          }
 
-     //$entityManager->flush();
-   }
+         
+        }
    //dump($forms);die();
    //die;
    
