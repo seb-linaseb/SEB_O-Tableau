@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <h1>News</h1>
+
+    {% for actuality in actualitys %}      
+
+     <a href="{{ path('actualityadmin_show', { 'id': actuality.id }) }}">     
+    
+    <h2>{{ actuality.title }}</h2>
+
+    </a>
+   
+    {% endfor %}
+
+{% endblock %}
