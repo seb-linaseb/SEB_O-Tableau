@@ -14,17 +14,20 @@ var app = {
         var $inputMsg = $('#message_content')
         $inputMsg.focus()
 
-
-        // // Attempt to update the user's cache.
-        // window.applicationCache.update();
-
-
-
-        // if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
-        // // The fetch was successful, swap in the new cache.
-        // window.applicationCache.swapCache();
-        // }
-        
+        // POUR SCROLLBAR EN BAS
+        function mettre_curseur_en_bas(){
+            obj=document.getElementById('message_list');
+            console.log(obj)
+            //On récupère le body, c'est on veut mettre le scroll sur lui
+            var body=document.getElementsByTagName('body')[0];
+            //Pour finir on applique le déplacement
+            body.scrollTop = obj.scrollHeight;
+            //On le fait sur le "html" car sous FF il me semble que ça marche pas
+            var html=document.getElementsByTagName('html')[0];
+            //Pour finir on applique le déplacement
+            html.scrollTop = obj.scrollHeight;
+            }
+            window.onload = function(){mettre_curseur_en_bas();};
     },
 
     handleLabelClick: function(evt) {

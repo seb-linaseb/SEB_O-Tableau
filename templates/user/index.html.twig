@@ -43,15 +43,6 @@
                         <a href="{{ path('document_students') }}">Ajouter un bulletin</a>
                     </div>
                 </div>
-                {% for children in app.user.students %}
-                    <div class="profil_children">
-                        <a href="{{ path('student_index', { 'id': children.id }) }}">
-                            <i class="fas fa-user-graduate"></i>
-                            <h2>{{ children.name }} {{ children.firstname }}</h2>
-                            <p>{{ children.classroom.name }}</p>
-                        </a>
-                    </div>
-                {% endfor %}
                 <div class="profil_classe">
                         <table>
                         <caption>Ma classe</caption>
@@ -73,6 +64,16 @@
                         </tr>
                     </table>
                 </div>
+                <h1 class="children_title">Mes enfants</h1>
+                {% for children in app.user.students %}
+                    <div class="profil_children">
+                        <a href="{{ path('student_index', { 'id': children.id }) }}">
+                            <i class="fas fa-user-graduate"></i>
+                            <h2>{{ children.name }} {{ children.firstname }}</h2>
+                            <p>{{ children.classroom.name }}</p>
+                        </a>
+                    </div>
+                {% endfor %}
                 <div class="profil_doc_staff">
                     <h1>Vie de l'école</h1>
                     <div>
@@ -83,10 +84,9 @@
                             </a>     
                         {% endfor %}              
                     </div>
-                </div>
-               
+                </div>             
             {% else %}
-
+                <h1 class="children_title">Mes enfants</h1>
                 {% for children in app.user.students %}
                 <div class="profil_children">
                     <a href="{{ path('student_index', { 'id': children.id }) }}">

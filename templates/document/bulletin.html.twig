@@ -2,12 +2,14 @@
 
 {% block content %}
 
-<h2>Ma classe: {{ classroom.name }} </h2>
-<h2>Mes eléves:</h2>
-
-{% for student in classroom.students %}                    
-    <a href="{{ path('document_addchildrenDocbyTeacher', { 'id': student.id }) }}"><br>                                     
-    {{ student.name }} {{ student.firstname }} <br>          
-{% endfor %}     
+<div class="add_bulletin_staff">
+    <a href="{{ path('user_index') }}"><i class="fas fa-angle-left"></i></a>
+    <h2>Ma classe de {{ classroom.name }} </h2>
+    {% for student in classroom.students %}    
+        <div>                
+            <a href="{{ path('document_addchildrenDocbyTeacher', { 'id': student.id }) }}">{{ student.name }} {{ student.firstname }}</a>   
+        </div>                                    
+    {% endfor %}  
+</div>   
                 
 {% endblock %}

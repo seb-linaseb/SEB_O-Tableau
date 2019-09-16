@@ -358,10 +358,17 @@ input, button {
     top: -25%;
 }
 
+
+.children_title {
+    font-size: 4em;
+    text-align: center;
+    padding-top: 10%;
+}
+
 .profil_children {
     width: 50%;
     margin: auto;
-    padding-top: 15%;
+    padding-top: 10%;
     padding-bottom: 5%;
     border-bottom: 2px solid;
 }
@@ -444,6 +451,26 @@ input, button {
     font-size: 3em;
     line-height: 190%;
 }
+
+.add_bulletin_staff a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.add_bulletin_staff h2 {
+    text-align: center;
+    font-size: 3em;
+}
+
+.add_bulletin_staff div {
+    text-align: center;
+    font-size: 2em;
+    padding-top: 5%;
+
+}
+
+
+
 .profil_choice {
     margin: 1%;
     padding-bottom: 40%;
@@ -1340,30 +1367,300 @@ height: 2%;
 
 /* !!!!!!!!!!!!!!!!! BACK-END !!!!!!!!!!!!!!!!! */
 
-.content_gestion {
+
+/* BACKEND INDEX */
+
+.backend_index {
 
 }
 
-.content_gestion h1 {
+.backend_index a i {
+    font-size: 6em;
+    margin-left: 5%;
+    padding-top: 5%;
+}
+
+.backend_index h1 {
     font-size: 5em;
     text-align: center;
     margin-top: 7%;
 
 }
 
-.content_gestion ul {
+.backend_index ul {
     font-size: 3em;
     text-align: center;
     margin-top: 10%;
 }
 
-.content_gestion ul li {
+.backend_index ul li {
     margin-bottom: 3%;
 }
 
-.content_gestion ul li a {
+.backend_index ul li a {
     text-decoration: none;
     color: #2C3840;
 }
+
+
+/* BACKEND DOCUMENT */
+
+.backend_document {
+
+}
+
+.backend_document a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.backend_document .add_document {
+    padding-top: 5%;
+    border-bottom: 2px solid;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 5%;
+}
+
+.backend_document .add_document h1 {
+    font-size: 3em;
+    text-align: center;
+}
+
+.backend_document form {
+    text-align: center;
+}
+
+.backend_document form #document div  {
+    padding-top: 5%;
+}
+
+.backend_document form #document div input {
+    padding-left: 2%;
+    font-size: 2em;
+    height: 70px;
+    width: 70%;
+    border: none;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.backend_document form #document div #document_document_url {
+    padding-top: 3%;
+}
+
+.backend_document form #document div button {
+    font-size: 2em;
+    margin-top: 3%;
+    padding: 3% 5%;
+    border: none;
+    border-radius: 5px;
+    background-color: beige;
+}
+
+.backend_document .list_document  {
+    border-bottom: 2px solid;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 15%;
+}
+
+.backend_document .list_document h2 {
+    font-size: 3em;
+    text-align: center;
+    padding-top: 15%;
+}
+
+.backend_document .list_document div  {
+    padding-left: 12%;
+    padding-top: 5%;
+}
+
+.backend_document .list_document div i {
+    font-size: 4em;
+}
+
+.backend_document .list_document div a {
+    font-size: 2em;
+}
+
+
+.backend_document .list_document_class {
+    padding-top: 10%;
+    padding-bottom: 40%;
+    width: 90%;
+    margin: auto;
+}
+
+.backend_document .list_document_class h2 {
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.backend_document .list_document_class div {
+    text-align: center;
+    padding-top: 5%;
+}
+
+.backend_document .list_document_class div a {
+    font-size: 2em;  
+}
+
+
+.backend_document_show {
+
+}
+
+.backend_document_show a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.backend_document_show .show_document {
+    border-bottom: 2px solid;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 15%;
+}
+
+.backend_document_show .show_document p {
+    text-align: center;
+    font-size: 4em;
+}
+
+.backend_document_show .show_document div {
+    font-size: 3.5em;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.backend_document_show .show_delete_update {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 7%;
+    
+}
+
+.backend_document_show .show_delete_update form button {
+    border: none;
+    font-size: 2em;
+    background-color: beige;
+    padding: 20px;
+    border-radius: 7px;
+    
+}
+
+.document_show_update {
+
+}
+
+.document_show_update a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.document_show_update h1 {
+    font-size: 3em;
+    text-align: center;
+}
+
+
+.document_show_update form {
+    text-align: center;
+}
+
+
+.document_show_update form #document {
+    
+}
+
+.document_show_update form #document div {
+    margin-top: 5%;
+}
+
+.document_show_update form #document div input {
+    padding-left: 2%;
+    font-size: 2em;
+    height: 70px;
+    width: 70%;
+    border: none;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.document_show_update form #document div #document_document_url
+{
+    padding-top: 3%;
+}
+
+.document_show_update form #document div #document_Ajouter {
+    font-size: 2em;
+    margin-top: 3%;
+    padding: 3% 5%;
+    border: none;
+    border-radius: 5px;
+    background-color: beige;
+}
+
+.backend_document_show_class {
+
+}
+
+.backend_document_show_class a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.backend_document_show_class h1  {
+    font-size: 4em;
+    text-align: center;
+    padding-bottom: 3%;
+    padding-top: 5%;
+}
+
+.backend_document_show_class div  {
+    text-align: center;
+    padding-top: 3%;
+    font-size: 3em;
+}
+
+
+.backend_document_children {
+
+}
+
+.backend_document_children a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.backend_document_children h1 {
+    text-align: center;
+    font-size: 3em;
+    padding-bottom: 5%;
+}
+
+.backend_document_children .document_children div  {
+    font-size: 3em;
+    width: 50%;
+    margin: auto;
+    padding-top: 5%;
+    display: flex;
+    overflow: hidden;
+}
+
+.backend_document_children .document_children div i  {
+    font-size: 1.5em;
+    padding-right: 2%;
+}
+
+.backend_document_children  .document_children_add  {
+    text-align: center;
+    padding-top: 10%;
+    font-size: 3em;
+}
+
+
+
 
 

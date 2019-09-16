@@ -1,0 +1,18 @@
+// Pour insérer du contenu HTML dans un endroit précis de mon HTML en utilisant Javascript, 4 étapes : 
+// - Créer une variable qui va me permettre de créer une nouvelle balise (ouvrante et fermante) avec createElement
+// - Utiliser cette variable pour indiquer le contenu que je souhaite insérer dans cette balise avec innerHTML
+// - Créer une variable qui va me permettre de sélectionner un marqueur CSS existant déjà dans mon HTML avec querySelector
+// - Utiliser cette variable pour indiquer où la balise et son contenu doivent s'insérer dans mon HTML avec appendChild
+
+// Je créé une variable qui me permet de créer une balise p avec document.createElement
+var JeCrééUneBaliseP = document.createElement("p");
+
+// J'insère du contenu dans cette balise avec innerHTML
+JeCrééUneBaliseP.innerHTML = 'j\'écris des trucs dans ma balise p';
+
+// Je créé une variable dans laquelle je stock le marqueur CSS que je vais utiliser pour indiquer où je veux que ma balise p et son contenu soient insérés avec querySelector ; ici ma variable indique qu'il s'agit d'un élément HTML dont la class est "responses" à l'intérieur d'une id "right".
+var JeSélectionneUnMarqueurCSS = document.querySelector("#right .responses");
+
+// J'utilise appendChild pour créer le contenu stocké dans ma variable JeCrééUneBaliseP en lui indiquant à quel endroit il doit être créé en utilisant le marqueur CSS stocké dans ma variable JeSéléectionneUnMarqueurCSS
+JeSélectionneUnMarqueurCSS.appendChild(JeCrééUneBaliseP);
+// "appendChild" se traduit littéralement par "ajouter l'enfant", l'élément créé s'ajoute en dernier élément (en "enfant") après ceux existant déjà dans le marqueur CSS sélectionné.
