@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -91,12 +92,12 @@ class User implements UserInterface, \Serializable
     private $updated_at;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Actuality", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Actuality", mappedBy="user", orphanRemoval=true)
      */
     private $actualities;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Alert", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Alert", mappedBy="user", orphanRemoval=true)
      */
     private $alerts;
 
@@ -106,7 +107,7 @@ class User implements UserInterface, \Serializable
     private $students;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Document", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Document", mappedBy="user", orphanRemoval=true)
      */
     private $documents;
 
@@ -117,7 +118,7 @@ class User implements UserInterface, \Serializable
 
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Conversation", mappedBy="user_consult")
+     * @ORM\OneToMany(targetEntity="App\Entity\Conversation", mappedBy="user_consult", orphanRemoval=true)
      */
     private $conversations;
 
@@ -145,6 +146,8 @@ class User implements UserInterface, \Serializable
         $this->conversations = new ArrayCollection();
         $this->messages = new ArrayCollection();
         $this->messageStatuses = new ArrayCollection();
+        $this->created_at = new DateTime();
+        $this->updated_at = new DateTime();
     }
 
     public function getId(): ?int
