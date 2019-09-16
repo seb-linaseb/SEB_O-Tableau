@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <h1>Ajouter un User(Parent, enseignant, directeur)</h1>
+
+     {{ form(form) }}
+
+    {% for user in users %}      
+
+     <a href="{{ path('admin_user_show', { 'id': user.id }) }}">   
+        <p>{{ user.name }} {{ user.firstname }}</p>
+    </a>
+   
+    {% endfor %}
+
+{% endblock %}
