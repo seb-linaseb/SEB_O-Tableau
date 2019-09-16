@@ -55,9 +55,9 @@ class AlertController extends AbstractController
     /**    
      * @Route("/profil/admin/alert/show/{id}/update", name="alert_update", requirements={"id"="\d+"})
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, Alert $alert)
     {
-        $alert = new Alert();
+      
 
         $repository = $this->getDoctrine()->getRepository(Alert::class);
         $alertid = $repository->find($id);  
@@ -78,6 +78,7 @@ class AlertController extends AbstractController
 
         return $this->render('/backend/alert/update.html.twig', [           
             'form' => $form->createView(),
+            'alert' => $alert,
         ]);
     }
 

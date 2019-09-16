@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\StudentRepository")
@@ -83,16 +84,18 @@ class Student
      */
     private $documents;
 
-
     public function __construct()
     {
         $this->user = new ArrayCollection();
         $this->lunchtype = new ArrayCollection();
         $this->person = new ArrayCollection();
         $this->documents = new ArrayCollection();
-        $this->presenceLunches = new ArrayCollection();
-
+        $this->presenceLunches = new ArrayCollection();      
+        $this->created_at = new DateTime();
+        $this->updated_at = new DateTime();
     }
+
+    
 
     public function getId(): ?int
     {
@@ -339,7 +342,11 @@ class Student
 
     public function __toString()
     {
-        return $this->name;
+        $this->name;
+        $this->lunchtype;
+        $this->person;
+
+        return $this;
     }
 
     

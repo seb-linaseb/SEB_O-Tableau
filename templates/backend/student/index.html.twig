@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+    <h1>Ajouter un étudiant</h1>
+
+     {{ form(form) }}
+
+    {% for student in students %}      
+
+     <a href="{{ path('admin_student_show', { 'id': student.id }) }}">     
+    
+    <p>{{ student.name }} {{ student.firstname }}</p>
+
+    </a>
+   
+    {% endfor %}
+
+{% endblock %}

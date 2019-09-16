@@ -214,9 +214,8 @@ class DocumentController extends AbstractController
     /**
      * @Route("/documenteleve/{id}/edit", name="document_edit", requirements={"id"="\d+"})
      */
-    public function editDocStudent(Request $request, $id)
-    {
-        $document = new Document();      
+    public function editDocStudent(Request $request, $id, Document $document)
+    {         
         
         $repository = $this->getDoctrine()->getRepository(Document::class);
         $doc = $repository->find($id);    
@@ -269,9 +268,8 @@ class DocumentController extends AbstractController
     /**
      * @Route("/documentscolaire/{id}/edit", name="documentschool_edit", requirements={"id"="\d+"})
      */
-    public function editDocSchool(Request $request, $id)
-    {
-        $document = new Document();       
+    public function editDocSchool(Request $request, $id, Document $document)
+    {           
         
         $repository = $this->getDoctrine()->getRepository(Document::class);
         $doc = $repository->find($id);    

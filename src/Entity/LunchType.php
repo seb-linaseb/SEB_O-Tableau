@@ -43,6 +43,11 @@ class LunchType
      */
     private $students;
 
+    public function __toString()
+    {
+        return $this->name;      
+    }
+
     public function __construct()
     {
         $this->students = new ArrayCollection();

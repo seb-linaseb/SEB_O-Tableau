@@ -60,9 +60,9 @@ class ActualityController extends AbstractController
     /**
      * @Route("/profil/admin/actuality/show/{id}/update", name="actualityadmin_update", requirements={"id"="\d+"})
      */
-    public function update(Request $request, $id, ObjectManager $manager)
+    public function update(Request $request, $id, ObjectManager $manager, Actuality $actu)
     {
-        $actu = new Actuality();      
+         
         
         $repository = $this->getDoctrine()->getRepository(Actuality::class);
         $actuid = $repository->find($id);    
@@ -111,7 +111,8 @@ class ActualityController extends AbstractController
 
         return $this->render('/backend/actuality/update.html.twig', [
             'form' => $form->createView(),
-            'actuality' => $actuid
+            'actuality' => $actuid,
+            'actu' => $actu
         ]);
     }   
 }
