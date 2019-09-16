@@ -2,14 +2,17 @@
 
 {% block content %}
 
-<h1>Liste des éleves de la classe {{ classroom.name }}</h1>
+  <div class="backend_document_show_class">
+      <a href="{{ path('document_index') }}"><i class="fas fa-angle-left"></i></a>
+      <h1>Eleves de la classe {{ classroom.name }}</h1>
 
-{% for student in classroom.students %}
+    {% for student in classroom.students %}
+      <div>
+        <a href="{{ path('documentByStudent_show', { 'id': classroom.id, 'studentid': student.id }) }}">{{ student.name }} {{ student.firstname }}</a>    
+      </div>                                                 
+    {% endfor %}
+  </div>
 
-<a href="{{ path('documentByStudent_show', { 'id': classroom.id, 'studentid': student.id }) }}"><br>                                     
-                   {{ student.name }} {{ student.firstname }} 
-                     </a>
-
-{% endfor %}
-
+{% endblock %}
+{% block footer %}
 {% endblock %}

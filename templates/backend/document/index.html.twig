@@ -1,21 +1,34 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Ajouter un document de la vie Scolaire:</h1><br>
-    {{ form(form) }}<br><hr>
-            <h2>Listing des documents de la vie scolaire</h2>
-                {% for doc in documents %}                  
-                    <a href="{{ path('documentSchool_show', { 'id': doc.id }) }}"><br>                                     
-                    {{ doc.name }} 
-                     </a>
-                {% endfor %}
-                <br><hr>
 
-            <h2>Listing des documents par Classe puis filtré par étudiant</h2>
+    <div class="backend_document">
+        <a href="{{ path('admin_default_index') }}"><i class="fas fa-angle-left"></i></a>
+        <div class="add_document">
+            <h1>Ajouter un document de la vie Scolaire</h1>
+            {{ form(form) }}
+        </div>
 
-                {% for classroom in classrooms %}                    
-                     <a href="{{ path('documentClassroom_show', { 'id': classroom.id }) }}"><br>                                     
-                    {{ classroom.name }} <br>          
-                {% endfor %}                   
+        <div class="list_document">
+        <h2>Documents de la vie scolaire</h2>
+            {% for doc in documents %}   
+            <div>   
+                <i class="fas fa-file-pdf"></i>         
+                <a href="{{ path('documentSchool_show', { 'id': doc.id }) }}">{{ doc.name }}</a> 
+            </div>
+            {% endfor %}
+        </div>      
+        
+        <div class="list_document_class">
+            <h2>Documents par classe puis filtré par élèves</h2>
+            {% for classroom in classrooms %}
+                <div>             
+                    <a href="{{ path('documentClassroom_show', { 'id': classroom.id }) }}">{{ classroom.name }}</a>   
+                </div>                                                
+            {% endfor %}  
+        </div>
+    </div>                
                                   
+{% endblock %}
+{% block footer %}
 {% endblock %}

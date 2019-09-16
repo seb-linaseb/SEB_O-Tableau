@@ -262,6 +262,7 @@ class DocumentController extends AbstractController
             }               
         return $this->render('backend/document/edit.html.twig', [
             'form' => $form->createView(),
+            'doc' => $doc
             ]);
     }  
 
@@ -317,6 +318,7 @@ class DocumentController extends AbstractController
             }               
         return $this->render('backend/document/edit.html.twig', [
             'form' => $form->createView(),
+            'doc' => $doc
             ]);
     }    
 }

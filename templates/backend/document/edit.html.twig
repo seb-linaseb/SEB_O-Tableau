@@ -1,1 +1,13 @@
-{{ form(form) }}
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+<div class="document_show_update">
+    <a href="{{ path('documentSchool_show', { 'id': doc.id }) }}"><i class="fas fa-angle-left"></i></a>
+    <h1>Modifier le document</h1>
+    {{ form(form) }}
+</div>
+
+{% endblock %}
+{% block footer %}
+{% endblock %}

@@ -4,7 +4,8 @@
 
 {% block content %}
 
-    <div class="content_gestion">
+    <div class="backend_index">
+        <a href="{{ path('user_index') }}"><i class="fas fa-angle-left"></i></a>
         <h1>Gestion</h1>
         <ul>
             <li><a href="{{ path('document_index') }}">Documents</a></li>
@@ -18,6 +19,6 @@
         </ul>
     </div>
    
-{% block footer %}
 {% endblock %}
+{% block footer %}
 {% endblock %}

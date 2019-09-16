@@ -2,23 +2,33 @@
 
 {% block content %}
 
-Consulter le document: <a href="/docs/{{ doc.documenturl }}">
-<i class="fas fa-file-pdf"></i>
-<p>Nom du document: {{ doc.name }}</p>
-</a>     
+    <div class="backend_document_show">
+        <a href="{{ path('document_index') }}"><i class="fas fa-angle-left"></i></a>
+        <div class="show_document">
+            <p>Consulter le document</p> 
+            <div>
+                <i class="fas fa-file-pdf"></i>
+                <a target="_blank" href="/docs/{{ doc.documenturl }}">{{ doc.name }}</a> 
+            </div>
+        </div>
 
-<form method="post" action="{{ path('documentschool_delete', {'id': doc.id}) }}" onsubmit="return confirm('Êtes vous sûr de vouloir supprimer ce document?');">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ doc.id) }}">
-    <button class="btn">Supprimer</button>
-</form>
+        <div class="show_delete_update">
 
-<hr>
+            <form method="post" action="{{ path('documentschool_edit', {'id': doc.id}) }}">
+                <input type="hidden" name="_method" value="UPDATE">
+                <input type="hidden" name="_token" value="{{ csrf_token('update' ~ doc.id) }}">
+                <button class="btn">Modifier</button>
+            </form>
 
-<form method="post" action="{{ path('documentschool_edit', {'id': doc.id}) }}">
-    <input type="hidden" name="_method" value="UPDATE">
-    <input type="hidden" name="_token" value="{{ csrf_token('update' ~ doc.id) }}">
-    <button class="btn">Modifier</button>
-</form>
+            <form method="post" action="{{ path('documentschool_delete', {'id': doc.id}) }}">
+                <input type="hidden" name="_method" value="DELETE">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ doc.id) }}">
+                <button class="btn">Supprimer</button>
+            </form>
 
+        </div>
+    </div>
+
+{% endblock %}
+{% block footer %}
 {% endblock %}
