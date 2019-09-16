@@ -1345,6 +1345,24 @@ height: 2%;
 }
 
 
+.calendar__student {
+    font-size: 2em;
+}
+
+.calendar__nav__profil__flex__col  {
+ flex-direction: column;
+ /* margin: 5% 2%; */
+}
+
+.calendar__nav__profil__flex__col div p {
+    font-size: 1.5em;
+    /* margin-bottom: 5%; */
+}
+
+.calendar__nav__profil__flex__col div span {
+    font-size: 2.5em;
+}
+
 /* CLASS JQUERY */
 
 .red {

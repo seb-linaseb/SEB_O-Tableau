@@ -32,7 +32,8 @@ class UserController extends AbstractController
 
         return $this->render('user/index.html.twig', [        
         'documents' => $documents,
-        'alerts' => $alerts
+        'alerts' => $alerts,
+        'classroomId' => $classroomId,
         ]);
     }     
 
