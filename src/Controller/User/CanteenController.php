@@ -5,7 +5,11 @@ namespace App\Controller\User;
 use App\Entity\Student;
 use App\Entity\Classroom;
 use App\Utils\Calendar\Week;
+use App\Entity\PresenceLunch;
+use App\Form\PresenceLunchType;
+use App\Repository\CalendarRepository;
 use App\Repository\ClassroomRepository;
+use App\Repository\PresenceLunchRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,7 +18,7 @@ class CanteenController extends AbstractController
 {    /**
   * @Route("canteen/day/", name="canteen_day")
   */
- public function day(Request $request, ClassroomRepository $classroomRepository)
+ public function day(Request $request, ClassroomRepository $classroomRepository, PresenceLunchRepository $presenceLunchRepository, CalendarRepository $calendarRepository)
  {
 
    // On récupère les infos sur le professeur et sa classe
@@ -37,6 +41,9 @@ class CanteenController extends AbstractController
    // Si la date du jour n'est pas fournie, on utilise la date du jour système
    if(!isset($_GET['date_of_day'])) {
      $date_of_day = new \DateTime();
+     //$calendar = new Calendar();
+     //$calendar->setDate($date_of_day);
+     //$calendar->setIsWorked(true);
    } else {
      $date_of_day = new \DateTime("{$date_year}-{$date_month}-{$date_day}");
    };
@@ -49,19 +56,58 @@ class CanteenController extends AbstractController
 
    // Date du jour (au bon format pour renvoi à la vue)
    // Ne pas remonter cet élément au dessus des calculs de dates de la veille et du lendemain
-   $date_of_day = $date_of_day->format('d-m-Y');
+   $date_of_day_to_display = $date_of_day->format('d-m-Y');
+   $date_of_day_bdd = $date_of_day->format('Y-m-d');
 
    // Récupération de la liste des élèves
 
    $students = $my_classroom->getStudents();
+   $forms = [];
+
+   foreach ($students as $key => $student) {
+     //$student->getLunches()
+     $thisCalendar = $calendarRepository->findByDate($date_of_day_bdd);
+     //dump($thisCalendar[0]);
+     //die;
+     $presenceLunches = $presenceLunchRepository->findThisPresenceLunch($thisCalendar[0], $student->getId());
+     
+     //dump($student->getId());
+     if (empty($presenceLunches)){
+      $presenceLunch = new PresenceLunch();
+      $form = $this->createForm(PresenceLunchType::class, $presenceLunch);
+      $form->handleRequest($request);
+      
+      $forms[$student->getId()] = $form->createView();
+
+        if ($form->isSubmitted() && $form->isValid()) {
+          $presenceLunch->setCalendar($thisCalendar);
+          $presenceLunch->setStudent($student);
+
+          //$entityManager = $this->getDoctrine()->getManager();
+          //$entityManager->persist($message);
+          //dump($presenceLunch);
+          return $this->redirectToRoute('canteen_day');
+     }
+     
+     
+    }
+
+     //$entityManager->flush();
+   }
+   //dump($forms);die();
+   //die;
    
 
  return $this->render('canteen/day.html.twig', [
-     'date_of_day' => $date_of_day,
+     'date_of_day_to_display' => $date_of_day_to_display,
      'date_of_yesterday' => $date_of_yesterday,
      'date_of_tomorrow' => $date_of_tomorrow,
      'students' => $students,
-     'my_classroom' => $my_classroom
+     'student'=>$student,
+     'my_classroom' => $my_classroom,
+     'forms'=> $forms,
+     'form' => $form->createView(),
+
  ]);
  }
 }

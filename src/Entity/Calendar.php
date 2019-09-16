@@ -19,7 +19,7 @@ class Calendar
     private $id;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string", length=10)
      */
     private $date;
 

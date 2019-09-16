@@ -38,7 +38,7 @@ class ConversationRepository extends ServiceEntityRepository
 
     /**
      * 
-     *  @return Conversation[] Returns an array of Movie objects
+     *  @return Conversation[] Returns an array of Conversation
      */
     public function findThisConversation($expediteurId, $destinataireId)
     {

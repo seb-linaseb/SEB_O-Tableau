@@ -19,7 +19,7 @@
                         <table>
                         <caption>{{ my_classroom.name }}<br>
                         <a href="{{ path('canteen_day') }}?date_of_day={{ date_of_yesterday }}" class="btn btn-primary">&lt;</a>
-                        {{ date_of_day }}
+                        {{ date_of_day_to_display }}
                         <a href="{{ path('canteen_day') }}?date_of_day={{ date_of_tomorrow }}" class="btn btn-primary">&gt;</a></caption>
                         <thead>
                             <tr>
@@ -29,17 +29,30 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for student in students %}
+                            {% for studentId, form in forms %} 
                             <tr>
-                                <td>{{ student.name }} {{ student.firstname }}</td>
+                                {% for student in students %}
+                                    {% if studentId == student.id %}
                                 <td>
-                                    <input type="checkbox" id="toggle_switch" name="present" checked>
+                                    {{ student.name }} {{ student.firstname }}
                                 </td>
                                 <td>
-                                    <input type="checkbox" id="toggle_switch" name="lunch" checked>
+                                    {{ form_label(form.is_present) }}
+                                    {{ form_widget(form.is_present) }}
                                 </td>
+                                <td>
+                                    {{ form_label(form.has_eated) }}
+                                    {{ form_widget(form.has_eated) }}
+                                </td>
+                                <td>
+                                <input type="submit" value="Envoi">
+                                </td>
+                                    {% endif %}
+                                    
+                                {% endfor %}
                             </tr>
                             {% endfor %}
+                             
                         </tbody>
                     </table>
                 </div>
