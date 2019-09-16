@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}O'Tableau{% endblock %}
+
+{% block content %}
+
+    <div class="backend_classroom">
+        {% for classroom in classrooms %}
+            <div>
+                <a href="{{ path('admin_classroom_show', { 'id': classroom.id }) }}">{{classroom.name}}</a>
+            </div>
+        {% endfor %}    
+    </div>
+    <a href="{{ path('admin_classroom_new') }}">NEW</a>
+{% endblock %}
+{% block footer %}
+{% endblock %}

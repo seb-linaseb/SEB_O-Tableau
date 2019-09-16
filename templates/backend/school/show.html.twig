@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}O'Tableau{% endblock %}
+
+{% block content %}
+
+    <div class="backend_school_show">
+          <p>{{school.name}}</p>
+    </div>
+
+    <form method="post" action="{{ path('admin_school_edit', {'id': school.id}) }}">
+        <input type="hidden" name="_method" value="UPDATE">
+        <input type="hidden" name="_token" value="{{ csrf_token('update' ~ school.id) }}">
+        <button class="btn">Modifier</button>
+    </form>
+
+{% endblock %}
+{% block footer %}
+{% endblock %}

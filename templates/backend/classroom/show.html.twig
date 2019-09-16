@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}O'Tableau{% endblock %}
+
+{% block content %}
+
+    <div class="backend_classroom_show">
+          <p>{{classrooms.name}}</p>
+    </div>
+
+    <form method="post" action="{{ path('admin_classroom_edit', {'id': classrooms.id}) }}">
+        <input type="hidden" name="_method" value="UPDATE">
+        <input type="hidden" name="_token" value="{{ csrf_token('update' ~ classrooms.id) }}">
+        <button class="btn">Modifier</button>
+    </form>
+
+    <form method="post" action="{{ path('admin_classroom_delete', {'id': classrooms.id}) }}">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ classrooms.id) }}">
+        <button class="btn">Supprimer</button>
+    </form>
+   
+{% endblock %}
+{% block footer %}
+{% endblock %}

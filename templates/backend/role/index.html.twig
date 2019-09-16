@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}O'Tableau{% endblock %}
+
+{% block content %}
+
+    <div class="backend_role">
+        {% for role in roles %}
+            <div>
+                <a href="{{ path('admin_role_show', { 'id': role.id }) }}">{{role.name}}</a>
+            </div>
+        {% endfor %}    
+    </div>
+    <a href="{{ path('admin_role_new') }}">NEW</a>
+{% endblock %}
+{% block footer %}
+{% endblock %}
