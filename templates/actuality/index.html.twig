@@ -4,6 +4,12 @@
 
 {% block content %}
 
+    <div class="alert_actuality">
+        {% for alert in alerts %}      
+            <h2>{{ alert.title }}</h2>
+            <p>{{ alert.content }}</p>   
+        {% endfor %}
+    </div>
     <div class="content_actu">
 
         <div class="tags_actu">
@@ -18,28 +24,20 @@
         </div>
 
         <h1>Actualités</h1>
-            <div class="alert_actuality">
-            {% for alert in alerts %}      
-                <h2>{{ alert.title }}</h2>
-                <p>{{ alert.content }}</p>   
-            {% endfor %}
-        </div>
-
-        {% for actuality in news %}              
-                        
-        <a href="{{ path('actuality_show', { 'id': actuality.id }) }}">
-            <div class="actu">
-                <img src="/docs/{{ actuality.pictureUrl }}" alt="">
-                <div class="actu_préShow">
-                    <h2>{{ actuality.title }}</h2>
-                    <p>{{ actuality.content }}</p>
-                    <div>
-                        <i class="far fa-clock"></i>
-                        <span>Le {{ actuality.createdAt|date('d/m/Y') }}</span>
-                    </div>                      
-                </div>              
-            </div>
-        </a>
-         {% endfor %}  
+        {% for actuality in news %}                             
+            <a href="{{ path('actuality_show', { 'id': actuality.id }) }}">
+                <div class="actu">
+                    <img src="/docs/{{ actuality.pictureUrl }}" alt="">
+                    <div class="actu_préShow">
+                        <h2>{{ actuality.title }}</h2>
+                        <p>{{ actuality.content }}</p>
+                        <div>
+                            <i class="far fa-clock"></i>
+                            <span>Le {{ actuality.createdAt|date('d/m/Y') }}</span>
+                        </div>                      
+                    </div>              
+                </div>
+            </a>
+        {% endfor %}  
     </div>
 {% endblock %}
