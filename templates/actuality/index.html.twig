@@ -16,11 +16,20 @@
             <div>
                 <a href="{{ path('actuality_index') }}">Tous</a>
             </div>
-             {% for classroom in classrooms %}
-            {# <div>
-                <a href="{{ path('actuality_myclassroom', { 'id': classroom.id }) }}">{{ classroom }}</a>
-            </div> #}
-             {% endfor %}
+            <div>
+                <ul class="myNav">
+                    
+                    <li class="myNav-item ui-accordion-item">
+                        <a class="myNav-link ui-accordion-trigger" href="#">Classes</a>
+                        <ul class="myNav-content ui-accordion-content">
+                            {% for classroom in classrooms %}
+                            <li><a href="{{ path('actuality_myclassroom', { 'id': classroom.id }) }}">{{ classroom }}</a></li>
+                            {% endfor %} #}
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
         </div>
 
         <h1>Actualités</h1>
