@@ -22,14 +22,14 @@ class DefaultController extends AbstractController
 
             $contactFormData = $form->getData();
 
-           $message = (new \Swift_Message('O\'Tableau - Vous avez un message'))
-               ->setFrom(["sirius@gmail.com" => $contactFormData['Adresse-mail']] )
-               ->setReplyto([$contactFormData['Adresse-mail']] )
-               ->setTo('otableau.sirius@gmail.com')
-               ->setBody(        
-                   $contactFormData['content'],
-                   'text/plain'                
-               )
+            $message = (new \Swift_Message('O\'Tableau - Vous avez un message'))               
+            ->setFrom(["sirius@gmail.com" => $contactFormData['Nom']] )
+            ->setReplyto([$contactFormData['Adresse-mail']] )
+            ->setTo('otableau.sirius@gmail.com')
+            ->setBody(        
+                $contactFormData['content'],
+                'text/plain'                
+            )
            ;
 
            $mailer->send($message);
