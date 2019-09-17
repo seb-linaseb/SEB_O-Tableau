@@ -342,11 +342,7 @@ class Student
 
     public function __toString()
     {
-        $this->name;
-        $this->lunchtype;
-        $this->person;
-        // return $this->name . " " .$this->firstname;
-        return $this;
+        return $this->name . " " .$this->firstname;
     }
 
     
