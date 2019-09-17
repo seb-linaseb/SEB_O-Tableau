@@ -44,12 +44,16 @@ class ActualityController extends AbstractController
         $repositoryclass = $this->getDoctrine()->getRepository(Classroom::class);
         $classroom = $repositoryclass->find($id);
 
+        $repositoryclass = $this->getDoctrine()->getRepository(Classroom::class);
+        $classrooms = $repositoryclass->findAll();
+
         $repository = $this->getDoctrine()->getRepository(Alert::class);
         $alerts = $repository->findLastAlert();      
       
         return $this->render('actuality/classroom.html.twig', [                 
             'alerts' => $alerts,
-            'classroom' => $classroom
+            'classroom' => $classroom,
+            'classrooms' => $classrooms
         ]);
     }
 
