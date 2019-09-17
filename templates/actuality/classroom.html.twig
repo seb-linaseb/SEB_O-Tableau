@@ -10,11 +10,9 @@
             <div>
                 <a href="{{ path('actuality_index') }}">Tous</a>
             </div>
-             {% for classroom in classrooms %}
-            {# <div>
-                <a href="{{ path('actuality_myclassroom', { 'id': classroom.id }) }}">{{ classroom }}</a>
-            </div> #}
-             {% endfor %}
+            <div>
+                <a href="">{{ classroom }}</a>
+            </div>
         </div>
 
         <h1>Actualités</h1>
@@ -25,7 +23,7 @@
             {% endfor %}
         </div>
 
-        {% for actuality in news %}              
+          {% for actuality in classroom.actualities %}    
                         
         <a href="{{ path('actuality_show', { 'id': actuality.id }) }}">
             <div class="actu">

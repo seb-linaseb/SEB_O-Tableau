@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use \DateTime;
 
@@ -47,10 +49,16 @@ class Actuality
      */
     private $user;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Classroom", inversedBy="actualities")
+     */
+    private $classroom;
+
     public function __construct()
     {
         $this->created_at = new DateTime();
         $this->updated_at = new DateTime();
+        $this->classroom = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -126,6 +134,32 @@ class Actuality
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Classroom[]
+     */
+    public function getClassroom(): Collection
+    {
+        return $this->classroom;
+    }
+
+    public function addClassroom(Classroom $classroom): self
+    {
+        if (!$this->classroom->contains($classroom)) {
+            $this->classroom[] = $classroom;
+        }
+
+        return $this;
+    }
+
+    public function removeClassroom(Classroom $classroom): self
+    {
+        if ($this->classroom->contains($classroom)) {
+            $this->classroom->removeElement($classroom);
+        }
 
         return $this;
     }

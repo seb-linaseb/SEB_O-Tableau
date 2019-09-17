@@ -44,6 +44,7 @@ class ActualityType extends AbstractType
                 ],
               )
             )   
+            ->add('classroom')
             ->add('picture_url', FileType::class, [
                 'label' => 'Veuillez selectionner votre document sous le format PDF',
                 'data_class' => null,
