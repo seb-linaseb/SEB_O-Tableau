@@ -14,8 +14,6 @@ class PersonType extends AbstractType
         $builder
             ->add('name')
             ->add('firstname')
-            ->add('created_at')
-            ->add('updated_at')
             ->add('students')
         ;
     }
