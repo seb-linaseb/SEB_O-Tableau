@@ -25,7 +25,7 @@ class CanteenController extends AbstractController
    // On récupère les infos sur le professeur et sa classe
    $repositoryclass = $this->getDoctrine()->getRepository(Classroom::class);
    $classrooms = $repositoryclass->findAll();            
-       
+     
    $user = $this->getUser()->getId();
    $my_classroom = $repositoryclass->findMyClass($user);
 
@@ -63,6 +63,7 @@ class CanteenController extends AbstractController
    // Récupération de la liste des élèves
 
    $students = $my_classroom->getStudents();
+   dump($my_classroom);die();
    $forms = [];
 
       foreach ($students as $key => $student) {

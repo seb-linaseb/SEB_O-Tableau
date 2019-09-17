@@ -3,9 +3,11 @@
 namespace App\Controller\Backend;
 
 use App\Entity\Student;
+use App\Entity\Calendar;
 use App\Entity\Classroom;
 use App\Utils\Calendar\Week;
 use App\Utils\Calendar\Month;
+use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\ClassroomRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,8 +15,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdminCalendarController extends AbstractController
 {
+public $daynumber;
     /**
-     * @Route("canteen/month", name="canteen_month")
+     * @Route("admin/calendar/month", name="admin_calendar_month")
      */
     public function month()
     {
@@ -28,9 +31,11 @@ class AdminCalendarController extends AbstractController
           $launch_day = $start->format('N');
           // $start = $start->format('N') === '1' ? $start_monday = $start : $start_other = $month->getStartingDay()->modify('last monday');
 
-          $start_other = $month->getStartingDay()->modify('last monday');
+          // $start_other = $month->getStartingDay();
+          // $launch_day_other = $start_other->format('N');
 
           $end = $month->getEndingDay();
+
           $end = $end->format('d');
 
           $month_name = $month->toString();
@@ -55,11 +60,31 @@ class AdminCalendarController extends AbstractController
 
           $nb_days_previous_month = (clone $start)->modify("-" . 1 . "day")->format('t');
           
-          $start_monday = $start->format('d');
-          $start_other = $start_other->format('d');
-    
+          // $start_monday = $start->format('d/m/Y');
+          // $start_other = $start_other->format('d/m/Y');
 
-        return $this->render('calendar/month.html.twig', [
+          //$days_of_month = [];
+          $starting_day = $start->format('d/m/Y');
+
+          $launch_day = $start->format('N');
+          // dump($launch_day);die();
+
+          //  $days_of_month[$i] = [];
+           for ($i = 1; $i <= $nb_days_month; $i++) {
+            $y = $i;
+            $days_of_month[$y][] = [];
+            
+            $dayname = (clone $start)->format('N');
+            $daynumber = (clone $start)->format('d/m/Y');
+            $days_of_month[$y]['dayname'] = $dayname;
+            $days_of_month[$y]['daynumber']= $daynumber;
+            $start = $start->modify("+" . 1 . "day");
+           }
+
+
+          
+
+        return $this->render('backend/calendar/month.html.twig', [
             'month_name' => $month_name,
             'previous_month_month' => $previous_month_month,
             'previous_month_year' => $previous_month_year,
@@ -68,15 +93,54 @@ class AdminCalendarController extends AbstractController
             'nb_weeks' => $nb_weeks,
             'month_days' => $month_days,
             'days' => $days,
-            'start_monday' => $start_monday,
+            'starting_day' => $starting_day,
+            'days_of_month' => $days_of_month,
+            'dayname' => $dayname,
+            'daynumber' => $daynumber,
+            // 'start_monday' => $start_monday,
             'launch_day' => $launch_day,
-            'start_other' => $start_other,
+            // 'start_other' => $start_other,
             'initial_start' => $start,
             'nb_days_month' => $nb_days_month,
             'nb_days_previous_month' => $nb_days_previous_month,
             'month_number' => $month_number,
             'year_number' => $year_number,
         ]);
+
+        
+        
+    }
+
+    /**
+     * @Route("admin/calendar/new", name="admin_calendar_new", methods={"GET","POST"} )
+     */
+    public function new()
+    {
+      
+      $dates = $_POST;
+      // dump($dates);
+      // die();
+
+      foreach ($dates as $key => $value) {
+        if($value == 'on'){
+          //dump($key);
+          $calendar = new Calendar();
+          $calendar->setDate(\DateTime::createFromFormat('d/m/Y', $key));
+          $calendar->setIsWorked(true);
+          $entityManager = $this->getDoctrine()->getManager();
+          $entityManager->persist($calendar);
+          $entityManager->flush();
+          //dump($calendar);
+        }
+      
+      }
+      $this->addFlash(
+        'success',
+        'Enregistrement effectué'
+    );
+
+
+      return $this->redirectToRoute('admin_calendar_month');
     }
 
 
