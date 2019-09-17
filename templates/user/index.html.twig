@@ -4,12 +4,18 @@
 
 {% block content %}
 
+    <div class="alert">
+        {% for alert in alerts %}      
+            <h2>{{ alert.title }}</h2>
+            <p>{{ alert.content }}</p>   
+        {% endfor %}
+    </div>
     <div class="content_profil">
         <div class="nav_profil">
             <div class="nav_profil_flex">
                 <i class="fas fa-user-alt"></i>
                 <div>
-                    <p>{{ app.user.username }}</p>
+                    <p>{{ app.user.name }} {{ app.user.firstname }} </p>
                     <span>{{app.user.role.name }}</span>
                 </div>
             </div>
@@ -26,12 +32,6 @@
             {% endif %}
             </div>            
         </div>
-        <div class="alert">
-            {% for alert in alerts %}      
-                <h2>{{ alert.title }}</h2>
-                <p>{{ alert.content }}</p>   
-            {% endfor %}
-        </div>
         <div class="profil">
             {% if app.user.role.name == 'Direction' or app.user.role.name == 'Enseignant'  %}
             
@@ -43,26 +43,23 @@
                         <a href="{{ path('document_students') }}">Ajouter un bulletin</a>
                     </div>
                 </div>
+                
                 <div class="profil_classe">
-                        <table>
-                        <caption>Ma classe</caption>
-                        <tr>
-                            <td>Eleves</td>
-                            <td>Personne pouvant récup</td>
-                        </tr>
-                        <tr>
-                            <td>Léo Roux</td>
-                            <td>Chantal Roux</td>
-                        </tr>
-                        <tr>
-                            <td>Marina Roux</td>
-                            <td>Chantal Roux</td>
-                        </tr>
-                        <tr>
-                            <td>Julie Damien</td>
-                            <td>George Damien</td>
-                        </tr>
-                    </table>
+                    <h1>Ma classe</h1>
+
+                    <ul class="myNav">
+                        {% for student in classroomId.students %}
+                        <li class="myNav-item ui-accordion-item">
+                            <a class="myNav-link ui-accordion-trigger" href="#"> {{student.name}}</a>
+                            <ul class="myNav-content ui-accordion-content">
+                            {% for person in student.person %}
+                                <li>{{person.name}}</li>
+                            {% endfor %}  
+                            </ul>
+                        </li>
+                        {% endfor %}
+                    </ul>
+            
                 </div>
                 <h1 class="children_title">Mes enfants</h1>
                 {% for children in app.user.students %}
@@ -129,4 +126,3 @@
 
 
            
-
