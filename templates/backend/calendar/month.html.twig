@@ -7,8 +7,8 @@
   <div class="d-flex flex-row align-items-center justify-content-between mx-sm-3">
     <h1>{{ month_name }} - {{ month_number }} - {{ nb_days_month }}</h1>
     <div>
-      <a href="{{ path('canteen_month') }}?month={{ previous_month_month }}&year={{ previous_month_year }}" class="btn btn-primary">&lt;</a>  
-      <a href="{{ path('canteen_month') }}?month={{ next_month_month }}&year={{ next_month_year }}" class="btn btn-primary">&gt;</a>
+      <a href="{{ path('admin_calendar_month') }}?month={{ previous_month_month }}&year={{ previous_month_year }}" class="btn btn-primary">&lt;</a>  
+      <a href="{{ path('admin_calendar_month') }}?month={{ next_month_month }}&year={{ next_month_year }}" class="btn btn-primary">&gt;</a>
     </div>
   </div>
   
@@ -58,7 +58,7 @@
 
 
 <table class="calendar__table">
-<form method="POST">
+<form action="{{ path('admin_calendar_new') }}" method="POST">
 {# <tr class="calendar__table__dayname"> #}
 
     <tr class="calendar__table__dayname">
@@ -76,61 +76,69 @@
     <tr>
         {% if launch_day == 1 %}
             {% for day in days_of_month[:7] %}
-                <td>
-                {{ day.daynumber }}<br>
+            <td>
+            {{ day.daynumber }}
+            <input type="hidden" id="daynumber" name="{{ day.daynumber }}" value="{{ day.daynumber }}">
+            <br>
                 <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
                     {% if day.dayname not in [3, 6, 7] %}
                         checked
                     {% else %}
                         unchecked
                     {% endif %}
-                >
-                </td>
+                >        
+            </td>
             {% endfor %}
         {% elseif launch_day == 2 %}
                 <td></td>
                 {% for day in days_of_month[:6] %}
-                    <td>
-                    {{ day.daynumber }}<br>
-                    <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
+            <td>
+            {{ day.daynumber }}
+            <input type="hidden" id="daynumber" name="{{ day.daynumber }}" value="{{ day.daynumber }}">
+            <br>
+                <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
                     {% if day.dayname not in [3, 6, 7] %}
                         checked
                     {% else %}
                         unchecked
                     {% endif %}
-                    >
-                    </td>
+                >        
+            </td>
                 {% endfor %}
         {% elseif launch_day == 3 %}
                 <td></td>
                 <td></td>
                 {% for day in days_of_month[:5] %}
-                    <td>
-                    {{ day.daynumber }}<br>
-                    <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
+            <td>
+            {{ day.daynumber }}
+            <input type="hidden" id="daynumber" name="{{ day.daynumber }}" value="{{ day.daynumber }}">
+            <br>
+                <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
                     {% if day.dayname not in [3, 6, 7] %}
                         checked
                     {% else %}
                         unchecked
                     {% endif %}
-                    >
-                    </td>
+                >        
+            </td>
                 {% endfor %}
         {% elseif launch_day == 4 %}
                 <td></td>
                 <td></td>
                 <td></td>
                 {% for day in days_of_month[:4] %}
-                    <td>
-                    {{ day.daynumber }}<br>
-                    <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
+            <td>
+            {{ day.daynumber }}
+            <input type="hidden" id="daynumber" name="{{ day.daynumber }}" value="{{ day.daynumber }}">
+            <br>
+                <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
                     {% if day.dayname not in [3, 6, 7] %}
                         checked
                     {% else %}
                         unchecked
                     {% endif %}
-                    >
-                    </td>
+                >        
+            </td>
                 {% endfor %}
         {% elseif launch_day == 5 %}
                 <td></td>
@@ -138,16 +146,18 @@
                 <td></td>
                 <td></td>
                 {% for day in days_of_month[:3] %}
-                    <td>
-                    {{ day.daynumber }}<br>
-                    <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
+            <td>
+            {{ day.daynumber }}
+            <input type="hidden" id="daynumber" name="{{ day.daynumber }}" value="{{ day.daynumber }}">
+            <br>
+                <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
                     {% if day.dayname not in [3, 6, 7] %}
                         checked
                     {% else %}
                         unchecked
                     {% endif %}
-                    >
-                    </td>
+                >        
+            </td>
                 {% endfor %}
         {% elseif launch_day == 6 %}
                 <td></td>
@@ -156,16 +166,18 @@
                 <td></td>
                 <td></td>
                 {% for day in days_of_month[:2] %}
-                    <td>
-                    {{ day.daynumber }}<br>
-                    <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
+            <td>
+            {{ day.daynumber }}
+            <input type="hidden" id="daynumber" name="{{ day.daynumber }}" value="{{ day.daynumber }}">
+            <br>
+                <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
                     {% if day.dayname not in [3, 6, 7] %}
                         checked
                     {% else %}
                         unchecked
                     {% endif %}
-                    >
-                    </td>
+                >        
+            </td>
                 {% endfor %}
         {% elseif launch_day == 7 %}
                 <td></td>
@@ -175,16 +187,18 @@
                 <td></td>
                 <td></td>
                 {% for day in days_of_month[:1] %}
-                    <td>
-                    {{ day.daynumber }}<br>
-                    <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
+            <td>
+            {{ day.daynumber }}
+            <input type="hidden" id="daynumber" name="{{ day.daynumber }}" value="{{ day.daynumber }}">
+            <br>
+                <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
                     {% if day.dayname not in [3, 6, 7] %}
                         checked
                     {% else %}
                         unchecked
                     {% endif %}
-                    >
-                    </td>
+                >        
+            </td>
                 {% endfor %}
         {% endif %}
     </tr>
@@ -193,7 +207,9 @@
     <tr>
         {% for day in days_of_month[8 - launch_day:7] %}
             <td>
-            {{ day.daynumber }}<br>
+            {{ day.daynumber }}
+            <input type="hidden" id="daynumber" name="{{ day.daynumber }}" value="{{ day.daynumber }}">
+            <br>
                 <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
                     {% if day.dayname not in [3, 6, 7] %}
                         checked
@@ -209,14 +225,16 @@
     <tr>
         {% for day in days_of_month[15 - launch_day:7] %}
             <td>
-            {{ day.daynumber }}<br>
+            {{ day.daynumber }}
+            <input type="hidden" id="daynumber" name="{{ day.daynumber }}" value="{{ day.daynumber }}">
+            <br>
                 <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
                     {% if day.dayname not in [3, 6, 7] %}
                         checked
                     {% else %}
                         unchecked
                     {% endif %}
-                >
+                >        
             </td>
         {% endfor %}
     </tr>
@@ -225,14 +243,16 @@
     <tr>
         {% for day in days_of_month[22 - launch_day:7] %}
             <td>
-            {{ day.daynumber }}<br>
+            {{ day.daynumber }}
+            <input type="hidden" id="daynumber" name="{{ day.daynumber }}" value="{{ day.daynumber }}">
+            <br>
                 <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
                     {% if day.dayname not in [3, 6, 7] %}
                         checked
                     {% else %}
                         unchecked
                     {% endif %}
-                >
+                >        
             </td>
         {% endfor %}
     </tr>
@@ -241,14 +261,16 @@
     <tr>
         {% for day in days_of_month[29 - launch_day:7] %}
             <td>
-            {{ day.daynumber }}<br>
+            {{ day.daynumber }}
+            <input type="hidden" id="daynumber" name="{{ day.daynumber }}" value="{{ day.daynumber }}">
+            <br>
                 <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
                     {% if day.dayname not in [3, 6, 7] %}
                         checked
                     {% else %}
                         unchecked
                     {% endif %}
-                >
+                >        
             </td>
         {% endfor %}
     </tr>
@@ -257,14 +279,16 @@
     <tr>
         {% for day in days_of_month[36 - launch_day:7] %}
             <td>
-            {{ day.daynumber }}<br>
+            {{ day.daynumber }}
+            <input type="hidden" id="daynumber" name="{{ day.daynumber }}" value="{{ day.daynumber }}">
+            <br>
                 <input type="checkbox" id="is_workable" name="{{ day.daynumber }}"
                     {% if day.dayname not in [3, 6, 7] %}
                         checked
                     {% else %}
                         unchecked
                     {% endif %}
-                >
+                >        
             </td>
         {% endfor %}
     </tr>
