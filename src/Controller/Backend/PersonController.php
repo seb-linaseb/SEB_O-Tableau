@@ -3,6 +3,7 @@
 namespace App\Controller\Backend;
 
 use App\Entity\Person;
+use App\Form\PersonType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,10 +20,10 @@ class PersonController extends AbstractController
     public function index(Request $request)
     {
         $repository = $this->getDoctrine()->getRepository(Person::class);
-        $persons = $repository->findAll(); 
+        $person = $repository->findAll(); 
 
         return $this->render('/backend/person/index.html.twig', [
-            'persons' => $persons
+            'person' => $person
         ]);
     }
 
@@ -31,13 +32,13 @@ class PersonController extends AbstractController
      */
     public function new(Request $request)
     {
-        $persons = new Person();
-        $form = $this->createForm(PersonType::class, $persons);
+        $person = new Person();
+        $form = $this->createForm(PersonType::class, $person);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($persons);
+            $entityManager->persist($person);
             $entityManager->flush();
 
             return $this->redirectToRoute('admin_person_index');
@@ -45,7 +46,7 @@ class PersonController extends AbstractController
 
         return $this->render('backend/person/new.html.twig', [
             'form' => $form->createView(),
-            'person' => $persons,
+            'person' => $person,
         ]);
     }
 
@@ -55,10 +56,10 @@ class PersonController extends AbstractController
     public function show(Request $request, $id)
     {
         $repository = $this->getDoctrine()->getRepository(Person::class);
-        $persons = $repository->find($id);
+        $person = $repository->find($id);
 
         return $this->render('/backend/person/show.html.twig', [
-            'persons' => $persons                    
+            'person' => $person              
         ]);
     }
 
@@ -67,7 +68,7 @@ class PersonController extends AbstractController
      */
     public function edit(Request $request, Person $person)
     {
-        $form = $this->createForm(RoleType::class, $roles);
+        $form = $this->createForm(PersonType::class, $person);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

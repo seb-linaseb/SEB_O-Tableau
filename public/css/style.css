@@ -326,16 +326,19 @@ input, button {
 .nav_profil .nav_profil_flex  {
     display: flex;
     margin: 5% 2%;
+    width: 65%;
 }
 .nav_profil .nav_profil_flex i {
-    font-size: 8em;
+    font-size: 7em;
+    line-height: 130%;
 }
 .nav_profil .nav_profil_flex div  {
-    margin-left: 8%;
     margin-top: 3%;
+    margin-left: 3%;
+    text-align: initial;
 }
 .nav_profil .nav_profil_flex div p {
-    font-size: 3.5em;
+    font-size: 3em;
     margin-bottom: 5%;
 }
 .nav_profil .nav_profil_flex div span {
@@ -514,27 +517,23 @@ input, button {
 }
 
 .profil_classe {
-    text-align: center;
-    font-size: 2.5em;
-    padding-top: 10%;
-    width: 85%;
-    margin-left: 11.5%;
+    padding-top: 10%;;
     padding-bottom: 5%;
 }
 
-.profil_classe table {
-    border: 2px solid;
+.profil_classe h1 {
+    font-size: 4em;
+    text-align: center;
 }
 
-.profil_classe table caption {
-    font-size: 1.7em;
-    padding-bottom: 3%;
-}
+.myNav { width:50%; background:#333; color: white; font-size: 3em; margin: auto; margin-top: 5%; }
+.myNav-item:not(:first-child) { border-top:1px solid #4d4d4d; color: white; }
+.myNav-link { display:block; padding:8px 10px; color: white; }
+.myNav-content { padding:0 20px; padding-bottom:8px; color: white; }
 
-.profil_classe table td {
-    border: 2px solid;
-    padding: 2%;
-}
+.ui-accordion-content { display:none; }
+.active > .ui-accordion-content { display:block; }
+
 
 
 /* PAGE PROFIL/MON-COMPTE */
@@ -1058,7 +1057,8 @@ label.required {
 /* PAGE ACTUALITES */
 
 .content_actu {
-
+    padding-bottom: 50%;
+    padding-top: 2%;
 }
 
 .content_actu .tags_actu {
@@ -1151,9 +1151,6 @@ label.required {
 
 /* PAGE ACTU SHOW */
 
-.content_actu  {
-    padding-top: 2%;
-}
 
 .content_actu .actu_show_link {
     font-size: 6em;

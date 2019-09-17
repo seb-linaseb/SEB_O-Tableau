@@ -49,6 +49,11 @@ class Classroom
      */
     private $students;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Actuality", mappedBy="classroom")
+     */
+    private $actualities;
+
     public function __toString()
     {
         return $this->name;      
@@ -59,6 +64,7 @@ class Classroom
         $this->students = new ArrayCollection();
         $this->created_at = new DateTime();
         $this->updated_at = new DateTime();
+        $this->actualities = new ArrayCollection();
     }
 
 
@@ -153,6 +159,34 @@ class Classroom
             if ($students->getClassroom() === $this) {
                 $students->setClassroom(null);
             }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Actuality[]
+     */
+    public function getActualities(): Collection
+    {
+        return $this->actualities;
+    }
+
+    public function addActuality(Actuality $actuality): self
+    {
+        if (!$this->actualities->contains($actuality)) {
+            $this->actualities[] = $actuality;
+            $actuality->addClassroom($this);
+        }
+
+        return $this;
+    }
+
+    public function removeActuality(Actuality $actuality): self
+    {
+        if ($this->actualities->contains($actuality)) {
+            $this->actualities->removeElement($actuality);
+            $actuality->removeClassroom($this);
         }
 
         return $this;

@@ -31,7 +31,13 @@
                 integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
                 crossorigin="anonymous">
             </script>
-            <script src="{{ asset('js/jquery-ui.min.js')}}"></script> 
+            <script src="{{ asset('js/jquery-ui.min.js')}}"></script>
+            <script src="{{ asset('js/jquery.simpleAccordion.min.js')}}"></script>
+            <script>
+	            $(document).ready(function() {
+		            $('.myNav').simpleAccordion();
+	            });
+</script>
             <script src="{{ asset('js/app.js')}}"></script>
         {% endblock %}
     </body>
