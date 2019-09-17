@@ -4,6 +4,7 @@ namespace App\Controller\User;
 
 use App\Entity\Alert;
 use App\Entity\Actuality;
+use App\Entity\Classroom;
 use App\Form\ActualityType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,9 +23,33 @@ class ActualityController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Alert::class);
         $alerts = $repository->findLastAlert();
 
+        $repositoryclass = $this->getDoctrine()->getRepository(Classroom::class);
+        $classrooms = $repositoryclass->findAll();      
+            
+        $user = $this->getUser()->getId();
+        $myClassroom = $repositoryclass->findMyClass($user);    
+      
         return $this->render('actuality/index.html.twig', [
             'news' => $news,       
-            'alerts' => $alerts     
+            'alerts' => $alerts,
+            'classrooms' => $classrooms
+        ]);
+    }
+
+    /**
+     * @Route("/actu/myclass/{id}/", name="actuality_myclassroom")
+     */
+    public function MyClassroom(Request $request, $id)
+    {
+        $repositoryclass = $this->getDoctrine()->getRepository(Classroom::class);
+        $classroom = $repositoryclass->find($id);
+
+        $repository = $this->getDoctrine()->getRepository(Alert::class);
+        $alerts = $repository->findLastAlert();      
+      
+        return $this->render('actuality/classroom.html.twig', [                 
+            'alerts' => $alerts,
+            'classroom' => $classroom
         ]);
     }
 
