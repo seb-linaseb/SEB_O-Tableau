@@ -345,7 +345,7 @@ class Student
         $this->name;
         $this->lunchtype;
         $this->person;
-
+        // return $this->name . " " .$this->firstname;
         return $this;
     }
 
