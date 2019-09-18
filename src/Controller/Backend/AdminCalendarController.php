@@ -89,7 +89,7 @@ public $daynumber;
                 }
                
                }
-                      
+                  
         
             return $this->render('backend/calendar/read.html.twig', [
                 'month_name' => $month_name,
@@ -108,6 +108,7 @@ public $daynumber;
                 'initial_start' => $start,
                 'nb_days_month' => $nb_days_month,
                 'currentDates' => $currentDates,
+                
             ]);
     }
 
