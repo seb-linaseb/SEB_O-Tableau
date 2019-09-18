@@ -12,22 +12,20 @@
     </div>
     <div class="content_actu">
 
+        <div class="tag_all">
+            <a href="{{ path('actuality_index') }}">Tous</a>
+        </div>
         <div class="tags_actu">
             <div>
-                <a href="{{ path('actuality_index') }}">Tous</a>
-            </div>
-            <div>
-                <ul class="myNav">
-                    
+                <ul class="myNav">  
                     <li class="myNav-item ui-accordion-item">
                         <a class="myNav-link ui-accordion-trigger" href="#">Classes</a>
                         <ul class="myNav-content ui-accordion-content">
                             {% for classroom in classrooms %}
-                            <li><a href="{{ path('actuality_myclassroom', { 'id': classroom.id }) }}">{{ classroom }}</a></li>
-                            {% endfor %} #}
+                                <li><a href="{{ path('actuality_myclassroom', { 'id': classroom.id }) }}">{{ classroom }}</a></li>
+                            {% endfor %} 
                         </ul>
-                    </li>
-                    
+                    </li>  
                 </ul>
             </div>
         </div>

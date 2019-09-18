@@ -2,9 +2,14 @@
 
 {% block content %}
 
+<div class="backend_actuality_show">
+    <a href="{{ path('actualityadmin_index') }}"><i class="fas fa-angle-left"></i></a>
+    <div class="show_actuality">
     <h1>{{ actuality.title }}</h1>
+    <div> 
     <p>{{ actuality.content }}</p>
+    </div>
 
-
-
+{% endblock %}
+{% block footer %}
 {% endblock %}
