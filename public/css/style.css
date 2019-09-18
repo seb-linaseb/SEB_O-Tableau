@@ -1208,7 +1208,6 @@ label.required {
 .content_actu {
     padding-bottom: 50%;
 }
-
 .tag_all {
     width: 25%;
     margin-top: 5%;
@@ -1382,7 +1381,9 @@ label.required {
 
 /* PAGE ADD ACTUALITES */
 
-.add_actu_content {}
+.add_actu_content {
+
+}
 
 .add_actu_content a i {
     font-size: 6em;
