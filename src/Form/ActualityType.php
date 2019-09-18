@@ -3,8 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Actuality;
+use App\Entity\Classroom;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -44,7 +46,12 @@ class ActualityType extends AbstractType
                 ],
               )
             )   
-            ->add('classroom')
+            ->add('classroom', EntityType::class, [                
+                'class' => Classroom::class,            
+                'label' => 'Veuillez sélectionner le(s) tag(s) correspondant au thème de votre question.',         
+                'multiple' => true,
+                'expanded' => true,
+            ])
             ->add('picture_url', FileType::class, [
                 'label' => 'Veuillez selectionner votre document sous le format PDF',
                 'data_class' => null,

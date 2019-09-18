@@ -18,8 +18,7 @@
                 <div class="show_delete_update">
                     <a href="{{ path('alert_show', { 'id': alert.id }) }}">
 
-                        {{ alert.title }}
-                        {{ alert.content }}
+                        {{ alert.title }}                        
                         <div>
                         <form method="post" action="{{ path('alert_update', {'id': alert.id}) }}">
                             <input type="hidden" name="_method" value="UPDATE">

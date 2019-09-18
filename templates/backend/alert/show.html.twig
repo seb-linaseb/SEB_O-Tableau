@@ -2,8 +2,15 @@
 
 {% block content %}
 
-    <h1>{{ alert.title }}</h1>
-    <p>{{ alert.content }}</p>
+<div class="backend_alert_show">
+    <a href="{{ path('alert_index') }}"><i class="fas fa-angle-left"></i></a>
+    <div class="show_alert">
+        <h1>{{ alert.title }}</h1> 
+        <div>           
+            <p>{{ alert.content }}</p>
+        </div>
+    </div>
 
-
+{% endblock %}
+{% block footer %}
 {% endblock %}

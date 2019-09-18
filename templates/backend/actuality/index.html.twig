@@ -2,29 +2,34 @@
 
 {% block content %}
 
-    <h1>News</h1>
-
-    {% for actuality in actualitys %}      
-
-     <a href="{{ path('actualityadmin_show', { 'id': actuality.id }) }}">     
-    
-    <h2>{{ actuality.title }}</h2>
-
-    <form method="post" action="{{ path('actualityadmin_delete', {'id': actuality.id}) }}" onsubmit="return confirm('Êtes vous sûr de vouloir supprimer?');">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ actuality.id) }}">
-    <button class="btn">Supprimer</button>
-</form>
-
-
-<form method="post" action="{{ path('actualityadmin_update', {'id': actuality.id}) }}">
-    <input type="hidden" name="_method" value="UPDATE">
-    <input type="hidden" name="_token" value="{{ csrf_token('update' ~ actuality.id) }}">
-    <button class="btn">Modifier</button>
-</form>
-
-    </a>
-   
+<div class="backend_actuality">
+<a href="{{ path('admin_default_index') }}">
+    <i class="fas fa-angle-left"></i>
+</a>
+<div class="add_actuality">
+    <h1>Actualités</h1>
+</div>
+<div class="list_actuality">
+    {% for actuality in actualitys %}
+        <div class="show_delete_update">
+            <a href="{{ path('actualityadmin_show', { 'id': actuality.id }) }}">
+                {{ actuality.title }}
+                <div>
+                     <form method="post" action="{{ path('actualityadmin_update', {'id': actuality.id}) }}">
+                        <input type="hidden" name="_method" value="UPDATE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('update' ~ actuality.id) }}">
+                        <button class="btn">Modifier</button>
+                    </form>
+                    <form method="post" action="{{ path('actualityadmin_delete', {'id': actuality.id}) }}" onsubmit="return confirm('Êtes vous sûr de vouloir supprimer?');">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ actuality.id) }}">
+                        <button class="btn">Supprimer</button>
+                    </form>               
+                </div>
+            </a>
+        </div>
     {% endfor %}
+</div>
 
 {% endblock %}
+{% block footer %}{% endblock %}
