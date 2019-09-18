@@ -52,19 +52,6 @@ class SchoolController extends AbstractController
     }
 
     /**
-     * @Route("/show/{id}", name="show", requirements={"id"="\d+"})
-     */
-    public function show(Request $request, $id)
-    {
-        $repository = $this->getDoctrine()->getRepository(School::class);
-        $school = $repository->find($id);
-
-        return $this->render('/backend/school/show.html.twig', [
-            'school' => $school                    
-        ]);
-    }
-
-    /**
      * @Route("/edit/{id}", name="edit", requirements={"id"="\d+"})
      */
     public function edit(Request $request, School $school)
@@ -75,9 +62,8 @@ class SchoolController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_school_show', [
-                'id' => $school->getId(),
-            ]);
+            return $this->redirectToRoute('admin_school_index'
+            );
         }
         
         return $this->render('backend/school/edit.html.twig', [

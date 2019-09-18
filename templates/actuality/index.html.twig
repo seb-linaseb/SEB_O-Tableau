@@ -4,11 +4,13 @@
 
 {% block content %}
 
-    <div class="alert_actuality">
-        {% for alert in alerts %}      
-            <h2>{{ alert.title }}</h2>
-            <p>{{ alert.content }}</p>   
-        {% endfor %}
+    <div class="alert_content">
+        <div class="animated infinite fadeIn delay-1s alert_actuality">
+            {% for alert in alerts %}      
+                <h2>{{ alert.title }}</h2>
+                <p>{{ alert.content }}</p>   
+            {% endfor %}  
+        </div>
     </div>
     <div class="content_actu">
 

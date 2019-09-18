@@ -2,18 +2,26 @@
 
 {% block content %}
 
-    <h1>Ajouter un étudiant</h1>
+    <div class="backend_student">
+        <a href="{{ path('admin_default_index') }}"><i class="fas fa-angle-left"></i></a>
+        <div class="add_document">
+        <h1>Ajouter un élève</h1>
+        {{ form(form) }}
+    </div>
 
-     {{ form(form) }}
+        <div class="list_student">
+        <h2>Liste des élèves</h2>
+        {% for student in students %}      
 
-    {% for student in students %}      
+        <a href="{{ path('admin_student_show', { 'id': student.id }) }}">     
+        
+        <p>{{ student.name }} {{ student.firstname }}</p>
 
-     <a href="{{ path('admin_student_show', { 'id': student.id }) }}">     
+        </a>
     
-    <p>{{ student.name }} {{ student.firstname }}</p>
+        {% endfor %}
+         </div> 
 
-    </a>
-   
-    {% endfor %}
-
+{% endblock %}
+{% block footer %}
 {% endblock %}
