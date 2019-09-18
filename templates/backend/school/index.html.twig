@@ -8,6 +8,11 @@
         {% for school in school %}
             <div>
                 <a href="{{ path('admin_school_show', { 'id': school.id }) }}">{{school.name}} {{school.address}}</a>
+                    <form method="post" action="{{ path('admin_school_edit', {'id': school.id}) }}">
+        <input type="hidden" name="_method" value="UPDATE">
+        <input type="hidden" name="_token" value="{{ csrf_token('update' ~ school.id) }}">
+        <button class="btn">Modifier</button>
+    </form>
             </div>
         {% endfor %}    
     </div>

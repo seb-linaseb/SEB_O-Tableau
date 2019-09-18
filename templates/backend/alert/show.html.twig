@@ -2,21 +2,15 @@
 
 {% block content %}
 
-    <h1>{{ alert.title }}</h1>
-    <p>{{ alert.content }}</p>
+<div class="backend_alert_show">
+    <a href="{{ path('alert_index') }}"><i class="fas fa-angle-left"></i></a>
+    <div class="show_alert">
+        <h1>{{ alert.title }}</h1> 
+        <div>           
+            <p>{{ alert.content }}</p>
+        </div>
+    </div>
 
-<form method="post" action="{{ path('alert_delete', {'id': alert.id}) }}" onsubmit="return confirm('Êtes vous sûr de vouloir supprimer ce document?');">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ alert.id) }}">
-    <button class="btn">Supprimer</button>
-</form>
-
-<hr>
-
-<form method="post" action="{{ path('alert_update', {'id': alert.id}) }}">
-    <input type="hidden" name="_method" value="UPDATE">
-    <input type="hidden" name="_token" value="{{ csrf_token('update' ~ alert.id) }}">
-    <button class="btn">Modifier</button>
-</form>
-
+{% endblock %}
+{% block footer %}
 {% endblock %}

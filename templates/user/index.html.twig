@@ -4,11 +4,12 @@
 
 {% block content %}
 
-    <div class="alert">
+    <div class="animated infinite fadeIn delay-1s alert">
         {% for alert in alerts %}      
             <h2>{{ alert.title }}</h2>
             <p>{{ alert.content }}</p>   
         {% endfor %}
+        
     </div>
     <div class="content_profil">
         <div class="nav_profil">
@@ -50,10 +51,11 @@
                     <ul class="myNav">
                         {% for student in classroomId.students %}
                         <li class="myNav-item ui-accordion-item">
-                            <a class="myNav-link ui-accordion-trigger" href="#"> {{student.name}}</a>
+                            <a class="myNav-link ui-accordion-trigger" href="#">{{student.name}} {{student.firstname}}</a>
                             <ul class="myNav-content ui-accordion-content">
+                            <p>J'autorise à récupérer mon enfant :</p>
                             {% for person in student.person %}
-                                <li>{{person.name}}</li>
+                                <li>{{person.name}} {{person.firstname}}</li>
                             {% endfor %}  
                             </ul>
                         </li>

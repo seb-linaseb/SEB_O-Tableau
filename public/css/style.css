@@ -10,7 +10,8 @@ a {
     color: #2C3840;
 }
 
-input, button {
+input,
+button {
     outline: none;
 }
 
@@ -21,29 +22,35 @@ input, button {
 .header {
     display: flex;
 }
+
 .header img {
     width: 100%;
     height: 100%;
 }
+
 .header div {
     position: absolute;
     right: 260px;
     text-align: center;
+    padding-top: 3.5%;
 }
+
 .header div h1 {
     font-size: 6em;
     margin-top: 50px;
     margin-bottom: 30px;
     font-family: 'Chilanka', cursive;
 }
+
 .header div a {
     font-size: 2.7em;
     background-color: rgb(27, 24, 24);
     color: white;
     padding: 10px;
     border-radius: 15px;
-   
+
 }
+
 .header div p {
     font-size: 6em;
     margin-top: 15px;
@@ -53,20 +60,43 @@ input, button {
 /* CONTENT PAGE VITRINE */
 
 
+.content_vitrine {
+    
+}
+.content_vitrine .welcome_title  {
+    font-size: 5em;
+    text-align: center;
+    padding-top: 7%;
+    font-weight: bold;
+}
+.content_vitrine h1  {
+    font-size: 3em;
+    text-align: center;
+    padding-top: 7%;
+    font-weight: bold;
+}
+.content_vitrine .welcome_text  {
+    font-size: 2em;
+    padding: 8% 3%;
+    text-align: center;
+    line-height: 120%;
+}
 .content_vitrine p  {
     font-size: 2em;
     padding: 40px 20px;
     text-align: center;
+    line-height: 120%;
+}
+.content_vitrine p span {
+    font-weight: bold;
+    
 }
 .content_vitrine table  {
     font-size: 4em;
     text-align: center;
     margin: auto;
     border: 1px solid black;
-}
-.content_vitrine table caption {
-    margin-top: 50px;
-    margin-bottom: 15px;
+    margin-top: 3%;
 }
 .content_vitrine table tbody tr  {
     border-bottom: 1px solid black;
@@ -85,10 +115,12 @@ input, button {
     text-align: center;
     font-size: 4em;
 }
+
 .map_vitrine img {
     width: 90%;
     margin: 5%;
 }
+
 .map_vitrine p {
     margin: 0;
     margin-left: 40px;
@@ -96,6 +128,7 @@ input, button {
     text-align: left;
     font-size: 1.8em;
 }
+
 .map_vitrine p i {
     margin-right: 20px;
     font-size: 2em;
@@ -103,6 +136,7 @@ input, button {
 
 
 /* FORM CONTACT PAGE VITRINE */
+
 
 
 .form_vitrine {
@@ -116,7 +150,7 @@ input, button {
 }
 .form_vitrine div input {
     width: 80%;
-    height: 70px;
+    height: 90px;
     font-size: 2.5em;
     border: none;
     border: 1px solid;
@@ -134,14 +168,16 @@ input, button {
     margin-bottom: 30px;
     font-family: 'Quicksand', sans-serif;
 }
-.form_vitrine .form_vitrine-button {
+.form_vitrine form button {
     font-size: 2.5em;
     border: none;
     padding: 15px;
-    background-color: rgb(26, 25, 25);
+    background-color: black;
     color: white;
-    border-radius: 15px;
+    border-radius: 7px;
+    
 }
+
 
 
 /* PAGE FORM LOGIN */
@@ -152,25 +188,29 @@ input, button {
     color: white;
     height: 1745px;
     font-family: 'Quicksand', sans-serif;
-    
+
 }
+
 .content_form_login a i {
-    font-size: 7em; 
+    font-size: 7em;
     color: white;
     margin: 3%;
-    
+
 }
+
 .content_form_login h1 {
     text-align: center;
     font-size: 4em;
     font-weight: bold;
 }
+
 .content_form_login form p {
     font-size: 3.5em;
     margin-bottom: 10%;
     margin-left: 5%;
     margin-top: 20%;
 }
+
 .content_form_login form input {
     width: 80%;
     height: 120px;
@@ -182,27 +222,30 @@ input, button {
     margin-left: 9%;
     background-color: #515861;
 }
-.content_form_login form div  {
-   width: 60%;
-   margin: 10% auto;
-   margin-bottom: 25%;
-   
+
+.content_form_login form div {
+    width: 60%;
+    margin: 10% auto;
+    margin-bottom: 25%;
+
 }
+
 .content_form_login form div button {
-   border: none;
-   padding: 50px 200px;
-   font-size: 2.5em;
-   border-radius: 40px;
-   background-color: #2C3840;
-   border: 3px solid white;
-   color: white;
+    border: none;
+    padding: 50px 200px;
+    font-size: 2.5em;
+    border-radius: 40px;
+    background-color: #2C3840;
+    border: 3px solid white;
+    color: white;
 }
+
 .content_form_login form a {
-   color: white;
-   font-size: 2em;
-   margin: 0 33%;
+    color: white;
+    font-size: 2em;
+    margin: 0 33%;
 }
- 
+
 
 
 /* PAGE MENTION LEGAL */
@@ -214,6 +257,7 @@ input, button {
     margin: auto;
     margin-top: 7%;
 }
+
 .link_reglement_mention a {
     text-transform: uppercase;
     color: white;
@@ -222,14 +266,16 @@ input, button {
     font-size: 3em;
     border-radius: 7px;
 }
+
 .content_legal h1 {
     font-size: 3em;
     text-align: center;
     margin-top: 7%;
 }
+
 .content_legal p {
     font-size: 1.2em;
-    margin: 2% 5%; 
+    margin: 2% 5%;
 }
 
 
@@ -241,9 +287,10 @@ input, button {
     text-align: center;
     margin-top: 7%;
 }
+
 .content_reglement p {
     font-size: 1.2em;
-    margin: 2% 5%; 
+    margin: 2% 5%;
 }
 
 
@@ -257,24 +304,29 @@ input, button {
     bottom: 0;
     z-index: 1;
 }
+
 .content_nav nav {
     height: 210px;
     margin-top: 25px;
     margin-left: 25px;
 }
+
 .content_nav nav ul {
     height: 210px;
     display: flex;
     justify-content: space-between;
 }
+
 .content_nav nav ul a {
     color: initial;
 }
+
 .content_nav nav ul a li {
     font-size: 2em;
     text-align: center;
 }
-.content_nav nav ul a li i  {
+
+.content_nav nav ul a li i {
     font-size: 4em;
     padding-bottom: 3%;
 }
@@ -290,24 +342,29 @@ input, button {
     bottom: 0;
     z-index: 1;
 }
+
 .content_nav_staff nav {
     height: 210px;
     margin-top: 25px;
     margin-left: 25px;
 }
+
 .content_nav_staff nav ul {
     height: 210px;
     display: flex;
     justify-content: space-between;
 }
+
 .content_nav_staff nav ul a {
     color: initial;
 }
+
 .content_nav_staff nav ul a li {
     font-size: 2em;
     text-align: center;
 }
-.content_nav_staff nav ul a li i  {
+
+.content_nav_staff nav ul a li i {
     font-size: 3.5em;
     padding-bottom: 7%;
 }
@@ -323,42 +380,51 @@ input, button {
     margin: auto;
     border-bottom: 3px solid lightslategray;
 }
-.nav_profil .nav_profil_flex  {
+
+.nav_profil .nav_profil_flex {
     display: flex;
     margin: 5% 2%;
     width: 65%;
 }
+
 .nav_profil .nav_profil_flex i {
     font-size: 7em;
     line-height: 130%;
+    color: #2C3840;
 }
-.nav_profil .nav_profil_flex div  {
+
+.nav_profil .nav_profil_flex div {
     margin-top: 3%;
     margin-left: 3%;
     text-align: initial;
 }
+
 .nav_profil .nav_profil_flex div p {
     font-size: 3em;
     margin-bottom: 5%;
 }
+
 .nav_profil .nav_profil_flex div span {
     font-size: 2.5em;
 }
 
-.nav_profil div  {
+.nav_profil div {
     margin-top: 9%;
     text-align: center;
 }
+
 .nav_profil div a {
     font-size: 2.5em;
     color: white;
-    background-color: black;
+    background-color: #2C3840;
     padding: 15px 20px;
     border-radius: 40px;
 }
+
 .button_compte_director {
     position: relative;
     top: -25%;
+    
 }
 
 
@@ -375,19 +441,23 @@ input, button {
     padding-bottom: 5%;
     border-bottom: 2px solid;
 }
+
 .profil_children a {
-   color: #2C3840;
+    color: #2C3840;
 }
+
 .profil_children a i {
     font-size: 10em;
     margin-left: 37%;
     margin-bottom: 2%;
 }
+
 .profil_children a h2 {
     font-size: 3.5em;
     text-align: center;
     margin-bottom: 1%;
 }
+
 .profil_children a p {
     font-size: 2em;
     text-align: center;
@@ -396,30 +466,35 @@ input, button {
 
 .profil_doc {
     padding-top: 15%;
-   
+
 }
+
 .profil_doc h1 {
     font-size: 4em;
     text-align: center;
 }
+
 .profil_doc div {
     width: 60%;
     margin: auto;
     border: 2px solid;
     border-radius: 10px;
     margin-top: 3%;
-    
+
 }
+
 .profil_doc div a {
     color: #2C3840;
     display: flex;
     margin: 8% 0;
     margin-left: 5%;
 }
-.profil_doc div a i{
+
+.profil_doc div a i {
     font-size: 5.5em;
     margin-right: 2%;
 }
+
 .profil_doc div a p {
     font-size: 3em;
     line-height: 190%;
@@ -429,10 +504,12 @@ input, button {
     padding-top: 15%;
     padding-bottom: 50%;
 }
+
 .profil_doc_staff h1 {
     font-size: 4em;
     text-align: center;
 }
+
 .profil_doc_staff div {
     width: 60%;
     margin: auto;
@@ -440,16 +517,19 @@ input, button {
     border-radius: 10px;
     margin-top: 3%;
 }
+
 .profil_doc_staff div a {
     color: #2C3840;
     display: flex;
     margin: 8% 0;
     margin-left: 5%;
 }
-.profil_doc_staff div a i{
+
+.profil_doc_staff div a i {
     font-size: 5.5em;
     margin-right: 2%;
 }
+
 .profil_doc_staff div a p {
     font-size: 3em;
     line-height: 190%;
@@ -479,25 +559,31 @@ input, button {
     padding-bottom: 40%;
     margin-top: 15%;
 }
+
 .profil_choice h1 {
     font-size: 4em;
     text-align: center;
     margin-bottom: 5%;
 }
+
 .profil_choice p {
     margin-top: 2%;
     text-align: center;
     font-size: 0.9em;
 }
+
 .profil_choice p span {
     font-weight: bold;
 }
+
 .alert {
     text-align: center;
     margin-top: 2%;
     font-weight: bold;
-    color: red;
+    color: black;
 }
+
+
 
 /* PAGE PROFIL PROF/DIRECTEUR */
 
@@ -517,7 +603,8 @@ input, button {
 }
 
 .profil_classe {
-    padding-top: 10%;;
+    padding-top: 10%;
+    ;
     padding-bottom: 5%;
 }
 
@@ -526,13 +613,55 @@ input, button {
     text-align: center;
 }
 
-.myNav { width:50%; background:#333; color: white; font-size: 3em; margin: auto; margin-top: 5%; }
-.myNav-item:not(:first-child) { border-top:1px solid #4d4d4d; color: white; }
-.myNav-link { display:block; padding:8px 10px; color: white; }
-.myNav-content { padding:0 20px; padding-bottom:8px; color: white; }
+.myNav {
+    width: 75%;
+    background-color: #2C3840;
+    color: white;
+    font-size: 4em;
+    margin: auto;
+    margin-top: 5%;
+    
+}
 
-.ui-accordion-content { display:none; }
-.active > .ui-accordion-content { display:block; }
+li.myNav-item.ui-accordion-item {
+    padding: 2%;
+}
+.myNav-item:not(:first-child) {
+    border-top: 3px solid white;
+    color: white;
+    padding: 2%;
+}
+
+.myNav-link {
+    display: block;
+    padding: 8px 10px;
+    color: white;
+}
+
+.myNav-content {
+    padding: 0 20px;
+    padding-bottom: 8px;
+    color: white;
+}
+
+.myNav-content p {
+    padding-top: 2%;
+    font-size: 0.5em;
+}
+
+.myNav-content li {
+    padding-top: 3%;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.ui-accordion-content {
+    display: none;
+}
+
+.active>.ui-accordion-content {
+    display: block;
+}
 
 
 
@@ -568,26 +697,26 @@ input, button {
     color: black;
     text-align: center;
     font-size: 3em;
-    padding: 0 10px 0 10px 
+    padding: 0 10px 0 10px
 }
 
 .account .account_border div {
-  
+
     margin: 20% 10%;
 }
 
-.account .account_border div p  {
+.account .account_border div p {
     font-size: 2.5em;
     padding-bottom: 3%;
 }
 
-.account .account_border div p i  {
-    
+.account .account_border div p i {
+
     margin-right: 3%;
 }
 
 
-.account .account_border a  {
+.account .account_border a {
     font-size: 2.5em;
     color: white;
     background-color: #2C3840;
@@ -599,7 +728,7 @@ input, button {
 /* PAGE PROFIL MON COMPTE EDIT */
 
 .account_update {
-    
+
 }
 
 .account_update a i {
@@ -630,6 +759,24 @@ input, button {
     margin-top: 3%;
 }
 
+.account_update form #user div #user_communication_agreement {
+    display: none;
+}
+
+.account_update form #user div #user_image_agreement {
+    display: none;
+}
+
+.account_update form #user div #user_role {
+    display: none;
+}
+
+.account_update form #user div #user_Ajouter{
+    display: none;
+}
+
+
+
 .account_update form button {
     font-size: 2em;
     margin-top: 4%;
@@ -654,10 +801,11 @@ input, button {
     padding-top: 2%;
 }
 
-.profil .doc_children_div  {
+.profil .doc_children_div {
     text-align: center;
     margin-top: 7%;
 }
+
 .profil div .doc_children_link {
     font-size: 2em;
     color: white;
@@ -673,14 +821,16 @@ input, button {
     padding-bottom: 5%;
 }
 
-.profil_children_detail  {
+.profil_children_detail {
     color: #2C3840;
 }
+
 .profil_children_detail i {
     font-size: 10em;
     margin-left: 36%;
     margin-bottom: 2%;
 }
+
 .profil_children_detail h2 {
     font-size: 3.5em;
     text-align: center;
@@ -699,25 +849,28 @@ input, button {
     padding-bottom: 30%;
 }
 
-.profil_doc_bulletin  div {
+.profil_doc_bulletin div {
     width: 47%;
     margin: auto;
     border: 2px solid;
     border-radius: 10px;
     margin-top: 3%;
-    
+
 }
-.profil_doc_bulletin  div a {
+
+.profil_doc_bulletin div a {
     color: #2C3840;
     display: flex;
     margin: 5%;
     margin-left: 3%;
 }
-.profil_doc_bulletin  div a i{
+
+.profil_doc_bulletin div a i {
     font-size: 5.5em;
     margin-right: 2%;
 }
-.profil_doc_bulletin  div a p {
+
+.profil_doc_bulletin div a p {
     font-size: 3em;
     line-height: 190%;
 }
@@ -757,7 +910,7 @@ input, button {
     color: black;
     text-align: center;
     font-size: 3.5em;
-    padding: 0 10px 0 10px 
+    padding: 0 10px 0 10px
 }
 
 .doc_children .doc_children_border .add_doc_children {
@@ -830,7 +983,7 @@ input, button {
     border: none;
     border-radius: 5px;
     background-color: beige;
-    
+
 }
 
 
@@ -861,7 +1014,7 @@ input, button {
 
 .convo_list .convo_add i {
     font-size: 2em;
-    
+
 }
 
 .convo_list div {
@@ -888,9 +1041,7 @@ label.required {
     display: none;
 }
 
-.content_new-msg {
-    
-}
+.content_new-msg {}
 
 .content_new-msg h1 {
     text-align: center;
@@ -898,9 +1049,7 @@ label.required {
     /* padding-top: 2%; */
 }
 
-.content_new-msg a {
-    
-}
+.content_new-msg a {}
 
 .content_new-msg a i {
     font-size: 6em;
@@ -923,7 +1072,7 @@ label.required {
 
 .content_new-msg form #message div #message_users {
     width: 80%;
-    margin:auto;
+    margin: auto;
     margin-top: 5%;
     display: flex;
     overflow-y: scroll;
@@ -1019,7 +1168,7 @@ label.required {
     background-color: antiquewhite
 }
 
-.message_input form  {
+.message_input form {
     display: flex;
     font-size: 3em;
     justify-content: space-between;
@@ -1034,7 +1183,7 @@ label.required {
 .message_input form button i {
     font-size: 5.7em;
     margin-top: 22%;
-    
+
 }
 
 .message_input form #message div label {
@@ -1058,26 +1207,71 @@ label.required {
 
 .content_actu {
     padding-bottom: 50%;
-    padding-top: 2%;
 }
-
-.content_actu .tags_actu {
-    display: flex;
-    justify-content: center;
-}
-
-
-.content_actu .tags_actu div {
-    background-color: #2C3840;
-    padding: 2% 4%;
-    border-radius: 7px;
-    margin: 4% 8%;
-}
-
-.content_actu .tags_actu div a {
-    color: white;
+.tag_all {
+    width: 25%;
+    margin-top: 5%;
+    margin: 0;
     font-size: 3em;
+    text-align: center;
+    background-color: #2C3840;
+    margin: auto;
+    margin-top: 6%;
+    margin-bottom: 6%;
+    padding: 1% 0;
 }
+
+.tag_all a {
+    color: white;
+}
+
+
+.tags_actu div .myNav {
+    width: 25%;
+    color: white;
+    margin-top: 5%;
+    margin: auto;
+    font-size: 3em;
+    text-align: center;
+}
+
+
+.tags_actu div .myNav .myNav-item:not(:first-child) {
+    border-top: 3px solid white;
+    color: white;
+    padding: 2%;
+}
+
+.tags_actu div .myNav .myNav-item .myNav-link {
+    display: block;
+    padding: 8px 10px;
+    color: white;
+}
+
+.tags_actu div .myNav .myNav-item .myNav-content {
+    padding: 0 20px;
+    padding-bottom: 8px;
+}
+
+.myNav-content li  {
+    padding-top: 3%;
+}
+
+
+.myNav-content li a {
+    font-size: 1em;
+    color: white;
+}
+
+.ui-accordion-content {
+    display: none;
+}
+
+.active>.ui-accordion-content {
+    display: block;
+}
+
+
 
 .content_actu h1 {
     font-size: 4em;
@@ -1176,7 +1370,7 @@ label.required {
     margin-left: 6%;
 }
 
-.actu_show div  {
+.actu_show div {
     margin-top: 5%;
     margin-left: 6%;
 }
@@ -1209,7 +1403,7 @@ label.required {
 }
 
 
-.add_actu_content form #actuality div  {
+.add_actu_content form #actuality div {
     padding-bottom: 5%;
 }
 
@@ -1221,6 +1415,10 @@ label.required {
     border: none;
     background-color: beige;
     border-radius: 10px;
+}
+
+.add_actu_content form #actuality div #actuality_classroom {
+        display: none;
 }
 
 .add_actu_content form #actuality div textarea {
@@ -1269,14 +1467,17 @@ label.required {
     height: 150px;
     margin-bottom: 200px;
 }
+
 .footer p {
     font-size: 2.5em;
     text-align: center;
     padding-top: 50px;
 }
+
 .footer p a {
     color: black;
 }
+
 .footer p a:hover {
     color: black;
 }
@@ -1296,9 +1497,11 @@ label.required {
     text-align: center;
     padding-top: 50px;
 }
+
 .footer_vitrine p a {
     color: black;
 }
+
 .footer_vitrine p a:hover {
     color: black;
 }
@@ -1309,21 +1512,23 @@ label.required {
     width: 100%;
     /* height: calc(100vh - 128px); */
    }
-   
+
 .calendar__table td {
     padding: 10px;
     border: 1px solid grey;
     vertical-align: top;
-    width: 14.29%; /* 100% / 7 jours */
-    /* height: 100%; */
+    width: 14.29%;
+    /* 100% / 7 jours */
+    height: 100%;
 }
 
 .calendar__table--6weeks td {
-    /* height: 16.66%; /* 100% / 6 semaines */
+    height: 16.66%;
+    /* 100% / 6 semaines */
 }
 
 .calendar__column__title {
-height: 2%;
+    height: 2%;
 }
 
 .calendar__weekday {
@@ -1346,9 +1551,9 @@ height: 2%;
     font-size: 2em;
 }
 
-.calendar__nav__profil__flex__col  {
- flex-direction: column;
- /* margin: 5% 2%; */
+.calendar__nav__profil__flex__col {
+    flex-direction: column;
+    /* margin: 5% 2%; */
 }
 
 .calendar__nav__profil__flex__col div p {
@@ -1370,6 +1575,7 @@ height: 2%;
 .red {
     color: red;
 }
+
 .black {
     color: black;
 }
@@ -1390,9 +1596,7 @@ height: 2%;
 
 /* BACKEND INDEX */
 
-.backend_index {
-
-}
+.backend_index {}
 
 .backend_index a i {
     font-size: 6em;
@@ -1425,9 +1629,7 @@ height: 2%;
 
 /* BACKEND DOCUMENT */
 
-.backend_document {
-
-}
+.backend_document {}
 
 .backend_document a i {
     font-size: 6em;
@@ -1451,7 +1653,7 @@ height: 2%;
     text-align: center;
 }
 
-.backend_document form #document div  {
+.backend_document form #document div {
     padding-top: 5%;
 }
 
@@ -1478,7 +1680,7 @@ height: 2%;
     background-color: beige;
 }
 
-.backend_document .list_document  {
+.backend_document .list_document {
     border-bottom: 2px solid;
     width: 90%;
     margin: auto;
@@ -1491,7 +1693,7 @@ height: 2%;
     padding-top: 15%;
 }
 
-.backend_document .list_document div  {
+.backend_document .list_document div {
     padding-left: 12%;
     padding-top: 5%;
 }
@@ -1523,13 +1725,11 @@ height: 2%;
 }
 
 .backend_document .list_document_class div a {
-    font-size: 2em;  
+    font-size: 2em;
 }
 
 
-.backend_document_show {
-
-}
+.backend_document_show {}
 
 .backend_document_show a i {
     font-size: 6em;
@@ -1558,7 +1758,7 @@ height: 2%;
     display: flex;
     justify-content: space-evenly;
     padding-top: 7%;
-    
+
 }
 
 .backend_document_show .show_delete_update form button {
@@ -1567,12 +1767,10 @@ height: 2%;
     background-color: beige;
     padding: 20px;
     border-radius: 7px;
-    
-}
-
-.document_show_update {
 
 }
+
+.document_show_update {}
 
 .document_show_update a i {
     font-size: 6em;
@@ -1589,10 +1787,7 @@ height: 2%;
     text-align: center;
 }
 
-
-.document_show_update form #document {
-    
-}
+.document_show_update form #document {}
 
 .document_show_update form #document div {
     margin-top: 5%;
@@ -1608,8 +1803,7 @@ height: 2%;
     border-radius: 10px;
 }
 
-.document_show_update form #document div #document_document_url
-{
+.document_show_update form #document div #document_document_url {
     padding-top: 3%;
 }
 
@@ -1622,32 +1816,28 @@ height: 2%;
     background-color: beige;
 }
 
-.backend_document_show_class {
-
-}
+.backend_document_show_class {}
 
 .backend_document_show_class a i {
     font-size: 6em;
     padding: 5% 5%;
 }
 
-.backend_document_show_class h1  {
+.backend_document_show_class h1 {
     font-size: 4em;
     text-align: center;
     padding-bottom: 3%;
     padding-top: 5%;
 }
 
-.backend_document_show_class div  {
+.backend_document_show_class div {
     text-align: center;
     padding-top: 3%;
     font-size: 3em;
 }
 
 
-.backend_document_children {
-
-}
+.backend_document_children {}
 
 .backend_document_children a i {
     font-size: 6em;
@@ -1660,7 +1850,7 @@ height: 2%;
     padding-bottom: 5%;
 }
 
-.backend_document_children .document_children div  {
+.backend_document_children .document_children div {
     font-size: 3em;
     width: 50%;
     margin: auto;
@@ -1669,18 +1859,328 @@ height: 2%;
     overflow: hidden;
 }
 
-.backend_document_children .document_children div i  {
+.backend_document_children .document_children div i {
     font-size: 1.5em;
     padding-right: 2%;
 }
 
-.backend_document_children  .document_children_add  {
+.backend_document_children .document_children_add {
     text-align: center;
     padding-top: 10%;
     font-size: 3em;
 }
 
+/* BACKEND ALERT */
+
+.backend_alert a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.backend_alert .add_alert {
+    padding-top: 5%;
+    border-bottom: 2px solid;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
+.backend_alert .add_alert h1 {
+    font-size: 3em;
+    text-align: center;
+}
 
 
+.backend_alert .list_alert {
+   
+    width: 90%;
+    margin: auto;
+    padding-bottom: 50%;
+}
+
+.backend_alert .list_alert h2 {
+    font-size: 3em;
+    text-align: center;
+    padding-top: 15%;
+}
+
+.backend_alert .list_alert div {
+    padding-top: 5%;
+    text-align: center;
+
+}
+
+.backend_alert .list_alert div a {
+    font-size: 1.8em;
+}
+
+.backend_alert form {
+    text-align: center;
+    padding: 1%;
+}
+
+.backend_alert form #alert div {
+    padding-top: 5%;    
+}
+
+.backend_alert form #alert div input {
+    padding-left: 2%;
+    font-size: 2em;
+    height: 70px;
+    width: 70%;
+    border: none;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.backend_alert form #alert div button {    
+    font-size: 2em;
+    margin-top: 3%;
+    padding: 3% 5%;
+    border: none;
+    border-radius: 5px;
+    background-color: beige;    
+}
+
+.show_delete_update form button {    
+    border: none;
+    font-size: 1em;
+    background-color: beige;
+    padding: 20px;
+    border-radius: 7px;    
+    
+}
+
+.show_delete_update div {
+    display: flex;   
+    justify-content: center;
+}
+
+.backend_alert_show a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.backend_alert_show .show_alert {
+   
+    width: 90%;
+    margin: auto;
+    padding-bottom: 15%;
+}
+
+.backend_alert_show .show_alert p {
+    text-align: center;
+    font-size: 1em;
+}
+
+.backend_alert_show .show_alert h1 {
+    border-bottom: 2px solid;
+    text-align: center;
+    font-size: 4em;
+    padding-bottom: 10%;
+}
+.backend_alert_show .show_alert div {
+    font-size: 3.5em;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.alert_show_update a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.alert_show_update h1 {
+    font-size: 3em;
+    text-align: center;
+}
+
+
+.alert_show_update form {
+    text-align: center;
+}
+
+.alert_show_update form #alert div {
+    margin-top: 5%;
+}
+
+.alert_show_update form #alert div input {
+    padding-left: 2%;
+    font-size: 2em;
+    height: 70px;
+    width: 70%;
+    border: none;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.alert_show_update form #alert div #alert_Ajouter {
+    font-size: 2em;
+    margin-top: 3%;
+    padding: 3% 5%;
+    border: none;
+    border-radius: 5px;
+    background-color: beige;
+}
+
+
+
+.backend_actuality a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.backend_actuality .add_actuality {
+    padding-top: 5%;
+    border-bottom: 2px solid;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
+.backend_actuality .add_actuality h1 {
+    font-size: 4em;
+    text-align: center;
+}
+
+
+.backend_actuality .list_actuality {
+   
+    width: 90%;
+    margin: auto;
+    padding-bottom: 50%;
+}
+
+.backend_alert .list_actuality h2 {
+    font-size: 3em;
+    text-align: center;
+    padding-top: 15%;
+}
+
+.backend_actuality .list_actuality div {
+    padding-top: 5%;
+    text-align: center;
+
+}
+
+.backend_actuality .list_actuality div a {
+    font-size: 1.8em;
+}
+
+.backend_actuality form {
+    text-align: center;
+    padding: 1%;
+}
+
+.backend_actuality form #actuality div {
+    padding-top: 5%;    
+}
+
+.backend_actuality form #actuality div input {
+    padding-left: 2%;
+    font-size: 2em;
+    height: 70px;
+    width: 70%;
+    border: none;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.backend_actuality form #actuality div button {    
+    font-size: 2em;
+    margin-top: 3%;
+    padding: 3% 5%;
+    border: none;
+    border-radius: 5px;
+    background-color: beige;    
+}
+
+.backend_actuality_show a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.backend_actuality_show .show_actuality {
+   
+    width: 90%;
+    margin: auto;
+    padding-bottom: 15%;
+}
+
+.backend_actuality_show .show_actuality p {
+    text-align: center;
+    font-size: 1em;
+}
+
+.backend_actuality_show .show_actuality h1 {
+    border-bottom: 2px solid;
+    text-align: center;
+    font-size: 4em;
+    padding-bottom: 10%;
+}
+.backend_actuality_show .show_actuality div {
+    font-size: 3.5em;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 50%;
+}
+
+.actuality_show_update a i {   
+    padding-bottom: 50%;
+}
+
+.actuality_show_update a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.actuality_show_update h1 {
+    font-size: 3em;
+    text-align: center;
+}
+
+
+.actuality_show_update form {
+    text-align: center;
+}
+
+.actuality_show_update form #actuality div {
+    margin-top: 5%;
+}
+
+.actuality_show_update form #actuality div input {
+    padding-left: 2%;
+    font-size: 2em;
+    height: 70px;
+    width: 70%;
+    border: none;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.actuality_show_update form #actuality div #actuality_content {
+    padding-left: 2%;
+    font-size: 2em;
+    height: 300px;
+    width: 70%;
+    border: none;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.actuality_show_update form #actuality div #actuality_classroom {
+   display: none;
+}
+
+.actuality_show_update form #actuality div #actuality_Ajouter {
+    font-size: 2em;
+    margin-top: 3%;
+    padding: 3% 5%;
+    border: none;
+    border-radius: 5px;
+    background-color: beige;
+}
 
 
