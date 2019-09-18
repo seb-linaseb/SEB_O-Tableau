@@ -84,6 +84,31 @@ class Student
      */
     private $documents;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $mondayLunch;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $tuesdayLunch;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $wednesdayLunch;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $thursdayLunch;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $fridayLunch;
+
     public function __construct()
     {
         $this->user = new ArrayCollection();
@@ -343,6 +368,66 @@ class Student
     public function __toString()
     {
         return $this->name . " " .$this->firstname;
+    }
+
+    public function getMondayLunch(): ?bool
+    {
+        return $this->mondayLunch;
+    }
+
+    public function setMondayLunch(bool $mondayLunch): self
+    {
+        $this->mondayLunch = $mondayLunch;
+
+        return $this;
+    }
+
+    public function getTuesdayLunch(): ?bool
+    {
+        return $this->tuesdayLunch;
+    }
+
+    public function setTuesdayLunch(bool $tuesdayLunch): self
+    {
+        $this->tuesdayLunch = $tuesdayLunch;
+
+        return $this;
+    }
+
+    public function getWednesdayLunch(): ?bool
+    {
+        return $this->wednesdayLunch;
+    }
+
+    public function setWednesdayLunch(bool $wednesdayLunch): self
+    {
+        $this->wednesdayLunch = $wednesdayLunch;
+
+        return $this;
+    }
+
+    public function getThursdayLunch(): ?bool
+    {
+        return $this->thursdayLunch;
+    }
+
+    public function setThursdayLunch(bool $thursdayLunch): self
+    {
+        $this->thursdayLunch = $thursdayLunch;
+
+        return $this;
+    }
+
+    public function getFridayLunch(): ?bool
+    {
+        return $this->fridayLunch;
+    }
+
+    public function setFridayLunch(bool $fridayLunch): self
+    {
+        $this->fridayLunch = $fridayLunch;
+
+        return $this;
     }
 
     

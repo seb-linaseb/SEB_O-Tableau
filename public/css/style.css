@@ -1307,7 +1307,7 @@ label.required {
 
 .calendar__table {
     width: 100%;
-    height: calc(100vh - 128px);
+    /* height: calc(100vh - 128px); */
    }
    
 .calendar__table td {
@@ -1315,11 +1315,11 @@ label.required {
     border: 1px solid grey;
     vertical-align: top;
     width: 14.29%; /* 100% / 7 jours */
-    height: 100%;
+    /* height: 100%; */
 }
 
 .calendar__table--6weeks td {
-    height: 16.66%; /* 100% / 6 semaines */
+    /* height: 16.66%; /* 100% / 6 semaines */
 }
 
 .calendar__column__title {
@@ -1359,6 +1359,11 @@ height: 2%;
 .calendar__nav__profil__flex__col div span {
     font-size: 2.5em;
 }
+
+.case-verte {
+    background-color: #CCE5FF;
+}
+
 
 /* CLASS JQUERY */
 

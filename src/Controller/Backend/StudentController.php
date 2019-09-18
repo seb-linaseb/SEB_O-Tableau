@@ -32,7 +32,7 @@ class StudentController extends AbstractController
         $entityManager = $this->getDoctrine()->getManager();            
         $entityManager->persist($student);      
         $entityManager->flush();
-        return $this->redirectToRoute('admin_student_index');    
+        return $this->redirectToRoute('admin_canteen_create', ['id'=> $student->getId()]);    
         }
 
         return $this->render('backend/student/index.html.twig', [
@@ -69,7 +69,7 @@ class StudentController extends AbstractController
                    
         $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_student_index');
+            return $this->redirectToRoute('admin_canteen_update');
         }
 
         return $this->render('backend/student/edit.html.twig', [
