@@ -8,14 +8,15 @@
     <h1>Semaine N° {{ actual_week }} - Année N° {{ actual_year }}</h1>
 
     <div>
-      <a href="{{ path('canteen_week') }}?year={{ previous_week_year }}&week={{ previous_week_week }}" class="btn btn-primary">&lt;</a>  
-      <a href="{{ path('canteen_week') }}?year={{ next_week_year }}&week={{ next_week_week }}" class="btn btn-primary">&gt;</a>
+      <a href="{{ path('admin_canteen_read_by_week') }}?year={{ previous_week_year }}&week={{ previous_week_week }}" class="btn btn-primary">&lt;</a>  
+      <a href="{{ path('admin_canteen_read_by_week') }}?year={{ next_week_year }}&week={{ next_week_week }}" class="btn btn-primary">&gt;</a>
     </div>
   </div>
 
   <table class="calendar__table">
       <tr class="calendar__table__dayname">
-            
+
+                <td><div class="calendar__column__title">Elève<br>xxx</div></td>            
                 <td><div class="calendar__column__title">Lundi<br>{{ week_day_1 }}</div></td>
                 <td><div class="calendar__column__title">Mardi<br>{{ week_day_2 }}</div></td>
                 <td><div class="calendar__column__title">Mercredi<br>{{ week_day_3 }}</div></td>
@@ -31,10 +32,15 @@
 
 
     {% for i in 1..1 %}
+      {% for student in students %}
         <tr>
-
+                <td>{{ student }}
+                </td>
                 <td class="calendar__day">
-                <div></div>
+                <div>{{ week_day_1 }}{{ student }}</div>
+                </td>
+                <td class="calendar__day">
+                <div>{{ week_day_2 }}</div>
                 </td>
                 <td class="calendar__day">
                 <div></div>
@@ -51,17 +57,8 @@
                 <td class="calendar__day">
                 <div></div>
                 </td>
-                <td class="calendar__day">
-                <div></div>
-                </td>
-                
-
-            
-
-
-
-
         </tr>
+        {% endfor %}
     {% endfor %}
   </table>
 
