@@ -29,16 +29,18 @@ input, button {
     position: absolute;
     right: 260px;
     text-align: center;
+    padding-top: 3.5%;
 }
 .header div h1 {
     font-size: 6em;
     margin-top: 50px;
     margin-bottom: 30px;
     font-family: 'Chilanka', cursive;
+    color: #1A535C;
 }
 .header div a {
     font-size: 2.7em;
-    background-color: rgb(27, 24, 24);
+    background-color: #1A535C;
     color: white;
     padding: 10px;
     border-radius: 15px;
@@ -47,27 +49,59 @@ input, button {
 .header div p {
     font-size: 6em;
     margin-top: 15px;
+    color: #1A535C;
 }
 
 
 /* CONTENT PAGE VITRINE */
 
+.content_vitrine {
+    background-color: ghostwhite;
+}
+
+.content_vitrine .welcome_title  {
+    font-size: 5em;
+    text-align: center;
+    padding-top: 7%;
+    font-weight: bold;
+}
+
+.content_vitrine h1  {
+    font-size: 3em;
+    text-align: center;
+    padding-top: 7%;
+    font-weight: bold;
+    color: #1A535C;
+}
+
+.content_vitrine .welcome_text  {
+    font-size: 2em;
+    padding: 8% 3%;
+    text-align: center;
+    line-height: 120%;
+}
 
 .content_vitrine p  {
     font-size: 2em;
     padding: 40px 20px;
     text-align: center;
+    line-height: 120%;
+}
+
+.content_vitrine p span {
+    font-weight: bold;
+    color: #1A535C;
+
+
 }
 .content_vitrine table  {
     font-size: 4em;
     text-align: center;
     margin: auto;
     border: 1px solid black;
+    margin-top: 3%;
 }
-.content_vitrine table caption {
-    margin-top: 50px;
-    margin-bottom: 15px;
-}
+
 .content_vitrine table tbody tr  {
     border-bottom: 1px solid black;
 }
@@ -99,6 +133,7 @@ input, button {
 .map_vitrine p i {
     margin-right: 20px;
     font-size: 2em;
+    color: #1A535C;
 }
 
 
@@ -116,31 +151,32 @@ input, button {
 }
 .form_vitrine div input {
     width: 80%;
-    height: 70px;
+    height: 90px;
     font-size: 2.5em;
     border: none;
-    border: 1px solid;
     padding-left: 10px;
     margin-bottom: 40px;
     font-family: 'Quicksand', sans-serif;
+    border-radius: 20px;
 }
 .form_vitrine div textarea {
     width: 80%;
     height: 350px;
     font-size: 1.2em;
     border: none;
-    border: 1px solid;
     padding-left: 10px;
     margin-bottom: 30px;
     font-family: 'Quicksand', sans-serif;
+    border-radius: 20px;
 }
-.form_vitrine .form_vitrine-button {
+.form_vitrine form button {
     font-size: 2.5em;
     border: none;
     padding: 15px;
-    background-color: rgb(26, 25, 25);
+    background-color: #1A535C;
     color: white;
-    border-radius: 15px;
+    border-radius: 7px;
+    
 }
 
 
@@ -148,7 +184,7 @@ input, button {
 
 
 .content_form_login {
-    background-color: #2C3840;
+    background-color: #1A535C;
     color: white;
     height: 1745px;
     font-family: 'Quicksand', sans-serif;
@@ -180,7 +216,7 @@ input, button {
     border: 1px solid;
     padding-left: 10px;
     margin-left: 9%;
-    background-color: #515861;
+    background-color: white;
 }
 .content_form_login form div  {
    width: 60%;
@@ -193,7 +229,7 @@ input, button {
    padding: 50px 200px;
    font-size: 2.5em;
    border-radius: 40px;
-   background-color: #2C3840;
+   background-color: #1A535C;
    border: 3px solid white;
    color: white;
 }
@@ -322,7 +358,9 @@ input, button {
     height: 250px;
     margin: auto;
     border-bottom: 3px solid lightslategray;
+    background: ghostwhite;
 }
+
 .nav_profil .nav_profil_flex  {
     display: flex;
     margin: 5% 2%;
@@ -359,6 +397,10 @@ input, button {
 .button_compte_director {
     position: relative;
     top: -25%;
+}
+
+.profil {
+    background: ghostwhite;
 }
 
 
@@ -469,9 +511,7 @@ input, button {
     text-align: center;
     font-size: 2em;
     padding-top: 5%;
-
 }
-
 
 
 .profil_choice {
@@ -492,11 +532,12 @@ input, button {
 .profil_choice p span {
     font-weight: bold;
 }
+
 .alert {
-    text-align: center;
-    margin-top: 2%;
     font-weight: bold;
-    color: red;
+    color: crimson;
+    text-align: center;
+    padding-top: 2%;
 }
 
 /* PAGE PROFIL PROF/DIRECTEUR */
@@ -526,6 +567,7 @@ input, button {
     text-align: center;
 }
 
+/* Accordéon profil prof/directeur */
 .myNav { width:50%; background:#333; color: white; font-size: 3em; margin: auto; margin-top: 5%; }
 .myNav-item:not(:first-child) { border-top:1px solid #4d4d4d; color: white; }
 .myNav-link { display:block; padding:8px 10px; color: white; }
