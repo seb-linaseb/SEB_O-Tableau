@@ -22,6 +22,11 @@ class StudentType extends AbstractType
             ->add('lunchtype')
             ->add('person')
             ->add('classroom')
+            ->add('mondayLunch')
+            ->add('tuesdayLunch')
+            ->add('wednesdayLunch')
+            ->add('thursdayLunch')
+            ->add('fridayLunch')
             ->add('Ajouter', SubmitType::class)
         ;
     }

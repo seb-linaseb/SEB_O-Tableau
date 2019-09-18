@@ -69,4 +69,25 @@ class PresenceLunchRepository extends ServiceEntityRepository
         ;
     }
     */
+    /**
+     * 
+     *  @return PresenceLunch[] Returns an array of PresenceLunch
+     */
+    public function findStudentDates($today, $id)
+    {
+        $query = $this->getEntityManager()->createQuery('
+            SELECT p, c
+            FROM App\Entity\PresenceLunch p
+            JOIN p.calendar c
+            WHERE (c.date > :today)
+            AND (p.student = :Id)
+            
+        ')
+        ->setParameters(array(
+                     'today' => $today,
+                     'Id' => $id));
+
+                     
+        return $query->getResult();         
+    }
 }

@@ -412,7 +412,7 @@ button {
 
 
 /* NAV STAFF */
-
+/*
 .content_nav_staff {
     width: 100%;
     background: beige;
@@ -1556,7 +1556,7 @@ label.required {
 
 
 /* FOOTER */
-
+/*
 .footer {
     position: absolute;
     bottom: 0;
@@ -1607,8 +1607,8 @@ label.required {
 
 .calendar__table {
     width: 100%;
-    height: calc(100vh - 128px);
-}
+    /* height: calc(100vh - 128px); */
+   }
 
 .calendar__table td {
     padding: 10px;
@@ -1661,6 +1661,11 @@ label.required {
 .calendar__nav__profil__flex__col div span {
     font-size: 2.5em;
 }
+
+.case-verte {
+    background-color: #98FB98;
+}
+
 
 /* CLASS JQUERY */
 
