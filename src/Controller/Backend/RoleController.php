@@ -51,18 +51,7 @@ class RoleController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/show/{id}", name="show", requirements={"id"="\d+"})
-     */
-    public function show(Request $request, $id)
-    {
-        $repository = $this->getDoctrine()->getRepository(Role::class);
-        $roles = $repository->find($id);
 
-        return $this->render('/backend/role/show.html.twig', [
-            'roles' => $roles                    
-        ]);
-    }
 
     /**
      * @Route("/edit/{id}", name="edit", requirements={"id"="\d+"})

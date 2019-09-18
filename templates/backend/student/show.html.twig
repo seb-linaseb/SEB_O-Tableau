@@ -2,21 +2,31 @@
 
 {% block content %}
 
+<div class="backend_student_show">
+    <a href="{{ path('admin_student_index') }}"><i class="fas fa-angle-left"></i></a>
+    <div class="show_student">
+
     <p>{{ student.name }} {{ student.firstname }}</p>
-    
-<form method="post" action="{{ path('admin_student_delete', {'id': student.id}) }}" onsubmit="return confirm('Êtes vous sûr de vouloir supprimer?');">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ student.id) }}">
-    <button class="btn">Supprimer</button>
-</form>
+     </div>
 
-<hr>
+ <div class="show_delete_update">
 
-<form method="post" action="{{ path('admin_student_update', {'id': student.id}) }}">
-    <input type="hidden" name="_method" value="UPDATE">
-    <input type="hidden" name="_token" value="{{ csrf_token('update' ~ student.id) }}">
-    <button class="btn">Modifier</button>
-</form>
+    <form method="post" action="{{ path('admin_student_update', {'id': student.id}) }}">
+        <input type="hidden" name="_method" value="UPDATE">
+        <input type="hidden" name="_token" value="{{ csrf_token('update' ~ student.id) }}">
+        <button class="btn">Modifier</button>
+    </form>
+
+    <form method="post" action="{{ path('admin_student_delete', {'id': student.id}) }}" onsubmit="return confirm('Êtes vous sûr de vouloir supprimer?');">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ student.id) }}">
+        <button class="btn">Supprimer</button>
+    </form>
+
+ </div>
+ </div>
 
 
+{% endblock %}
+{% block footer %}
 {% endblock %}

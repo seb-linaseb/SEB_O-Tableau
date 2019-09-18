@@ -4,10 +4,15 @@
 
 {% block content %}
 
+<div class="backend_school_show">
+    <a href="{{ path('admin_default_index') }}"><i class="fas fa-angle-left"></i></a>
+    <div class="school_show_update">
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <button class="btn">{{ button_label|default('Modifier') }}</button>
     {{ form_end(form) }}
+    </div>
+</div>
 
 {% endblock %}
 {% block footer %}

@@ -28,10 +28,63 @@ var app = {
             html.scrollTop = obj.scrollHeight;
             }
             window.onload = function(){mettre_curseur_en_bas();};
-    },
 
+        // je récup mes label d'add actu
+        var $listLabelActu = $('.add_actu_content form #actuality div #actuality_classroom label');
+                                
+        $listLabelActu.addClass('black')
+        
+        $listLabelActu.on('click', app.handleLabelClickActu);
+
+
+
+        var $listLabelActuEdit = $('.actuality_show_update form #actuality div #actuality_classroom label');
+        
+        $listLabelActuEdit.addClass('black')
+        
+        $listLabelActuEdit.on('click', app.handleLabelClickActuEdit);
+    },
+    
     handleLabelClick: function(evt) {
         console.log('koukou')
+
+        // contient l'élément précis sur lequel on a cliqué
+        var $label = $(evt.target);
+
+        // condition qui à pour but d'ajouté la class red au premier click puis d'ajouté la class black au second clique si red existe
+        if ($label.hasClass('black') == true) {
+            
+            $label.removeClass('black').addClass('red');
+            
+        } else if ($label.hasClass('red') == true) {
+
+             $label.removeClass('red').addClass('black');
+        }  else {
+            
+        }
+    },
+
+    handleLabelClickActu: function(evt) {
+        console.log('koukou2')
+
+        // contient l'élément précis sur lequel on a cliqué
+        var $label = $(evt.target);
+
+        // condition qui à pour but d'ajouté la class red au premier click puis d'ajouté la class black au second clique si red existe
+        if ($label.hasClass('black') == true) {
+            
+            $label.removeClass('black').addClass('red');
+            
+        } else if ($label.hasClass('red') == true) {
+
+             $label.removeClass('red').addClass('black');
+        }  else {
+            
+        }
+    },
+
+    handleLabelClickActuEdit: function(evt) {
+        console.log('koukou3')
 
         // contient l'élément précis sur lequel on a cliqué
         var $label = $(evt.target);

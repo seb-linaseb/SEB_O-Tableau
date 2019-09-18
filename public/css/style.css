@@ -331,6 +331,85 @@ button {
     padding-bottom: 3%;
 }
 
+/* PAGE MDP OUBLIE */
+
+.password_forgotten {
+    
+}
+
+.password_forgotten a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.password_forgotten form  {
+    text-align: center;
+   
+}
+.password_forgotten form h1 {
+    font-size: 3em;
+    padding-top: 5%;
+}
+
+.password_forgotten form input {
+    width: 75%;
+    height: 70px;
+    border: none;
+    border: 2px solid;
+    font-size: 2em;
+    padding-left: 2%;
+    margin-top: 4%;
+}
+
+
+.password_forgotten form div button {
+    margin-top: 3%;
+    border: none;
+    font-size: 2em;
+    background-color: #2C3840;
+    padding: 2% 3%;
+    color: white;
+    border-radius: 7px;
+}
+
+/* PAGE CHANGEMENT MDP  */
+
+.password_reset {
+    
+}
+
+.password_reset form  {
+    text-align: center;
+   
+}
+.password_reset form h1 {
+    font-size: 3em;
+    padding-top: 10%;
+}
+
+.password_reset form input {
+    width: 75%;
+    height: 70px;
+    border: none;
+    border: 2px solid;
+    font-size: 2em;
+    padding-left: 2%;
+    margin-top: 4%;
+}
+
+
+.password_reset form div button {
+    margin-top: 3%;
+    border: none;
+    font-size: 2em;
+    background-color: #2C3840;
+    padding: 2% 3%;
+    color: white;
+    border-radius: 7px;
+}
+
+
+
 
 /* NAV STAFF */
 
@@ -455,7 +534,7 @@ button {
 .profil_children a h2 {
     font-size: 3.5em;
     text-align: center;
-    margin-bottom: 1%;
+    margin-bottom: 3%;
 }
 
 .profil_children a p {
@@ -576,9 +655,11 @@ button {
     font-weight: bold;
 }
 
+.alert_content {
+}
+
 .alert {
     text-align: center;
-    margin-top: 2%;
     font-weight: bold;
     color: black;
 }
@@ -898,8 +979,6 @@ li.myNav-item.ui-accordion-item {
     height: 900px;
 }
 
-
-
 .doc_children .doc_children_border h1 {
     position: absolute;
     top: -30px;
@@ -983,7 +1062,6 @@ li.myNav-item.ui-accordion-item {
     border: none;
     border-radius: 5px;
     background-color: beige;
-
 }
 
 
@@ -1041,7 +1119,9 @@ label.required {
     display: none;
 }
 
-.content_new-msg {}
+.content_new-msg {
+    
+}
 
 .content_new-msg h1 {
     text-align: center;
@@ -1212,13 +1292,14 @@ label.required {
     width: 25%;
     margin-top: 5%;
     margin: 0;
-    font-size: 3em;
+    font-size: 3.5em;
     text-align: center;
     background-color: #2C3840;
     margin: auto;
     margin-top: 6%;
     margin-bottom: 6%;
-    padding: 1% 0;
+    padding: 2% 0;
+    border-radius: 10px;
 }
 
 .tag_all a {
@@ -1231,8 +1312,10 @@ label.required {
     color: white;
     margin-top: 5%;
     margin: auto;
-    font-size: 3em;
+    font-size: 3.5em;
     text-align: center;
+    border-radius: 10px;
+    padding: 1% 0;
 }
 
 
@@ -1249,19 +1332,26 @@ label.required {
 }
 
 .tags_actu div .myNav .myNav-item .myNav-content {
-    padding: 0 20px;
-    padding-bottom: 8px;
+    padding: 0 ;
+    padding-bottom: 0;
 }
 
 .myNav-content li  {
     padding-top: 3%;
+    padding: 5%;
+    transition: 1s;
 }
 
+.myNav-content li:hover {
+    background-color: lightgrey;
+}
 
 .myNav-content li a {
     font-size: 1em;
-    color: white;
+    color: white; 
 }
+
+
 
 .ui-accordion-content {
     display: none;
@@ -1336,10 +1426,10 @@ label.required {
 
 .alert_actuality {
     margin-top: 2%;
-    font-size: 2.9em;
+    font-size: 2.3em;
     text-align: center;
     font-weight: bold;
-    color: red;
+    color: black;
 }
 
 
@@ -1382,7 +1472,7 @@ label.required {
 /* PAGE ADD ACTUALITES */
 
 .add_actu_content {
-
+    padding-bottom: 40%;
 }
 
 .add_actu_content a i {
@@ -1417,8 +1507,15 @@ label.required {
     border-radius: 10px;
 }
 
-.add_actu_content form #actuality div #actuality_classroom {
-        display: none;
+.add_actu_content form #actuality div #actuality_classroom label {
+    display: block;
+    font-size: 2.5em;
+    padding-top: 3%;
+    text-align: center;
+}
+
+.add_actu_content form #actuality div #actuality_classroom input {
+    display: none;
 }
 
 .add_actu_content form #actuality div textarea {
@@ -1603,17 +1700,22 @@ label.required {
     font-size: 5em;
     text-align: center;
     margin-top: 7%;
+    padding-top: 5%;
+    border-bottom: 2px solid black;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 5%;
 
 }
 
 .backend_index ul {
     font-size: 3em;
     text-align: center;
-    margin-top: 10%;
+    margin-top: 10%;    
 }
 
 .backend_index ul li {
-    margin-bottom: 3%;
+    margin-bottom: 3%;    
 }
 
 .backend_index ul li a {
@@ -1724,7 +1826,9 @@ label.required {
 }
 
 
-.backend_document_show {}
+.backend_document_show {
+
+}
 
 .backend_document_show a i {
     font-size: 6em;
@@ -1765,7 +1869,9 @@ label.required {
 
 }
 
-.document_show_update {}
+.document_show_update {
+
+}
 
 .document_show_update a i {
     font-size: 6em;
@@ -1782,7 +1888,9 @@ label.required {
     text-align: center;
 }
 
-.document_show_update form #document {}
+.document_show_update form #document {
+
+}
 
 .document_show_update form #document div {
     margin-top: 5%;
@@ -1811,7 +1919,9 @@ label.required {
     background-color: beige;
 }
 
-.backend_document_show_class {}
+.backend_document_show_class {
+
+}
 
 .backend_document_show_class a i {
     font-size: 6em;
@@ -1832,7 +1942,9 @@ label.required {
 }
 
 
-.backend_document_children {}
+.backend_document_children {
+
+}
 
 .backend_document_children a i {
     font-size: 6em;
@@ -2019,7 +2131,7 @@ label.required {
     background-color: beige;
 }
 
-
+/* BACKEND ACTUALITES */
 
 .backend_actuality a i {
     font-size: 6em;
@@ -2122,6 +2234,10 @@ label.required {
     padding-bottom: 50%;
 }
 
+.actuality_show_update  {
+    padding-bottom: 40%;
+}
+
 .actuality_show_update a i {   
     padding-bottom: 50%;
 }
@@ -2165,9 +2281,17 @@ label.required {
     border-radius: 10px;
 }
 
-.actuality_show_update form #actuality div #actuality_classroom {
+.actuality_show_update form #actuality div #actuality_classroom input {
    display: none;
 }
+
+.actuality_show_update form #actuality div #actuality_classroom label {
+    display: block;
+    font-size: 2.5em;
+    padding-top: 3%;
+    text-align: center;
+ }
+ 
 
 .actuality_show_update form #actuality div #actuality_Ajouter {
     font-size: 2em;
@@ -2178,4 +2302,329 @@ label.required {
     background-color: beige;
 }
 
+/* BACKEND ELEVE */
 
+
+.backend_student a i {
+    padding-bottom: 50%;
+}
+
+.backend_student a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.backend_student form {
+    text-align: center;
+}
+
+.backend_student h1 {
+    text-align: center;
+    font-size: 4em;    
+}
+
+.backend_student form #student div {
+    padding-top: 5%;
+}
+
+.backend_student form #student div input {
+    padding-left: 2%;
+    font-size: 2em;
+    height: 70px;
+    width: 70%;
+    border: none;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.backend_student form #student div button {
+    font-size: 2em;
+    margin-top: 3%;
+    padding: 3% 5%;
+    border: none;
+    border-radius: 5px;
+    background-color: beige;
+    margin-bottom: 5%;    
+}
+
+.backend_student .list_student {
+    border-top: 2px solid;
+    width: 90%;
+    margin: auto;
+    padding-top: 10%;
+    text-align: center;
+}
+
+.backend_student .list_student h2 {
+    font-size: 3em;
+    text-align: center;
+    padding-bottom: 5%;    
+}
+
+.backend_student .list_student div i {
+    font-size: 4em;
+}
+
+.backend_student .list_student div a {
+    font-size: 2em;
+}
+
+.backend_student .list_student {
+    padding-bottom: 50%;
+}
+
+.backend_student_show a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.backend_student_show .show_student {
+    border-bottom: 2px solid;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 15%;
+}
+
+.backend_student_show .show_student p {
+    text-align: center;
+    font-size: 4em;
+}
+
+.backend_student_show .show_student div {
+    font-size: 3.5em;
+    text-align: center;
+    padding-top: 5%;
+}
+
+.backend_student_show .show_delete_update {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 7%;
+
+}
+
+.backend_student_show .show_delete_update form button {
+    border: none;
+    font-size: 2em;
+    background-color: beige;
+    padding: 20px;
+    border-radius: 7px;
+
+}
+
+
+/* BACKEND ROLE */
+
+.backend_role {
+
+}
+
+.backend_role a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.backend_role div div {
+    text-align: center;
+}
+
+.backend_role div div p {
+    font-size: 3em;
+}
+
+.backend_role div .edit_delete_back {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5%;
+}
+
+.backend_role div .edit_delete_back form  {
+    margin: 2% 3%;
+}
+
+.backend_role div .edit_delete_back form button {
+    padding: 15px;
+    background-color: #2C3840;
+    color: white;
+}
+
+.backend_role .role_new {
+    text-align: center;
+    padding-top: 7%;
+    
+}
+
+.backend_role .role_new a {
+    font-size: 3em;
+    background-color: #2C3840;
+    color: white;
+    border-radius: 7px;
+    padding: 2% 3%;
+}
+
+.backend_role_edit {
+
+}
+
+.backend_role_edit a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.backend_role_edit form {
+    text-align: center;
+}
+
+.backend_role_edit form #role div input {
+    width: 70%;
+    height: 70px;
+    font-size: 2em;
+    border: none;
+    border: 2px solid;
+    padding-left: 3%;
+    margin-top: 5%;
+    border-radius: 3px;
+}
+
+.backend_role_edit form button {
+    background-color: #2C3840;
+    color: white;
+}
+
+.backend_role_new {
+
+}
+
+.backend_role_new a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.backend_role_new form {
+    text-align: center;
+}
+
+.backend_role_new form #role div input {
+    width: 70%;
+    height: 70px;
+    font-size: 2em;
+    border: none;
+    border: 2px solid;
+    padding-left: 3%;
+    margin-top: 5%;
+    border-radius: 3px;
+}
+
+.backend_role_new form button {
+    background-color: #2C3840;
+    color: white;
+}
+
+
+
+
+
+
+
+/* BACKEND SCHOOL (ECOLE) */
+
+.student_show_update a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.student_show_update h1 {
+    font-size: 3em;
+    text-align: center;
+}
+
+
+.student_show_update form {
+    text-align: center;
+}
+
+
+.student_show_update form #student div {
+    margin-top: 5%;
+}
+
+.student_show_update form #student div input {
+    padding-left: 2%;
+    font-size: 2em;
+    height: 70px;
+    width: 70%;
+    border: none;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.student_show_update form #student div #student_document_url {
+    padding-top: 3%;
+}
+
+.student_show_update form #student div #student_Ajouter {
+    font-size: 2em;
+    margin-top: 3%;
+    padding: 3% 5%;
+    border: none;
+    border-radius: 5px;
+    background-color: beige;
+}
+
+.backend_school_show a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.backend_school_show .show_school {
+   
+    width: 90%;
+    margin: auto;
+    padding-bottom: 5%;
+}
+
+.backend_school_show .show_school p {
+    text-align: center;
+    font-size: 1em;
+}
+
+.backend_school_show .show_school h1 {
+    border-bottom: 2px solid;
+    text-align: center;
+    font-size: 4em;
+    padding-bottom: 10%;
+}
+.backend_school_show .show_school div {
+    font-size: 3.5em;
+    text-align: center;
+    padding-top: 5%;
+}
+.btn{
+    margin-top: 5%;
+    font-size: 2em;   
+    padding: 3% 5%;
+    border: none;
+    border-radius: 5px;
+    background-color: beige;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+.school_show_update form {
+    text-align: center;
+}
+
+.school_show_update form #school div {
+    margin-top: 5%;
+}
+
+.school_show_update form #school div input {
+    padding-left: 2%;
+    font-size: 2em;
+    height: 70px;
+    width: 70%;
+    border: none;
+    background-color: beige;
+    border-radius: 10px;
+}

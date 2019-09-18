@@ -10,13 +10,22 @@
             <div class="nav_profil_flex">
                 <i class="fas fa-user-alt"></i>
                 <div>
-                    <p>{{ app.user.username }}</p>
+                    <p>{{ app.user.name }} {{ app.user.firstname }} </p>
                     <span>{{app.user.role.name }}</span>
                 </div>
             </div>
             <div>
+            {% if app.user.role.name == 'Direction' %}
+                <div class="button_compte_director">
+                    <a href="{{ path('user_myAccount') }}">Mon compte</a>
+                </div>
+                <div>
+                    <a href="{{ path('admin_default_index') }}">Gestion</a>
+                </div>
+            {% else %}
                 <a href="{{ path('user_myAccount') }}">Mon compte</a>
-            </div>
+            {% endif %}
+            </div>            
         </div>
         <div class="account">
             <a href="{{ path('user_index') }}"><i class="fas fa-angle-left"></i></a>

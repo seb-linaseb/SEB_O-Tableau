@@ -5,25 +5,31 @@
 {% block content %}
 
     <div class="backend_role">
+        <a href="{{ path('admin_default_index') }}"><i class="fas fa-angle-left"></i></a>
         {% for role in roles %}
             <div>
-                <a href="{{ path('admin_role_show', { 'id': role.id }) }}">{{role.name}}
-                </a>
+                <div>
+                    <p>{{role.name}}</p>              
+                </div>
+                <div class="edit_delete_back">
                     <form method="post" action="{{ path('admin_role_edit', {'id': role.id}) }}">
-        <input type="hidden" name="_method" value="UPDATE">
-        <input type="hidden" name="_token" value="{{ csrf_token('update' ~ role.id) }}">
-        <button class="btn">Modifier</button>
-    </form>
+                        <input type="hidden" name="_method" value="UPDATE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('update' ~ role.id) }}">
+                        <button class="btn">Modifier</button>
+                    </form>
 
-    <form method="post" action="{{ path('admin_role_delete', {'id': role.id}) }}">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ role.id) }}">
-        <button class="btn">Supprimer</button>
-    </form>
+                    <form method="post" action="{{ path('admin_role_delete', {'id': role.id}) }}">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ role.id) }}">
+                        <button class="btn">Supprimer</button>
+                    </form>
+                </div>
             </div>
-        {% endfor %}    
+        {% endfor %} 
+        <div class="role_new">
+            <a href="{{ path('admin_role_new') }}">Créer un role</a>   
+        </div>
     </div>
-    <a href="{{ path('admin_role_new') }}">NEW</a>
 {% endblock %}
 {% block footer %}
 {% endblock %}
