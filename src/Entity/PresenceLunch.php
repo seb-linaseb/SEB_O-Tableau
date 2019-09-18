@@ -46,7 +46,12 @@ class PresenceLunch
      */
     private $student;
 
+    public function __construct()
+    {
+        $this->is_present = true;
+        $this->is_canceled = false;
 
+    }
     
 
     public function getId(): ?int

@@ -1,0 +1,243 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Month Calendar Display{% endblock %}
+
+{% block content %}
+
+  <div class="d-flex flex-row align-items-center justify-content-between mx-sm-3">
+    <h1>{{ month_name }}</h1>
+    <div>
+      <a href="{{ path('admin_calendar_read') }}?month={{ previous_month_month }}&year={{ previous_month_year }}" class="btn btn-primary">&lt;</a>  
+      <a href="{{ path('admin_calendar_read') }}?month={{ next_month_month }}&year={{ next_month_year }}" class="btn btn-primary">&gt;</a>
+    </div>
+  </div>
+  
+ 
+
+<table class="calendar__table">
+
+    <tr class="calendar__table__dayname">
+    {% for day in days %}
+    <td>
+        <div class="calendar__column__title">{{ day }}</div>
+    </td>
+    {% endfor %}
+    </tr>
+
+{% set day = days[0] %}
+{# -------------------------{{ launch_day }}-------------------------- #}
+    
+{% for i in 1..1 %} {# Semaine N° 1 #}
+    <tr>
+        {% if launch_day == 1 %}
+            {% for day in days_of_month[:7] %}
+            {# if ici #}
+            
+            <td 
+            {% for date,status in currentDates %}
+                {% if day.daynumber == date and status == true %}
+                    class="case-verte"       
+                {% endif %}
+            {% endfor %}
+            >
+            {{ day.daynumber }}
+            
+            </td>
+            {% endfor %}
+        {% elseif launch_day == 2 %}
+                <td></td>
+                {% for day in days_of_month[:6] %}
+            <td 
+            {% for date,status in currentDates %}
+                {% if day.daynumber == date and status == true %}
+                    class="case-verte"       
+                {% endif %}
+            {% endfor %}
+            >
+            {{ day.daynumber }}
+            
+            </td>
+                {% endfor %}
+        {% elseif launch_day == 3 %}
+                <td></td>
+                <td></td>
+                {% for day in days_of_month[:5] %}
+            <td 
+            {% for date,status in currentDates %}
+                {% if day.daynumber == date and status == true %}
+                    class="case-verte"       
+                {% endif %}
+            {% endfor %}
+            >
+            {{ day.daynumber }}
+            
+            </td>
+                {% endfor %}
+        {% elseif launch_day == 4 %}
+                <td></td>
+                <td></td>
+                <td></td>
+                {% for day in days_of_month[:4] %}
+            <td 
+            {% for date,status in currentDates %}
+                {% if day.daynumber == date and status == true %}
+                    class="case-verte"       
+                {% endif %}
+            {% endfor %}
+            >
+            {{ day.daynumber }}
+            
+            </td>
+                {% endfor %}
+        {% elseif launch_day == 5 %}
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                {% for day in days_of_month[:3] %}
+            <td 
+            {% for date,status in currentDates %}
+                {% if day.daynumber == date and status == true %}
+                    class="case-verte"       
+                {% endif %}
+            {% endfor %}
+            >
+            {{ day.daynumber }}
+            
+            </td>
+                {% endfor %}
+        {% elseif launch_day == 6 %}
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                {% for day in days_of_month[:2] %}
+            <td 
+            {% for date,status in currentDates %}
+                {% if day.daynumber == date and status == true %}
+                    class="case-verte"       
+                {% endif %}
+            {% endfor %}
+            >
+            {{ day.daynumber }}
+            
+            </td>
+                {% endfor %}
+        {% elseif launch_day == 7 %}
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                {% for day in days_of_month[:1] %}
+            <td 
+            {% for date,status in currentDates %}
+                {% if day.daynumber == date and status == true %}
+                    class="case-verte"       
+                {% endif %}
+            {% endfor %}
+            >
+            {{ day.daynumber }}
+            
+            </td>
+                {% endfor %}
+        {% endif %}
+    </tr>
+{% endfor %}
+{% for i in 1..1 %} {# Semaine N° 2 #}
+    <tr>
+        {% for day in days_of_month[8 - launch_day:7] %}
+            <td 
+            {% for date,status in currentDates %}
+                {% if day.daynumber == date and status == true %}
+                    class="case-verte"       
+                {% endif %}
+            {% endfor %}
+            >
+            {{ day.daynumber }}
+            
+            </td>
+        {% endfor %}
+    </tr>
+{% endfor %}
+{% for i in 1..1 %} {# Semaine N° 3 #}
+    <tr>
+        {% for day in days_of_month[15 - launch_day:7] %}
+            <td 
+            {% for date,status in currentDates %}
+                {% if day.daynumber == date and status == true %}
+                    class="case-verte"       
+                {% endif %}
+            {% endfor %}
+            >
+            {{ day.daynumber }}
+            
+            </td>
+        {% endfor %}
+    </tr>
+{% endfor %}
+{% for i in 1..1 %} {# Semaine N° 4 #}
+    <tr>
+        {% for day in days_of_month[22 - launch_day:7] %}
+            <td 
+            {% for date,status in currentDates %}
+                {% if day.daynumber == date and status == true %}
+                    class="case-verte"       
+                {% endif %}
+            {% endfor %}
+            >
+            {{ day.daynumber }}
+            
+            </td>
+        {% endfor %}
+    </tr>
+{% endfor %}
+{% for i in 1..1 %} {# Semaine N° 5 #}
+    <tr>
+        {% for day in days_of_month[29 - launch_day:7] %}
+            <td 
+            {% for date,status in currentDates %}
+                {% if day.daynumber == date and status == true %}
+                    class="case-verte"       
+                {% endif %}
+            {% endfor %}
+            >
+            {{ day.daynumber }}
+            
+            </td>
+        {% endfor %}
+    </tr>
+{% endfor %}
+{% for i in 1..1 %} {# Semaine N° 6 #}
+    <tr>
+        {% for day in days_of_month[36 - launch_day:7] %}
+            <td 
+            {% for date,status in currentDates %}
+                {% if day.daynumber == date and status == true %}
+                    class="case-verte"       
+                {% endif %}
+            {% endfor %}
+            >
+            {{ day.daynumber }}
+            
+            </td>
+        {% endfor %}
+    </tr>
+{% endfor %}
+
+{# {% endfor %} #}
+
+
+
+<a href="{{ path('admin_calendar_create') }}">
+<button>Modifier</button>
+</a>
+
+
+</table>
+
+
+
+{% endblock %}
