@@ -39,35 +39,62 @@
                 <td>
                     {{ student }}
                 </td>
-                {# {% for presenceLunch in presenceLunches if week_day_1 == calendarDayByWeek %} #}
-                {% for calendarDate in calendarDatesByWeek [:1] %}
+
+                {# {% for calendarDate in calendarDatesByWeek [:1] %} #}
+                {# {% for presenceLunch in presenceLunches %} #} 
+                 {% for date,week in dates  %}
+                {% if actual_week == week %} 
+
+                {% if week_day_1 == date %}  
                 <td class="calendar__day">
-                    {# {{ week_day_1 }}<br> #}
+                     {# {{ presenceLunch.lunchType }} <br> {{ date }} <br>  #}
                     {# {{ calendarDate }} #}
-                    <div>coucou<br></div>
+                    <div>{{ date }} </div>
                 </td>
+                {% endif %}
+
+                {% if week_day_2 == date %}  
+                <td class="calendar__day">
+                     {# {{ presenceLunch.lunchType }} <br> {{ date }} <br>  #}
+                    {# {{ calendarDate }} #}
+                    <div>{{ date }} </div>
+                </td>
+                {% endif %}
+                {# {% endif %}
                 {% endfor %}
+                {% endfor %} #}
+                {% if week_day_3 == date %}  
                 <td class="calendar__day">
-                    <div>{{ week_day_1 }}</div>
+                     {# {{ presenceLunch.lunchType }} <br> {{ date }} <br>  #}
+                    {# {{ calendarDate }} #}
+                    <div>{{ date }} </div>
                 </td>
+                {% endif %}
+                    {% if week_day_4 == date %}  
                 <td class="calendar__day">
-                    <div>toto</div>
+                     {# {{ presenceLunch.lunchType }} <br> {{ date }} <br>  #}
+                    {# {{ calendarDate }} #}
+                    <div>{{ date }} </div>
                 </td>
-                    <td class="calendar__day">
-                <div></div>
+                {% endif %}
+                   {% if week_day_5 == date %}  
+                <td class="calendar__day">
+                     {# {{ presenceLunch.lunchType }} <br> {{ date }} <br>  #}
+                    {# {{ calendarDate }} #}
+                    <div>{{ date }} </div>
                 </td>
-                    <td class="calendar__day">
-                <div></div>
-                </td>
-                    <td class="calendar__day">
-                <div></div>
-                </td>
+                {% endif %}
+                   
+
+                {% endif %}
+                {% endfor %}
                     {# <td class="calendar__day"> #}
                 {# <div></div> #}
                 {# </td> #}
                     {# <td class="calendar__day"> #}
                 {# <div></div> #}
                 {# </td> #}
+                 {# {% endfor %}  #}
 
         </tr>
         {% endfor %}

@@ -101,8 +101,10 @@ class AdminCanteenController extends AbstractController
       // Récupérer les présences lunch
       $presenceLunches = $presenceLunchRepository->findAll();
       // dump($presenceLunches);die();
-      $calendarDatesByWeek = $calendarRepository->findByWeek($week_starting_day);
+
+      //$calendarDatesByWeek = $calendarRepository->findByWeek($week_starting_day);
       $calendars = $calendarRepository->findAll();
+    //   dump($calendars);
 
       // Chaque calendarDate renvoie un objet avec un variable id et un variable date
 
@@ -112,10 +114,18 @@ class AdminCanteenController extends AbstractController
       // dump($week_day_1_calendarId);die();
       // chaque presence lunch renvoie objet avec une variable calendar=>id
 
-      // dump($calendarDatesByWeek);die();
-      // foreach ($calendarDatesByWeek as $calendarDate) {
-        // $calendarId = $calendarDate->getId();
-      // }
+        $dates = [];  
+      foreach ($calendars as $calendar) {
+        $calendarDate = $calendar->getDate()->format('d/m/Y');
+        // dump($calendarDate);
+        $week = $calendar->getDate()->format('W');
+        // dump($week);
+         $dates [$calendarDate] = $week;
+       
+      }
+    //   dump($week_number);
+     
+    // dump($dates);die;
 // die();
         /********************* myriam */
     // $datesOfWeek = $presenceLunchRepository->findAll();
@@ -142,6 +152,8 @@ class AdminCanteenController extends AbstractController
        // if ($month == $month_number && $year == $year_number){
            // $currentDates [$date->getDate()->format('d/m/Y')]= $date->getIsWorked(); 
         }
+
+
        
         $status = $presenceLunchRepository->findThisPresenceLunch($date, $student);
         $infoCantine = [];
@@ -150,7 +162,7 @@ class AdminCanteenController extends AbstractController
         dump($infos);
         dump($week);
 
-         die;
+        
       
 /************* MYRIAM FIN */
 
@@ -197,8 +209,10 @@ class AdminCanteenController extends AbstractController
             'classrooms' => $classrooms,
             'students' => $students,
             'presenceLunches' => $presenceLunches,
-            'calendarDatesByWeek' => $calendarDatesByWeek,
-            'infos'=>$infos,
+            'dates' => $dates,
+            'week_number' => $week_number,
+            
+            // 'infos'=>$infos,
             // 'calendarDate' => $calendarDate,
         ]);
   }
