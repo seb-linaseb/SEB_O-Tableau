@@ -11,6 +11,7 @@ use App\Repository\ClassroomRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 
 class UserController extends AbstractController
@@ -50,13 +51,17 @@ class UserController extends AbstractController
     /**
      * @Route("/profil/mon-compte/{id}/edit", name="user_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, User $user)
+    public function edit(Request $request, User $user, UserPasswordEncoderInterface $encoder)
     {
 
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $encodedPassword = $encoder->encodePassword($user, $user->getPassword());           
+            $user->setPassword($encodedPassword);  
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_myAccount');

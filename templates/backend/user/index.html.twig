@@ -2,11 +2,15 @@
 
 {% block content %}
 
-    <h1>Ajouter un User(Parent, enseignant, directeur)
+    <div class="backend_user">
+        <a href="{{ path('admin_default_index') }}"><i class="fas fa-angle-left"></i></a>
+        
+    <h1>Ajouter un Utilisateur
     </h1>
+     {{ form(form) }}   
 
-     {{ form(form) }}
-
+    <div class="list_user">
+        <h2>Liste des utilisateurs</h2>
     {% for user in users %}      
 
      <a href="{{ path('admin_user_show', { 'id': user.id }) }}">   
@@ -14,5 +18,8 @@
     </a>
    
     {% endfor %}
+    </div> 
 
+{% endblock %}
+{% block footer %}
 {% endblock %}

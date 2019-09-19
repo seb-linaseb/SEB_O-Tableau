@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-<div class="student_show_update">
-    <a href="{{ path('admin_student_show', { 'id': student.id }) }}"><i class="fas fa-angle-left"></i></a>
-    <h1>Modifier l'élève</h1>
-    {{ form(form) }}
-</div>
+
+    <div class="student_show_update">
+        <a href="{{ path('admin_student_show', { 'id': student.id }) }}"><i class="fas fa-angle-left"></i></a>
+        <h1>Modifier l'élève</h1>
+        {{ form(form) }}
+    </div>
 
 {% endblock %}
 {% block footer %}

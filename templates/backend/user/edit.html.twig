@@ -1,1 +1,12 @@
-{{ form(form) }}
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<div class="user_show_update">
+    <a href="{{ path('admin_user_show', { 'id': user.id }) }}"><i class="fas fa-angle-left"></i></a>
+    <h1>Modifier l'utilisateur</h1>
+    {{ form(form) }}
+</div>
+
+{% endblock %}
+{% block footer %}
+{% endblock %}

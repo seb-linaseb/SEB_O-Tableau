@@ -24,7 +24,7 @@
             <div>
             {% if app.user.role.name == 'Direction' %}
                 <div class="button_compte_director">
-                    <a href="{{ path('user_myAccount') }}">Mon compte</a>
+                    <a href="{{ path('user_myAccount') }}">Compte</a>
                 </div>
                 <div>
                     <a href="{{ path('admin_default_index') }}">Gestion</a>
@@ -48,21 +48,24 @@
                 
                 <div class="profil_classe">
                     <h1>Ma classe</h1>
-
-                    <ul class="myNav">
-                        {% for student in classroomId.students %}
-                        <li class="myNav-item ui-accordion-item">
-                            <a class="myNav-link ui-accordion-trigger" href="#">{{student.name}} {{student.firstname}}</a>
-                            <ul class="myNav-content ui-accordion-content">
-                            <p>J'autorise à récupérer mon enfant :</p>
-                            {% for person in student.person %}
-                                <li>{{person.name}} {{person.firstname}}</li>
-                            {% endfor %}  
-                            </ul>
-                        </li>
-                        {% endfor %}
-                    </ul>
-            
+                    
+                    {% if classroomId != null %}
+                        <ul class="myNav">
+                            {% for student in classroomId.students %}
+                            <li class="myNav-item ui-accordion-item">
+                                <a class="myNav-link ui-accordion-trigger" href="#">{{student.name}} {{student.firstname}}</a>
+                                <ul class="myNav-content ui-accordion-content">
+                                <p>J'autorise à récupérer mon enfant :</p>
+                                {% for person in student.person %}
+                                    <li>{{person.name}} {{person.firstname}}</li>
+                                {% endfor %}  
+                                </ul>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="alert_class_null">Cet enseignant n'as pas de classe</p>
+                    {% endif %}
                 </div>
                 <h1 class="children_title">Mes enfants</h1>
                 {% for children in app.user.students %}
