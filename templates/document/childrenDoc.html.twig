@@ -14,7 +14,16 @@
                 </div>
             </div>
             <div>
-                <a href="{{ path('user_myAccount') }}">Mon compte</a>
+                {% if app.user.role.name == 'Direction' %}
+                <div class="button_compte_director">
+                    <a href="{{ path('user_myAccount') }}">Compte</a>
+                </div>
+                <div>
+                    <a href="{{ path('admin_default_index') }}">Gestion</a>
+                    </div>
+                {% else %}
+                    <a href="{{ path('user_myAccount') }}">Mon compte</a>
+                {% endif %}
             </div>
         </div>
         {% for child in app.user.students %}

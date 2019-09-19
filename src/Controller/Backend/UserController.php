@@ -64,7 +64,7 @@ class UserController extends AbstractController
     /**
      * @Route("/update/{id}", name="update", requirements={"id"="\d+"})
      */
-    public function update(Request $request, $id, User $user)
+    public function update(Request $request, $id, User $user, UserPasswordEncoderInterface $encoder)
     {     
         $repository = $this->getDoctrine()->getRepository(User::class);
         $userid = $repository->find($id);  
@@ -72,7 +72,10 @@ class UserController extends AbstractController
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {             
+        if ($form->isSubmitted() && $form->isValid()) {   
+            
+            $encodedPassword = $encoder->encodePassword($user, $user->getPassword());           
+            $user->setPassword($encodedPassword);  
                    
         $this->getDoctrine()->getManager()->flush();
 

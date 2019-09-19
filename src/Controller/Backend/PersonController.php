@@ -49,20 +49,7 @@ class PersonController extends AbstractController
             'person' => $person,
         ]);
     }
-
-    /**
-     * @Route("/show/{id}", name="show", requirements={"id"="\d+"})
-     */
-    public function show(Request $request, $id)
-    {
-        $repository = $this->getDoctrine()->getRepository(Person::class);
-        $person = $repository->find($id);
-
-        return $this->render('/backend/person/show.html.twig', [
-            'person' => $person              
-        ]);
-    }
-
+    
     /**
      * @Route("/edit/{id}", name="edit", requirements={"id"="\d+"})
      */
@@ -74,9 +61,7 @@ class PersonController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_person_show', [
-                'id' => $person->getId(),
-            ]);
+            return $this->redirectToRoute('admin_person_index');
         }
         
         return $this->render('backend/person/edit.html.twig', [

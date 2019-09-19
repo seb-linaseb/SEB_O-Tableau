@@ -93,7 +93,7 @@ class ActualityController extends AbstractController
                 
                 $actuid->setPictureUrl($fileName);
                 $actuid->setTitle($title); 
-                $actuid->setContent($title);   
+                $actuid->setContent($content);   
                 
                 if(!empty($oldActu)){
                     unlink(

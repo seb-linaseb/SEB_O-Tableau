@@ -4,10 +4,13 @@
 
 {% block content %}
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <button class="btn">{{ button_label|default('Modifier') }}</button>
-    {{ form_end(form) }}
+    <div class="backend_person_edit">
+            <a href="{{ path('admin_person_index') }}"><i class="fas fa-angle-left"></i></a>
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button class="btn">{{ button_label|default('Modifier') }}</button>
+            {{ form_end(form) }}
+    </div>
 
 {% endblock %}
 {% block footer %}

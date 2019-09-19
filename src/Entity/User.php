@@ -130,7 +130,7 @@ class User implements UserInterface, \Serializable
     /**
      * @ORM\Column(type="boolean")
      */
-    private $imageAgreement;
+    private $image_agreement;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\MessageStatus", mappedBy="user")
@@ -584,12 +584,12 @@ class User implements UserInterface, \Serializable
 
     public function getImageAgreement(): ?bool
     {
-        return $this->imageAgreement;
+        return $this->image_agreement;
     }
 
-    public function setImageAgreement(bool $imageAgreement): self
+    public function setImageAgreement(bool $image_agreement): self
     {
-        $this->imageAgreement = $imageAgreement;
+        $this->image_agreement = $image_agreement;
 
         return $this;
     }

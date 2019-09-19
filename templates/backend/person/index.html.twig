@@ -4,14 +4,36 @@
 
 {% block content %}
 
-    <div class="backend_person">
+<div class="backend_person">
+<a href="{{ path('admin_default_index') }}">
+    <i class="fas fa-angle-left"></i>
+</a>
+<div class="add_person">
+    <h1>Personnes autorisées</h1>    
+</div>
+
+<div class="list_person">
+<button class="btn"><a href="{{ path('admin_person_new')}}">Créer</a></button>
         {% for person in person %}
+            <div class="show_delete_update">
+                {{person.name}} {{person.firstname}}
             <div>
-                <a href="{{ path('admin_person_show', { 'id': person.id }) }}">{{person.name}}</a>
+    <form method="post" action="{{ path('admin_person_edit', {'id': person.id}) }}">
+        <input type="hidden" name="_method" value="UPDATE">
+        <input type="hidden" name="_token" value="{{ csrf_token('update' ~ person.id) }}">
+        <button class="btn">Modifier</button>
+    </form>
+
+    <form method="post" action="{{ path('admin_person_delete', {'id': person.id}) }}">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ person.id) }}">
+        <button class="btn">Supprimer</button>
+    </form>
             </div>
+               </div>               
         {% endfor %}    
-    </div>
-    <a href="{{ path('admin_person_new') }}">NEW</a>
+    </div>  
+    
 {% endblock %}
 {% block footer %}
 {% endblock %}

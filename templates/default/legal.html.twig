@@ -7,18 +7,20 @@
 
 {% block content %}
 
-    {% if app.user %}
-        <div class="link_reglement_mention">
-            <a href="{{ path('user_index') }}">Retour</a>
+    <div class="content_mentionLegal">
+        {% if app.user %}
+            <div class="link_reglement_mention">
+                <a href="{{ path('user_index') }}">Retour</a>
+            </div>
+        {% else %}
+            <div class="link_reglement_mention">
+                <a href="{{ path('default_index') }}">Retour</a>
+            </div>
+        {% endif %}
+        <div class="content_legal">
+            <h1>Mentions légales</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quod harum amet molestias nobis adipisci quasi voluptas fuga eligendi illum! Doloribus eum fugit aliquam deserunt necessitatibus ipsam, veniam modi culpa.</p>
         </div>
-    {% else %}
-        <div class="link_reglement_mention">
-            <a href="{{ path('default_index') }}">Retour</a>
-        </div>
-    {% endif %}
-    <div class="content_legal">
-        <h1>Mentions légales</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit quod harum amet molestias nobis adipisci quasi voluptas fuga eligendi illum! Doloribus eum fugit aliquam deserunt necessitatibus ipsam, veniam modi culpa.</p>
     </div>
    
     
