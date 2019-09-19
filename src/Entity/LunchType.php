@@ -39,9 +39,11 @@ class LunchType
     private $updated_at;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Student", mappedBy="lunch_type")
+     * @ORM\OneToMany(targetEntity="App\Entity\Student", mappedBy="lunchType")
      */
     private $students;
+
+    
 
     public function __toString()
     {
@@ -118,7 +120,7 @@ class LunchType
     {
         if (!$this->students->contains($student)) {
             $this->students[] = $student;
-            $student->addLunchType($this);
+            $student->setLunchType($this);
         }
 
         return $this;
@@ -128,9 +130,14 @@ class LunchType
     {
         if ($this->students->contains($student)) {
             $this->students->removeElement($student);
-            $student->removeLunchType($this);
+            // set the owning side to null (unless already changed)
+            if ($student->getLunchType() === $this) {
+                $student->setLunchType(null);
+            }
         }
 
         return $this;
     }
+
+    
 }
