@@ -7,6 +7,7 @@ use App\Utils\Calendar\Week;
 use App\Entity\PresenceLunch;
 use App\Repository\StudentRepository;
 use App\Repository\CalendarRepository;
+use App\Repository\ClassroomRepository;
 use App\Repository\PresenceLunchRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,7 +17,7 @@ class AdminCanteenController extends AbstractController
   /**
    * @Route("/admin/canteen/read", name="admin_canteen_read_by_week")
    */
-  public function readByWeek(){
+  public function readByWeek(ClassroomRepository $classroomRepository, StudentRepository $studentRepository, PresenceLunchRepository $presenceLunchRepository, CalendarRepository $calendarRepository){
 
       // Si la semaine n'est pas fournie, on utilise la semaine correspondant à la date du jour système
       if(!isset($_GET['week'])) {
@@ -78,7 +79,8 @@ class AdminCanteenController extends AbstractController
           $week_starting_day = ((clone $base_day)->modify("+" . $shift_number . "weeks"))->modify('last monday');
         }
 
-
+      $week_number = $week_starting_day->format('W');
+      $year_number = $week_starting_day->format('Y');
       // Récupère les jours à afficher dans le tableau hebdomadaire
 
       
@@ -90,12 +92,89 @@ class AdminCanteenController extends AbstractController
       $week_day_6 = (clone $week_starting_day)->modify("+" . 5 . "day")->format('d/m/Y');
       $week_day_7 = (clone $week_starting_day)->modify("+" . 6 . "day")->format('d/m/Y');
       
+      // Récupérer la liste des classes
+      $classrooms = $classroomRepository->findAll();
+      
+      // Récupérer la liste des élèves
+      $students = $studentRepository->findAll();
 
-      $students = [];
-      $students[0] = 'toto';
-      $students[1] = 'titi';
-      $students[2] = 'tata';
+      // Récupérer les présences lunch
+      $presenceLunches = $presenceLunchRepository->findAll();
+      // dump($presenceLunches);die();
+      $calendarDatesByWeek = $calendarRepository->findByWeek($week_starting_day);
+      $calendars = $calendarRepository->findAll();
 
+      // Chaque calendarDate renvoie un objet avec un variable id et un variable date
+
+      // Récupérer le calendar_id d'une date
+      // $week_day_1_datetime = date_create_from_format('d/m/Y', $week_day_1);
+      // $week_day_1_calendarId = $calendarRepository->findByDate($week_day_1_datetime);
+      // dump($week_day_1_calendarId);die();
+      // chaque presence lunch renvoie objet avec une variable calendar=>id
+
+      // dump($calendarDatesByWeek);die();
+      // foreach ($calendarDatesByWeek as $calendarDate) {
+        // $calendarId = $calendarDate->getId();
+      // }
+// die();
+        /********************* myriam */
+    // $datesOfWeek = $presenceLunchRepository->findAll();
+         $infos = [];
+         $weekDates = [];
+         $infos ['week'] = $weekDates;
+
+        foreach ($students as $key=> $student){
+          $infos ['student'] = $student;
+          $lunchType = $student->getLunchType();
+          $infos['lunchType'] = $lunchType;
+         
+       }
+
+       foreach ($calendars as $key => $date) {
+        $week =  $date->getDate()->format('W');
+        $year =  $date->getDate()->format('Y');
+        $weekDates[$week] = [];
+        $weekDates[$week]['date'] = $date->getDate()->format('d/m/Y');
+        $weekDates[$week]['year'] = $year;
+        
+         
+       // $year =  $date->getDate()->format('Y');
+       // if ($month == $month_number && $year == $year_number){
+           // $currentDates [$date->getDate()->format('d/m/Y')]= $date->getIsWorked(); 
+        }
+       
+        $status = $presenceLunchRepository->findThisPresenceLunch($date, $student);
+        $infos ['status'] = $status;
+        dump($infos);
+         die;
+      
+/************* MYRIAM FIN */
+
+      // dump($datesOfWeek);die(); // Renvoie des objets avec calendar.id
+
+
+      // foreach ($datesOfWeek as $key => $date) {
+        // $test = $date[$key];
+        // dump($test);die();
+      // }
+
+      // $idOfWeek = $datesOfWeek[0]['calendar']->getId();
+      // dump($idOfWeek);die(); // Renvoie des objets avec calendar.id
+      // $currentDates = [];
+
+      // foreach ($datesOfWeek as $key => $date) {
+      // $week =  $date->getDate()->format('W');
+      // $year =  $date->getDate()->format('Y');
+      // if ($week == $week_number && $year == $year_number){
+          // $currentDates [$date->getDate()->format('d/m/Y')]= $date->getIsOrdered();
+          // $currentDates [$date->getDate()->format('d/m/Y')]= $date->getIsCanceled();
+          // $currentDates [$date->getDate()->format('d/m/Y')]= $date->getHasEated();
+          
+      // }
+      
+      // }
+      // dump($currentDates);
+// die();
 
         return $this->render('backend/canteen/read_week.html.twig', [
             'actual_week' => $actual_week,
@@ -111,7 +190,12 @@ class AdminCanteenController extends AbstractController
             'week_day_5' => $week_day_5,
             'week_day_6' => $week_day_6,
             'week_day_7' => $week_day_7,
+            'classrooms' => $classrooms,
             'students' => $students,
+            'presenceLunches' => $presenceLunches,
+            'calendarDatesByWeek' => $calendarDatesByWeek,
+            'infos'=>$infos,
+            // 'calendarDate' => $calendarDate,
         ]);
   }
   /**
