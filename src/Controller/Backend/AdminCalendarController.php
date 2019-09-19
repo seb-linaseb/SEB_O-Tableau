@@ -197,8 +197,8 @@ public $daynumber;
     {
       
       $dates = $_POST;
-      // dump($dates);
-      // die();
+    //   dump($dates);
+    //   die();
 
       foreach ($dates as $key => $value) {
         if($value == 'on'){
@@ -211,6 +211,16 @@ public $daynumber;
           $entityManager->flush();
           //dump($calendar);
         }
+        else if($value == $key){
+            //dump($key);
+            $calendar = new Calendar();
+            $calendar->setDate(\DateTime::createFromFormat('d/m/Y', $key));
+            $calendar->setIsWorked(false);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($calendar);
+            $entityManager->flush();
+            //dump($calendar);
+          }
       
       }
       $this->addFlash(

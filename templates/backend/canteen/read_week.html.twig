@@ -13,17 +13,19 @@
     </div>
   </div>
 
+{% for classroom in classrooms %}
   <table class="calendar__table">
+      <caption>{{ classroom.name }}</caption>
       <tr class="calendar__table__dayname">
 
-                <td><div class="calendar__column__title">Elève<br>xxx</div></td>            
+                <td><div class="calendar__column__title">Elève</div></td>            
                 <td><div class="calendar__column__title">Lundi<br>{{ week_day_1 }}</div></td>
                 <td><div class="calendar__column__title">Mardi<br>{{ week_day_2 }}</div></td>
                 <td><div class="calendar__column__title">Mercredi<br>{{ week_day_3 }}</div></td>
                 <td><div class="calendar__column__title">Jeudi<br>{{ week_day_4 }}</div></td>
                 <td><div class="calendar__column__title">Vendredi<br>{{ week_day_5 }}</div></td>
-                <td><div class="calendar__column__title">Samedi<br>{{ week_day_6 }}</div></td>
-                <td><div class="calendar__column__title">Dimanche<br>{{ week_day_7 }}</div></td>
+                {# <td><div class="calendar__column__title">Samedi<br>{{ week_day_6 }}</div></td> #}
+                {# <td><div class="calendar__column__title">Dimanche<br>{{ week_day_7 }}</div></td> #}
 
       </tr>
 
@@ -32,34 +34,47 @@
 
 
     {% for i in 1..1 %}
-      {% for student in students %}
+      {% for student in students if student.classroom == classroom %}
         <tr>
-                <td>{{ student }}
+                <td>
+                    {{ student }}
+                </td>
+                {# {% for presenceLunch in presenceLunches if week_day_1 == calendarDayByWeek %} #}
+                {% for calendarDate in calendarDatesByWeek [:1] %}
+                <td class="calendar__day">
+                    {# {{ week_day_1 }}<br> #}
+                    {# {{ calendarDate }} #}
+                    <div>coucou<br></div>
+                </td>
+                {% endfor %}
+                <td class="calendar__day">
+                    <div>{{ week_day_1 }}</div>
                 </td>
                 <td class="calendar__day">
-                <div>{{ week_day_1 }}{{ student }}</div>
+                    <div>toto</div>
                 </td>
-                <td class="calendar__day">
-                <div>{{ week_day_2 }}</div>
-                </td>
-                <td class="calendar__day">
+                    <td class="calendar__day">
                 <div></div>
                 </td>
-                <td class="calendar__day">
+                    <td class="calendar__day">
                 <div></div>
                 </td>
-                <td class="calendar__day">
+                    <td class="calendar__day">
                 <div></div>
                 </td>
-                <td class="calendar__day">
-                <div></div>
-                </td>
-                <td class="calendar__day">
-                <div></div>
-                </td>
+                    {# <td class="calendar__day"> #}
+                {# <div></div> #}
+                {# </td> #}
+                    {# <td class="calendar__day"> #}
+                {# <div></div> #}
+                {# </td> #}
+
         </tr>
         {% endfor %}
     {% endfor %}
   </table>
+  <br><br><br><br><br>
+{% endfor %}
+
 
 {% endblock %}
