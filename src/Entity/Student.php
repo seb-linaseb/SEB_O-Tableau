@@ -59,10 +59,7 @@ class Student
      */
     private $user;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\LunchType", inversedBy="students")
-     */
-    private $lunchtype;
+    
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Person", inversedBy="students")
@@ -109,10 +106,15 @@ class Student
      */
     private $fridayLunch;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\LunchType", inversedBy="students")
+     */
+    private $lunchType;
+
     public function __construct()
     {
         $this->user = new ArrayCollection();
-        $this->lunchtype = new ArrayCollection();
+
         $this->person = new ArrayCollection();
         $this->documents = new ArrayCollection();
         $this->presenceLunches = new ArrayCollection();      
@@ -237,31 +239,7 @@ class Student
         return $this;
     }
 
-    /**
-     * @return Collection|LunchType[]
-     */
-    public function getLunchType(): Collection
-    {
-        return $this->lunchtype;
-    }
-
-    public function addLunchType(LunchType $lunchType): self
-    {
-        if (!$this->lunchtype->contains($lunchType)) {
-            $this->lunchtype[] = $lunchType;
-        }
-
-        return $this;
-    }
-
-    public function removeLunchType(LunchType $lunchType): self
-    {
-        if ($this->lunchtype->contains($lunchType)) {
-            $this->lunchtype->removeElement($lunchType);
-        }
-
-        return $this;
-    }
+    
 
     /**
      * @return Collection|Person[]
@@ -426,6 +404,18 @@ class Student
     public function setFridayLunch(bool $fridayLunch): self
     {
         $this->fridayLunch = $fridayLunch;
+
+        return $this;
+    }
+
+    public function getLunchType(): ?LunchType
+    {
+        return $this->lunchType;
+    }
+
+    public function setLunchType(?LunchType $lunchType): self
+    {
+        $this->lunchType = $lunchType;
 
         return $this;
     }

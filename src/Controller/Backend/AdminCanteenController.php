@@ -126,7 +126,7 @@ class AdminCanteenController extends AbstractController
         foreach ($students as $key=> $student){
           $infos ['student'] = $student;
           $lunchType = $student->getLunchType();
-          $infos['lunchType'] = $lunchType;
+          $infos['lunchType'] = $lunchType->getCode();
          
        }
 
@@ -144,8 +144,12 @@ class AdminCanteenController extends AbstractController
         }
        
         $status = $presenceLunchRepository->findThisPresenceLunch($date, $student);
+        $infoCantine = [];
+        
         $infos ['status'] = $status;
         dump($infos);
+        dump($week);
+
          die;
       
 /************* MYRIAM FIN */

@@ -47,8 +47,8 @@ class StudentType extends AbstractType
             ])
             ->add('lunchtype', EntityType::class, [                
                 'class' => LunchType::class,                    
-                'multiple' => true,
-                'expanded' => true,
+                'multiple' => false,
+                'expanded' => false,
                 'attr' => array('class' => 'input_label'),
             ])
             ->add('person', EntityType::class, [                

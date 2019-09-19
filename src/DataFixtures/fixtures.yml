@@ -23,6 +23,13 @@ App\Entity\Classroom:
          school: '@school_*'
         #  user (unique): '@user_*'
 
+App\Entity\LunchType:
+     lunch_type_{1..4}:
+         code (unique): '<lunchCode()>'
+         name: ''
+         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+
 App\Entity\User:
      user_{1..20}:
          username (unique): '<firstname()>'
@@ -41,13 +48,9 @@ App\Entity\User:
          updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
          role: '@role_*'
          image_agreement: '<boolean(75)>'
+         
 
-App\Entity\LunchType:
-     lunch_type_{1..4}:
-         code (unique): '<lunchCode()>'
-         name: ''
-         created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
-         updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
+
 
 App\Entity\Student:
      student_{1..40}:
@@ -59,7 +62,7 @@ App\Entity\Student:
          created_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
          updated_at: <dateTimeBetween('2019-09-01', '2019-09-06')>
         #  documents: '2x @document_*'
-         lunch_type: ['@lunch_type_*']
+        #  lunch_type: ['@lunch_type_*']
          user: ['@user_*']
          classroom: '@classroom_*'
          mondayLunch: '<boolean(75)>'
@@ -67,6 +70,7 @@ App\Entity\Student:
          wednesdayLunch: 'false'
          thursdayLunch: '<boolean(75)>'
          fridayLunch: '<boolean(75)>'
+         lunch_type: '@lunch_type_*'
 
 
 App\Entity\Actuality:
