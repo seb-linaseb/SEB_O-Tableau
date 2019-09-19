@@ -62,6 +62,11 @@ App\Entity\Student:
          lunch_type: ['@lunch_type_*']
          user: ['@user_*']
          classroom: '@classroom_*'
+         mondayLunch: '<boolean(75)>'
+         tuesdayLunch: '<boolean(75)>'
+         wednesdayLunch: 'false'
+         thursdayLunch: '<boolean(75)>'
+         fridayLunch: '<boolean(75)>'
 
 
 App\Entity\Actuality:
