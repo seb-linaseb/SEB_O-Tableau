@@ -20,7 +20,13 @@ class ClassroomType extends AbstractType
                 ),
                 
             ]) 
-            ->add('user')
+            ->add('user', null, [
+                'empty_data' => '', 
+                'attr' => array(
+                    'placeholder' => 'Enseignant'
+                ),
+                
+            ]) 
         ;
     }
 

@@ -3,15 +3,7 @@
 {% block title %}O'Tableau | Profil{% endblock %}
 
 {% block content %}
-
-    <div class="alert_content">
-        <div class="animated infinite fadeIn delay-1s alert">
-            {% for alert in alerts %}      
-                <h2>{{ alert.title }}</h2>
-                <p>{{ alert.content }}</p>   
-            {% endfor %}  
-        </div>
-    </div>
+ 
     <div class="content_profil">
         <div class="nav_profil">
             <div class="nav_profil_flex">
@@ -36,6 +28,15 @@
         </div>
         <div class="profil">
             {% if app.user.role.name == 'Direction' or app.user.role.name == 'Enseignant'  %}
+
+                <div class="alert_content">
+                     <div class="animated infinite fadeIn delay-1s alert">
+                        {% for alert in alerts %}      
+                            <h2>{{ alert.title }}</h2>
+                            <p>{{ alert.content }}</p>   
+                        {% endfor %}  
+                    </div>
+                 </div>
             
                 <div class="button_staff">
                     <div>

@@ -34,6 +34,12 @@ class StudentType extends AbstractType
             ->add('classroom', EntityType::class, [                
                 'class' => Classroom::class,                     
                 'attr' => array('class' => 'input_label'),
+            ])
+            ->add('lunch_type', EntityType::class, [                
+                'class' => LunchType::class,                    
+                'multiple' => false,
+                'expanded' => false,
+                'attr' => array('class' => 'input_label'),
             ])          
             ->add('image_rights', null, [
                 'label_attr' => array('class' => 'label_image'),
@@ -43,12 +49,6 @@ class StudentType extends AbstractType
                 'class' => User::class,                     
                 'multiple' => true,
                 'expanded' => true,
-                'attr' => array('class' => 'input_label'),
-            ])
-            ->add('lunchtype', EntityType::class, [                
-                'class' => LunchType::class,                    
-                'multiple' => false,
-                'expanded' => false,
                 'attr' => array('class' => 'input_label'),
             ])
             ->add('person', EntityType::class, [                

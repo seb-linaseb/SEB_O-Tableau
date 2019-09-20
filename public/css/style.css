@@ -7,7 +7,7 @@ html {
 
 a {
     text-decoration: none;
-    color: #2C3840;
+    color: #2c3840;
 }
 
 input,
@@ -44,7 +44,7 @@ button {
 
 .header div a {
     font-size: 2.7em;
-    background-color: #02312b;
+    background-color: #1A535C;
     color: white;
     padding: 10px;
     border-radius: 15px;
@@ -171,7 +171,7 @@ button {
     font-size: 2.5em;
     border: none;
     padding: 15px;
-    background-color: #02312b;
+    background-color: #1A535C;
     color: white;
     border-radius: 7px;
     
@@ -252,19 +252,20 @@ button {
 
 
 .content_mentionLegal {
-   
+   background-color: #f4fdfd;
 }
 
 .link_reglement_mention {
     text-align: center;
     padding-top: 7%;
+    background-color: #f4fdfd;
 }
 
 .link_reglement_mention a {
     text-transform: uppercase;
     color: white;
     padding: 15px;
-    background-color: #2C3840;
+    background-color: #02312b;
     font-size: 3em;
     border-radius: 7px;
 }
@@ -283,11 +284,14 @@ button {
 
 /* PAGE REGLEMENT */
 
+.content_reglement {
+    background-color: #f4fdfd;
+}
 
 .content_reglement h1 {
     font-size: 3em;
     text-align: center;
-    margin-top: 7%;
+    padding-top: 7%;
 }
 
 .content_reglement p {
@@ -300,7 +304,7 @@ button {
 
 .content_nav {
     width: 100%;
-    background: beige;
+    background-color: #e6e5e5;
     height: 210px;
     position: fixed;
     bottom: 0;
@@ -426,7 +430,7 @@ button {
 
 .content_nav_staff {
     width: 100%;
-    background: beige;
+    background-color: #e6e5e5;
     height: 210px;
     position: fixed;
     bottom: 0;
@@ -457,9 +461,14 @@ button {
 .content_nav_staff nav ul a li i {
     font-size: 3.5em;
     padding-bottom: 7%;
+    color: #1A535C;
 }
 
 /* PAGE PROFIL */
+
+.content_profil {
+    background-color: #f4fdfd;
+}
 
 
 .nav_profil {
@@ -467,8 +476,9 @@ button {
     justify-content: space-between;
     width: 90%;
     height: 250px;
-    margin: auto;
-    border-bottom: 3px solid lightslategray;
+    padding: 0 5% ;
+    background-color: #e6e5e5;
+    
 }
 
 .nav_profil .nav_profil_flex {
@@ -492,10 +502,13 @@ button {
 .nav_profil .nav_profil_flex div p {
     font-size: 3em;
     margin-bottom: 5%;
+    color: #1A535C;
+    font-weight: bold;
 }
 
 .nav_profil .nav_profil_flex div span {
     font-size: 2.5em;
+    color: #1A535C;
 }
 
 .nav_profil div {
@@ -506,7 +519,7 @@ button {
 .nav_profil div a {
     font-size: 2.5em;
     color: white;
-    background-color: #2C3840;
+    background-color: #1A535C;
     padding: 15px 20px;
     border-radius: 40px;
 }
@@ -522,14 +535,17 @@ button {
     font-size: 4em;
     text-align: center;
     padding-top: 10%;
+    color: #1A535C;
 }
+
+
 
 .profil_children {
     width: 50%;
     margin: auto;
     padding-top: 10%;
     padding-bottom: 5%;
-    border-bottom: 2px solid;
+    border-bottom: 2px solid #1A535C;
 }
 
 .profil_children a {
@@ -537,21 +553,25 @@ button {
 }
 
 .profil_children a i {
-    font-size: 10em;
-    margin-left: 37%;
+    font-size: 8em;
+    margin-left: 40%;
     margin-bottom: 2%;
+    color: #1A535C;
 }
 
 .profil_children a h2 {
-    font-size: 3.5em;
+    font-size: 3em;
+    font-weight: bold;
     text-align: center;
     margin-bottom: 3%;
+    color: #4ECDC4;
 }
 
 .profil_children a p {
     font-size: 2em;
     text-align: center;
     font-weight: bold;
+    color: #4ECDC4;
 }
 
 .profil_doc {
@@ -598,12 +618,13 @@ button {
 .profil_doc_staff h1 {
     font-size: 4em;
     text-align: center;
+    color: #1A535C;
 }
 
 .profil_doc_staff div {
     width: 60%;
     margin: auto;
-    border: 2px solid;
+    border: 2px solid #1A535C;
     border-radius: 10px;
     margin-top: 3%;
 }
@@ -618,11 +639,18 @@ button {
 .profil_doc_staff div a i {
     font-size: 5.5em;
     margin-right: 2%;
+    color: #1A535C;
 }
 
 .profil_doc_staff div a p {
     font-size: 3em;
     line-height: 190%;
+    color: #1A535C;
+}
+
+.add_bulletin_staff {
+    height: 1500px;
+    background-color: #f4fdfd;
 }
 
 .add_bulletin_staff a i {
@@ -633,12 +661,18 @@ button {
 .add_bulletin_staff h2 {
     text-align: center;
     font-size: 3em;
+    color: #1A535C;
 }
 
 .add_bulletin_staff div {
     text-align: center;
-    font-size: 2em;
+    font-size: 2.5em;
     padding-top: 5%;
+}
+
+.add_bulletin_staff div a {
+    color:#4ECDC4;
+    font-weight: bold;
 
 }
 
@@ -667,12 +701,24 @@ button {
 }
 
 .alert_content {
+    background-color: #f4fdfd;    
+    
+}
+
+.alert_content h2{    
+    padding-top: 3%;
+    color: #4ECDC4;
+}
+
+.alert_content p{   
+    color: #4ECDC4;
+    padding-bottom: 3%;
 }
 
 .alert {
     text-align: center;
     font-weight: bold;
-    color: black;
+    color: #4ECDC4;
 }
 
 
@@ -688,7 +734,7 @@ button {
 }
 
 .button_staff div a {
-    background-color: #2C3840;
+    background-color: #4ECDC4;
     color: white;
     padding: 20px 15px;
     border-radius: 7px;
@@ -703,11 +749,12 @@ button {
 .profil_classe h1 {
     font-size: 4em;
     text-align: center;
+    color: #1A535C;
 }
 
 .myNav {
     width: 75%;
-    background-color: #2C3840;
+    background-color: #e6e5e5;
     color: white;
     font-size: 4em;
     margin: auto;
@@ -727,18 +774,19 @@ li.myNav-item.ui-accordion-item {
 .myNav-link {
     display: block;
     padding: 8px 10px;
-    color: white;
+    color: #4ECDC4;
 }
 
 .myNav-content {
     padding: 0 20px;
     padding-bottom: 8px;
-    color: white;
+    color: #4ECDC4;
 }
 
 .myNav-content p {
     padding-top: 2%;
     font-size: 0.5em;
+    color: dimgrey;
 }
 
 .myNav-content li {
@@ -767,6 +815,7 @@ li.myNav-item.ui-accordion-item {
 
 .account {
     padding-top: 5%;
+    padding-bottom: 40%;
 }
 
 .account a {
@@ -777,7 +826,7 @@ li.myNav-item.ui-accordion-item {
 
 .account .account_border {
     width: 75%;
-    border: 3px solid black;
+    border: 3px solid #1A535C;
     position: relative;
     border-radius: 3px;
     margin: auto;
@@ -791,15 +840,15 @@ li.myNav-item.ui-accordion-item {
     left: 20px;
     height: 80px;
     max-width: 100%;
-    background-color: white;
-    color: black;
+    background-color: #f4fdfd ;
+    color: #4ECDC4;
+    font-weight: bold;
     text-align: center;
     font-size: 3em;
     padding: 0 10px 0 10px
 }
 
 .account .account_border div {
-
     margin: 20% 10%;
 }
 
@@ -809,15 +858,15 @@ li.myNav-item.ui-accordion-item {
 }
 
 .account .account_border div p i {
-
     margin-right: 3%;
+    color: #1A535C;
 }
 
 
 .account .account_border a {
     font-size: 2.5em;
     color: white;
-    background-color: #2C3840;
+    background-color: #1A535C;
     padding: 15px 25px;
     border-radius: 15px;
     margin-left: 14%;
@@ -852,9 +901,10 @@ li.myNav-item.ui-accordion-item {
     height: 80px;
     width: 70%;
     border: none;
-    background-color: beige;
+    background-color: white;
     border-radius: 10px;
     margin-top: 3%;
+    color: #1A535C;
 }
 
 .account_update form #user div #user_communication_agreement {
@@ -881,7 +931,8 @@ li.myNav-item.ui-accordion-item {
     padding: 3% 5%;
     border: none;
     border-radius: 5px;
-    background-color: beige;
+    background-color: #1A535C;
+    color: white;
 }
 
 
@@ -891,12 +942,11 @@ li.myNav-item.ui-accordion-item {
 
 .profil .children_back_profil {
     color: #2C3840;
-    margin: 5%;
 }
 
 .profil .children_back_profil i {
     font-size: 5em;
-    padding-top: 2%;
+    padding: 5% 5%;
 }
 
 .profil .doc_children_div {
@@ -907,7 +957,7 @@ li.myNav-item.ui-accordion-item {
 .profil div .doc_children_link {
     font-size: 2em;
     color: white;
-    background-color: #2C3840;
+    background-color: #1A535C;
     padding: 15px 20px;
     border-radius: 10px;
 }
@@ -920,19 +970,22 @@ li.myNav-item.ui-accordion-item {
 }
 
 .profil_children_detail {
-    color: #2C3840;
+    color: rgb(143, 147, 150);
 }
 
 .profil_children_detail i {
-    font-size: 10em;
-    margin-left: 36%;
+    font-size: 9em;
+    margin-left: 39%;
     margin-bottom: 2%;
+    color: #1A535C;
 }
 
 .profil_children_detail h2 {
-    font-size: 3.5em;
+    font-size: 3em;
     text-align: center;
     margin-bottom: 1%;
+    font-weight: bold;
+    color: #4ECDC4;
 }
 
 .profil_children_detail p {
@@ -945,19 +998,21 @@ li.myNav-item.ui-accordion-item {
 .profil_doc_bulletin {
     margin-top: 10%;
     padding-bottom: 30%;
+    background-color: #f4fdfd;
+    height: 200px;
 }
 
 .profil_doc_bulletin div {
-    width: 47%;
+    width: 60%;
     margin: auto;
-    border: 2px solid;
+    border: 2px solid #1A535C;
     border-radius: 10px;
     margin-top: 3%;
 
 }
 
 .profil_doc_bulletin div a {
-    color: #2C3840;
+    color: #1A535C;
     display: flex;
     margin: 5%;
     margin-left: 3%;
@@ -966,11 +1021,12 @@ li.myNav-item.ui-accordion-item {
 .profil_doc_bulletin div a i {
     font-size: 5.5em;
     margin-right: 2%;
+    color: #1A535C;
 }
 
 .profil_doc_bulletin div a p {
-    font-size: 3em;
-    line-height: 190%;
+    font-size: 2.4em;
+    line-height: 250%;
 }
 
 
@@ -978,9 +1034,11 @@ li.myNav-item.ui-accordion-item {
 
 .doc_children {
     padding-top: 5%;
+    padding-bottom: 70%;
+    background-color: #f4fdfd; 
 }
 
-.doc_children a {
+.doc_children a i {
     font-size: 5em;
     margin-left: 5%;
     color: black;
@@ -988,7 +1046,7 @@ li.myNav-item.ui-accordion-item {
 
 .doc_children .doc_children_border {
     width: 80%;
-    border: 3px solid black;
+    border: 3px solid #1A535C;
     position: relative;
     border-radius: 3px;
     margin: auto;
@@ -1002,11 +1060,12 @@ li.myNav-item.ui-accordion-item {
     left: 20px;
     height: 80px;
     max-width: 100%;
-    background-color: white;
-    color: black;
+    background-color: #f4fdfd;
+    color: #4ECDC4;
     text-align: center;
     font-size: 3.5em;
-    padding: 0 10px 0 10px
+    padding: 0 10px 0 10px;
+    font-weight: bold;
 }
 
 .doc_children .doc_children_border .add_doc_children {
@@ -1026,11 +1085,13 @@ li.myNav-item.ui-accordion-item {
 
 .doc_children .doc_children_border div a i {
     font-size: 2em;
+    color: #1A535C;
 }
 
 .doc_children .doc_children_border div a p {
     margin-left: 2%;
     line-height: 200%;
+    color: #1A535C;
 }
 
 /* PAGE DOC CHILDREN ADD */
@@ -1039,6 +1100,7 @@ li.myNav-item.ui-accordion-item {
     text-align: center;
     font-size: 3.5em;
     padding-top: 10%;
+    color: #1A535C;
 }
 
 .doc_children form {
@@ -1052,24 +1114,21 @@ li.myNav-item.ui-accordion-item {
     height: 70px;
     width: 70%;
     border: none;
-    background-color: beige;
+    background-color: white;
     border-radius: 10px;
+    color: #1A535C;
 }
 
-.doc_children form #document div #document_name {
-    padding-left: 2%;
-    font-size: 2em;
-    height: 70px;
-    width: 70%;
-    border: none;
-    background-color: beige;
-    border-radius: 10px;
-}
+
 
 .doc_children form #document div #document_document_url {
     font-size: 2em;
-    padding-top: 10%;
+    margin-top: 7%;
     width: 70%;
+    background-color: white;
+    height: 50px;
+    color: #1A535C;
+    padding: 5px;
 }
 
 .doc_children form #document div #document_Ajouter {
@@ -1078,14 +1137,20 @@ li.myNav-item.ui-accordion-item {
     padding: 3% 5%;
     border: none;
     border-radius: 5px;
-    background-color: beige;
+    background-color: #1A535C;
+    color: white;
 }
 
 
 /* PAGE CONVERSATION */
 
+.content_convo {
+    height: 1550px;
+    background: #f4fdfd;
+}
+
 .convo_head {
-    background-color: #2C3840;
+    background-color: #1A535C;
     padding: 7% 0;
 }
 
@@ -1105,6 +1170,7 @@ li.myNav-item.ui-accordion-item {
     bottom: 15%;
     right: 0;
     padding-right: 5%;
+    color: #1A535C;
 }
 
 .convo_list .convo_add i {
@@ -1113,20 +1179,22 @@ li.myNav-item.ui-accordion-item {
 }
 
 .convo_list div {
-    background-color: antiquewhite;
-    padding: 7.7% 0;
-    border-top: 2px solid black;
+    background-color: white;
+    padding: 5% 0;
     display: flex;
+    margin-top: 2%;
 }
 
 .convo_list div i {
     font-size: 2em;
     margin-left: 5%;
+    color: #1A535C;
 }
 
 .convo_list div p {
     line-height: 200%;
     margin-left: 3%;
+    color: #1A535C;
 }
 
 
@@ -1137,16 +1205,20 @@ label.required {
 }
 
 .content_new-msg {
-    
+    background-color: #f4fdfd;
+    height: 1550px;
 }
 
 .content_new-msg h1 {
     text-align: center;
     font-size: 3em;
-    /* padding-top: 2%; */
+    color: #1A535C;
+    font-weight: bold;
 }
 
-.content_new-msg a {}
+.content_new-msg a {
+
+}
 
 .content_new-msg a i {
     font-size: 6em;
@@ -1163,7 +1235,7 @@ label.required {
     border: none;
     margin-left: 7%;
     margin-top: 10%;
-    background-color: lightblue;
+    background-color: white;
     padding: 3%;
 }
 
@@ -1173,7 +1245,7 @@ label.required {
     margin-top: 5%;
     display: flex;
     overflow-y: scroll;
-    background-color: lightblue;
+    background-color: white;
 }
 
 
@@ -1190,9 +1262,11 @@ label.required {
     font-size: 2em;
     border: none;
     padding: 3% 8%;
-    border-radius: 3px;
+    border-radius: 7px;
     margin-top: 7%;
     margin-left: 37%;
+    background-color: #1A535C;
+    color: white;
 }
 
 
@@ -1203,10 +1277,11 @@ label.required {
     justify-content: space-between;
     font-size: 4em;
     padding: 4% 0;
-    background-color: antiquewhite;
+    background-color: #1A535C;;
     position: fixed;
     right: 0;
     left: 0;
+    color: white;
 }
 
 .message_head a {
@@ -1217,6 +1292,7 @@ label.required {
 .message_head i {
     padding-left: 4%;
     padding-right: 4%;
+    color:white;
 }
 
 
@@ -1237,7 +1313,7 @@ label.required {
 
 #message_list .message p {
     padding: 30px;
-    background-color: lightblue;
+    background-color: powderblue;
     border-radius: 20px;
     overflow-wrap: break-word;
 }
@@ -1250,7 +1326,7 @@ label.required {
 
 #message_list .message_2 p {
     padding: 30px;
-    background-color: #dedede;
+    background-color: silver;
     border-radius: 10px;
     overflow-wrap: break-word;
 }
@@ -1262,7 +1338,7 @@ label.required {
     right: 0;
     left: 0;
     padding-bottom: 24%;
-    background-color: antiquewhite
+    background-color: #1A535C;
 }
 
 .message_input form {
@@ -1273,13 +1349,14 @@ label.required {
 
 .message_input form button {
     border: none;
-    background-color: antiquewhite;
     margin-right: 3%;
+    background-color: #1A535C;
 }
 
 .message_input form button i {
     font-size: 5.7em;
     margin-top: 22%;
+    color: white;
 
 }
 
@@ -1304,19 +1381,22 @@ label.required {
 
 .content_actu {
     padding-bottom: 50%;
+    background-color: #f4fdfd;
 }
+
 .tag_all {
     width: 25%;
-    margin-top: 5%;
     margin: 0;
     font-size: 3.5em;
     text-align: center;
-    background-color: #2C3840;
+    background-color: #1A535C;
     margin: auto;
-    margin-top: 6%;
     margin-bottom: 6%;
     padding: 2% 0;
     border-radius: 10px;
+    position: relative;
+    top: 20px;
+    
 }
 
 .tag_all a {
@@ -1324,58 +1404,27 @@ label.required {
 }
 
 
-.tags_actu div .myNav {
-    width: 25%;
-    color: white;
-    margin-top: 5%;
+.tags_actu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
     margin: auto;
-    font-size: 3.5em;
+    padding-bottom: 5%;
+}
+
+.tags_actu div {
+    background-color: #1A535C;
+    padding: 10px;
+    margin: 2%;
+    border-radius: 7px;
+    width: 30%;
     text-align: center;
-    border-radius: 10px;
-    padding: 1% 0;
 }
 
-
-.tags_actu div .myNav .myNav-item:not(:first-child) {
-    border-top: 3px solid white;
+.tags_actu div a {
     color: white;
-    padding: 2%;
-}
-
-.tags_actu div .myNav .myNav-item .myNav-link {
-    display: block;
-    padding: 8px 10px;
-    color: white;
-}
-
-.tags_actu div .myNav .myNav-item .myNav-content {
-    padding: 0 ;
-    padding-bottom: 0;
-}
-
-.myNav-content li  {
-    padding-top: 3%;
-    padding: 5%;
-    transition: 1s;
-}
-
-.myNav-content li:hover {
-    background-color: lightgrey;
-}
-
-.myNav-content li a {
-    font-size: 1em;
-    color: white; 
-}
-
-
-
-.ui-accordion-content {
-    display: none;
-}
-
-.active>.ui-accordion-content {
-    display: block;
+    font-size: 2em;
 }
 
 
@@ -1388,6 +1437,7 @@ label.required {
     border-bottom: 2px solid;
     margin-top: 3%;
     padding-bottom: 2%;
+    color: #1A535C;
 }
 
 .actu {
@@ -1442,7 +1492,6 @@ label.required {
 }
 
 .alert_actuality {
-    margin-top: 2%;
     font-size: 2.3em;
     text-align: center;
     font-weight: bold;
@@ -1475,6 +1524,7 @@ label.required {
     margin-top: 6%;
     margin-right: 3%;
     margin-left: 6%;
+    color: #1A535C;
 }
 
 .actu_show div {
@@ -1484,24 +1534,31 @@ label.required {
 
 .actu_show div i {
     padding: 5% 5%;
+    color: #1A535C;
+}
+
+.actu_show div span {
+    color: #4ECDC4;
 }
 
 /* PAGE ADD ACTUALITES */
 
 .add_actu_content {
     padding-bottom: 40%;
+    background-color: #f4fdfd; 
 }
 
 .add_actu_content a i {
     font-size: 6em;
     margin-left: 5%;
-    padding-top: 5%;
+    padding-top: 5%;      
 }
 
 .add_actu_content h1 {
     text-align: center;
     padding-top: 5%;
     font-size: 4em;
+    color: #1A535C;    
 }
 
 .add_actu_content form {
@@ -1520,7 +1577,7 @@ label.required {
     height: 70px;
     width: 70%;
     border: none;
-    background-color: beige;
+    background-color: white;
     border-radius: 10px;
 }
 
@@ -1542,34 +1599,38 @@ label.required {
     height: 150px;
     width: 70%;
     border: none;
-    background-color: beige;
+    background-color: white;
     border-radius: 10px;
 }
 
 .add_actu_content form #actuality div #actuality_picture_url {
     padding-top: 3%;
+    background-color: white;
+    color: #1A535C;
+}
+
+.add_actu_content form #actuality div #actuality_classroom  {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 95%;
+    margin: auto;
+}
+
+.add_actu_content form #actuality div #actuality_classroom label {
+    margin: 1%;
 }
 
 
 .add_actu_content form #actuality div #actuality_Ajouter {
     font-size: 2em;
-    margin-top: 10%;
+    margin-top: 2%;
     padding: 3% 5%;
     border: none;
     border-radius: 5px;
-    background-color: beige;
+    background-color: #1A535C;
+    color: white;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* FOOTER */
@@ -1580,6 +1641,7 @@ label.required {
     width: 100%;
     height: 150px;
     margin-bottom: 200px;
+    background-color: #f4fdfd;
 }
 
 .footer p {
@@ -1589,11 +1651,11 @@ label.required {
 }
 
 .footer p a {
-    color: black;
+    color: #02312b;
 }
 
 .footer p a:hover {
-    color: black;
+    color: #02312b;
 }
 
 /* FOOTER VITRINE  */
@@ -1613,104 +1675,16 @@ label.required {
 }
 
 .footer_vitrine p a {
-    color: black;
+    color: #02312b;
 }
 
 .footer_vitrine p a:hover {
-    color: black;
+    color: #02312b;
 }
-
-/* CALENDAR */
-
-.calendar__table {
-    width: 100%;
-    /* height: calc(100vh - 128px); */
-   }
-
-.calendar__table td {
-    padding: 10px;
-    border: 1px solid grey;
-    vertical-align: top;
-    width: 14.29%;
-    /* 100% / 7 jours */
-    height: 100%;
-}
-
-.calendar__table--6weeks td {
-    height: 16.66%;
-    /* 100% / 6 semaines */
-}
-
-.calendar__column__title {
-    height: 2%;
-}
-
-.calendar__weekday {
-    font-weight: bold;
-    color: black;
-    font-size: 1.2em;
-}
-
-.calendar__day {
-    font-size: 1.3em;
-}
-
-.calendar__othermonth .calendar__day {
-    opacity: 0.3;
-    font-size: 1em;
-}
-
-
-.calendar__student {
-    font-size: 2em;
-}
-
-.calendar__nav__profil__flex__col {
-    flex-direction: column;
-    /* margin: 5% 2%; */
-}
-
-.calendar__nav__profil__flex__col div p {
-    font-size: 1.5em;
-    /* margin-bottom: 5%; */
-}
-
-.calendar__nav__profil__flex__col div span {
-    font-size: 2.5em;
-}
-
-.case-verte {
-    background-color: #98FB98;
-}
-
-
-/* CLASS JQUERY */
-
-.red {
-    color: red;
-}
-
-.black {
-    color: black;
-}
-
-.white {
-    color: white;
-}
-
-.display_none {
-    display: none;
-}
-
-
-
-
-
 
 
 
 /* !!!!!!!!!!!!!!!!! BACK-END !!!!!!!!!!!!!!!!! */
-
 
 /* BACKEND INDEX */
 
@@ -2418,6 +2392,36 @@ label.required {
 }
 
 
+.backend_student form #student div #student_lunch_type {
+    width: 70%;
+    height: 70px;
+    border: none;
+    font-size: 2em;
+    padding-left: 2%;
+    border-radius: 7px;
+    background: beige;
+}
+
+.backend_student form #student div #student_lunch_type option {
+    font-size: 0.5em;
+}
+
+
+.student_show_update form #student div #student_lunch_type {
+    width: 70%;
+    height: 70px;
+    border: none;
+    font-size: 2em;
+    padding-left: 2%;
+    border-radius: 7px;
+    background: beige;
+}
+
+.student_show_update form #student div #student_lunch_type option {
+    font-size: 0.5em;
+}
+
+
 
 .backend_student form #student div div input   {
     display: none;
@@ -3019,7 +3023,7 @@ label.required {
 }
 
 .backend_user form #user div {
-    padding-top: 5%;
+    padding-top: 7%;
 }
 
 .backend_user form #user div input {
@@ -3031,6 +3035,41 @@ label.required {
     background-color: beige;
     border-radius: 10px;
 }
+
+.backend_user form #user div #user_communication_agreement {
+    display: none;
+}
+
+.backend_user form #user div #user_image_agreement {
+    display: none;
+}
+
+.backend_user form #user div .label_user_role  {
+    display: none;
+}
+
+.backend_user form #user div #user_role  {
+    padding-left: 2%;
+    font-size: 2em;
+    height: 70px;
+    width: 72%;
+    border: none;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.backend_user form #user div #user_role option  {
+    font-size: 0.5em;
+    
+}
+
+.backend_user form #user div .label_user {
+    background-color: #2c3840;
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+}
+
 
 .backend_user form #user div button {
     font-size: 2em;
@@ -3098,6 +3137,7 @@ label.required {
 
 }
 
+
 .backend_user_show .show_delete_update form button {
     border: none;
     font-size: 2em;
@@ -3139,6 +3179,42 @@ label.required {
     background-color: beige;
     border-radius: 10px;
 }
+
+.user_show_update form #user div #user_image_agreement {
+    display: none;
+}
+
+.user_show_update form #user div #user_communication_agreement {
+    display: none;
+}
+
+.user_show_update form #user div .label_user_role  {
+    display: none;
+}
+
+.user_show_update form #user div #user_role  {
+    padding-left: 2%;
+    font-size: 2em;
+    height: 70px;
+    width: 72%;
+    border: none;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.user_show_update form #user div #user_role option  {
+    font-size: 0.5em;
+    
+}
+
+.user_show_update form #user div .label_user {
+    background-color: #2c3840;
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+    font-size: 2em;
+}
+
 
 .user_show_update form #user div #user_Ajouter {
     font-size: 2em;
@@ -3335,6 +3411,22 @@ label.required {
     border-radius: 3px;
 }
 
+.backend_classroom_new form #classroom div label {
+    display: none;
+}
+
+.backend_classroom_new form #classroom div #classroom_user {
+    width: 73.5%;
+    height: 70px;
+    font-size: 2em;
+    border: none;
+    border: 2px solid;
+    padding-left: 3%;
+    margin-top: 5%;
+    border-radius: 3px;
+}
+
+
 .backend_classroom_new form button {
     font-size: 2em;
     margin-top: 3%;
@@ -3364,11 +3456,192 @@ label.required {
     border-radius: 3px;
 }
 
-.backend_person_edit form button {
+.backend_classroom_edit form #classroom div label {
+    display: none;
+}
+
+.backend_classroom_edit form #classroom div #classroom_user {
+    width: 73.5%;
+    height: 70px;
     font-size: 2em;
-    margin-top: 3%;
+    border: none;
+    border: 2px solid;
+    padding-left: 3%;
+    margin-top: 5%;
+    border-radius: 3px;
+}
+
+.backend_classroom_edit form button {
+    font-size: 2em;
+    margin-top: 5%;
     padding: 3% 5%;
     border: none;
     border-radius: 5px;
     background-color: beige; 
 }
+
+/* BACKEND CALANDAR */
+
+
+.calandar_content {
+
+}
+
+.calandar_content a i {
+    font-size: 6em;
+    padding: 5% 5%;
+}
+
+.calandar_content h1  { 
+    font-size: 3em;
+    text-align: center;
+    padding-top: 7%;
+    padding-bottom: 3%;
+    
+}
+
+.calandar_content .calendar_table tbody .calendar_table_dayname td   { 
+    height: 30px;
+}
+
+.calandar_content .calendar_table tbody .calendar_table_dayname td .calendar_column_title  { 
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+}
+
+
+.calandar_content .calendar_table tbody tr td  { 
+    height: 80px;
+    
+}
+
+.calandar_content div .flex_calandar_navigation  {
+    display: flex;
+    font-size: 7em;
+    justify-content: space-between;
+    padding: 2%;
+}
+
+.calandar_content div .flex_calandar_navigation a  {
+    margin: 0 5%;
+}
+
+.calandar_content .calendar_table {
+    width: 90%;
+    margin: auto;
+}
+
+.calandar_content .calendar_table td {
+    padding: 10px;
+    border: 1px solid grey;
+}
+
+.calandar_content .calendar_table td p {
+    font-size: 1.1em;
+    line-height: 400%;
+    text-align: center;
+}
+
+.calandar_content div .flex_calandar_navigation a button {
+    border: none;
+    background-color: #2c3840;
+    color: white;
+    border-radius: 7px;
+    padding: 15%;
+    font-size: 0.3em;
+}
+
+
+.calandar_content .calendar_table--6weeks td {
+    height: 16.66%;
+    /* 100% / 6 semaines */
+}
+
+.calandar_content .calendar_column_title {
+    height: 2%;
+}
+
+.calandar_content .calendar_weekday {
+    font-weight: bold;
+    color: black;
+    font-size: 1.2em;
+}
+
+.calandar_content .calendar_day {
+    font-size: 1.3em;
+}
+
+.calandar_content .calendar_othermonth .calendar_day {
+    opacity: 0.3;
+    font-size: 1em;
+}
+
+.calandar_content .calendar_student {
+    font-size: 2em;
+}
+
+.calandar_content .calendar_nav_profil__flex__col {
+    flex-direction: column;
+    /* margin: 5% 2%; */
+}
+
+.calandar_content .calendar_nav_profil_flex_col div p {
+    font-size: 1.5em;
+    /* margin-bottom: 5%; */
+}
+
+.calandar_content .calendar_nav_profil_flex_col div span {
+    font-size: 2.5em;
+}
+
+.calandar_content form table tbody tr td {
+    text-align: center;
+}
+
+
+
+.calandar_content form div .flex_calandar_navigation .valide_calandar {
+    font-size: 0.3em;
+    background-color: #2c3840;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 1%;
+}
+
+is_workable
+
+.case-verte {
+    background-color: #98FB98;
+}
+
+
+
+
+
+
+
+
+
+
+/* CLASS JQUERY */
+
+.red {
+    color: red;
+}
+
+.black {
+    color: black;
+}
+
+.white {
+    color: white;
+}
+
+.display_none {
+    display: none;
+}
+
+
+

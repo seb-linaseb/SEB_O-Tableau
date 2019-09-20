@@ -154,7 +154,7 @@ class DocumentController extends AbstractController
         
         return $this->redirectToRoute('documentByStudent_show', ['studentid'=> $student->getId(), 'id'=> $classroom->getId()]);
         } 
-        return $this->render('document/form_add_childrenDoc.html.twig', [
+        return $this->render('/backend/document/form_add_childrenDoc.html.twig', [
         'form' => $form->createView(),
         'student' => $student
         ]);

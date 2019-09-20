@@ -84,6 +84,24 @@ var app = {
         $listlabelStudentsImgEdit.addClass('white')
         
         $listlabelStudentsImgEdit.on('click', app.handleLabelClickStudentsImgEdit);
+
+
+        // Formulaire add user
+
+        var $listlabelUser = $('.backend_user form #user div label');
+
+        $listlabelUser.addClass('white')
+        
+        $listlabelUser.on('click', app.handleLabelClickUser);
+
+
+        // Formulaire update user
+
+        var $listlabelUserEdit = $('.user_show_update form #user div label');
+
+        $listlabelUserEdit.addClass('white')
+        
+        $listlabelUserEdit.on('click', app.handleLabelClickUserEdit);
     },
     
     handleLabelClick: function(evt) {
@@ -256,6 +274,45 @@ var app = {
             
         }
     },
+
+    handleLabelClickUser: function(evt) {
+        console.log('koukou10')
+
+        // contient l'élément précis sur lequel on a cliqué
+        var $label = $(evt.target);
+
+        // condition qui à pour but d'ajouté la class red au premier click puis d'ajouté la class black au second clique si red existe
+        if ($label.hasClass('white') == true) {
+            
+            $label.removeClass('white').addClass('red');
+            
+        } else if ($label.hasClass('red') == true) {
+
+             $label.removeClass('red').addClass('white');
+        }  else {
+            
+        }
+    },
+
+    handleLabelClickUserEdit: function(evt) {
+        console.log('koukou11')
+
+        // contient l'élément précis sur lequel on a cliqué
+        var $label = $(evt.target);
+
+        // condition qui à pour but d'ajouté la class red au premier click puis d'ajouté la class black au second clique si red existe
+        if ($label.hasClass('white') == true) {
+            
+            $label.removeClass('white').addClass('red');
+            
+        } else if ($label.hasClass('red') == true) {
+
+             $label.removeClass('red').addClass('white');
+        }  else {
+            
+        }
+    },
+
 
     
 
