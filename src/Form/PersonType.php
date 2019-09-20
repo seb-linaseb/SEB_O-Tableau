@@ -21,7 +21,6 @@ class PersonType extends AbstractType
                 'attr' => array(
                     'placeholder' => 'Prénom'
             )))
-            ->add('students')
         ;
     }
 

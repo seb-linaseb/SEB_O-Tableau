@@ -45,13 +45,7 @@ class ActualityType extends AbstractType
                     new NotBlank(),
                 ],
               )
-            )   
-            ->add('classroom', EntityType::class, [                
-                'class' => Classroom::class,            
-                'label' => 'Veuillez sélectionner le(s) tag(s) correspondant au thème de votre question.',         
-                'multiple' => true,
-                'expanded' => true,
-            ])
+            )
             ->add('picture_url', FileType::class, [
                 'label' => 'Veuillez selectionner votre document sous le format PDF',
                 'data_class' => null,
@@ -62,8 +56,16 @@ class ActualityType extends AbstractType
                     ])
                 ],
             ])              
-            ->add('Ajouter', SubmitType::class)
             
+               
+            ->add('classroom', EntityType::class, [                
+                'class' => Classroom::class,            
+                'label' => 'Veuillez sélectionner le(s) tag(s) correspondant au thème de votre question.',         
+                'multiple' => true,
+                'expanded' => true,
+            ])
+            ->add('Ajouter', SubmitType::class)
+           
         ;
     }
 

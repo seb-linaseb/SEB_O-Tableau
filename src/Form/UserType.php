@@ -2,15 +2,17 @@
 
 namespace App\Form;
 
+use App\Entity\Role;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class UserType extends AbstractType
 {
@@ -61,9 +63,17 @@ class UserType extends AbstractType
                 'attr' => array(
                     'placeholder' => 'Téléphone du travail'
             )))
-            ->add('communication_agreement')
-            ->add('image_agreement')
-            ->add('role')
+            ->add('role', null, [
+                'label_attr' => array('class' => 'label_user_role'),
+            ])
+            ->add('communication_agreement', null, [
+                'label_attr' => array('class' => 'label_user'),
+                'attr' => array('class' => 'input_user'),
+            ])
+            ->add('image_agreement', null, [
+                'label_attr' => array('class' => 'label_user'),
+                'attr' => array('class' => 'input_user'),
+            ])
             ->add('Ajouter', SubmitType::class)            
         ;
     }

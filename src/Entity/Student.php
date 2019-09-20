@@ -72,12 +72,12 @@ class Student
     private $classroom;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\PresenceLunch", mappedBy="student")
+     * @ORM\OneToMany(targetEntity="App\Entity\PresenceLunch", mappedBy="student", orphanRemoval=true)
      */
     private $presenceLunches;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Document", mappedBy="student")
+     * @ORM\OneToMany(targetEntity="App\Entity\Document", mappedBy="student", orphanRemoval=true)
      */
     private $documents;
 
