@@ -1,3 +1,5 @@
+###> Autorisation pour la page 404 animée ###
+!/vendor/symfony/twig-bundle/Resources/views/Exception/error404.html.twig
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -19,5 +21,3 @@
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 
-###> Autorisation pour la page 404 animée ###
-!/vendor/symfony/twig-bundle/Resources/views/Exception/error404.html.twig
