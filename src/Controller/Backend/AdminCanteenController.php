@@ -99,14 +99,14 @@ class AdminCanteenController extends AbstractController
       $students = $studentRepository->findAll();
 
       // Récupérer les présences lunch
-      $presenceLunches = $presenceLunchRepository->findAll();
+      //$presenceLunches = $presenceLunchRepository->findAll();
       // dump($presenceLunches);die();
 
       $calendars = $calendarRepository->findAll();
 
 
         
-         
+        
       foreach ($calendars as $calendar) {
         
         $calendarDate = $calendar->getDate()->format('d/m/Y');
@@ -114,14 +114,19 @@ class AdminCanteenController extends AbstractController
         $week = $calendar->getDate()->format('W');
         
         $id = $calendar->getId();
-        
-         $dates [$id] = []; 
-         $dates [$id]['week'] =   $week  ;
-         $dates [$id]['id'] = $id ;
-         $dates [$id]['calendarDate'] = $calendarDate;
-         
+        $presenceLunches = $presenceLunchRepository->findByCalendar($id);
+        $dates [$id] = []; 
+        $dates [$id]['week'] =   $week  ;
+        $dates [$id]['id'] = $id ;
+        $dates [$id]['calendarDate'] = $calendarDate;
+        $dates [$id]['presenceLunches'] = $presenceLunches;
+        // foreach ($presenceLunches as $presenceLunch){
+        // dump($presenceLunch);
+        // };
        
       }
+      //dump($dates);
+  //die;
 
         return $this->render('backend/canteen/read_week.html.twig', [
             'actual_week' => $actual_week,
@@ -139,7 +144,7 @@ class AdminCanteenController extends AbstractController
             'week_day_7' => $week_day_7,
             'classrooms' => $classrooms,
             'students' => $students,
-            'presenceLunches' => $presenceLunches,
+            //'presenceLunches' => $presenceLunches,
             'dates' => $dates,
         ]);
   }
@@ -228,7 +233,7 @@ class AdminCanteenController extends AbstractController
     $students = $studentRepository->findAll();
 
     // Récupérer les présences lunch
-    $presenceLunches = $presenceLunchRepository->findAll();
+    //$presenceLunches = $presenceLunchRepository->findAll();
     // dump($presenceLunches);die();
 
     $calendars = $calendarRepository->findAll();
@@ -243,15 +248,16 @@ class AdminCanteenController extends AbstractController
       $week = $calendar->getDate()->format('W');
       
       $id = $calendar->getId();
-      
+      $presenceLunches = $presenceLunchRepository->findByCalendar($id);
        $dates [$id] = []; 
        $dates [$id]['week'] =   $week  ;
        $dates [$id]['id'] = $id ;
        $dates [$id]['calendarDate'] = $calendarDate;
+       $dates [$id]['presenceLunch'] = $presenceLunch;
        
-     
+     //dump($dates);
     }
-
+//die;
     return $this->render('backend/canteen/update_week.html.twig', [
       'actual_week' => $actual_week,
       'actual_year' => $actual_year,
@@ -268,7 +274,7 @@ class AdminCanteenController extends AbstractController
       'week_day_7' => $week_day_7,
       'classrooms' => $classrooms,
       'students' => $students,
-      'presenceLunches' => $presenceLunches,
+      //'presenceLunches' => $presenceLunches,
       'dates' => $dates,
   ]);
   }

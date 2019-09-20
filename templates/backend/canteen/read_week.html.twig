@@ -43,8 +43,9 @@
                 </td>
                 
 
-                {% for presenceLunch in presenceLunches %} 
+                 
                 {% for id in dates %}
+                {% for presenceLunch in id.presenceLunches %}
                 {% if actual_week == id.week  and week_day_1 == id.calendarDate and presenceLunch.calendar.id == id.id and presenceLunch.student == student %} 
                 <td class="calendar__day">
 
@@ -76,8 +77,8 @@
                 {% endfor %} 
 
 
-               {% for presenceLunch in presenceLunches %} 
-                {% for id in dates %}
+               {% for id in dates %}
+                {% for presenceLunch in id.presenceLunches %}
                 {% if actual_week == id.week  and week_day_2 == id.calendarDate and presenceLunch.calendar.id == id.id and presenceLunch.student == student %} 
                 <td class="calendar__day">
 
@@ -109,8 +110,8 @@
                 {% endfor %} 
                 {% endfor %} 
 
-                {% for presenceLunch in presenceLunches %} 
                 {% for id in dates %}
+                {% for presenceLunch in id.presenceLunches %}
                 {% if actual_week == id.week  and week_day_3 == id.calendarDate and presenceLunch.calendar.id == id.id and presenceLunch.student == student %} 
                 <td class="calendar__day">
 
@@ -143,8 +144,8 @@
                 {% endfor %}
 
 
-               {% for presenceLunch in presenceLunches %} 
-                {% for id in dates %}
+               {% for id in dates %}
+                {% for presenceLunch in id.presenceLunches %}
                 {% if actual_week == id.week  and week_day_4 == id.calendarDate and presenceLunch.calendar.id == id.id and presenceLunch.student == student %} 
                 <td class="calendar__day">
 
@@ -177,8 +178,8 @@
                 {% endfor %}
 
 
-              {% for presenceLunch in presenceLunches %} 
-                {% for id in dates %}
+              {% for id in dates %}
+                {% for presenceLunch in id.presenceLunches %}
                 {% if actual_week == id.week  and week_day_5 == id.calendarDate and presenceLunch.calendar.id == id.id and presenceLunch.student == student %} 
                 <td class="calendar__day">
 
