@@ -4,9 +4,9 @@
 
 {% block content %}
 
-    <div class="content_actu">
+    
 
-        <div class="alert_content">
+    <div class="alert_content">
         <div class="animated infinite fadeIn delay-1s alert_actuality">
             {% for alert in alerts %}      
                 <h2>{{ alert.title }}</h2>
@@ -14,16 +14,25 @@
             {% endfor %}  
         </div>
     </div>
+    <div class="content_actu">
 
-        <div class="tag_all">
-            <a href="{{ path('actuality_index') }}">Tous</a>
-        </div>
-        <div class="tags_actu">
-            {% for classroom in classrooms %}
-                <div>
-                    <a href="{{ path('actuality_myclassroom', { 'id': classroom.id }) }}">{{ classroom }}</a>
-                </div>
-            {% endfor %} 
+        <div class="flex_tags_actu">
+            <div class="tag_all">
+                <a href="{{ path('actuality_index') }}">Tous</a>
+            </div>
+            <div class="tags_actu">
+                <nav role="navigation" class="menu">
+                    <ul>
+                        <li><a>{{ classroom.name }}</a>
+                            <ul>
+                                {% for classroom in classrooms %}
+                                    <li><a href="{{ path('actuality_myclassroom', { 'id': classroom.id }) }}">{{ classroom }}</a></li>
+                                {% endfor %} 
+                            </ul>
+                        </li>
+                    </ul>​
+                </nav>
+            </div>
         </div>
 
         <h1>Actualités de {{classroom.name}} </h1>
