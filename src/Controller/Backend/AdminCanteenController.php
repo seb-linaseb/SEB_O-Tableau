@@ -11,6 +11,7 @@ use App\Repository\ClassroomRepository;
 use App\Repository\PresenceLunchRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
 
 class AdminCanteenController extends AbstractController
 {
@@ -98,9 +99,6 @@ class AdminCanteenController extends AbstractController
       // Récupérer la liste des élèves
       $students = $studentRepository->findAll();
 
-      // Récupérer les présences lunch
-      //$presenceLunches = $presenceLunchRepository->findAll();
-      // dump($presenceLunches);die();
 
       $calendars = $calendarRepository->findAll();
 
@@ -232,9 +230,7 @@ class AdminCanteenController extends AbstractController
     // Récupérer la liste des élèves
     $students = $studentRepository->findAll();
 
-    // Récupérer les présences lunch
-    //$presenceLunches = $presenceLunchRepository->findAll();
-    // dump($presenceLunches);die();
+
 
     $calendars = $calendarRepository->findAll();
 
@@ -253,7 +249,7 @@ class AdminCanteenController extends AbstractController
        $dates [$id]['week'] =   $week  ;
        $dates [$id]['id'] = $id ;
        $dates [$id]['calendarDate'] = $calendarDate;
-       $dates [$id]['presenceLunch'] = $presenceLunch;
+       $dates [$id]['presenceLunches'] = $presenceLunches;
        
      //dump($dates);
     }
@@ -278,6 +274,70 @@ class AdminCanteenController extends AbstractController
       'dates' => $dates,
   ]);
   }
+
+  /**
+     * @Route("admin/canteen/save", name="admin_canteen_save_by_week", methods={"GET","POST"} )
+     */
+    public function save(PresenceLunchRepository $presenceLunchRepository)
+    {
+      
+      $status = $_POST;
+      //$okForChange = [];
+      $tableau = [];
+      foreach ($status as $presenceLunches => $presenceLunch) {
+        $tableau [] = $presenceLunches;
+        
+      }  
+       // dump($presenceLunch);
+       foreach ($tableau as $presenceLunches){
+          $presence = stripos($presenceLunches, 'presence');
+          if ($presence !== false){
+            dump($presenceLunches);
+          };
+        // }
+         //$presence = stripos($presenceLunches, 'presence');
+        //$ordered = stripos($presenceLunches, 'ordered'. $id);
+        //   $eat = stripos($presenceLunches, 'eat'. $id);
+          // $okForChange [$id]['presence'] = $presence;
+          // $okForChange [$id]['ordered'] = $ordered;
+          // $okForChange [$id]['eat'] = $eat;
+          //dump($presence);
+      }
+      dump($tableau);
+     dump($status);
+       die();
+
+      foreach ($dates as $key => $value) {
+        if($value == 'on'){
+          //dump($key);
+          $calendar = new Calendar();
+          $calendar->setDate(\DateTime::createFromFormat('d/m/Y', $key));
+          $calendar->setIsWorked(true);
+          $entityManager = $this->getDoctrine()->getManager();
+          $entityManager->persist($calendar);
+          $entityManager->flush();
+          //dump($calendar);
+        }
+        else if($value == $key){
+            //dump($key);
+            $calendar = new Calendar();
+            $calendar->setDate(\DateTime::createFromFormat('d/m/Y', $key));
+            $calendar->setIsWorked(false);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($calendar);
+            $entityManager->flush();
+            //dump($calendar);
+          }
+      
+      }
+      $this->addFlash(
+        'success',
+        'Enregistrement effectué'
+    );
+
+
+      return $this->redirectToRoute('admin_canteen_read_by_week');
+    }
 
     /**
      * @Route("/admin/canteen/create/{id}", name="admin_canteen_create", requirements={"id"="\d+"})
