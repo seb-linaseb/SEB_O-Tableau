@@ -21,13 +21,13 @@
     <form method="post" action="{{ path('admin_person_edit', {'id': person.id}) }}">
         <input type="hidden" name="_method" value="UPDATE">
         <input type="hidden" name="_token" value="{{ csrf_token('update' ~ person.id) }}">
-        <button class="btn">Modifier</button>
+        <button>Modifier</button>
     </form>
 
     <form method="post" action="{{ path('admin_person_delete', {'id': person.id}) }}">
         <input type="hidden" name="_method" value="DELETE">
         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ person.id) }}">
-        <button class="btn">Supprimer</button>
+        <button>Supprimer</button>
     </form>
             </div>
                </div>               

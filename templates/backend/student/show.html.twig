@@ -11,6 +11,7 @@
 
  <div class="show_delete_update">
 
+    
     <form method="post" action="{{ path('admin_student_update', {'id': student.id}) }}">
         <input type="hidden" name="_method" value="UPDATE">
         <input type="hidden" name="_token" value="{{ csrf_token('update' ~ student.id) }}">
@@ -22,6 +23,7 @@
         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ student.id) }}">
         <button class="btn">Supprimer</button>
     </form>
+    
 
  </div>
  </div>

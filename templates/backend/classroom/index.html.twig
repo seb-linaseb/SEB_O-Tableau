@@ -12,10 +12,10 @@
     <h1>Les classes</h1>
 </div>
 
-<div class="list_person">
-    <button class="btn">
+<div class="list_class">
+    <div class="crée_class">
         <a href="{{ path('admin_classroom_new') }}">Créer</a>
-    </button>
+    </div>
         {% for classroom in classrooms %}
             <div class="show_delete_update">
                 {{classroom.name}}
@@ -24,13 +24,13 @@
                         <form method="post" action="{{ path('admin_classroom_edit', {'id': classroom.id}) }}">
                             <input type="hidden" name="_method" value="UPDATE">
                             <input type="hidden" name="_token" value="{{ csrf_token('update' ~ classroom.id) }}">
-                            <button class="btn">Modifier</button>
+                            <button class>Modifier</button>
                         </form>
 
                         <form method="post" action="{{ path('admin_classroom_delete', {'id': classroom.id}) }}">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ classroom.id) }}">
-                            <button class="btn">Supprimer</button>
+                            <button class>Supprimer</button>
                         </form>
                     </div>
                 </div>
