@@ -8,23 +8,32 @@
     <div class="backend_index">
         <a href="{{ path('user_index') }}"><i class="fas fa-angle-left"></i></a>
         <h1>Gestion</h1>
-        <ul>
-            <li><a href="{{ path('admin_user_index') }}">Utilisateurs</a></li>
-            <li><a href="{{ path('admin_student_index') }}">Élèves</a></li> 
-             <li><a href="{{ path('admin_classroom_index') }}">Classes</a></li>   
-            <li><a href="{{ path('admin_person_index') }}">Personnes autorisées</a></li> 
-            <li><a href="{{ path('document_index') }}">Documents</a></li>
-            <li><a href="{{ path('alert_index') }}">Alertes</a></li>   
-            <li><a href="{{ path('actualityadmin_index') }}">Actualités</a></li>                       
-            <li><a href="{{ path('admin_role_index') }}">Rôles</a></li>  
-            <li><a href="{{ path('admin_school_index') }}">École</a></li>          
-            {# <li><a href="{{ path('admin_calendar_month') }}">Création du calendrier</a></li> #}
-            <li><a href="{{ path('admin_calendar_read') }}">Consultation du calendrier</a></li>
-            <li><a href="{{ path('admin_canteen_read_by_week') }}">Consultation cantine</a></li>
-            {# <li><a href="">Modification cantine</a></li> #}           
-        </ul>
+        <div class="border_back_index">  
+            <h2>Utilisation fréquente</h2>
+            <ul>
+                <li><a href="{{ path('admin_user_index') }}">Utilisateurs</a></li>
+                <li><a href="{{ path('admin_student_index') }}">Élèves</a></li>
+                <li><a href="{{ path('admin_person_index') }}">Personnes autorisées</a></li> 
+                <li><a href="{{ path('document_index') }}">Documents</a></li>
+                <li><a href="{{ path('admin_classroom_index') }}">Classes</a></li>
+                <li><a href="{{ path('admin_canteen_read_by_week') }}">Consultation cantine</a></li>
+            </ul>
+        </div>
+        <div class="border_back_index">
+            <h2>Autres</h2>
+            <ul>
+                <li><a href="{{ path('admin_role_index') }}">Rôles</a></li>
+                <li><a href="{{ path('actualityadmin_index') }}">Actualités</a></li> 
+                <li><a href="{{ path('alert_index') }}">Alertes</a></li>
+                <li><a href="{{ path('admin_calendar_read') }}">Consultation du calendrier</a></li>
+                <li><a href="{{ path('admin_school_index') }}">École</a></li> 
+            </ul>
+        </div>               
     </div>
    
 {% endblock %}
 {% block footer %}
 {% endblock %}
+
+{# <li><a href="{{ path('admin_calendar_month') }}">Création du calendrier</a></li> #}
+{# <li><a href="">Modification cantine</a></li> #}  

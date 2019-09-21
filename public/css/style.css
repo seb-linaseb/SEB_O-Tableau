@@ -1738,8 +1738,8 @@ label.required {
 .backend_index h1 {
     font-size: 5em;
     text-align: center;
-    margin-top: 7%;
-    padding-top: 5%;
+    margin-top: 5%;
+    padding-top: 2%;
     border-bottom: 2px solid white;
     width: 90%;
     margin: auto;
@@ -1748,34 +1748,67 @@ label.required {
     font-weight: bold;
 }
 
-.backend_index ul {
-    font-size: 3em;
-    text-align: center;
-    margin-top: 10%;    
+
+.border_back_index {
+    width: 75%;
+    border: 3px solid gray;
+    position: relative;
+    border-radius: 3px;
+    margin: auto;
+    margin-top: 7%;
+    border-radius: 7px;
+    padding-bottom: 2%;
 }
 
-.backend_index ul li {
-    margin-bottom: 3%;    
-}
-
-.backend_index ul li a {
-    text-decoration: none;
+.border_back_index h2 {
+    position: absolute;
+    top: -30px;
+    left: 40px;
+    height: 80px;
+    max-width: 100%;
+    background-color: #ffdada ;
     color: gray;
+    font-weight: bold;
+    text-align: center;
+    font-size: 3em;
+    padding: 0 10px 0 10px
 }
+
+.border_back_index ul {
+    padding-top: 5%;
+    padding-left: 12%;
+}
+
+.border_back_index ul li {
+    margin: 8% 0;
+}
+
+.border_back_index ul li a {
+    font-size: 3em;
+}
+
+
+
+
+
+
 
 
 /* BACKEND DOCUMENT */
 
-.backend_document {}
+.backend_document {
+    background-color: #ffdada;
+}
 
 .backend_document a i {
     font-size: 6em;
     padding: 5% 5%;
+    color: white;
 }
 
 .backend_document .add_document {
     padding-top: 5%;
-    border-bottom: 2px solid;
+    border-bottom: 2px solid gray;
     width: 90%;
     margin: auto;
     padding-bottom: 5%;
@@ -1784,6 +1817,7 @@ label.required {
 .backend_document .add_document h1 {
     font-size: 3em;
     text-align: center;
+    color: gray;
 }
 
 .backend_document form {
@@ -1800,12 +1834,12 @@ label.required {
     height: 70px;
     width: 70%;
     border: none;
-    background-color: beige;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 7px;
 }
 
 .backend_document form #document div #document_document_url {
-    padding-top: 3%;
+    padding-top: 2.5%;
 }
 
 .backend_document form #document div button {
@@ -1814,11 +1848,12 @@ label.required {
     padding: 3% 5%;
     border: none;
     border-radius: 5px;
-    background-color: beige;
+    background-color: gray;
+    color: white;
 }
 
 .backend_document .list_document {
-    border-bottom: 2px solid;
+    border-bottom: 3px solid gray;
     width: 90%;
     margin: auto;
     padding-bottom: 15%;
@@ -1827,7 +1862,8 @@ label.required {
 .backend_document .list_document h2 {
     font-size: 3em;
     text-align: center;
-    padding-top: 15%;
+    padding-top: 10%;
+    color: gray;
 }
 
 .backend_document .list_document div {
@@ -1837,6 +1873,7 @@ label.required {
 
 .backend_document .list_document div i {
     font-size: 4em;
+    color: gray;
 }
 
 .backend_document .list_document div a {
@@ -1854,6 +1891,7 @@ label.required {
 .backend_document .list_document_class h2 {
     font-size: 2.5em;
     text-align: center;
+    color: gray;
 }
 
 .backend_document .list_document_class div {
@@ -1867,16 +1905,18 @@ label.required {
 
 
 .backend_document_show {
-
+    background-color: #ffdada;
+    padding-bottom: 100%;
 }
 
 .backend_document_show a i {
     font-size: 6em;
     padding: 5% 5%;
+    color: white;
 }
 
 .backend_document_show .show_document {
-    border-bottom: 2px solid;
+    border-bottom: 2px solid gray;
     width: 90%;
     margin: auto;
     padding-bottom: 15%;
@@ -1885,12 +1925,15 @@ label.required {
 .backend_document_show .show_document p {
     text-align: center;
     font-size: 4em;
+    color: gray;
 }
 
 .backend_document_show .show_document div {
     font-size: 3.5em;
     text-align: center;
     padding-top: 5%;
+    color: gray;
+    font-weight: bold;
 }
 
 .backend_document_show .show_delete_update {
@@ -1911,17 +1954,20 @@ label.required {
 }
 
 .document_show_update {
-
+    background-color: #ffdada;
+    padding-bottom: 100%;
 }
 
 .document_show_update a i {
     font-size: 6em;
     padding: 5% 5%;
+    color: white;
 }
 
 .document_show_update h1 {
     font-size: 3em;
     text-align: center;
+    color: gray;
 }
 
 
@@ -1943,12 +1989,13 @@ label.required {
     height: 70px;
     width: 70%;
     border: none;
-    background-color: beige;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 7px;
 }
 
 .document_show_update form #document div #document_document_url {
     padding-top: 3%;
+    color: white;
 }
 
 .document_show_update form #document div #document_Ajouter {
@@ -1957,16 +2004,19 @@ label.required {
     padding: 3% 5%;
     border: none;
     border-radius: 5px;
-    background-color: beige;
+    background-color: gray;
+    color: white;
 }
 
 .backend_document_show_class {
-
+    background-color: #ffdada;
+    padding-bottom: 120%;
 }
 
 .backend_document_show_class a i {
     font-size: 6em;
     padding: 5% 5%;
+    color: white;
 }
 
 .backend_document_show_class h1 {
@@ -1974,6 +2024,7 @@ label.required {
     text-align: center;
     padding-bottom: 3%;
     padding-top: 5%;
+    color: gray;
 }
 
 .backend_document_show_class div {
@@ -1984,27 +2035,32 @@ label.required {
 
 
 .backend_document_children {
-
+    background-color: #ffdada;
+    padding-bottom: 120%;
 }
 
 .backend_document_children a i {
     font-size: 6em;
     padding: 5% 5%;
+    color: white;
 }
 
 .backend_document_children h1 {
     text-align: center;
     font-size: 3em;
     padding-bottom: 5%;
+    color: gray;
 }
 
 .backend_document_children .document_children div {
     font-size: 3em;
-    width: 50%;
+    width: 75%;
     margin: auto;
     padding-top: 5%;
     display: flex;
     overflow: hidden;
+    color: gray;
+    line-height: 150%;
 }
 
 .backend_document_children .document_children div i {
@@ -3383,11 +3439,7 @@ label.required {
     margin: 5%;
 }
 
-.list_person button {
-    width: 90%;
-    margin: auto;
-    padding-bottom: 50%;
-}
+
 
 .backend_person_person h2 {
     font-size: 3em;
@@ -3395,19 +3447,25 @@ label.required {
     padding-top: 15%;
 }
 
-.backend_person .list_person div {
-    padding-top: 5%;
+.show_button_create  {
     text-align: center;
-    font-size: 1.4em;
-
+    background-color: gray;
+    width: 20%;
+    margin: auto;
+    padding: 2%;
+    margin-top: 5%;
+    border-radius: 7px;
+    
 }
 
-.backend_person .list_person div a {
-    font-size: 4em;
+.show_button_create a  {
+    color: white;
+    font-size: 3.5em;
 }
 
-.list_person .show_delete_update {
-    font-size: 4em;
+.show_delete_update .show_delete_update_flex {
+    display: flex;
+    padding-top: 2%;
 }
 
 .backend_person form {
@@ -3425,7 +3483,7 @@ label.required {
     height: 70px;
     width: 70%;
     border: none;
-    background-color: beige;
+    background-color: white;
     border-radius: 10px;
 }
 
@@ -3435,12 +3493,19 @@ label.required {
     padding: 3% 5%;
     border: none;
     border-radius: 5px;
-    background-color: beige;    
+    background-color: gray;    
+    color: white;
+}
+
+.backend_person_new {
+    background-color: #ffdada;
+    padding-bottom: 120%;
 }
 
 .backend_person_new a i {
     font-size: 6em;
     padding: 5% 5%;
+    color: white;
 }
 
 .backend_person_new form {
@@ -3452,10 +3517,10 @@ label.required {
     height: 70px;
     font-size: 2em;
     border: none;
-    border: 2px solid;
     padding-left: 3%;
     margin-top: 5%;
-    border-radius: 3px;
+    border-radius: 7px;
+    color: white;
 }
 
 .backend_person_new form button {
@@ -3464,7 +3529,8 @@ label.required {
     padding: 3% 5%;
     border: none;
     border-radius: 5px;
-    background-color: beige;    
+    background-color: gray;
+    color: white    
 }
 
 
@@ -3590,6 +3656,11 @@ label.required {
 .backend_classroom_edit {
     background-color: #ffdada;
     padding-bottom: 100%;
+}
+
+.backend_person_edit  {
+    background-color: #ffdada;
+    padding-bottom: 110%;
 }
 
 .backend_person_edit a i {

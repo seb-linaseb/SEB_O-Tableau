@@ -4,34 +4,34 @@
 
 {% block content %}
 
-<div class="backend_person">
-<a href="{{ path('admin_default_index') }}">
-    <i class="fas fa-angle-left"></i>
-</a>
-<div class="add_person">
-    <h1>Personnes autorisées</h1>    
-</div>
+    <div class="backend_person">
+        <a href="{{ path('admin_default_index') }}"><i class="fas fa-angle-left"></i></a>
+        <div class="add_person">
+            <h1>Personnes autorisées</h1>    
+        </div>
+        <div class="show_button_create ">
+            <a href="{{ path('admin_person_new')}}">Créer</a>
+        </div>
+        <div class="list_person">
+            {% for person in person %}
+                <div class="show_delete_update">
+                    <p>{{person.name}} {{person.firstname}}</p>
+                    <div class="show_delete_update_flex">
+                        <form method="post" action="{{ path('admin_person_edit', {'id': person.id}) }}">
+                            <input type="hidden" name="_method" value="UPDATE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('update' ~ person.id) }}">
+                            <button>Modifier</button>
+                        </form>
 
-<div class="list_person">
-<button class="btn"><a href="{{ path('admin_person_new')}}">Créer</a></button>
-        {% for person in person %}
-            <div class="show_delete_update">
-                {{person.name}} {{person.firstname}}
-            <div>
-    <form method="post" action="{{ path('admin_person_edit', {'id': person.id}) }}">
-        <input type="hidden" name="_method" value="UPDATE">
-        <input type="hidden" name="_token" value="{{ csrf_token('update' ~ person.id) }}">
-        <button>Modifier</button>
-    </form>
-
-    <form method="post" action="{{ path('admin_person_delete', {'id': person.id}) }}">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ person.id) }}">
-        <button>Supprimer</button>
-    </form>
-            </div>
-               </div>               
-        {% endfor %}    
+                        <form method="post" action="{{ path('admin_person_delete', {'id': person.id}) }}">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ person.id) }}">
+                            <button>Supprimer</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>                     
     </div>  
     
 {% endblock %}

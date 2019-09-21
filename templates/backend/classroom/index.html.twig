@@ -4,23 +4,19 @@
 
 {% block content %}
 
-<div class="backend_person">
-<a href="{{ path('admin_default_index') }}">
-    <i class="fas fa-angle-left"></i>
-</a>
-<div class="add_person">
-    <h1>Les classes</h1>
-</div>
-
-<div class="list_class">
-    <div class="crée_class">
-        <a href="{{ path('admin_classroom_new') }}">Créer</a>
-    </div>
-        {% for classroom in classrooms %}
-            <div class="show_delete_update">
-                {{classroom.name}}
-                <div>
-                    <div>
+    <div class="backend_person">
+        <a href="{{ path('admin_default_index') }}"><i class="fas fa-angle-left"></i></a>
+        <div class="add_person">
+            <h1>Les classes</h1>
+        </div>
+        <div class="show_button_create">
+            <a href="{{ path('admin_classroom_new') }}">Créer</a>
+        </div>
+        <div class="list_class">
+            {% for classroom in classrooms %}
+                <div class="show_delete_update">
+                    <p>{{classroom.name}}</p>
+                    <div class="show_delete_update_flex">
                         <form method="post" action="{{ path('admin_classroom_edit', {'id': classroom.id}) }}">
                             <input type="hidden" name="_method" value="UPDATE">
                             <input type="hidden" name="_token" value="{{ csrf_token('update' ~ classroom.id) }}">
@@ -34,9 +30,8 @@
                         </form>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
-
+            {% endfor %}
+        </div> 
     </div>
 
 {% endblock %}
