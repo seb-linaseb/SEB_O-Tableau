@@ -61,56 +61,81 @@ class CanteenController extends AbstractController
    $date_of_day_bdd = $date_of_day->format('Y-m-d');
 
    // Récupération de la liste des élèves
-
    $students = $my_classroom->getStudents();
-   dump($my_classroom);die();
-   $forms = [];
+  //  dump($my_classroom);die();
 
-      foreach ($students as $key => $student) {
+/********************************************************************************************************************* */
+
+  // Récupération de toutes les dates du Calendar
+  $dates = $calendarRepository->findAll();
+
+  // Récupération de tous les id de toutes les dates du Calendar
+  $dates_for_id = [];
+    foreach ($dates as $date) {
+      $dates_for_id['id'] = $date->getId();
+      $dates_for_id['date'] = $date->getDate()->format('Y-m-d');
+
+  // Récupération de l'id de la date du jour
+     if ($dates_for_id['date'] == $date_of_day_bdd) {
+       $date_of_day_id = $dates_for_id['id'];     
+     }
+   }
+
+/********************************************************************************************************************* */
+
+
+
+  /********************************************************************************************************************* */
+
+  //  $forms = [];
+
+      // foreach ($students as $key => $student) {
         //$student->getLunches()
-        $thisCalendar = $calendarRepository->findByDate($date_of_day_bdd);
+        // $thisCalendar = $calendarRepository->findByDate($date_of_day_bdd);
         //dump($thisCalendar[0]);
         //die;
-        $presenceLunches = $presenceLunchRepository->findThisPresenceLunch($thisCalendar[0], $student->getId());
+        // $presenceLunches = $presenceLunchRepository->findThisPresenceLunch($thisCalendar[0], $student->getId());
         
         //dump($student->getId());
-        if (empty($presenceLunches)){
-          $presenceLunch = new PresenceLunch();
-          $form = $this->createForm(PresenceLunchType::class, $presenceLunch);
-          $form->handleRequest($request);
+        // if (empty($presenceLunches)){
+          // $presenceLunch = new PresenceLunch();
+          // $form = $this->createForm(PresenceLunchType::class, $presenceLunch);
+          // $form->handleRequest($request);
           
-          $forms[$student->getId()] = $form->createView();
+          // $forms[$student->getId()] = $form->createView();
 
-            if ($form->isSubmitted() && $form->isValid()) {
-              $presenceLunch->setCalendar($thisCalendar[0]);
-              $presenceLunch->setIsCanceled(false);
-              $presenceLunch->setIsOrdered(true);
+            // if ($form->isSubmitted() && $form->isValid()) {
+              // $presenceLunch->setCalendar($thisCalendar[0]);
+              // $presenceLunch->setIsCanceled(false);
+              // $presenceLunch->setIsOrdered(true);
 
-              $entityManager = $this->getDoctrine()->getManager();
-              $entityManager->persist($presenceLunch);
-              $entityManager->flush();
+              // $entityManager = $this->getDoctrine()->getManager();
+              // $entityManager->persist($presenceLunch);
+              // $entityManager->flush();
               //dump($presenceLunch);
-              return $this->redirectToRoute('canteen_day');
-            }
+              // return $this->redirectToRoute('canteen_day');
+            // }
             
         
-          }
+          // }
 
          
-        }
+        // }
    //dump($forms);die();
    //die;
-   
+
 
  return $this->render('canteen/day.html.twig', [
+
      'date_of_day_to_display' => $date_of_day_to_display,
      'date_of_yesterday' => $date_of_yesterday,
      'date_of_tomorrow' => $date_of_tomorrow,
      'students' => $students,
-     'student'=>$student,
+    //  'student'=>$student,
      'my_classroom' => $my_classroom,
-     'forms'=> $forms,
-     'form' => $form->createView(),
+    //  'forms'=> $forms,
+    //  'form' => $form->createView(),
+    'date_of_day_id' => $date_of_day_id,
 
  ]);
  }
