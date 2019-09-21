@@ -83,6 +83,46 @@ class CanteenController extends AbstractController
 
 /********************************************************************************************************************* */
 
+   // Récupération des présences Lunch du jour
+   $id = $date_of_day_id;
+  //  dump($id);die();
+  $my_classroom_id = $my_classroom->getId();
+  // dump($my_classroom_id);die();
+   $presenceLunches = $presenceLunchRepository->findByCalendar($id);
+   
+   $presenceLunchesToSend = [];
+   foreach ($presenceLunches as $presenceLunch) {
+    if ($presenceLunch->getStudent()->getClassroom()->getId() == $my_classroom_id) {
+      $presenceLunchesToSend[] = $presenceLunch;
+    }
+   }
+  //  dump($presenceLunchesToSend);die();
+  
+  $lunchesByDate = [];
+
+  // foreach ($students as $student) {
+    // dump($student);
+   foreach ($presenceLunchesToSend as $key => $presenceLunch) {
+
+    // dump($presenceLunch);
+
+    // dump($presenceLunch->getStudent()->getId());die(); // 84
+    // dump($student->getId());die(); // 55
+    // if ($presenceLunch->getStudent()->getId() == $student->getId()) {
+      
+    
+  //  $lunchesByDate['test'] = 'coucou';
+      $lunchesByDate[$key]['studentName'] = $presenceLunch->getStudent()->getName();
+      $lunchesByDate[$key]['studentFirstname'] = $presenceLunch->getStudent()->getFirstname();
+    $lunchesByDate[$key]['isPresent'] = $presenceLunch->getIsPresent();
+    $lunchesByDate[$key]['hasEated'] = $presenceLunch->getHasEated();
+  // }
+    // dump($lunchesByDate);
+   }
+  // dump($student);  
+// }
+// die();
+    // dump($lunchesByDate);die();
 
 
   /********************************************************************************************************************* */
@@ -136,6 +176,7 @@ class CanteenController extends AbstractController
     //  'forms'=> $forms,
     //  'form' => $form->createView(),
     'date_of_day_id' => $date_of_day_id,
+    'lunchesByDate' => $lunchesByDate,
 
  ]);
  }
