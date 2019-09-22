@@ -197,8 +197,8 @@ public $daynumber;
     {
       
       $dates = $_POST;
-    //   dump($dates);
-    //   die();
+      // dump($dates);
+      // die();
 
       foreach ($dates as $key => $value) {
         if($value == 'on'){

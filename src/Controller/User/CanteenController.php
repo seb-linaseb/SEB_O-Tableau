@@ -16,10 +16,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class CanteenController extends AbstractController
-{    /**
-  * @Route("canteen/day/", name="canteen_day")
+{
+  /**
+  * @Route("canteen/day/", name="canteen_day_read")
   */
- public function day(Request $request, ClassroomRepository $classroomRepository, PresenceLunchRepository $presenceLunchRepository, CalendarRepository $calendarRepository)
+ public function day_read(Request $request, ClassroomRepository $classroomRepository, PresenceLunchRepository $presenceLunchRepository, CalendarRepository $calendarRepository)
  {
 
    // On récupère les infos sur le professeur et sa classe
@@ -100,69 +101,17 @@ class CanteenController extends AbstractController
   
   $lunchesByDate = [];
 
-  // foreach ($students as $student) {
-    // dump($student);
+
    foreach ($presenceLunchesToSend as $key => $presenceLunch) {
 
     // dump($presenceLunch);
-
-    // dump($presenceLunch->getStudent()->getId());die(); // 84
-    // dump($student->getId());die(); // 55
-    // if ($presenceLunch->getStudent()->getId() == $student->getId()) {
-      
-    
-  //  $lunchesByDate['test'] = 'coucou';
-      $lunchesByDate[$key]['studentName'] = $presenceLunch->getStudent()->getName();
-      $lunchesByDate[$key]['studentFirstname'] = $presenceLunch->getStudent()->getFirstname();
+    $lunchesByDate[$key]['id'] = $presenceLunch->getId();
+    $lunchesByDate[$key]['studentId'] = $presenceLunch->getStudent()->getId();
+    $lunchesByDate[$key]['studentName'] = $presenceLunch->getStudent()->getName();
+    $lunchesByDate[$key]['studentFirstname'] = $presenceLunch->getStudent()->getFirstname();
     $lunchesByDate[$key]['isPresent'] = $presenceLunch->getIsPresent();
     $lunchesByDate[$key]['hasEated'] = $presenceLunch->getHasEated();
-  // }
-    // dump($lunchesByDate);
    }
-  // dump($student);  
-// }
-// die();
-    // dump($lunchesByDate);die();
-
-
-  /********************************************************************************************************************* */
-
-  //  $forms = [];
-
-      // foreach ($students as $key => $student) {
-        //$student->getLunches()
-        // $thisCalendar = $calendarRepository->findByDate($date_of_day_bdd);
-        //dump($thisCalendar[0]);
-        //die;
-        // $presenceLunches = $presenceLunchRepository->findThisPresenceLunch($thisCalendar[0], $student->getId());
-        
-        //dump($student->getId());
-        // if (empty($presenceLunches)){
-          // $presenceLunch = new PresenceLunch();
-          // $form = $this->createForm(PresenceLunchType::class, $presenceLunch);
-          // $form->handleRequest($request);
-          
-          // $forms[$student->getId()] = $form->createView();
-
-            // if ($form->isSubmitted() && $form->isValid()) {
-              // $presenceLunch->setCalendar($thisCalendar[0]);
-              // $presenceLunch->setIsCanceled(false);
-              // $presenceLunch->setIsOrdered(true);
-
-              // $entityManager = $this->getDoctrine()->getManager();
-              // $entityManager->persist($presenceLunch);
-              // $entityManager->flush();
-              //dump($presenceLunch);
-              // return $this->redirectToRoute('canteen_day');
-            // }
-            
-        
-          // }
-
-         
-        // }
-   //dump($forms);die();
-   //die;
 
 
  return $this->render('canteen/day.html.twig', [
@@ -171,16 +120,91 @@ class CanteenController extends AbstractController
      'date_of_yesterday' => $date_of_yesterday,
      'date_of_tomorrow' => $date_of_tomorrow,
      'students' => $students,
-    //  'student'=>$student,
      'my_classroom' => $my_classroom,
-    //  'forms'=> $forms,
-    //  'form' => $form->createView(),
     'date_of_day_id' => $date_of_day_id,
     'lunchesByDate' => $lunchesByDate,
 
  ]);
  }
 
+  /**
+  * @Route("canteen/day/save", name="canteen_day_save", methods={"GET", "POST"} )
+  */
+  public function day_save(PresenceLunchRepository $presenceLunchRepository)
+  {
+    $datas = $_POST;
+    // dump($datas);die();
+    $entityManager = $this->getDoctrine()->getManager();
+    foreach ($datas as $key => $data) {
+      // dump($key);
+      // dump($data);
 
+      if ($key == $data) {
+        $presenceLunchId = $data;
+        $presenceLunch = new PresenceLunch();
+        $presenceLunch = $presenceLunchRepository->findById($presenceLunchId);
+        $presenceLunch[0]->setIsPresent(false);
+        $presenceLunch[0]->setHasEated(false);
+        $entityManager->persist($presenceLunch[0]);
+      } else {
+        $values = explode('-', $key);
+        $presenceLunchId = $values[0];
+        $fieldToUpdate = $values[1];
+        $value = $data;
+        // dump($presenceLunchId, $fieldToUpdate, $value);
+      
+
+        // if($value == 'on'){
+          
+          $presenceLunch = new PresenceLunch();
+          // dump($presenceLunch);
+          $presenceLunch = $presenceLunchRepository->findById($presenceLunchId);
+          // dump($presenceLunch[0]);die();
+          // dump($presenceLunch);
+
+          if ($fieldToUpdate == 'presence') {
+            $presenceLunch[0]->setIsPresent($value);
+            
+          } else if ($fieldToUpdate == 'eated') {
+            $presenceLunch[0]->setHasEated($value);
+          }
+
+          
+          $entityManager->persist($presenceLunch[0]);
+          
+
+          // dump($presenceLunch);
+        }
+          // $calendar = new Calendar();
+          // $calendar->setDate(\DateTime::createFromFormat('d/m/Y', $key));
+          // $presenceLunch = new PresenceLunch();
+          // $presenceLunch->setIsPresent(true);
+          // $presenceLunch->setHasEated(true);
+          // $entityManager = $this->getDoctrine()->getManager();
+          // $entityManager->persist($calendar);
+          // $entityManager->flush();
+          //dump($calendar);
+        // }
+        // else if($value == $key){
+            // dump($key);
+            // $calendar = new Calendar();
+            // $calendar->setDate(\DateTime::createFromFormat('d/m/Y', $key));
+            // $calendar->setIsWorked(false);
+            // $entityManager = $this->getDoctrine()->getManager();
+            // $entityManager->persist($calendar);
+            // $entityManager->flush();
+            //dump($calendar);
+          // }
+
+      }
+      $entityManager->flush();
+      // $this->addFlash(
+        // 'success',
+        // 'Enregistrement effectué'
+    // );
+
+// die();
+      return $this->redirectToRoute('canteen_day_read');
+    }
 
 }
