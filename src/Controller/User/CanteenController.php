@@ -117,6 +117,7 @@ class CanteenController extends AbstractController
  return $this->render('canteen/day.html.twig', [
 
      'date_of_day_to_display' => $date_of_day_to_display,
+     'date_of_day_bdd' => $date_of_day_bdd,
      'date_of_yesterday' => $date_of_yesterday,
      'date_of_tomorrow' => $date_of_tomorrow,
      'students' => $students,
@@ -139,7 +140,9 @@ class CanteenController extends AbstractController
       // dump($key);
       // dump($data);
 
-      if ($key == $data) {
+      if ($key == 'date_of_day_bdd') {
+        $date_of_day_bdd = $data;
+      } else if ($key == $data) {
         $presenceLunchId = $data;
         $presenceLunch = new PresenceLunch();
         $presenceLunch = $presenceLunchRepository->findById($presenceLunchId);
@@ -204,7 +207,11 @@ class CanteenController extends AbstractController
     // );
 
 // die();
+      // Rediriger sur la route (date du jour = date réelle)
       return $this->redirectToRoute('canteen_day_read');
+      // Rediriger sur la route (date du jour sur laquelle on a apporté des modifications)
+      // return $this->redirect($this->generateUrl('canteen_day_read', ['date_of_day' => $date_of_day_bdd]));
     }
+
 
 }

@@ -224,8 +224,9 @@
 
          <div>
             <div class="flex_calandar_navigation">
-                <a href="{{ path('admin_calendar_read') }}?month={{ previous_month_month }}&year={{ previous_month_year }}">&lt;</a>  
-                <a href="{{ path('admin_calendar_create') }}"><button>Modifier</button></a>
+                <a href="{{ path('admin_calendar_read') }}?month={{ previous_month_month }}&year={{ previous_month_year }}">&lt;</a>
+                <a href="{{ path('admin_calendar_read') }}"><button>Mois courant</button></a>
+                <a href="{{ path('admin_calendar_create') }}?month={{ month_month }}&year={{ month_year }}"><button>Modifier</button></a>  
                 <a href="{{ path('admin_calendar_read') }}?month={{ next_month_month }}&year={{ next_month_year }}">&gt;</a>
             </div>
         </div>
