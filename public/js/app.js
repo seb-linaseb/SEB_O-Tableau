@@ -1,5 +1,5 @@
 var app = {
-
+    baseUrl: 'http://localhost/Projet-Apo/O-Tableau/public/conversation/',
     init: function() {
         console.log('init');
         
@@ -102,6 +102,11 @@ var app = {
         $listlabelUserEdit.addClass('white')
         
         $listlabelUserEdit.on('click', app.handleLabelClickUserEdit);
+
+
+    
+         
+        $('body').on( 'submit','#field-form', app.loadMessage )
     },
     
     handleLabelClick: function(evt) {
@@ -312,11 +317,37 @@ var app = {
             
         }
     },
-
-
     
+    loadMessage: function(evt) {
+        console.log(evt)
 
+        evt.preventDefault()
+        
+        inputMessage = $('#field-message').val();
+        
+         var id = $('#conversation-id').val()
+        //  console.log(id)
+        // console.log(inputMessage)
+        var jqXHR = $.ajax({
+            url: app.baseUrl+id ,
+            method: 'POST',
+            dataType: 'json',
+            data:{
+            
+            "message": inputMessage,
+        
     
+            }
+    
+        })
+    
+        jqXHR.done(
+            
+        );
+        
+       
+    }
+
 }; 
   
 $(app.init);

@@ -1,3 +1,4 @@
+
 {% extends 'base.html.twig' %}
 
 {% block title %}O'Tableau | Messagerie{% endblock %}
@@ -28,14 +29,63 @@
         {% endfor %}
         </div>
     <div class="message_input">
-        {% include 'conversation/_formMessage.html.twig' %} 
+        <form id="field-form" class="message form">
+            <div class="field">
+                <label>Message</label>
+                <input type="hidden" id="conversation-id" name="id" value="{{ conversation.id }}">
+                <input id="field-message" rows="2"  placeholder="Votre message"></input>
+            </div>
+            <div id="buttons">
+                <button class="ui button" id="sub-button" type="submit">Submit</button>
+            </div>
+        </form>
     </div>
-</div>
 
 {% endblock %}
 
 {% block footer %}
-
 {% endblock %}
 
+{% block javascripts %}
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <script src="{{ asset('js/jquery-ui.min.js')}}"></script>
+    <script src="{{ asset('js/jquery.simpleAccordion.min.js')}}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.myNav').simpleAccordion();
+        });
+    </script>
+    <script src="{{ asset('js/app.js')}}"></script>
 
+    <script>
+
+        const url = new URL('http://localhost:3000/hub');
+
+        url.searchParams.append('topic', 'http://monsite.com/ping/'+{{ id }});
+
+        const eventSource = new EventSource(url);
+        
+        eventSource.onmessage = e => {
+            
+            newData = JSON.parse(e.data);
+                
+            const div = document.getElementById('message_list');
+            const bubble = document.createElement('div');
+            bubble.className = 'message';
+            
+
+            div.appendChild(bubble);
+
+            bubble.innerHTML = newData.message;
+
+            const message = document.createElement('p');
+            
+        }  
+    
+    </script>
+    
+{% endblock %}
