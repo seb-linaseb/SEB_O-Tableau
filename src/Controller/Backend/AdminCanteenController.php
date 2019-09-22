@@ -11,6 +11,7 @@ use App\Repository\ClassroomRepository;
 use App\Repository\PresenceLunchRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\ORM\EntityManagerInterface;
 
 class AdminCanteenController extends AbstractController
 {
@@ -98,9 +99,6 @@ class AdminCanteenController extends AbstractController
       // Récupérer la liste des élèves
       $students = $studentRepository->findAll();
 
-      // Récupérer les présences lunch
-      //$presenceLunches = $presenceLunchRepository->findAll();
-      // dump($presenceLunches);die();
 
       $calendars = $calendarRepository->findAll();
 
@@ -232,9 +230,7 @@ class AdminCanteenController extends AbstractController
     // Récupérer la liste des élèves
     $students = $studentRepository->findAll();
 
-    // Récupérer les présences lunch
-    //$presenceLunches = $presenceLunchRepository->findAll();
-    // dump($presenceLunches);die();
+
 
     $calendars = $calendarRepository->findAll();
 
@@ -253,7 +249,7 @@ class AdminCanteenController extends AbstractController
        $dates [$id]['week'] =   $week  ;
        $dates [$id]['id'] = $id ;
        $dates [$id]['calendarDate'] = $calendarDate;
-       $dates [$id]['presenceLunch'] = $presenceLunch;
+       $dates [$id]['presenceLunches'] = $presenceLunches;
        
      //dump($dates);
     }
@@ -278,6 +274,88 @@ class AdminCanteenController extends AbstractController
       'dates' => $dates,
   ]);
   }
+
+  /**
+     * @Route("admin/canteen/save", name="admin_canteen_save_by_week", methods={"GET","POST"} )
+     */
+    public function save(PresenceLunchRepository $presenceLunchRepository)
+    {
+      
+      $status = $_POST;
+      
+      $toUpdate = [];
+      $presenceToUpdate = [];
+      $orderedToUpdate = [];
+      $eatToUpdate = [];
+       foreach ($status as $presenceLunches => $presenceLunchId) {
+          //Je retrouve les tables a modifier
+          $okToUpdate = $presenceLunchRepository->find($presenceLunches);
+          if ($okToUpdate !== null) {
+            $toUpdate [$presenceLunches] = $okToUpdate;
+          }
+          
+          //dump($presenceLunches);
+          //dump($presenceLunchId);
+
+          $presence = stripos($presenceLunches, 'presence');
+          if ($presence !== false) {
+            $presenceToUpdate [$presenceLunchId] = $presenceLunches;
+          }
+          $ordered = stripos($presenceLunches, 'ordered');
+          if ($ordered !== false) {
+            $orderedToUpdate [$presenceLunchId] = $presenceLunches;
+          }
+          $eat = stripos($presenceLunches, 'eat');
+          if ($eat !== false) {
+            $eatToUpdate [$presenceLunchId] = $presenceLunches;
+          }
+          //dump($presenceLunches);
+         
+        };
+        
+     //dump($presenceToUpdate);
+     //dump($orderedToUpdate);
+     //dump($eatToUpdate);
+     //dump($toUpdate);
+     
+     foreach ($toUpdate as $presenceLunchId => $presenceLunch){
+      
+
+      if (isset($presenceToUpdate[$presenceLunchId])){
+        $presenceLunch->setIsPresent(true);
+      }else {
+        $presenceLunch->setIsPresent(false);
+      }
+      if (isset($orderedToUpdate[$presenceLunchId])){
+        $presenceLunch->setIsOrdered(true);
+      }else {
+        $presenceLunch->setIsOrdered(false);
+      }
+      if (isset($eatToUpdate[$presenceLunchId])){
+        $presenceLunch->setHasEated(true);
+      }else {
+        $presenceLunch->setHasEated(false);
+      }
+      $entityManager = $this->getDoctrine()->getManager();
+      $entityManager->persist($presenceLunch);
+      $entityManager->flush();
+      // dump($presenceLunch);
+
+  
+     }
+     
+    
+      //  die();
+
+      
+      $this->addFlash(
+        'success',
+        'Enregistrement effectué'
+    );
+
+
+      return $this->redirectToRoute('admin_canteen_read_by_week');
+    }
 
     /**
      * @Route("/admin/canteen/create/{id}", name="admin_canteen_create", requirements={"id"="\d+"})
