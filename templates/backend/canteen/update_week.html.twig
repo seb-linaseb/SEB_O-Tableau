@@ -1,17 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Week Calendar Display{% endblock %}
+{% block title %}O'Tableau{% endblock %}
 
 {% block content %}
 
-  <div class="d-flex flex-row align-items-center justify-content-between mx-sm-3">
-    <h1>Semaine N° {{ actual_week }} - Année N° {{ actual_year }}</h1>
-
-    <div>
-      <a href="{{ path('admin_canteen_read_by_week') }}?year={{ previous_week_year }}&week={{ previous_week_week }}" class="btn btn-primary">&lt;</a>  
-      <a href="{{ path('admin_canteen_read_by_week') }}?year={{ next_week_year }}&week={{ next_week_week }}" class="btn btn-primary">&gt;</a>
+<div class="backend_canteen">
+    <a href="{{ path('admin_default_index') }}"><i class="fas fa-angle-left"></i></a>
+    <div class="canteen_back_nav">
+        <h1>Semaine N° {{ actual_week }} - Année N° {{ actual_year }}</h1>
+        <div class="canteen_back_nav_flex">
+            <a href="{{ path('admin_canteen_read_by_week') }}?year={{ previous_week_year }}&week={{ previous_week_week }}">&lt;</a>  
+            <a href="{{ path('admin_canteen_read_by_week') }}?year={{ next_week_year }}&week={{ next_week_week }}">&gt;</a>
+        </div>
     </div>
-  </div>
 
 {% for classroom in classrooms %}
 <form action="{{ path('admin_canteen_save_by_week') }}" method="POST">
@@ -304,5 +305,6 @@
 </form>
 {% endfor %} 
 
+</div>
 
 {% endblock %}
