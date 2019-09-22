@@ -9,8 +9,10 @@ use App\Entity\Conversation;
 use App\Entity\MessageStatus;
 use App\Form\ConversationType;
 use App\Repository\UserRepository;
+use Symfony\Component\Mercure\Update;
 use App\Repository\ClassroomRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Mercure\Publisher;
 use App\Repository\ConversationRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -156,31 +158,64 @@ class ConversationController extends AbstractController
     /**
      * @Route("/{id}", name="show", methods={"GET","POST"}), requirements={"id"="\d+"})
      */
-    public function show(Conversation $conversation, Request $request)
-    {
+    public function show(Publisher $publisher,Conversation $conversation, Request $request,$id)
+    {   
         //$conversation->setNewMessage(false);
         
         $message = new Message();
         $form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-
+        // if ($form->isSubmitted() && $form->isValid()) {
+            $currentMessage= $request->request->get('message');
+           
+           
             $user = $this->getUser();
-            $message->setUserPost($user);
-            $message->addConversation($conversation);
-            $entityManager = $this->getDoctrine()->getManager();
-            
-            $entityManager->persist($message);
-            $entityManager->flush();
+            $id = $user->getId();
+            //dump($currentMessage);die;
+            if($currentMessage!=null){
 
+                $message->setContent($currentMessage); 
+                $message->setUserPost($user);
+                $message->addConversation($conversation);
+                $entityManager = $this->getDoctrine()->getManager();            
+                $entityManager->persist($message);
+                $entityManager->flush();
+                $users = [];
+                $users [] = $conversation->getUserConsult();
+                $users [] = $conversation->getUserParticipate();
+                              
+               
+                       
+                    $data=json_encode(
+    
+                        [  
+                        
+                            "message"=>$message->getContent()
+                            
+                        ]);
+                    
+                            
+                    $update1 = new Update('http://monsite.com/ping/'.$id , $data);   
+                    $id2 = $publisher($update1);
+                
+                
+                // dump($currentMessage);
+                // die;
+                // return $this->redirectToRoute('conversation_show', ['id'=> $conversation->getId()]);
+            }
+             
+            
+            
+         
+            
             $this->addFlash(
                 'success',
                 'Enregistrement effectué'
             );
             
-            return $this->redirectToRoute('conversation_show', ['id'=> $conversation->getId()]);
-        }
+            
+        // }
         
         $okToShow = [];
         $messages = $conversation->getMessages();
@@ -211,7 +246,8 @@ class ConversationController extends AbstractController
         return $this->render('conversation/show.html.twig', [
             'conversation' => $conversation,
             'okToShow' =>$okToShow,
-            'formMessage' => $form->createView()
+            'formMessage' => $form->createView(),
+            'id' => $id
         ]);
     }
 

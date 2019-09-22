@@ -25,7 +25,7 @@ class MessageType extends AbstractType
 
         $url = ($_SERVER["REQUEST_URI"]); 
 
-    if ($url == '/conversation/new') { 
+    
 
         $builder
         ->add( 'users', EntityType::class,[
@@ -42,15 +42,7 @@ class MessageType extends AbstractType
             )
         )
        ;
-    } else {
     
-        $builder
-            ->add('content', TextType::class,array(
-                'attr' => array(
-                    'placeholder' => 'Message..'
-                )
-            ));
-    };
 }
 
     public function configureOptions(OptionsResolver $resolver)
