@@ -13,8 +13,8 @@
     {% for actuality in actualitys %}
         <div class="show_delete_update">
             <a href="{{ path('actualityadmin_show', { 'id': actuality.id }) }}">
-                {{ actuality.title }}
-                <div>
+                <p>{{ actuality.title }}</p>
+                <div class="show_delete_update_flex">
                      <form method="post" action="{{ path('actualityadmin_update', {'id': actuality.id}) }}">
                         <input type="hidden" name="_method" value="UPDATE">
                         <input type="hidden" name="_token" value="{{ csrf_token('update' ~ actuality.id) }}">

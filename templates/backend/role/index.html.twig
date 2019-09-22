@@ -6,6 +6,10 @@
 
     <div class="backend_role">
         <a href="{{ path('admin_default_index') }}"><i class="fas fa-angle-left"></i></a>
+        <h1>Role</h1>
+        <div class="role_new">
+            <a href="{{ path('admin_role_new') }}">Créer</a>   
+        </div>
         {% for role in roles %}
             <div>
                 <div>
@@ -26,9 +30,6 @@
                 </div>
             </div>
         {% endfor %} 
-        <div class="role_new">
-            <a href="{{ path('admin_role_new') }}">Créer un role</a>   
-        </div>
     </div>
 {% endblock %}
 {% block footer %}
