@@ -282,54 +282,72 @@ class AdminCanteenController extends AbstractController
     {
       
       $status = $_POST;
-      //$okForChange = [];
-      $tableau = [];
-      foreach ($status as $presenceLunches => $presenceLunch) {
-        $tableau [] = $presenceLunches;
-        
-      }  
-       // dump($presenceLunch);
-       foreach ($tableau as $presenceLunches){
-          $presence = stripos($presenceLunches, 'presence');
-          if ($presence !== false){
-            dump($presenceLunches);
-          };
-        // }
-         //$presence = stripos($presenceLunches, 'presence');
-        //$ordered = stripos($presenceLunches, 'ordered'. $id);
-        //   $eat = stripos($presenceLunches, 'eat'. $id);
-          // $okForChange [$id]['presence'] = $presence;
-          // $okForChange [$id]['ordered'] = $ordered;
-          // $okForChange [$id]['eat'] = $eat;
-          //dump($presence);
-      }
-      dump($tableau);
-     dump($status);
-       die();
-
-      foreach ($dates as $key => $value) {
-        if($value == 'on'){
-          //dump($key);
-          $calendar = new Calendar();
-          $calendar->setDate(\DateTime::createFromFormat('d/m/Y', $key));
-          $calendar->setIsWorked(true);
-          $entityManager = $this->getDoctrine()->getManager();
-          $entityManager->persist($calendar);
-          $entityManager->flush();
-          //dump($calendar);
-        }
-        else if($value == $key){
-            //dump($key);
-            $calendar = new Calendar();
-            $calendar->setDate(\DateTime::createFromFormat('d/m/Y', $key));
-            $calendar->setIsWorked(false);
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($calendar);
-            $entityManager->flush();
-            //dump($calendar);
-          }
       
+      $toUpdate = [];
+      $presenceToUpdate = [];
+      $orderedToUpdate = [];
+      $eatToUpdate = [];
+       foreach ($status as $presenceLunches => $presenceLunchId) {
+          //Je retrouve les tables a modifier
+          $okToUpdate = $presenceLunchRepository->find($presenceLunches);
+          if ($okToUpdate !== null) {
+            $toUpdate [$presenceLunches] = $okToUpdate;
+          }
+          
+          //dump($presenceLunches);
+          //dump($presenceLunchId);
+
+          $presence = stripos($presenceLunches, 'presence');
+          if ($presence !== false) {
+            $presenceToUpdate [$presenceLunchId] = $presenceLunches;
+          }
+          $ordered = stripos($presenceLunches, 'ordered');
+          if ($ordered !== false) {
+            $orderedToUpdate [$presenceLunchId] = $presenceLunches;
+          }
+          $eat = stripos($presenceLunches, 'eat');
+          if ($eat !== false) {
+            $eatToUpdate [$presenceLunchId] = $presenceLunches;
+          }
+          //dump($presenceLunches);
+         
+        };
+        
+     //dump($presenceToUpdate);
+     //dump($orderedToUpdate);
+     //dump($eatToUpdate);
+     //dump($toUpdate);
+     
+     foreach ($toUpdate as $presenceLunchId => $presenceLunch){
+      
+
+      if (isset($presenceToUpdate[$presenceLunchId])){
+        $presenceLunch->setIsPresent(true);
+      }else {
+        $presenceLunch->setIsPresent(false);
       }
+      if (isset($orderedToUpdate[$presenceLunchId])){
+        $presenceLunch->setIsOrdered(true);
+      }else {
+        $presenceLunch->setIsOrdered(false);
+      }
+      if (isset($eatToUpdate[$presenceLunchId])){
+        $presenceLunch->setHasEated(true);
+      }else {
+        $presenceLunch->setHasEated(false);
+      }
+      $entityManager = $this->getDoctrine()->getManager();
+      $entityManager->persist($presenceLunch);
+      $entityManager->flush();
+      // dump($presenceLunch);
+
+  
+     }
+     
+    
+      //  die();
+
+      
       $this->addFlash(
         'success',
         'Enregistrement effectué'
