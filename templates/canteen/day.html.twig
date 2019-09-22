@@ -35,6 +35,7 @@
                             {# {{ form_start(form) }} #}
                             {# {% for student in students %} #}
                             <form action="{{ path('canteen_day_save') }}" method="POST">
+                            <input type="hidden" name="date_of_day_bdd" value="{{ date_of_day_bdd }}">
                             {% for lunchByDate in lunchesByDate %}
 
 
@@ -71,7 +72,7 @@
                                     {# {{ form_widget(form.is_present) }} #}
                                 </td>
                                 <td class="calendar__day">
-                                    <input type="checkbox" id="eated" name="{{ lunchByDate.id }}-eated""
+                                    <input type="checkbox" id="eated" name="{{ lunchByDate.id }}-eated"
                                     {% if lunchByDate.hasEated == true %}
                                     checked
                                     {# {{ lunchByDate.hasEated }} #}
@@ -89,6 +90,7 @@
                             </tr>
                             {# {% endfor %} #}
                             {% endfor %}
+
                             <input type="submit" value="Mettre à jour"> 
                             </form>
 

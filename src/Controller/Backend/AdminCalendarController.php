@@ -2,6 +2,7 @@
 
 namespace App\Controller\Backend;
 
+use DateTime;
 use App\Entity\Student;
 use App\Entity\Calendar;
 use App\Entity\Classroom;
@@ -27,6 +28,19 @@ public $daynumber;
         //*******************************Affichage calendrier********************************************************** */
               $month = new Month($_GET['month'] ?? null, $_GET['year'] ?? null);
               
+              if (isset($_GET['month'])) {
+                $month_month = $_GET['month'];
+              } else {
+                $month_month = new DateTime();
+                $month_month = $month_month->format('m');
+              }
+
+              if (isset($_GET['year'])) {
+                $month_year = $_GET['year'];
+              } else {
+                $month_year = new DateTime();
+                $month_year = $month_year->format('Y');
+              }
                 
               $start = $month->getStartingDay();
               $launch_day = $start->format('N');
@@ -93,6 +107,8 @@ public $daynumber;
         
             return $this->render('backend/calendar/read.html.twig', [
                 'month_name' => $month_name,
+                'month_month' => $month_month,
+                'month_year' => $month_year,
                 'previous_month_month' => $previous_month_month,
                 'previous_month_year' => $previous_month_year,
                 'next_month_month' => $next_month_month,
@@ -200,6 +216,7 @@ public $daynumber;
       // dump($dates);
       // die();
 
+
       foreach ($dates as $key => $value) {
         if($value == 'on'){
           //dump($key);
@@ -221,7 +238,11 @@ public $daynumber;
             $entityManager->flush();
             //dump($calendar);
           }
-      
+          $month_values = explode('/', $key);
+          $month_month = $month_values[1];
+          $month_year = $month_values[2];
+          // dump($month_month, $month_year);die();
+          
       }
       $this->addFlash(
         'success',
@@ -229,7 +250,8 @@ public $daynumber;
     );
 
 
-      return $this->redirectToRoute('admin_calendar_read');
+      // return $this->redirectToRoute('admin_calendar_read');
+      return $this->redirect($this->generateUrl('admin_calendar_read', ['month' => $month_month, 'year' => $month_year]));
     }
 
 }
