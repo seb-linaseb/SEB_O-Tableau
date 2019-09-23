@@ -820,7 +820,7 @@ li.myNav-item.ui-accordion-item {
 .account a {
     font-size: 5em;
     margin-left: 5%;
-    color: black;
+    color: gray;
 }
 
 .account .account_border {
@@ -940,7 +940,7 @@ li.myNav-item.ui-accordion-item {
 
 
 .profil .children_back_profil {
-    color: #2C3840;
+    color: gray;
 }
 
 .profil .children_back_profil i {
@@ -1040,7 +1040,7 @@ li.myNav-item.ui-accordion-item {
 .doc_children a i {
     font-size: 5em;
     margin-left: 5%;
-    color: black;
+    color: gray;
 }
 
 .doc_children .doc_children_border {
