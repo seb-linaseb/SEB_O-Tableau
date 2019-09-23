@@ -14,7 +14,7 @@
             </div>
         </div>
 
-        {% for classroom in classrooms %}
+        {# {% for classroom in classrooms %} #}
             <form action="{{ path('admin_canteen_save_by_week') }}" method="POST">
                 <table class="calendar__table">
                     <caption>{{ classroom.name }}</caption>
@@ -299,7 +299,7 @@
                 </table>   
                 <input type="submit">
             </form>
-        {% endfor %} 
+        {# {% endfor %}  #}
     </div>
 
 {% endblock %}
