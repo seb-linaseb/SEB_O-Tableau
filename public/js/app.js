@@ -325,8 +325,8 @@ var app = {
         
         inputMessage = $('#field-message').val();
         
-         var id = $('#conversation-id').val()
-        //  console.log(id)
+        var id = $('#conversation-id').val()
+        // console.log(id)
         // console.log(inputMessage)
         var jqXHR = $.ajax({
             url: app.baseUrl+id ,
