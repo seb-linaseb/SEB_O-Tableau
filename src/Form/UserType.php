@@ -67,10 +67,12 @@ class UserType extends AbstractType
                 'label_attr' => array('class' => 'label_user_role'),
             ])
             ->add('communication_agreement', null, [
+                'label' => 'Transmission données personnelles',
                 'label_attr' => array('class' => 'label_user'),
                 'attr' => array('class' => 'input_user'),
             ])
             ->add('image_agreement', null, [
+                'label' => 'Droit à l\'image',
                 'label_attr' => array('class' => 'label_user'),
                 'attr' => array('class' => 'input_user'),
             ])

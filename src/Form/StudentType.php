@@ -31,17 +31,20 @@ class StudentType extends AbstractType
                     'placeholder' => 'Prénom'
             )))
             ->add('birthdate', BirthdayType::class)  
-            ->add('classroom', EntityType::class, [                
+            ->add('classroom', EntityType::class, [
+                'placeholder' => 'Classe',                
                 'class' => Classroom::class,                     
                 'attr' => array('class' => 'input_label'),
             ])
-            ->add('lunch_type', EntityType::class, [                
+            ->add('lunch_type', EntityType::class, [
+                'placeholder' => 'Type de repas',
                 'class' => LunchType::class,                    
                 'multiple' => false,
                 'expanded' => false,
                 'attr' => array('class' => 'input_label'),
             ])          
             ->add('image_rights', null, [
+                'label' => 'Droit à l\'image',
                 'label_attr' => array('class' => 'label_image'),
                 'attr' => array('class' => 'input_label'),
             ])       
@@ -51,29 +54,34 @@ class StudentType extends AbstractType
                 'expanded' => true,
                 'attr' => array('class' => 'input_label'),
             ])
-            ->add('person', EntityType::class, [                
+            ->add('person', EntityType::class, [
                 'class' => Person::class,                    
                 'multiple' => true,
                 'expanded' => true,
                 'attr' => array('class' => 'input_label'),
             ])
             ->add('mondayLunch', null, [
+                'label' => 'Lundi',
                 'label_attr' => array('class' => 'label_lunch'),
                 'attr' => array('class' => 'input_label'),
             ])
             ->add('tuesdayLunch', null, [
+                'label' => 'Mardi',
                 'label_attr' => array('class' => 'label_lunch'),
                 'attr' => array('class' => 'input_label'),
             ])
             ->add('wednesdayLunch', null, [
+                'label' => 'Mercredi',
                 'label_attr' => array('class' => 'label_lunch'),
                 'attr' => array('class' => 'input_label'),
             ])
             ->add('thursdayLunch', null, [
+                'label' => 'Jeudi',
                 'label_attr' => array('class' => 'label_lunch'),
                 'attr' => array('class' => 'input_label'),
             ])
             ->add('fridayLunch', null, [
+                'label' => 'Vendredi',
                 'label_attr' => array('class' => 'label_lunch'),
                 'attr' => array('class' => 'input_label'),
             ])
