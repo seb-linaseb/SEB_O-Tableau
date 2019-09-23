@@ -1,8 +1,8 @@
 var app = {
     // Environnement de DEV
-    // baseUrl: 'http://localhost/Projet-Apo/O-Tableau/public/conversation/',
+    baseUrl: 'http://localhost/Projet-Apo/O-Tableau/public/conversation/',
     // Environnement de PROD = serveur GANDI
-    baseUrl: 'http://92.243.9.5/conversation/',
+    // baseUrl: 'http://92.243.9.5/conversation/',
     init: function() {
         console.log('init');
         
@@ -14,7 +14,7 @@ var app = {
         $listLabel.on('click', app.handleLabelClick);
 
         // focus l'input d'envoie de message
-        var $inputMsg = $('#message_content')
+        var $inputMsg = $('#field-message')
         $inputMsg.focus()
 
         // POUR SCROLLBAR EN BAS
