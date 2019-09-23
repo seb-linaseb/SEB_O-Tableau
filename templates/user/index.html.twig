@@ -46,7 +46,6 @@
                         <a href="{{ path('document_students') }}">Ajouter un bulletin</a>
                     </div>
                 </div>
-                
                 <div class="profil_classe">
                     <h1>Ma classe</h1>
                     
@@ -67,51 +66,58 @@
                     {% else %}
                         <p class="alert_class_null">Cet enseignant n'as pas de classe</p>
                     {% endif %}
-                </div>
-                <h1 class="children_title">Mes enfants</h1>
-                {% for children in app.user.students %}
-                    <div class="profil_children">
-                        <a href="{{ path('student_index', { 'id': children.id }) }}">
-                            <i class="fas fa-user-graduate"></i>
-                            <h2>{{ children.name }} {{ children.firstname }}</h2>
-                            <p>{{ children.classroom.name }}</p>
-                        </a>
+                
+                <div class="children_doc_flex">
+                    <div class="children_flex">
+                        <h1 class="children_title">Mes enfants</h1>
+                        {% for children in app.user.students %}
+                            <div class="profil_children">
+                                <a href="{{ path('student_index', { 'id': children.id }) }}">
+                                    <i class="fas fa-user-graduate"></i>
+                                    <h2>{{ children.name }} {{ children.firstname }}</h2>
+                                    <p>{{ children.classroom.name }}</p>
+                                </a>
+                            </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
-                <div class="profil_doc_staff">
-                    <h1>Vie de l'école</h1>
-                    <div>
-                        {% for doc in documents %}
-                            <a href="../docs/{{ doc.documenturl }}">
-                                <i class="fas fa-file-pdf"></i>
-                                <p>{{ doc.name }}</p>
-                            </a>     
-                        {% endfor %}              
+                    <div class="profil_doc_staff">
+                        <h1>Vie de l'école</h1>
+                        <div>
+                            {% for doc in documents %}
+                                <a href="../docs/{{ doc.documenturl }}">
+                                    <i class="fas fa-file-pdf"></i>
+                                    <p>{{ doc.name }}</p>
+                                </a>     
+                            {% endfor %}              
+                        </div>
                     </div>
                 </div>             
             {% else %}
-                <h1 class="children_title">Mes enfants</h1>
-                {% for children in app.user.students %}
-                <div class="profil_children">
-                    <a href="{{ path('student_index', { 'id': children.id }) }}">
-                        <i class="fas fa-user-graduate"></i>
-                        <h2>{{ children.name }} {{ children.firstname }}</h2>
-                        <p>{{ children.classroom.name }}</p>
-                    </a>
-                </div>
-                {% endfor %}
-                <div class="profil_doc">
-                    <h1>Vie de l'école</h1>
-                    <div>
-                        {% for doc in documents %}
-                            <a href="../docs/{{ doc.documenturl }}">
-                                <i class="fas fa-file-pdf"></i>
-                                <p>{{ doc.name }}</p>
-                            </a>     
-                        {% endfor %}              
-                </div>
-                        
-                </div>
+                <div class="children_doc_flex">
+                    <div class="children_flex">
+                        <h1 class="children_title">Mes enfants</h1>
+                        {% for children in app.user.students %}
+                            <div class="profil_children">
+                                <a href="{{ path('student_index', { 'id': children.id }) }}">
+                                    <i class="fas fa-user-graduate"></i>
+                                    <h2>{{ children.name }} {{ children.firstname }}</h2>
+                                    <p>{{ children.classroom.name }}</p>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                        <div class="profil_doc">
+                            <h1>Vie de l'école</h1>
+                            <div>
+                                {% for doc in documents %}
+                                    <a href="../docs/{{ doc.documenturl }}">
+                                        <i class="fas fa-file-pdf"></i>
+                                        <p>{{ doc.name }}</p>
+                                    </a>     
+                                {% endfor %} 
+                            </div> 
+                        </div>            
+                </div> 
                 <div class="profil_choice">
                     <h1>Choix personnels</h1>
                     {% if app.user.imageAgreement == true  %}

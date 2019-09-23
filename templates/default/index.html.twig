@@ -38,7 +38,7 @@
             </tr>
              <tr>
                 <td>Mercredi</td>
-                <td>Fermer</td>
+                <td>Fermé</td>
             </tr>
             <tr>
                 <td>Jeudi</td>
@@ -49,21 +49,23 @@
                 <td>8h-12h ~ 13h-17h</td>
             </tr>
         </table>
-        <div class="map_vitrine">
-            <h1>Plan</h1>
-            <a href="https://www.google.fr/maps/dir//Groupe+Scolaire+La+Mare+L'Embuche,+12+Rue+d'Emery,+77184+%C3%89merainville/@47.1297346,3.380151,7z/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x47e60f82dc5d8e3f:0xb3cb9ff2b2a8bc02!3e0"><img src="{{ asset('img/map.png') }}" alt="#"></a>
-            <p><i class="fas fa-map-marker-alt"></i> Rue d'Emery - 77184 EMERAINVILLE</p>    
-            <p><i class="fas fa-envelope"></i> OTableau@ecole.io</p>
-            <p><i class="fas fa-phone-square-alt"></i> 01 23 45 67 89</p>
-        </div>
+        <div class="flex_form_map">
+            <div class="map_vitrine">
+                <h1>Plan</h1>
+                <a href="https://www.google.fr/maps/dir//Groupe+Scolaire+La+Mare+L'Embuche,+12+Rue+d'Emery,+77184+%C3%89merainville/@47.1297346,3.380151,7z/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x47e60f82dc5d8e3f:0xb3cb9ff2b2a8bc02!3e0"><img src="{{ asset('img/map.png') }}" alt="#"></a>
+                <p><i class="fas fa-map-marker-alt"></i> Rue d'Emery - 77184 EMERAINVILLE</p>    
+                <p><i class="fas fa-envelope"></i> OTableau@ecole.io</p>
+                <p><i class="fas fa-phone-square-alt"></i> 01 23 45 67 89</p>
+            </div>
 
-        <div class="form_vitrine">
-            <h1>Contact</h1>
+            <div class="form_vitrine">
+                <h1>Contact</h1>
 
-            {{ form_start(form) }}
-                {{ form_widget(form) }}
-                <button class="btn">{{ button_label|default('Nous contacter') }}</button>
-            {{ form_end(form) }}
+                {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <button class="btn">{{ button_label|default('Nous contacter') }}</button>
+                {{ form_end(form) }}
+            </div>
         </div>
     </div>
     
