@@ -28,14 +28,11 @@
         {% endfor %}
     </div>
     <div class="message_input">
-        <form id="field-form" class="message form">
-            <div class="field">
-                <label>Message</label>
+        <form id="field-form" class="message form">    
                 <input type="hidden" id="conversation-id" name="id" value="{{ conversation.id }}">
-                <input id="field-message" rows="2"  placeholder="Votre message"></input>
-            </div>
+                <input id="field-message" rows="2"  placeholder="Message.."></input>
             <div id="buttons">
-                <button class="ui button" id="sub-button" type="submit">Submit</button>
+                <button class="ui button" id="sub-button" type="submit"><i class="fas fa-arrow-circle-right"></i></button>
             </div>
         </form>
     </div>
@@ -62,7 +59,7 @@
 
     <script>
 
-        const url = new URL('http://92.243.9.5:3000/hub');
+        const url = new URL('http://localhost:3000/hub');
 
         url.searchParams.append('topic', 'http://monsite.com/ping/'+{{ id }});
 
