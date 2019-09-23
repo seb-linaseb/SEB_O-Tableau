@@ -147,9 +147,9 @@ class AdminCanteenController extends AbstractController
         ]);
   }
   /**
-   * @Route("/admin/canteen/update", name="admin_canteen_update_by_week")
+   * @Route("/admin/canteen/update/{id}", name="admin_canteen_update_by_week", requirements={"id"="\d+"})
    */
-  public function updateByWeek(ClassroomRepository $classroomRepository, StudentRepository $studentRepository, PresenceLunchRepository $presenceLunchRepository, CalendarRepository $calendarRepository){
+  public function updateByWeek($id,ClassroomRepository $classroomRepository, StudentRepository $studentRepository, PresenceLunchRepository $presenceLunchRepository, CalendarRepository $calendarRepository){
 
     // Si la semaine n'est pas fournie, on utilise la semaine correspondant à la date du jour système
     if(!isset($_GET['week'])) {
@@ -225,7 +225,7 @@ class AdminCanteenController extends AbstractController
     $week_day_7 = (clone $week_starting_day)->modify("+" . 6 . "day")->format('d/m/Y');
     
     // Récupérer la liste des classes
-    $classrooms = $classroomRepository->findAll();
+    $classroom = $classroomRepository->find($id);
     
     // Récupérer la liste des élèves
     $students = $studentRepository->findAll();
@@ -268,7 +268,7 @@ class AdminCanteenController extends AbstractController
       'week_day_5' => $week_day_5,
       'week_day_6' => $week_day_6,
       'week_day_7' => $week_day_7,
-      'classrooms' => $classrooms,
+      'classroom' => $classroom,
       'students' => $students,
       //'presenceLunches' => $presenceLunches,
       'dates' => $dates,

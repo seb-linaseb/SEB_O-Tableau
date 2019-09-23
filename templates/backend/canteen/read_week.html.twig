@@ -10,7 +10,7 @@
         <h1>Semaine N° {{ actual_week }} - Année N° {{ actual_year }} - du {{ week_day_1 }} au {{ week_day_5 }}</h1> 
         <div class="canteen_back_nav_flex">
             <a href="{{ path('admin_canteen_read_by_week') }}?year={{ previous_week_year }}&week={{ previous_week_week }}">&lt;</a>  
-            <a href="{{ path('admin_canteen_update_by_week') }}" class="canteen_back_nav_flex_edit">Modifier</a>
+           
             <a href="{{ path('admin_canteen_read_by_week') }}?year={{ next_week_year }}&week={{ next_week_week }}">&gt;</a>
         </div>
     </div>
@@ -190,6 +190,7 @@
                         {% endfor %} 
                     </tr>
                 {% endfor %}
+                 <a href="{{ path('admin_canteen_update_by_week', {'id': classroom.id })}}" class="canteen_back_nav_flex_edit">Modifier</a>
           </table>
         </div>
     {% endfor %}
