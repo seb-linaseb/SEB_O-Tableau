@@ -171,7 +171,7 @@ class ConversationController extends AbstractController
            
            
             $user = $this->getUser();
-            $id = $user->getId();
+            $idUser = $user->getId();
             //dump($currentMessage);die;
             if($currentMessage!=null){
 
