@@ -1724,7 +1724,7 @@ label.required {
 /* BACKEND INDEX */
 
 .backend_index {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 40%;
 }
 
@@ -1740,12 +1740,12 @@ label.required {
     text-align: center;
     margin-top: 5%;
     padding-top: 2%;
-    border-bottom: 2px solid white;
+    border-bottom: 4px solid white;
     width: 90%;
     margin: auto;
     padding-bottom: 5%;
     color: gray;
-    font-weight: bold;
+    font-weight: bold;   
 }
 
 
@@ -1766,7 +1766,7 @@ label.required {
     left: 40px;
     height: 80px;
     max-width: 100%;
-    background-color: #ffdada ;
+    background-color: #ffeaea;
     color: gray;
     font-weight: bold;
     text-align: center;
@@ -1797,7 +1797,7 @@ label.required {
 /* BACKEND DOCUMENT */
 
 .backend_document {
-    background-color: #ffdada;
+    background-color: #ffdad987;
 }
 
 .backend_document a i {
@@ -1905,7 +1905,7 @@ label.required {
 
 
 .backend_document_show {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 100%;
 }
 
@@ -1954,7 +1954,7 @@ label.required {
 }
 
 .document_show_update {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 100%;
 }
 
@@ -2009,7 +2009,7 @@ label.required {
 }
 
 .backend_document_show_class {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 120%;
 }
 
@@ -2035,7 +2035,7 @@ label.required {
 
 
 .backend_document_children {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 120%;
 }
 
@@ -2167,7 +2167,7 @@ label.required {
 }
 
 .backend_alert_show  {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 110%;
 }
 
@@ -2205,7 +2205,7 @@ label.required {
 }
 
 .alert_show_update  {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 110%;
 }
 
@@ -2254,7 +2254,7 @@ label.required {
 
 
 .backend_actuality {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 110%;
 }
 
@@ -2286,7 +2286,7 @@ label.required {
 }
 
 .backend_alert  {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 80%;
 }
 
@@ -2336,7 +2336,7 @@ label.required {
 }
 
 .backend_actuality_show  {
-    background-color: #ffdada;
+    background-color: #ffdad987;
 }
 
 .backend_actuality_show a i {
@@ -2373,7 +2373,7 @@ label.required {
 
 .actuality_show_update  {
     padding-bottom: 40%;
-    background-color: #ffdada;
+    background-color: #ffdad987;
 }
 
 .actuality_show_update a i {
@@ -2442,7 +2442,7 @@ label.required {
 /* BACKEND ELEVE */
 
 .backend_student {
-    background-color: #ffdada; 
+    background-color: #ffdad987; 
 }
 
 .backend_student a i {
@@ -2696,7 +2696,7 @@ label.required {
     padding-top: 10%;
     text-align: center;
     padding-bottom: 50%;
-    background-color: #ffdada;
+    background-color: #ffdad987;
 }
 
 .list_student h2 {
@@ -2723,7 +2723,7 @@ label.required {
 }
 
 .backend_student_show {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 120%;
 }
 
@@ -2757,14 +2757,14 @@ label.required {
 }
 
 .backend_student_show div {
-    background-color: #ffdada;
+    background-color: #ffdad987;
 }
 
 .backend_student_show .show_delete_update {
     display: flex;
     justify-content: space-evenly;
     padding-top: 7%;
-    background-color: #ffdada;
+    background-color: #ffdad987;
 }
 
 .backend_student_show .show_delete_update form button {
@@ -2785,7 +2785,7 @@ label.required {
 
 .student_show_update {
     padding-bottom: 50%;
-    background-color: #ffdada;
+    background-color: #ffdad987;
 }
 
 .student_show_update form #student div #student_birthdate #student_birthdate_month  {
@@ -2968,7 +2968,7 @@ label.required {
 /* BACKEND ROLE */
 
 .backend_role {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 100%;
 }
 
@@ -3031,7 +3031,7 @@ label.required {
 }
 
 .backend_role_edit {
-    background: #ffdada;
+    background: #ffdad987;
     padding-bottom: 110%;
 }
 
@@ -3062,7 +3062,7 @@ label.required {
 }
 
 .backend_role_new {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 120%;
 }
 
@@ -3146,7 +3146,7 @@ label.required {
 }
 
 .backend_school_show  {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 100%;
 }
 
@@ -3212,7 +3212,7 @@ label.required {
 }
 
 .backend_user {
-    background-color: #ffdada;
+    background-color: #ffdad987;
 }
 
 .backend_user a i {
@@ -3332,7 +3332,7 @@ label.required {
 }
 
 .backend_user_show {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 80%;
 }
 
@@ -3379,7 +3379,7 @@ label.required {
 
 .user_show_update {
     padding-bottom: 50%;
-    background-color: #ffdada;
+    background-color: #ffdad987;
 }
 
 .user_show_update a i {
@@ -3461,7 +3461,7 @@ label.required {
 }
 
 .backend_person  {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 50%;
 }
 
@@ -3564,7 +3564,7 @@ label.required {
 }
 
 .backend_person_new {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 120%;
 }
 
@@ -3663,9 +3663,10 @@ label.required {
 }
 
 .backend_classroom_new  {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 120%;
 }
+
 
 .backend_classroom_new a i {
     font-size: 6em;
@@ -3720,12 +3721,12 @@ label.required {
 }
 
 .backend_classroom_edit {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 100%;
 }
 
 .backend_person_edit  {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 110%;
 }
 
@@ -3789,7 +3790,7 @@ label.required {
 
 
 .calandar_content {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 70%;
 }
 
@@ -3931,7 +3932,7 @@ tr.calendar_table_dayname {
 /* BACKEND CANTEEN */
 
 .backend_canteen {
-    background-color: #ffdada;
+    background-color: #ffdad987;
     padding-bottom: 40%;
 }
 

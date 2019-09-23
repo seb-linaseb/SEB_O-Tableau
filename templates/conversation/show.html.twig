@@ -75,13 +75,13 @@
             const div = document.getElementById('message_list');
             const bubble = document.createElement('div');
             
-            bubble.classList.add('message')
-            
+            bubble.className = 'message';
+            const message = document.createElement('p');
+            bubble.appendChild(message);
+
             div.appendChild(bubble);
 
-            bubble.innerHTML = newData.message;
-
-            const message = document.createElement('p');
+            message.innerHTML = newData.message;
             
         }  
     
