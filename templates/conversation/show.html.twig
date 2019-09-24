@@ -71,11 +71,17 @@
         eventSource.onmessage = e => {
             
             newData = JSON.parse(e.data);
-                console.log(newData)
+                
             const div = document.getElementById('message_list');
             const bubble = document.createElement('div');
+
             
-            bubble.className = 'message';
+             if ({{ idUser }} == {{ postId }}){
+                bubble.className = 'message';
+            } else { 
+                bubble.className = 'message_2';
+            }
+            
             const message = document.createElement('p');
             bubble.appendChild(message);
 
@@ -83,6 +89,16 @@
 
             message.innerHTML = newData.message;
             
+
+
+            $('#sub-button').on( 'click')
+
+            var inputMessage = $('#field-message');
+        
+            inputMessage.val('');
+            
+            inputMessage.focus()
+
         }  
     
     </script>

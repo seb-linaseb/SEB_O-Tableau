@@ -59,7 +59,7 @@ input:checked + .slider:before {
 }
 
 
-/* SEB */
+/* PAGE - CANTEEN DAY */
 /************************************************/
 
 
@@ -120,5 +120,71 @@ input:checked + .slider_canteen:before {
 }
 
 .slider_canteen.round:before {
+  border-radius: 50%;
+}
+
+/* PAGE - CALENDAR */
+/************************************************/
+
+
+.switch_calendar {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  top: 10px;
+}
+
+.switch_calendar input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider_calendar  {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #CCCCCC;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider_calendar:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider_calendar {
+  background-color: #2196F3;
+}
+
+input:focus + .slider_calendar {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider_calendar:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider_calendar.round {
+  border-radius: 34px;
+}
+
+.slider_calendar.round:before {
   border-radius: 50%;
 }
