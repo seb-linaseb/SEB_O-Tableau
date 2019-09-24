@@ -50,4 +50,14 @@ class MessageRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findLast(): ?Message
+    {
+        return $this->createQueryBuilder('m')
+            ->orderBy('m.created_at', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getSingleResult();
+        ;
+    }
 }

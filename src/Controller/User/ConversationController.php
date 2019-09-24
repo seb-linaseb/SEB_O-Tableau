@@ -9,6 +9,7 @@ use App\Entity\Conversation;
 use App\Entity\MessageStatus;
 use App\Form\ConversationType;
 use App\Repository\UserRepository;
+use App\Repository\MessageRepository;
 use Symfony\Component\Mercure\Update;
 use App\Repository\ClassroomRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -155,100 +156,105 @@ class ConversationController extends AbstractController
     }
     
 
-    /**
+   /**
      * @Route("/{id}", name="show", methods={"GET","POST"}), requirements={"id"="\d+"})
      */
-    public function show(Publisher $publisher,Conversation $conversation, Request $request,$id)
+    public function show(Publisher $publisher,Conversation $conversation, Request $request,$id, MessageRepository $messageRepository)
     {   
-        //$conversation->setNewMessage(false);
-        
-        $message = new Message();
-        $form = $this->createForm(MessageType::class, $message);
-        $form->handleRequest($request);
-
-        // if ($form->isSubmitted() && $form->isValid()) {
-            $currentMessage= $request->request->get('message');
+       //$conversation->setNewMessage(false);
+       $user = $this->getUser();
+       $idUser = $user->getId();
+       $message = new Message();
+       $form = $this->createForm(MessageType::class, $message);
+       $form->handleRequest($request);
+       
+       // if ($form->isSubmitted() && $form->isValid()) {
+           $currentMessage= $request->request->get('message');
+          
+          
            
-           
-            $user = $this->getUser();
-            $idUser = $user->getId();
-            //dump($currentMessage);die;
-            if($currentMessage!=null){
+           //dump($currentMessage);die;
+           if($currentMessage!=null){
 
-                $message->setContent($currentMessage); 
-                $message->setUserPost($user);
-                $message->addConversation($conversation);
-                $entityManager = $this->getDoctrine()->getManager();            
-                $entityManager->persist($message);
-                $entityManager->flush();
-                $users = [];
-                $users [] = $conversation->getUserConsult();
-                $users [] = $conversation->getUserParticipate();
-                              
-               
+               $message->setContent($currentMessage); 
+               $message->setUserPost($user);
+               $message->addConversation($conversation);
+               $entityManager = $this->getDoctrine()->getManager();            
+               $entityManager->persist($message);
+               $entityManager->flush();
+               $users = [];
+               $users [] = $conversation->getUserConsult();
+               $users [] = $conversation->getUserParticipate();
+                             
+              
+              
+                   $data=json_encode(
+   
+                       [  
                        
-                    $data=json_encode(
-    
-                        [  
-                        
-                            "message"=>$message->getContent()
-                            
-                        ]);
-                    
-                            
-                    $update1 = new Update('http://monsite.com/ping/'.$id , $data);   
-                    $id2 = $publisher($update1);
-                
-                
-                // dump($currentMessage);
-                // die;
-                // return $this->redirectToRoute('conversation_show', ['id'=> $conversation->getId()]);
-            }
-             
-            
-            
-         
-            
-            $this->addFlash(
-                'success',
-                'Enregistrement effectué'
-            );
-            
-            
-        // }
+                           "message"=>$message->getContent()
+                           
+                       ]);
+                   
+                           
+                   $update1 = new Update('http://monsite.com/ping/'.$id , $data);   
+                   $id2 = $publisher($update1);
+               
+                   
+               // dump($currentMessage);
+               // die;
+               // return $this->redirectToRoute('conversation_show', ['id'=> $conversation->getId()]);
+           } 
+                               
+            $lastMessage = $messageRepository->findLast();
+            $postId = $lastMessage->getUserPost()->getId();
+           
+           
         
-        $okToShow = [];
-        $messages = $conversation->getMessages();
-        //$okToShow [] = $messages;
-        foreach ($messages as $key => $message) {
-            $messageRemoves = $message->getMessageStatuses();
-            $okToShow[] = $message;
-            //dump($messageRemoves);
+           
+           $this->addFlash(
+               'success',
+               'Enregistrement effectué'
+           );
+           
+           
+       // }
+       
+       $okToShow = [];
+       $messages = $conversation->getMessages();
+       //$okToShow [] = $messages;
+       foreach ($messages as $key => $message) {
+           $messageRemoves = $message->getMessageStatuses();
+           $okToShow[] = $message;
+           //dump($messageRemoves);
 
-            foreach ($messageRemoves as $key => $messageRemove) {
-                $userRemove = $messageRemove->getUser();
-                $user = $this->getUser();
-                //dump($userRemove);
-                if ($userRemove == $user) {
-                    $okToRemove = $messageRemove->getMessage();
-                    $key = array_search($okToRemove, $okToShow);
-                    //je me retire du tableau
-                    unset($okToShow[$key]);
-                    //dump($okToRemove);
-                }
-            }
+           foreach ($messageRemoves as $key => $messageRemove) {
+               $userRemove = $messageRemove->getUser();
+               $user = $this->getUser();
+               //dump($userRemove);
+               if ($userRemove == $user) {
+                   $okToRemove = $messageRemove->getMessage();
+                   $key = array_search($okToRemove, $okToShow);
+                   //je me retire du tableau
+                   unset($okToShow[$key]);
+                   //dump($okToRemove);
+               }
+           }
 
 
-        }
-        //dump($okToShow);
-        //die;
-
+       }
+       //dump($okToShow);
+       //die;
+       
         return $this->render('conversation/show.html.twig', [
             'conversation' => $conversation,
             'okToShow' =>$okToShow,
             'formMessage' => $form->createView(),
-            'id' => $id
+            'id' => $id,
+            'idUser'=> $idUser,
+            'postId'=>$postId,
         ]);
+       
     }
 
 
