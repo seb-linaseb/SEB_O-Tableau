@@ -2,7 +2,7 @@ var app = {
     // Environnement de DEV => à paramétrer selon votre localhost
     // baseUrl: 'http://localhost/Projet-Apo/O-Tableau/public/conversation/',
     // Environnement de PROD = serveur GANDI
-    baseUrl: 'http://92.243.9.5/conversation/',
+    baseUrl: 'http://otableau.school/conversation/',
     init: function() {
         console.log('init');
         
