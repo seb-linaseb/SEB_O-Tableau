@@ -3,9 +3,9 @@
 {% block title %}O'Tableau | Cantine{% endblock %}
 
 {% block content %}
-
+<style>body {margin-top: 200px;}</style>
 <div class="profil_classe">
-    <table class="calendar__table">
+    <table class="calendar_table">
         <caption>{{ my_classroom.name }}
             <a href="{{ path('canteen_day_read') }}?date_of_day={{ date_of_yesterday }}" class="btn btn-primary">&lt;</a>
             {{ date_of_day_to_display }}
@@ -13,9 +13,9 @@
         </caption>
         <thead>
             <tr class="calendar__table__dayname">
-                <td class="calendar__day">Nom élève</td>
-                <td class="calendar__day">Présence</td>
-                <td class="calendar__day">Repas</td>
+                <td class="calendar_day">Nom élève</td>
+                <td class="calendar_day">Présence</td>
+                <td class="calendar_day">Repas</td>
             </tr>
         </thead>
 
@@ -32,22 +32,15 @@
                     <tr>
                         <input type="hidden" id="id" name="{{ lunchByDate.id }}" value="{{ lunchByDate.id }}">
                         {# {% if studentId == student.id %} #}
-                        <td class="calendar__day">
+                        <td class="calendar_day">
                             {{ lunchByDate.studentName }} {{ lunchByDate.studentFirstname }}
                             {# {{ form_label(form.student) }} #}
                             {# {{ form_widget(form.student) }} #}
                         </td>
-                        {% for lunchByDate in lunchesByDate %}
+                        {# {% for lunchByDate in lunchesByDate %} #}
                         {# {{ dump(lunchByDate) }} #}   
-                        <tr>
-                            <input type="hidden" id="id" name="{{ lunchByDate.id }}" value="{{ lunchByDate.id }}">
-                            {# {% if studentId == student.id %} #}
-                            <td class="calendar__day">
-                                {{ lunchByDate.studentName }} {{ lunchByDate.studentFirstname }}
-                                {# {{ form_label(form.student) }} #}
-                                {# {{ form_widget(form.student) }} #}
-                            </td>
-                            <td class="calendar__day">
+
+                            <td class="calendar_day">
                                 {# {{ dump(lunchByDate.isPresent) }} #}
                                 <input type="checkbox" id="presence" name="{{ lunchByDate.id }}-presence"
                                     {% if lunchByDate.isPresent == true %}
@@ -66,15 +59,8 @@
                                 {# {{ form_label(form.is_present) }} #}
                                 {# {{ form_widget(form.is_present) }} #}
                             </td>
-                            <td class="calendar__day">
+                            <td class="calendar_day">
                                 <input type="checkbox" id="eated" name="{{ lunchByDate.id }}-eated"
-                                    {% if lunchByDate.hasEated == true %}
-                                    checked
-                                    {# {{ lunchByDate.hasEated }} #}
-                                    {% elseif lunchByDate.hasEated == false %}
-                                    unchecked
-                                    {% endif %}
-                                    <input type="checkbox" id="eated" name="{{ lunchByDate.id }}-eated"
                                     {% if lunchByDate.hasEated == true %}
                                     checked
                                     {# {{ lunchByDate.hasEated }} #}
@@ -89,41 +75,7 @@
                             </td>
                             {# {{ form_end(form) }} #}
                             {# {% endif %} #}
-                        </tr>
-                        {# {% endfor %} #}
-                        <td class="calendar__day">
-                            {# {{ dump(lunchByDate.isPresent) }} #}
-                            <input type="checkbox" id="presence" name="{{ lunchByDate.id }}-presence"
-                            {% if lunchByDate.isPresent == true %}
-                            checked
 
-                            {# {% if lunchByDate.isPresent == 1 %} checked #}
-                            {# {{ lunchByDate.isPresent }} checked #}
-                            {% elseif lunchByDate.isPresent == false %}
-                            unchecked
-                            {# {% if lunchByDate.isPresent == 0 %} unchecked #}
-                            {# {{ lunchByDate.isPresent }} unchecked #}
-                            {% endif %}
-
-                            {# {% endif %} #}
-                            >
-                            {# {{ form_label(form.is_present) }} #}
-                            {# {{ form_widget(form.is_present) }} #}
-                        </td>
-                        <td class="calendar__day">
-                            <input type="checkbox" id="eated" name="{{ lunchByDate.id }}-eated"
-                            {% if lunchByDate.hasEated == true %}
-                            checked
-                            {# {{ lunchByDate.hasEated }} #}
-                            {% elseif lunchByDate.hasEated == false %}
-                            unchecked
-                            {% endif %}
-                            >
-                            {# {{ form_label(form.has_eated) }} #}
-                            {# {{ form_widget(form.has_eated) }} #}
-                        </td>
-                        {# {{ form_end(form) }} #}
-                        {# {% endif %} #}
                     </tr>
                     {# {% endfor %} #}
                 {% endfor %}
