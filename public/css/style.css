@@ -1684,6 +1684,73 @@ input#field-message {
 }
 
 
+
+/* PAGE CANTINE/PRESENCE */
+
+.canteen_presence_content {
+    background-color: #f4fdfd;
+    padding-bottom: 150%;
+}
+
+
+.canteen_presence_content h1 {
+    font-size: 5em;
+    text-align: center;
+    padding-top: 5%;
+    font-weight: bold;
+}
+
+.canteen_presence_content p {
+    font-size: 3em;
+    text-align: center;
+    padding-top: 2%;
+}
+
+.canteen_presence_content-flex {
+    display: flex;
+    justify-content: space-between;
+    margin: 3%;
+}
+
+.canteen_presence_content-flex a {
+    font-size: 7em;
+}
+
+.canteen_presence_content_input { 
+    border: none;
+    color: white;
+    font-size: 2.5em;
+    background: gray;
+    padding: 10px;
+    border-radius: 7px;
+    margin-left: 38%;
+}
+
+.canteen_presence_content .calendar_table {
+    width: 80%;
+    margin: auto;
+    font-size: 2.5em;
+    margin-top: 7%;
+}
+
+.canteen_presence_content .calendar_table .calendar__table__dayname {
+    font-weight: bold;
+}
+
+.canteen_presence_content .calendar_table tbody tr .calendar_day {
+    padding: 25px;
+}
+
+.canteen_presence_content .calendar_table thead tr .calendar_day {
+    padding: 25px;
+}
+
+
+
+
+
+
+
 /* FOOTER */
 
 .footer {
@@ -1708,6 +1775,7 @@ input#field-message {
 .footer p a:hover {
     color: #02312b;
 }
+
 
 /* FOOTER VITRINE  */
 
