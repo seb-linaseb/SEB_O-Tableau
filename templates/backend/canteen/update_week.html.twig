@@ -7,15 +7,13 @@
     <div class="backend_canteen">
         <a href="{{ path('admin_default_index') }}"><i class="fas fa-angle-left"></i></a>
         <div class="canteen_back_nav">
-            <h1>Semaine N° {{ actual_week }} - Année N° {{ actual_year }}</h1>
-            <div class="canteen_back_nav_flex">
-                <a href="{{ path('admin_canteen_read_by_week') }}?year={{ previous_week_year }}&week={{ previous_week_week }}">&lt;</a>  
-                <a href="{{ path('admin_canteen_read_by_week') }}?year={{ next_week_year }}&week={{ next_week_week }}">&gt;</a>
-            </div>
+            <h1>Semaine N° {{ actual_week }}</h1> 
+            <h1 class="h1_update">du {{ week_day_1 }} au {{ week_day_5 }}</h1>
         </div>
 
         {# {% for classroom in classrooms %} #}
             <form action="{{ path('admin_canteen_save_by_week') }}" method="POST">
+            <div class="calendar__table_content">
                 <table class="calendar__table">
                     <caption>{{ classroom.name }}</caption>
                     <tr class="calendar__table__dayname">
@@ -29,277 +27,275 @@
                         {# <td><div class="calendar__column__title">Dimanche<br>{{ week_day_7 }}</div></td> #}
                     </tr>
 
-
-
-
-
                     {% for i in 1..1 %}
                     {% for student in students if student.classroom == classroom %}
                     
                         <tr>
-                                <td>
-                                    {{ student }}
-                                </td>
-                                
-
-                                {% for id in dates %}
-                                {% for presenceLunch in id.presenceLunches %}
-                                {% if actual_week == id.week  and week_day_1 == id.calendarDate and presenceLunch.calendar.id == id.id and presenceLunch.student == student %} 
-                                    <td class="calendar__day">
-
-                <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}">
-                                
-                                    <div> 
-                                    
-                                    <br>
-                                    Présent : 
-                                    <input type="checkbox" id="presence{{ presenceLunch.id }}" name="presence{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
-                                    {% if presenceLunch.IsPresent == 1 %}
-                                        checked
-                                    {% else %}
-                                        unchecked
-                                    {% endif %}
-                                    > 
-                                    </div>
-                                    <div> 
-                                    {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
-                                    <br>
-                                    Commandé : 
-                                    <input type="checkbox" id="presence{{ presenceLunch.id }}" name="ordered{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
-                                    {% if presenceLunch.IsOrdered == 1 %}
-                                        checked
-                                    {% else %}
-                                        unchecked
-                                    {% endif %}
-                                    > 
-                                    </div>
-                                    <div> 
-                                    {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
-                                    <br>
-                                    Consommé : 
-                                    <input type="checkbox" id="presence{{ presenceLunch.id }}" name="eat{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
-                                    {% if presenceLunch.HasEated == 1 %}
-                                        checked
-                                    {% else %}
-                                        unchecked
-                                    {% endif %}
-                                    > 
-                                    </div>
-                                </td>
-                                
-                                {% endif %}
-                                
-                                {% endfor %} 
-                                {% endfor %} 
-
+                            <td>
+                                {{ student }}
+                            </td>
+                            
 
                             {% for id in dates %}
-                                {% for presenceLunch in id.presenceLunches %}
-                                {% if actual_week == id.week  and week_day_2 == id.calendarDate and presenceLunch.calendar.id == id.id and presenceLunch.student == student %} 
-                            <td class="calendar__day">
+                            {% for presenceLunch in id.presenceLunches %}
+                            {% if actual_week == id.week  and week_day_1 == id.calendarDate and presenceLunch.calendar.id == id.id and presenceLunch.student == student %} 
+                                <td class="calendar__day">
 
-                <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}">
+                                    <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}">
+                            
+                                <div> 
                                 
-                                    <div> 
-                                    
-                                    <br>
-                                    Présent : 
-                                    <input type="checkbox" id="presence{{ presenceLunch.id }}" name="presence{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
-                                    {% if presenceLunch.IsPresent == 1 %}
-                                        checked
-                                    {% else %}
-                                        unchecked
-                                    {% endif %}
-                                    > 
-                                    </div>
-                                    <div> 
-                                    {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
-                                    <br>
-                                    Commandé : 
-                                    <input type="checkbox" id="presence{{ presenceLunch.id }}" name="ordered{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
-                                    {% if presenceLunch.IsOrdered == 1 %}
-                                        checked
-                                    {% else %}
-                                        unchecked
-                                    {% endif %}
-                                    > 
-                                    </div>
-                                    <div> 
-                                    {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
-                                    <br>
-                                    Consommé : 
-                                    <input type="checkbox" id="presence{{ presenceLunch.id }}" name="eat{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
-                                    {% if presenceLunch.HasEated == 1 %}
-                                        checked
-                                    {% else %}
-                                        unchecked
-                                    {% endif %}
-                                    > 
-                                    </div>
-                                </td>
-                                {% endif %}
-                                {% endfor %} 
-                                {% endfor %} 
-
-                                {% for id in dates %}
-                                {% for presenceLunch in id.presenceLunches %}
-                                {% if actual_week == id.week  and week_day_3 == id.calendarDate and presenceLunch.calendar.id == id.id and presenceLunch.student == student %} 
-                            <td class="calendar__day">
-
-                <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}">
                                 
-                                    <div> 
-                                    
-                                    <br>
-                                    Présent : 
+                                P : 
                                 <input type="checkbox" id="presence{{ presenceLunch.id }}" name="presence{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
-                                    {% if presenceLunch.IsPresent == 1 %}
-                                        checked
-                                    {% else %}
-                                        unchecked
-                                    {% endif %}
-                                    > 
-                                    </div>
-                                    <div> 
-                                    {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
-                                    <br>
-                                    Commandé : 
-                                    <input type="checkbox" id="presence{{ presenceLunch.id }}" name="ordered{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
-                                    {% if presenceLunch.IsOrdered == 1 %}
-                                        checked
-                                    {% else %}
-                                        unchecked
-                                    {% endif %}
-                                    > 
-                                    </div>
-                                    <div> 
-                                    {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
-                                    <br>
-                                    Consommé : 
-                                    <input type="checkbox" id="presence{{ presenceLunch.id }}" name="eat{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
-                                    {% if presenceLunch.HasEated == 1 %}
-                                        checked
-                                    {% else %}
-                                        unchecked
-                                    {% endif %}
-                                    > 
-                                    </div>
-                                </td>
+                                {% if presenceLunch.IsPresent == 1 %}
+                                    checked
+                                {% else %}
+                                    unchecked
                                 {% endif %}
-                                {% endfor %} 
-                                {% endfor %}
+                                > 
+                                </div>
+                                <div> 
+                                {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
+                                
+                                C : 
+                                <input type="checkbox" id="presence{{ presenceLunch.id }}" name="ordered{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
+                                {% if presenceLunch.IsOrdered == 1 %}
+                                    checked
+                                {% else %}
+                                    unchecked
+                                {% endif %}
+                                > 
+                                </div>
+                                <div> 
+                                {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
+                                
+                                M : 
+                                <input type="checkbox" id="presence{{ presenceLunch.id }}" name="eat{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
+                                {% if presenceLunch.HasEated == 1 %}
+                                    checked
+                                {% else %}
+                                    unchecked
+                                {% endif %}
+                                > 
+                                </div>
+                            </td>
+                            
+                            {% endif %}
+                            
+                            {% endfor %} 
+                            {% endfor %} 
 
+
+                        {% for id in dates %}
+                            {% for presenceLunch in id.presenceLunches %}
+                            {% if actual_week == id.week  and week_day_2 == id.calendarDate and presenceLunch.calendar.id == id.id and presenceLunch.student == student %} 
+                        <td class="calendar__day">
+
+                            <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}">
+                            
+                                <div> 
+                                
+                                P : 
+                                <input type="checkbox" id="presence{{ presenceLunch.id }}" name="presence{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
+                                {% if presenceLunch.IsPresent == 1 %}
+                                    checked
+                                {% else %}
+                                    unchecked
+                                {% endif %}
+                                > 
+                                </div>
+                                <div> 
+                                {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
+                                
+                                C : 
+                                <input type="checkbox" id="presence{{ presenceLunch.id }}" name="ordered{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
+                                {% if presenceLunch.IsOrdered == 1 %}
+                                    checked
+                                {% else %}
+                                    unchecked
+                                {% endif %}
+                                > 
+                                </div>
+                                <div> 
+                                {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
+                            
+                                M : 
+                                <input type="checkbox" id="presence{{ presenceLunch.id }}" name="eat{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
+                                {% if presenceLunch.HasEated == 1 %}
+                                    checked
+                                {% else %}
+                                    unchecked
+                                {% endif %}
+                                > 
+                                </div>
+                            </td>
+                            {% endif %}
+                            {% endfor %} 
+                            {% endfor %} 
 
                             {% for id in dates %}
+                            {% for presenceLunch in id.presenceLunches %}
+                            {% if actual_week == id.week  and week_day_3 == id.calendarDate and presenceLunch.calendar.id == id.id and presenceLunch.student == student %} 
+                            <td class="calendar__day">
 
-                                {% for presenceLunch in id.presenceLunches %}
-                                
-                                {% if actual_week == id.week  and week_day_4 == id.calendarDate and presenceLunch.calendar.id == id.id and presenceLunch.student == student %} 
-                                <td class="calendar__day">
-
-                <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}">
-                                
-                                    <div> 
-                                    
-                                    <br>
-                                    Présent : 
-                                    <input type="checkbox" id="presence{{ presenceLunch.id }}" name="presence{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
-                                    {% if presenceLunch.IsPresent == 1 %}
-                                        checked
-                                    {% else %}
-                                        unchecked
-                                    {% endif %}
-                                    > 
-                                    </div>
-                                    <div> 
-                                    {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
-                                    <br>
-                                    Commandé : 
-                                    <input type="checkbox" id="presence{{ presenceLunch.id }}" name="ordered{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
-                                    {% if presenceLunch.IsOrdered == 1 %}
-                                        checked
-                                    {% else %}
-                                        unchecked
-                                    {% endif %}
-                                    > 
-                                    </div>
-                                    <div> 
-                                    {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
-                                    <br>
-                                    Consommé : 
-                                    <input type="checkbox" id="presence{{ presenceLunch.id }}" name="eat{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
-                                    {% if presenceLunch.HasEated == 1 %}
-                                        checked
-                                    {% else %}
-                                        unchecked
-                                    {% endif %}
-                                    > 
-                                    </div>
-                                </td>
+                                <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}">
+                            
+                                <div> 
+                                                                
+                                P : 
+                                <input type="checkbox" id="presence{{ presenceLunch.id }}" name="presence{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
+                                {% if presenceLunch.IsPresent == 1 %}
+                                    checked
+                                {% else %}
+                                    unchecked
                                 {% endif %}
-                                {% endfor %} 
-                                {% endfor %}
-
-
-                            {% for id in dates %}
-                                {% for presenceLunch in id.presenceLunches %}
-                                {% if actual_week == id.week  and week_day_5 == id.calendarDate and presenceLunch.calendar.id == id.id and presenceLunch.student == student %} 
-                                <td class="calendar__day">
-
-                <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}">
+                                > 
+                                </div>
+                                <div> 
+                                {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
                                 
-                                    <div> 
-                                    
-                                    <br>
-                                    Présent : 
-                                    <input type="checkbox" id="presence{{ presenceLunch.id }}" name="presence{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
-                                    {% if presenceLunch.IsPresent == 1 %}
-                                        checked
-                                    {% else %}
-                                        unchecked
-                                    {% endif %}
-                                    > 
-                                    </div>
-                                    <div> 
-                                    {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
-                                    <br>
-                                    Commandé : 
-                                    <input type="checkbox" id="presence{{ presenceLunch.id }}" name="ordered{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
-                                    {% if presenceLunch.IsOrdered == 1 %}
-                                        checked
-                                    {% else %}
-                                        unchecked
-                                    {% endif %}
-                                    > 
-                                    </div>
-                                    <div> 
-                                    {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
-                                    <br>
-                                    Consommé : 
-                                    <input type="checkbox" id="presence{{ presenceLunch.id }}" name="eat{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
-                                    {% if presenceLunch.HasEated == 1 %}
-                                        checked
-                                    {% else %}
-                                        unchecked
-                                    {% endif %}
-                                    > 
-                                    </div>
-                                </td>
+                                C : 
+                                <input type="checkbox" id="presence{{ presenceLunch.id }}" name="ordered{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
+                                {% if presenceLunch.IsOrdered == 1 %}
+                                    checked
+                                {% else %}
+                                    unchecked
                                 {% endif %}
-                                {% endfor %} 
-                                {% endfor %}
+                                > 
+                                </div>
+                                <div> 
+                                {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
                                 
+                                M : 
+                                <input type="checkbox" id="presence{{ presenceLunch.id }}" name="eat{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
+                                {% if presenceLunch.HasEated == 1 %}
+                                    checked
+                                {% else %}
+                                    unchecked
+                                {% endif %}
+                                > 
+                                </div>
+                            </td>
+                            {% endif %}
+                            {% endfor %} 
+                            {% endfor %}
+
+
+                        {% for id in dates %}
+
+                            {% for presenceLunch in id.presenceLunches %}
+                            
+                            {% if actual_week == id.week  and week_day_4 == id.calendarDate and presenceLunch.calendar.id == id.id and presenceLunch.student == student %} 
+                            <td class="calendar__day">
+
+                                <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}">
+                            
+                                <div> 
                                 
-                {% endfor %} 
-                        </tr>
+                            
+                                P : 
+                                <input type="checkbox" id="presence{{ presenceLunch.id }}" name="presence{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
+                                {% if presenceLunch.IsPresent == 1 %}
+                                    checked
+                                {% else %}
+                                    unchecked
+                                {% endif %}
+                                > 
+                                </div>
+                                <div> 
+                                {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
+                            
+                                C : 
+                                <input type="checkbox" id="presence{{ presenceLunch.id }}" name="ordered{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
+                                {% if presenceLunch.IsOrdered == 1 %}
+                                    checked
+                                {% else %}
+                                    unchecked
+                                {% endif %}
+                                > 
+                                </div>
+                                <div> 
+                                {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
+                            
+                                M : 
+                                <input type="checkbox" id="presence{{ presenceLunch.id }}" name="eat{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
+                                {% if presenceLunch.HasEated == 1 %}
+                                    checked
+                                {% else %}
+                                    unchecked
+                                {% endif %}
+                                > 
+                                </div>
+                            </td>
+                            {% endif %}
+                            {% endfor %} 
+                            {% endfor %}
+
+
+                        {% for id in dates %}
+                            {% for presenceLunch in id.presenceLunches %}
+                            {% if actual_week == id.week  and week_day_5 == id.calendarDate and presenceLunch.calendar.id == id.id and presenceLunch.student == student %} 
+                            <td class="calendar__day">
+
+                                <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}">
+                            
+                                <div> 
+                                
+                            
+                                P : 
+                                <input type="checkbox" id="presence{{ presenceLunch.id }}" name="presence{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
+                                {% if presenceLunch.IsPresent == 1 %}
+                                    checked
+                                {% else %}
+                                    unchecked
+                                {% endif %}
+                                > 
+                                </div>
+                                <div> 
+                                {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
+                                
+                                C : 
+                                <input type="checkbox" id="presence{{ presenceLunch.id }}" name="ordered{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
+                                {% if presenceLunch.IsOrdered == 1 %}
+                                    checked
+                                {% else %}
+                                    unchecked
+                                {% endif %}
+                                > 
+                                </div>
+                                <div> 
+                                {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
+                            
+                                M : 
+                                <input type="checkbox" id="presence{{ presenceLunch.id }}" name="eat{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
+                                {% if presenceLunch.HasEated == 1 %}
+                                    checked
+                                {% else %}
+                                    unchecked
+                                {% endif %}
+                                > 
+                                </div>
+                            </td>
+                            {% endif %}
+                            {% endfor %} 
+                            {% endfor %}
+                            
+                            
+                        {% endfor %} 
+                    </tr>
                     
                     {% endfor %}
 
                     
-                </table>   
-                <input type="submit">
+                </table>  
+                </div> 
+                <input class="input_update_canteen" type="submit">
             </form>
         {# {% endfor %}  #}
     </div>
 
+{% endblock %}
+
+{% block footer %}
 {% endblock %}

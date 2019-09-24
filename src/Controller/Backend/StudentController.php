@@ -69,7 +69,7 @@ class StudentController extends AbstractController
                    
         $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_canteen_update', ['id'=> $id]);
+            return $this->redirectToRoute('admin_student_show', ['id'=> $id]);
         }
 
         return $this->render('backend/student/edit.html.twig', [

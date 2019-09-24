@@ -335,6 +335,7 @@ button {
 .content_nav nav ul a li i {
     font-size: 4em;
     padding-bottom: 3%;
+    color: #1A535C;
 }
 
 /* PAGE MDP OUBLIE */
@@ -1747,7 +1748,7 @@ input#field-message {
     font-size: 6em;
     margin-left: 5%;
     padding-top: 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_index h1 {
@@ -1755,18 +1756,17 @@ input#field-message {
     text-align: center;
     margin-top: 5%;
     padding-top: 2%;
-    border-bottom: 4px solid white;
+    border-bottom: 2px solid #c2c2c2;
     width: 90%;
     margin: auto;
     padding-bottom: 5%;
-    color: gray;
+    color: #5e8389;
     font-weight: bold;   
 }
 
-
 .border_back_index {
     width: 75%;
-    border: 3px solid gray;
+    border: 3px solid #a8a6a6;
     position: relative;
     border-radius: 3px;
     margin: auto;
@@ -1782,7 +1782,7 @@ input#field-message {
     height: 80px;
     max-width: 100%;
     background-color: #ffeaea;
-    color: gray;
+    color: #5e8389;
     font-weight: bold;
     text-align: center;
     font-size: 3em;
@@ -1818,12 +1818,12 @@ input#field-message {
 .backend_document a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_document .add_document {
     padding-top: 5%;
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid #c2c2c2;
     width: 90%;
     margin: auto;
     padding-bottom: 5%;
@@ -1868,7 +1868,7 @@ input#field-message {
 }
 
 .backend_document .list_document {
-    border-bottom: 3px solid gray;
+    border-bottom: 2px solid #c2c2c2;
     width: 90%;
     margin: auto;
     padding-bottom: 15%;
@@ -1888,7 +1888,7 @@ input#field-message {
 
 .backend_document .list_document div i {
     font-size: 4em;
-    color: gray;
+    color: #a8a6a6;
 }
 
 .backend_document .list_document div a {
@@ -1931,7 +1931,7 @@ input#field-message {
 }
 
 .backend_document_show .show_document {
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid #c2c2c2;
     width: 90%;
     margin: auto;
     padding-bottom: 15%;
@@ -1976,7 +1976,7 @@ input#field-message {
 .document_show_update a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .document_show_update h1 {
@@ -2031,7 +2031,7 @@ input#field-message {
 .backend_document_show_class a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_document_show_class h1 {
@@ -2057,7 +2057,7 @@ input#field-message {
 .backend_document_children a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_document_children h1 {
@@ -2094,12 +2094,12 @@ input#field-message {
 .backend_alert a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_alert .add_alert {
     padding-top: 5%;
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid #c2c2c2;
     width: 90%;
     margin: auto;
     padding-bottom: 5%;
@@ -2190,7 +2190,7 @@ input#field-message {
 .backend_alert_show a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_alert_show .show_alert {
@@ -2206,7 +2206,7 @@ input#field-message {
 }
 
 .backend_alert_show .show_alert h1 {
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid #c2c2c2;
     text-align: center;
     font-size: 4em;
     padding-bottom: 10%;
@@ -2227,7 +2227,7 @@ input#field-message {
 .alert_show_update a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .alert_show_update h1 {
@@ -2276,11 +2276,11 @@ input#field-message {
 .backend_actuality a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_actuality .add_actuality {
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid #c2c2c2;
     width: 90%;
     margin: auto;
     padding-bottom: 5%;
@@ -2357,7 +2357,7 @@ input#field-message {
 .backend_actuality_show a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_actuality_show .show_actuality {
@@ -2373,7 +2373,7 @@ input#field-message {
 }
 
 .backend_actuality_show .show_actuality h1 {
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid #c2c2c2;
     text-align: center;
     font-size: 4em;
     padding-bottom: 10%;
@@ -2394,7 +2394,7 @@ input#field-message {
 .actuality_show_update a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .actuality_show_update h1 {
@@ -2582,7 +2582,7 @@ input#field-message {
 }
 
 .student_show_update i {
-    color: white;
+    color: #a8a6a6;
 }
 
 
@@ -2703,7 +2703,7 @@ input#field-message {
 }
 
 .backend_student i {
-    color: white;
+    color:#a8a6a6;
 }
 
 .list_student {   
@@ -2743,7 +2743,7 @@ input#field-message {
 }
 
 .backend_student_show i {
-   color: white;
+   color: #a8a6a6;
 }
 
 .backend_student_show a i {
@@ -2990,13 +2990,13 @@ input#field-message {
 .backend_role a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_role h1 {
     font-size: 4em;
     text-align: center;
-    border-bottom: 3px solid gray;
+    border-bottom: 2px solid #c2c2c2;
     width: 90%;
     margin: auto;
     padding-bottom: 3%;
@@ -3053,7 +3053,7 @@ input#field-message {
 .backend_role_edit a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_role_edit form {
@@ -3084,7 +3084,7 @@ input#field-message {
 .backend_role_new a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_role_new form {
@@ -3168,7 +3168,7 @@ input#field-message {
 .backend_school_show a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_school_show .show_school {
@@ -3184,7 +3184,7 @@ input#field-message {
 }
 
 .backend_school_show .show_school h1 {
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid #c2c2c2;
     text-align: center;
     font-size: 4em;
     padding-bottom: 10%;
@@ -3232,7 +3232,7 @@ input#field-message {
 
 .backend_user a i {
     padding-bottom: 50%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_user a i {
@@ -3311,7 +3311,7 @@ input#field-message {
 }
 
 .backend_user .list_user {
-    border-top: 2px solid white;
+    border-bottom: 2px solid #c2c2c2;
     width: 90%;
     margin: auto;
     padding-top: 10%;
@@ -3354,11 +3354,11 @@ input#field-message {
 .backend_user_show a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_user_show .show_user {
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #c2c2c2;
     width: 90%;
     margin: auto;
     padding-bottom: 15%;
@@ -3400,7 +3400,7 @@ input#field-message {
 .user_show_update a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .user_show_update h1 {
@@ -3483,12 +3483,12 @@ input#field-message {
 .backend_person a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_person .add_person {
     padding-top: 5%;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #c2c2c2;
     width: 90%;
     margin: auto;
     padding-bottom: 5%;
@@ -3586,7 +3586,7 @@ input#field-message {
 .backend_person_new a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_person_new form {
@@ -3686,7 +3686,7 @@ input#field-message {
 .backend_classroom_new a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_classroom_new form {
@@ -3748,13 +3748,13 @@ input#field-message {
 .backend_person_edit a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_classroom_edit a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .backend_person_edit form {
@@ -3812,7 +3812,7 @@ input#field-message {
 .calandar_content a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .calandar_content h1  { 
@@ -3954,7 +3954,7 @@ tr.calendar_table_dayname {
 .backend_canteen a i {
     font-size: 6em;
     padding: 5% 5%;
-    color: white;
+    color: #a8a6a6;
 }
 
 .canteen_back_nav h1 {
@@ -3964,19 +3964,24 @@ tr.calendar_table_dayname {
     text-align: center;
 }
 
+.canteen_back_nav .h1_update {
+    padding-bottom: 10%;
+}
+
 .canteen_back_nav_flex {
     display: flex;
     justify-content: space-between;
-    font-size: 3.5em;
+    font-size: 5em;
     padding-top: 3%;
-    margin: 5%;
+    margin: 5% 8%;
 }
 
 .canteen_back_nav_flex_edit {
     background: gray;
     color: white;
-    padding: 1%;
+    padding: 10px;
     border-radius: 7px;
+    font-size: 1.9em;
 }
 
 .calendar__table_content {
@@ -3994,13 +3999,13 @@ tr.calendar_table_dayname {
 
 .calendar__table_content .calendar__table caption{
     font-size: 2.5em;
-    background: gray;
-    color: white;
+    color: gray;
     padding: 1%;
     width: 10%;
     margin: auto;
     border-radius: 7px;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
+    font-weight: bold;
 }
 
 .calendar__table_content .calendar__table tbody {
@@ -4013,7 +4018,7 @@ tr.calendar_table_dayname {
     color: gray;
 }
 .calendar__column__title {
-    padding-bottom: 10%;
+   
 }
 
 .calendar__table_content .calendar__table tbody tr {
@@ -4023,7 +4028,31 @@ tr.calendar_table_dayname {
 
 
 .calendar__table_content .calendar__table tbody tr td {
-    padding-bottom: 3%;
+    padding: 13px;
+    border: 1px solid;
+}
+
+td.calendar__day {
+    font-weight: bold;
+    text-align: center;
+}
+
+.backend_canteen .input_update_canteen {
+    border: none;
+    background-color: gray;
+    color: white;
+    padding: 17px;
+    font-size: 3em;
+    border-radius: 7px;
+    margin-left: 41%;
+}
+
+.green_centeen {
+    color: darkgreen;
+}
+    
+.red_centeen {
+    color: darkred;
 }
     
     
