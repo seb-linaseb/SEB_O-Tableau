@@ -74,11 +74,11 @@ class SecurityController extends AbstractController
 
             $url = $this->generateUrl('app_reset_password', array('token' => $token), UrlGeneratorInterface::ABSOLUTE_URL);
 
-            $message = (new \Swift_Message('Forgot Password'))
+            $message = (new \Swift_Message('O\'tableau - Mot de passe oublié'))
                 ->setFrom('otableau.sirius@gmail.com')
                 ->setTo($user->getEmail())
                 ->setBody(
-                    "Veuillez cliquer sur ce lien pour réinitialiser votre mot de passe. Merci. : " . $url,
+                    "Bonjour, veuillez cliquer sur le lien suivant afin de réinitialiser votre mot de passe, merci. : " . $url,
                     'text/html'
                 );
 
