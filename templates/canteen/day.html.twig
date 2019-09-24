@@ -42,6 +42,8 @@
 
                             <td class="calendar_day">
                                 {# {{ dump(lunchByDate.isPresent) }} #}
+
+                                <label class="switch">
                                 <input type="checkbox" id="presence" name="{{ lunchByDate.id }}-presence"
                                     {% if lunchByDate.isPresent == true %}
                                     checked
@@ -52,14 +54,17 @@
                                     unchecked
                                     {# {% if lunchByDate.isPresent == 0 %} unchecked #}
                                     {# {{ lunchByDate.isPresent }} unchecked #}
-                                    {% endif %}
-
                                     {# {% endif %} #}
+
+                                    {% endif %}
                                 >
+                                <span class="slider round"></span>
+                                </label>
                                 {# {{ form_label(form.is_present) }} #}
                                 {# {{ form_widget(form.is_present) }} #}
                             </td>
                             <td class="calendar_day">
+                            <label class="switch">
                                 <input type="checkbox" id="eated" name="{{ lunchByDate.id }}-eated"
                                     {% if lunchByDate.hasEated == true %}
                                     checked
@@ -68,6 +73,9 @@
                                     unchecked
                                     {% endif %}
                                 >
+                                <span class="slider round"></span>
+                            </label>
+
                                 {# {{ form_label(form.has_eated) }} #}
                                 {# {{ form_w              >
                                 {# {{ form_label(form.has_eated) }} #}

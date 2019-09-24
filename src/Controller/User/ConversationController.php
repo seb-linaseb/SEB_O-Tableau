@@ -266,7 +266,7 @@ class ConversationController extends AbstractController
             $delete->setUser($user);
             $delete->setRemove(true);
             $em->persist($delete);
-            dump($delete);
+            // dump($delete);
         }
         //die;
 
