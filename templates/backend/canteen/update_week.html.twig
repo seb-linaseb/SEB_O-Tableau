@@ -5,7 +5,7 @@
 {% block content %}
 
     <div class="backend_canteen">
-        <a href="{{ path('admin_default_index') }}"><i class="fas fa-angle-left"></i></a>
+        <a href="{{ path('admin_canteen_read_by_week') }}"><i class="fas fa-angle-left"></i></a>
         <div class="canteen_back_nav">
             <h1>Semaine N° {{ actual_week }}</h1> 
             <h1 class="h1_update">du {{ week_day_1 }} au {{ week_day_5 }}</h1>
@@ -47,18 +47,22 @@
                                 
                                 
                                 P : 
-                                <input type="checkbox" id="presence{{ presenceLunch.id }}" name="presence{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
-                                {% if presenceLunch.IsPresent == 1 %}
-                                    checked
-                                {% else %}
-                                    unchecked
-                                {% endif %}
-                                > 
+                                <label class="switch">
+                                    <input type="checkbox" id="presence{{ presenceLunch.id }}" name="presence{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
+                                    {% if presenceLunch.IsPresent == 1 %}
+                                        checked
+                                    {% else %}
+                                        unchecked
+                                    {% endif %}
+                                    > 
+                                    <span class="slider round"></span>
+                                </label>
                                 </div>
                                 <div> 
                                 {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
                                 
                                 C : 
+                                <label class="switch">
                                 <input type="checkbox" id="presence{{ presenceLunch.id }}" name="ordered{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
                                 {% if presenceLunch.IsOrdered == 1 %}
                                     checked
@@ -66,11 +70,14 @@
                                     unchecked
                                 {% endif %}
                                 > 
+                                <span class="slider round"></span>
+                                </label>
                                 </div>
                                 <div> 
                                 {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
                                 
                                 M : 
+                                <label class="switch">
                                 <input type="checkbox" id="presence{{ presenceLunch.id }}" name="eat{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
                                 {% if presenceLunch.HasEated == 1 %}
                                     checked
@@ -78,6 +85,8 @@
                                     unchecked
                                 {% endif %}
                                 > 
+                                <span class="slider round"></span>
+                                </label>
                                 </div>
                             </td>
                             
@@ -97,6 +106,7 @@
                                 <div> 
                                 
                                 P : 
+                                <label class="switch">
                                 <input type="checkbox" id="presence{{ presenceLunch.id }}" name="presence{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
                                 {% if presenceLunch.IsPresent == 1 %}
                                     checked
@@ -104,11 +114,14 @@
                                     unchecked
                                 {% endif %}
                                 > 
+                                <span class="slider round"></span>
+                                </label>
                                 </div>
                                 <div> 
                                 {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
                                 
                                 C : 
+                                <label class="switch">
                                 <input type="checkbox" id="presence{{ presenceLunch.id }}" name="ordered{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
                                 {% if presenceLunch.IsOrdered == 1 %}
                                     checked
@@ -116,11 +129,14 @@
                                     unchecked
                                 {% endif %}
                                 > 
+                                <span class="slider round"></span>
+                                </label>
                                 </div>
                                 <div> 
                                 {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
                             
                                 M : 
+                                <label class="switch">
                                 <input type="checkbox" id="presence{{ presenceLunch.id }}" name="eat{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
                                 {% if presenceLunch.HasEated == 1 %}
                                     checked
@@ -128,6 +144,8 @@
                                     unchecked
                                 {% endif %}
                                 > 
+                                <span class="slider round"></span>
+                                </label>
                                 </div>
                             </td>
                             {% endif %}
@@ -144,6 +162,7 @@
                                 <div> 
                                                                 
                                 P : 
+                                <label class="switch">
                                 <input type="checkbox" id="presence{{ presenceLunch.id }}" name="presence{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
                                 {% if presenceLunch.IsPresent == 1 %}
                                     checked
@@ -151,11 +170,14 @@
                                     unchecked
                                 {% endif %}
                                 > 
+                                <span class="slider round"></span>
+                                </label>
                                 </div>
                                 <div> 
                                 {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
                                 
                                 C : 
+                                <label class="switch">
                                 <input type="checkbox" id="presence{{ presenceLunch.id }}" name="ordered{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
                                 {% if presenceLunch.IsOrdered == 1 %}
                                     checked
@@ -163,11 +185,14 @@
                                     unchecked
                                 {% endif %}
                                 > 
+                                <span class="slider round"></span>
+                                </label>
                                 </div>
                                 <div> 
                                 {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
                                 
                                 M : 
+                                <label class="switch">
                                 <input type="checkbox" id="presence{{ presenceLunch.id }}" name="eat{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
                                 {% if presenceLunch.HasEated == 1 %}
                                     checked
@@ -175,6 +200,8 @@
                                     unchecked
                                 {% endif %}
                                 > 
+                                <span class="slider round"></span>
+                                </label>
                                 </div>
                             </td>
                             {% endif %}
@@ -195,6 +222,7 @@
                                 
                             
                                 P : 
+                                <label class="switch">
                                 <input type="checkbox" id="presence{{ presenceLunch.id }}" name="presence{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
                                 {% if presenceLunch.IsPresent == 1 %}
                                     checked
@@ -202,11 +230,14 @@
                                     unchecked
                                 {% endif %}
                                 > 
+                                <span class="slider round"></span>
+                                </label>
                                 </div>
                                 <div> 
                                 {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
                             
                                 C : 
+                                <label class="switch">
                                 <input type="checkbox" id="presence{{ presenceLunch.id }}" name="ordered{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
                                 {% if presenceLunch.IsOrdered == 1 %}
                                     checked
@@ -214,11 +245,14 @@
                                     unchecked
                                 {% endif %}
                                 > 
+                                <span class="slider round"></span>
+                                </label>
                                 </div>
                                 <div> 
                                 {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
                             
                                 M : 
+                                <label class="switch">
                                 <input type="checkbox" id="presence{{ presenceLunch.id }}" name="eat{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
                                 {% if presenceLunch.HasEated == 1 %}
                                     checked
@@ -226,6 +260,8 @@
                                     unchecked
                                 {% endif %}
                                 > 
+                                <span class="slider round"></span>
+                                </label>
                                 </div>
                             </td>
                             {% endif %}
@@ -244,6 +280,7 @@
                                 
                             
                                 P : 
+                                <label class="switch">
                                 <input type="checkbox" id="presence{{ presenceLunch.id }}" name="presence{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
                                 {% if presenceLunch.IsPresent == 1 %}
                                     checked
@@ -251,11 +288,14 @@
                                     unchecked
                                 {% endif %}
                                 > 
+                                <span class="slider round"></span>
+                                </label>
                                 </div>
                                 <div> 
                                 {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
                                 
                                 C : 
+                                <label class="switch">
                                 <input type="checkbox" id="presence{{ presenceLunch.id }}" name="ordered{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
                                 {% if presenceLunch.IsOrdered == 1 %}
                                     checked
@@ -263,11 +303,14 @@
                                     unchecked
                                 {% endif %}
                                 > 
+                                <span class="slider round"></span>
+                                </label>
                                 </div>
                                 <div> 
                                 {# <input type="hidden" id="date" name="{{ presenceLunch.id }}" value="{{ presenceLunch.id }}"> #}
                             
                                 M : 
+                                <label class="switch">
                                 <input type="checkbox" id="presence{{ presenceLunch.id }}" name="eat{{ presenceLunch.id}}" value = "{{ presenceLunch.id }}"
                                 {% if presenceLunch.HasEated == 1 %}
                                     checked
@@ -275,6 +318,8 @@
                                     unchecked
                                 {% endif %}
                                 > 
+                                <span class="slider round"></span>
+                                </label>
                                 </div>
                             </td>
                             {% endif %}

@@ -40,7 +40,7 @@
                           {% for presenceLunch in id.presenceLunches %}
                           {% if actual_week == id.week  and week_day_1 == id.calendarDate and presenceLunch.calendar.id == id.id and presenceLunch.student == student %} 
                               <td class="calendar__day">
-                                  <div> 
+                                   <div> 
                                       {% if presenceLunch.IsPresent == 1 %}
                                         <p class="green_centeen">P</p>
                                       {% else %}
@@ -49,16 +49,16 @@
                                   </div>
                                   <div> 
                                       {% if presenceLunch.IsOrdered == 1 %}
-                                        <p class="green_centeen">Comm</p>
+                                        <p class="green_centeen">C</p>
                                       {% else %}
-                                        <p class="red_centeen">Comm</p>
+                                        <p class="red_centeen">C</p>
                                       {% endif %}
                                   </div>
                                   <div> 
                                       {% if presenceLunch.HasEated == 1 %}
-                                        <p class="green_centeen">Cons</p>
+                                        <p class="green_centeen">M</p>
                                       {% else %}
-                                        <p class="red_centeen">Cons</p>
+                                        <p class="red_centeen">M</p>
                                       {% endif %}
                                   </div>
                               </td>
